@@ -6,6 +6,7 @@ gem 'pg'
 
 group :development do
 	gem 'better_errors', '~> 1.0.1'
+	gem 'binding_of_caller', '~> 0.7.2'
 end
 
 group :development, :test do
