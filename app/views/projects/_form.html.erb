@@ -1,0 +1,32 @@
+<%= form_for(@project) do |f| %>
+<%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+        
+    <%= f.label :status %>
+    <%= f.text_field :status %>      
+
+    <%= f.label :priority %>
+    <%= f.text_field :priority %>
+
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date, :order => [:month, :day, :year] %>
+
+    <%= f.label :target_date %>
+    <%= f.date_select :target_date, :order => [:month, :day, :year] %>
+
+    <%= f.label :deadline %>
+    <%= f.date_select :deadline, :order => [:month, :day, :year] %>
+
+
+    <%= f.label :completion_date %>
+    <%= f.date_select :completion_date, :order => [:month, :day, :year] %>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </p>
+
+<%= f.submit %>
+<% end %>
