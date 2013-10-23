@@ -10,6 +10,8 @@ body {
   background-color: #EAEAEA;
 }
 
+@import "fonts";
+
 /* header */
 
 header#page_header {
@@ -21,5 +23,6 @@ header#page_header {
 
 h1#page_title {
 	color: #8EBFDE;
+	font-family: $heading-font;
 	font-size: 1.4em;
 }
