@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Project do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	before do
+		@project = Project.new(name: "a")
+	end
+
+	subject { @project }
+
+	expect(@project).to be_valid
 end
