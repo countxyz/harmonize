@@ -10,19 +10,10 @@ body {
   background-color: #EAEAEA;
 }
 
-@import "fonts";
-
 /* header */
 
 header#page_header {
-  background-color: #725748;
-  height: 50px;
+  background: #725748 url('/assets/harmonize.png') no-repeat;
+  height: 75px;
   overflow: hidden;
-  padding: 0px 20px;
-}
-
-h1#page_title {
-	color: #8EBFDE;
-	font-family: $heading-font;
-	font-size: 1.4em;
 }
