@@ -13,8 +13,13 @@ body {
 /* header */
 
 header#page_header {
-  background-color: black;
-  color: white;
-  height: 70px;
+  background-color: #725748;
+  height: 50px;
   overflow: hidden;
+  padding: 0px 20px;
+}
+
+h1#page_title {
+	color: #8EBFDE;
+	font-size: 1.4em;
 }
