@@ -1,4 +1,7 @@
 <% provide(:title, 'Home') %>
 
-<h1>MainPages#home</h1>
-<p>Find me in app/views/main_pages/home.html.erb</p>
+<p>Last accessed: <%= Time.now.to_s(:long_ordinal) %></p>
+
+<ul>
+  <li><%= link_to "Projects", projects_path %></li>
+</ul>
