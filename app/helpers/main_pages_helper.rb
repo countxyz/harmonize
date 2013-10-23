@@ -1,0 +1,2 @@
+module MainPagesHelper
+end
