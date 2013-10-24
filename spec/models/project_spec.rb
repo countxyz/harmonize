@@ -19,6 +19,8 @@ describe Project do
 	it "is invalid without a name" do
 		expect(Project.new(name: nil)).to have(1).errors_on(:name)
 	end
-	
-	it "is invalid without a status"
+
+	it "is invalid without a status" do
+		expect(Project.new(status: nil)).to have(1).errors_on(:status)
+	end
 end

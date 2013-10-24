@@ -1,4 +1,15 @@
+<% provide(:title, @project.name) %>
+
 <h2><%= @project.name %></h2>
+
+<p><%= @project.status %></p>
+<p><%= @project.priority %></p>
+<p><%= @project.start_date %></p>
+<p><%= @project.target_date %></p>
+<p><%= @project.deadline %></p>
+<p><%= @project.completion_date %></p>
+<p><%= @project.notes %></p>
+
 
 <%= link_to "Edit Project", edit_project_path(@project) %>
 
