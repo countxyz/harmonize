@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
-	validates :name, presence: true
+	before_save { self.name = name.downcase }
+	
+	validates :name, presence: true, uniqueness: { case_sensitive: false }
 	validates :status, presence: true
 end

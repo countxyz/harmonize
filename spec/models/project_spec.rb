@@ -23,4 +23,10 @@ describe Project do
 	it "is invalid without a status" do
 		expect(Project.new(status: nil)).to have(1).errors_on(:status)
 	end
+
+	it "is invalid with a duplicate name" do
+		Project.create(name: 'a', status: 'Completed')
+		project = Project.new(name: 'a', status: 'Completed')
+		expect(project).to have(1).errors_on(:name)
+	end
 end
