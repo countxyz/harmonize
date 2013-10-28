@@ -9,4 +9,7 @@ class Project < ActiveRecord::Base
 	validates :status, 
 						presence: true,
 						inclusion: %w(Not\ Started In\ Progress Completed)
+
+	validates :priority,
+						inclusion: %w(Low High Urgent N/A)
 end
