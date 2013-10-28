@@ -6,10 +6,15 @@
     <%= f.text_field :name %>
   </p>
 
-  <p>     
-    <%= f.label :status %>
-    <%= f.check_box :status %>      
-  </p>
+  <fieldset>
+    <legend>Status</legend>    
+    <%= radio_button_tag(:status, "Not Started") %>
+    <%= label_tag(:status, "Not Started") %><br />
+    <%= radio_button_tag(:status, "In Progress") %>
+    <%= label_tag(:status, "In Progress") %><br />
+    <%= radio_button_tag(:status, "Completed") %>
+    <%= label_tag(:status, "Completed") %>
+  </fieldset>   
 
   <p>
     <%= f.label :priority %>
