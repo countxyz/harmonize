@@ -1,6 +1,11 @@
 class Project < ActiveRecord::Base
 	before_save { self.name = name.downcase }
 	
-	validates :name, presence: true, uniqueness: { case_sensitive: false }
-	validates :status, presence: true
+	validates :name, 
+						presence: true,
+						length: { maximum: 50 },
+						uniqueness: { case_sensitive: false }
+	
+	validates :status, 
+						presence: true
 end

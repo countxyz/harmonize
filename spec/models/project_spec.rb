@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Project do
-	
+
 	it "is valid with a name, status, priority, start_date,
 		target_date, deadline, completion_date, and notes" do
 		project = Project.new(
@@ -20,13 +20,18 @@ describe Project do
 		expect(Project.new(name: nil)).to have(1).errors_on(:name)
 	end
 
+
 	it "is invalid without a status" do
-		expect(Project.new(status: nil)).to have(1).errors_on(:status)
+		expect(Project.new(status: nil)).to have(1).errors_on(:status)	
 	end
 
 	it "is invalid with a duplicate name" do
 		Project.create(name: 'a', status: 'Completed')
 		project = Project.new(name: 'a', status: 'Completed')
 		expect(project).to have(1).errors_on(:name)
+	end
+
+	it "is invalid with a long name" do
+		expect(Project.new(name: 'a' * 51, status: 'Completed')).to have(1).errors_on(:name)
 	end
 end
