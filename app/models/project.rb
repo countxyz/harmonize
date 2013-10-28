@@ -7,5 +7,6 @@ class Project < ActiveRecord::Base
 						uniqueness: { case_sensitive: false }
 	
 	validates :status, 
-						presence: true
+						presence: true,
+						inclusion: %w(Not\ Started In\ Progress Completed)
 end
