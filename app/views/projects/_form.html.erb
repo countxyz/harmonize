@@ -7,13 +7,13 @@
   </p>
 
   <fieldset>
-    <legend>Status</legend>    
-    <%= radio_button_tag(:status, "Not Started") %>
-    <%= label_tag(:status, "Not Started") %><br />
-    <%= radio_button_tag(:status, "In Progress") %>
-    <%= label_tag(:status, "In Progress") %><br />
-    <%= radio_button_tag(:status, "Completed") %>
-    <%= label_tag(:status, "Completed") %>
+    <legend>Status</legend>
+    <%= f.label(:status, 'Not Started') %>   
+    <%= f.radio_button(:status, 'Not Started') %>
+    <%= f.label(:status, 'In Progress') %>
+    <%= f.radio_button(:status, 'In Progress') %>
+    <%= f.label(:status, 'Completed') %>
+    <%= f.radio_button(:status, 'Completed') %>
   </fieldset>   
 
   <p>
