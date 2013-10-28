@@ -1,51 +1,53 @@
 <%= form_for(@project) do |f| %>
 <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-
   <fieldset>
-    <legend>Status</legend>
-    <%= f.label(:status, 'Not Started') %>   
-    <%= f.radio_button(:status, 'Not Started') %>
-    <%= f.label(:status, 'In Progress') %>
-    <%= f.radio_button(:status, 'In Progress') %>
-    <%= f.label(:status, 'Completed') %>
-    <%= f.radio_button(:status, 'Completed') %>
-  </fieldset>   
+  <legend>New Project</legend>
+    <ol>
+      <li>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </li>
 
-  <p>
-    <%= f.label :priority %>
-    <%= f.text_field :priority %>
-  </p>
+      <li>
+        <%= f.label(:status, 'Not Started') %>   
+        <%= f.radio_button(:status, 'Not Started') %>
+        <%= f.label(:status, 'In Progress') %>
+        <%= f.radio_button(:status, 'In Progress') %>
+        <%= f.label(:status, 'Completed') %>
+        <%= f.radio_button(:status, 'Completed') %>
+      </li>
 
-  <p>
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date, :order => [:month, :day, :year] %>
-  </p>
+      <li>
+        <%= f.label :priority %>
+        <%= f.text_field :priority %>
+      </li>
 
-  <p>
-    <%= f.label :target_date %>
-    <%= f.date_select :target_date, :order => [:month, :day, :year] %>
-  </p>
+      <li>
+        <%= f.label :start_date %>
+        <%= f.date_select :start_date, :order => [:month, :day, :year] %> 
+      </li>
 
-  <p>
-    <%= f.label :deadline %>
-    <%= f.date_select :deadline, :order => [:month, :day, :year] %>
-  </p>
+      <li>
+        <%= f.label :target_date %>
+        <%= f.date_select :target_date, :order => [:month, :day, :year] %>
+      </li>
 
-  <p>
-    <%= f.label :completion_date %>
-    <%= f.date_select :completion_date, :order => [:month, :day, :year] %>
-  </p>
+      <li>
+        <%= f.label :deadline %>
+        <%= f.date_select :deadline, :order => [:month, :day, :year] %> 
+      </li>
 
-  
-  <p>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-  </p>
+      <li>
+        <%= f.label :completion_date %>
+        <%= f.date_select :completion_date, :order => [:month, :day, :year] %>    
+      </li>
 
+      <li>
+        <%= f.label :notes %>
+        <%= f.text_area :notes %>
+      </li>
+    </ol>
+  </fieldset>
 <%= f.submit %>
 <% end %>
