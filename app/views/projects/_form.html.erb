@@ -44,22 +44,26 @@
       <ul>
         <li>
           <%= f.label :start_date %>
-          <%= f.date_select :start_date, :order => [:month, :day, :year] %> 
+          <%= f.date_select :start_date, :order => [:month, :day, :year],
+            :include_blank => true %> 
         </li>
 
         <li>
           <%= f.label :target_date %>
-          <%= f.date_select :target_date, :order => [:month, :day, :year] %>
+          <%= f.date_select :target_date, :order => [:month, :day, :year],
+            :include_blank => true %>
         </li>
 
         <li>
           <%= f.label :deadline %>
-          <%= f.date_select :deadline, :order => [:month, :day, :year] %> 
+          <%= f.date_select :deadline, :order => [:month, :day, :year],
+            :include_blank => true %> 
         </li>
 
         <li>
           <%= f.label :completion_date %>
-          <%= f.date_select :completion_date, :order => [:month, :day, :year] %>    
+          <%= f.date_select :completion_date, :order => [:month, :day, :year],
+            :include_blank => true %>
         </li>
 
       </ul>
