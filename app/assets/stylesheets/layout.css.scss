@@ -14,7 +14,6 @@ li {
 
 div.container {
   overflow: hidden;
-  padding: 0 20px;
 }
 
 /* header */
@@ -23,4 +22,23 @@ header#page_header {
   background: #725748;
   overflow: hidden;
   border-bottom: 15px solid #000000;
+}
+
+/* body */
+
+section#content {
+  margin-left: 100px;
+  padding: 0 20px;
+  display: block;
+  width: 1000px;
+}
+
+/* sidebar */
+
+section#sidebar {
+  position: absolute;
+  left: 0px;
+  width: 80px;
+  height: 100%;
+
 }
