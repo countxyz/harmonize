@@ -23,15 +23,12 @@
     </section>
 
     <section id="content">
-
       <% flash.each do |key, value| %>
-		  <div class='flash' id='<%= key %>'>
-			 <%= value %>
-		  </div>
+      <div class='flash' id='<%= key %>'>
+       <%= value %>
+      </div>
       <% end %>
-
         <%= yield %>
-
     </section>
   </div>
 </body>

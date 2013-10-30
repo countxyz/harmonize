@@ -19,9 +19,13 @@ div.container {
 /* header */
 
 header#page_header {
-  background: #725748;
+  background: #000;
   overflow: hidden;
-  border-bottom: 15px solid #000000;
+  border-bottom: 3px solid #FFF;
+
+  a img {
+    float: right;
+  }
 }
 
 /* body */
