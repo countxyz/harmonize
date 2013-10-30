@@ -8,10 +8,11 @@ fieldset#new_project {
   display: block;
   float: left;
   min-height: 410px;
-  min-width: 30em;
+  max-height: 422px;
   margin: 10px auto;
   padding: 5px;
-  font-size: 0.9em;
+  font-size: 12px;
+  height: 100%;
 }
 
 fieldset label {

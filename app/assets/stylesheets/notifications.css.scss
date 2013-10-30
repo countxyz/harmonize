@@ -1,14 +1,35 @@
-.flash {
-    padding: 0px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    font-weight: bold;
+.notification {
+  background-position: 10px 9px;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin: 0 auto 20px;
+  padding: 0.75em 0.75em 0.75em 45px;
 }
 
-#notice {
-    background: #A4E7A0;
-}
-
-#alert {
-    background: #FF6565;
+.notification {
+  background:{
+    position: 10px 9px;
+    repeat: no-repeat;
+  }
+  color: #000;
+  font: {
+    size: 14px;
+    weight: bold;
+  }
+  line-height: 1.6em;
+  margin: 0 auto 20px;
+  padding: 0.75em 0.75em 0.75em 45px;
+  .notice {
+    background: {
+      color: #006302;
+    }
+  }
+  .alert {
+    background: {
+      color: #920202;
+    }
+  }
 }

@@ -22,13 +22,12 @@
       <%= render 'layouts/sidenav' %>
     </section>
 
+    <section id="notifications">
+      <%= render 'layouts/notifications' %>
+    </section>
+
     <section id="content">
-      <% flash.each do |key, value| %>
-      <div class='flash' id='<%= key %>'>
-       <%= value %>
-      </div>
-      <% end %>
-        <%= yield %>
+      <%= yield %>
     </section>
   </div>
 </body>
