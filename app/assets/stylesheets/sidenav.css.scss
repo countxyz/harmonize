@@ -1,3 +1,9 @@
 section#sidenav {
   background: #2B2B2B;
 }
+
+section ul#sidenav_lists {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
