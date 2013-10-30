@@ -3,6 +3,7 @@
  *= require normalize
  *= require layout
  *= require sidebar
+ *= require sidenav
  *= require forms
  *= require notifications
  */

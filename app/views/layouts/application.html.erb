@@ -12,20 +12,26 @@
 
 <body>
 	<%= render 'layouts/header' %>
+
   <div class="container">
     <section id="sidebar">
       <%= render 'layouts/sidebar' %>
-      <section id="content">
+    </section>
 
-        <% flash.each do |key, value| %>
-    		<div class='flash' id='<%= key %>'>
-    			<%= value %>
-    		</div>
-        <% end %>
+    <section id="sidenav">
+      <%= render 'layouts/sidenav' %>
+    </section>
 
-          <%= yield %>
+    <section id="content">
 
-      </section>  
+      <% flash.each do |key, value| %>
+		  <div class='flash' id='<%= key %>'>
+			 <%= value %>
+		  </div>
+      <% end %>
+
+        <%= yield %>
+
     </section>
   </div>
 </body>
