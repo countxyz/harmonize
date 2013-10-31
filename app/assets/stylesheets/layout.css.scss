@@ -12,24 +12,26 @@ li {
 	list-style-type: none;
 }
 
-div.container {
-  overflow: hidden;
-  padding: 0 20px;
-}
+// div#page_container {
+//   position: relative;
+//   overflow: hidden;
+//   padding: 0 20px;
+// }
 
 /* body */
 
 section#content {
-  margin-left: 300px;
-  padding: 0 20px;
   display: block;
-  width: 900px;
+  max-width: 1000px;
+  margin-left: 300px auto;
+  margin-top: 50px;
   height: 100%;
 }
 
 /* header */
 
 header#page_header {
+  max-height: 75px;
   background: #000;
   overflow: hidden;
   border-bottom: 3px solid #FFF;
@@ -61,8 +63,13 @@ section#sidenav {
 /* notifications */
 
 section#notifications {
+  background: red;
+  position: absolute;
   display: block;
-  max-width: 700px;
+  left: 250px;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 50px;
   max-height: 50px;
-  margin: 0 auto;
+  overflow: hidden;
 }
