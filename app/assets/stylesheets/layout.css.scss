@@ -22,8 +22,8 @@ li {
 
 section#content {
   display: block;
-  max-width: 1000px;
-  margin-left: 300px auto;
+  position: absolute;
+  left: 300px;
   margin-top: 50px;
   height: 100%;
 }
