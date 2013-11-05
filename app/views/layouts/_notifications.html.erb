@@ -1,5 +1,5 @@
 <section id="notifications">
-  <p>&nbsp hi</p>
+  <p>Last accessed: <%= Time.now.to_s(:long_ordinal) %></p>
   <% if notice %>
   <p class="notification notice">
     <%= notice %>
