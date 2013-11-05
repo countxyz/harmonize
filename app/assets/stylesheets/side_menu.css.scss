@@ -1,12 +1,11 @@
-section#sidebar {
-  background: #201F1F;
+nav#side_menu {
   font-size: 14px;
 }
 
-section ul#sidebar_lists {
+nav ul#side_menu_list {
   list-style-type: none;
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
   color: #FFF;
 }

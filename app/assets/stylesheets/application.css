@@ -2,8 +2,8 @@
  *= require_self
  *= require normalize
  *= require layout
- *= require sidebar
- *= require sidenav
+ *= require side_menu
+ *= require side_nav
  *= require forms
  *= require notifications
  */
