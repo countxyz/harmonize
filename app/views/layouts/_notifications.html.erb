@@ -1,12 +1,14 @@
-<p>&nbsp hi</p>
-<% if notice %>
-<p class="notification notice">
-  <%= notice %>
-</p>
-<% end %>
+<section id="notifications">
+  <p>&nbsp hi</p>
+  <% if notice %>
+  <p class="notification notice">
+    <%= notice %>
+  </p>
+  <% end %>
 
-<% if alert %>
-<p class="notification alert">
-  <%= alert %>
-</p>
-<% end %>
+  <% if alert %>
+  <p class="notification alert">
+    <%= alert %>
+  </p>
+  <% end %>
+</sections>

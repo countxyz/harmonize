@@ -7,13 +7,9 @@ body {
   height: 100%;
 }
 
-a {
-  color: #005596;
-}
+a { color: #005596; }
 
-li {
-  list-style-type: none;
-}
+li { list-style-type: none; }
 
 #page_wrapper {
   min-height: 100%;
@@ -24,14 +20,12 @@ li {
 
 #side_menu {
   position: absolute;
-  display: inline;
   left: 0;
   top: 0;
   padding: 5px;
   bottom: 0;
   width: 80px;
   height: 100%;
-  background: #201F1F;
 }
 
 /* side nav */
@@ -43,19 +37,41 @@ li {
   padding: 5px;
   bottom: 0;
   width: 125px;
-  height: 100%;
-  border-left: 1px solid #555555;
-  background-color: #2B2B2B; 
+  height: 100%; 
 }
 
-/* content */
+/* header */
+
+#page_header {
+  position: absolute;
+  display: block;
+  left: 0px;
+  right: 0;
+  top: 0px;
+  height: 80px;
+  width: 100%;
+}
+
+/* notifications */
+
+#notifications {
+  position: absolute;
+  display: block;
+  left: 200px;
+  right: 0;
+  top: 80px;
+  height: 50px;
+  width: 100%;
+}
+
+/* main content */
 
 #content {
   position: absolute;
   display: block;
   left: 215px;
   right: 0;
-  top: 0;
+  top: 0px;
   padding: 5px;
   bottom: 0;
   height: 100%;
