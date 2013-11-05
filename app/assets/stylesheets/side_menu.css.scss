@@ -2,10 +2,17 @@ nav#side_menu {
   font-size: 14px;
 }
 
-nav ul#side_menu_list {
+ul#side_menu_list {
   list-style-type: none;
-  margin: 0;
-  padding: 0px;
+  padding: 5px;
   text-align: center;
   color: #FFF;
+
+  li {
+    margin-bottom: 10px;
+
+    span {
+    text-align: center;
+    }
+  }
 }
