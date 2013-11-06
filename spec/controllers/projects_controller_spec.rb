@@ -22,16 +22,19 @@ describe ProjectsController do
 	end
 
 	describe "GET #show" do
+		before(:each) do
+			@project = Project.create(id: 1, name: '1',
+															  status: 'Completed', priority: 'N/A')
+		end
+
 		it "renders the :show template" do
-			project = Project.create(id: 1, name: '1', status: 'Completed', priority: 'N/A')
 			get :show, id: 1
 			expect(response).to render_template("show")
 		end
 
 		it "assigns the requested project to @project" do
-			project = Project.create(id: 1, name: '1', status: 'Completed', priority: 'N/A')
-			get :show, id: project
-			expect(assigns(:project)).to eq(project)
+			get :show, id: @project
+			expect(assigns(:project)).to eq(@project)
 		end
 	end
 end
