@@ -8,7 +8,7 @@ describe ProjectsController do
 			expect(response.status).to eq(200)
 		end
 
-		it "renders the index template" do
+		it "renders the :index template" do
 			get :index
 			expect(response).to render_template("index")
 		end
@@ -18,6 +18,20 @@ describe ProjectsController do
 			project_2 = Project.create(name: '2', status: 'Completed', priority: 'N/A')
 			get :index
 			expect(assigns(:projects)).to match_array([project_1, project_2])
+		end
+	end
+
+	describe "GET #show" do
+		it "renders the :show template" do
+			project = Project.create(id: 1, name: '1', status: 'Completed', priority: 'N/A')
+			get :show, id: 1
+			expect(response).to render_template("show")
+		end
+
+		it "assigns the requested project to @project" do
+			project = Project.create(id: 1, name: '1', status: 'Completed', priority: 'N/A')
+			get :show, id: project
+			expect(assigns(:project)).to eq(project)
 		end
 	end
 end
