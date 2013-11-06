@@ -2,36 +2,49 @@ require 'spec_helper'
 
 describe Project do
 
-	it "is valid with a name, status, priority, start_date,
-		target_date, deadline, completion_date, and notes" do
-		project = Project.new(
-			name: 						'a',
-			status: 					'a',
-			priority: 				'a',
-			start_date: 			'0000-00-00',
-			target_date: 			'0000-00-00',
-			deadline: 				'0000-00-00',
-			completion_date: 	'0000-00-00',
-			notes: 						'a')
-		expect(project).to be_valid
+	before(:each) do
+		@project = Project.new(name: 'a', status: 'Completed', priority: 'N/A')
 	end
 
-	it "is invalid without a name" do
-		expect(Project.new(name: nil)).to have(1).errors_on(:name)
+	describe "#name" do
+		it "is invalid when not provided" do
+			@project.name = nil
+			expect(@project).to_not be_valid
+		end
+
+		it "is invalid when it has more than 50 characters" do
+			@project.name = 'a' * 51
+			expect(@project).to_not be_valid
+		end
 	end
 
+	describe "#status" do
+		it "is invalid when not provided" do
+			@project.status = nil
+			expect(@project).to_not be_valid
+		end
 
-	it "is invalid without a status" do
-		expect(Project.new(status: nil)).to have(1).errors_on(:status)	
+		it "is valid with 'Not Started', 'In Progress', 'Completed'" do
+			valid_statuses = ['Not Started', 'In Progress', 'Completed']
+			valid_statuses.each do |valid_status|
+				@project.status = valid_status
+				expect(@project).to be_valid
+			end
+		end
 	end
 
-	it "is invalid with a duplicate name" do
-		Project.create(name: 'a', status: 'Completed')
-		project = Project.new(name: 'a', status: 'Completed')
-		expect(project).to have(1).errors_on(:name)
-	end
+	describe "#priority" do
+		it "is invalid when not provided" do
+			@project.priority = nil
+			expect(@project).to_not be_valid
+		end
 
-	it "is invalid with a long name" do
-		expect(Project.new(name: 'a' * 51, status: 'Completed')).to have(1).errors_on(:name)
+		it "is valid with 'N/A', 'Low', 'High', 'Urgent'" do
+			valid_priorities = %w[Low High Urgent N/A]
+			valid_priorities.each do |valid_priority|
+				@project.priority = valid_priority
+				expect(@project).to be_valid
+			end
+		end
 	end
 end

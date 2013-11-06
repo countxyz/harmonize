@@ -1,71 +1,21 @@
-<%= form_for(@project) do |f| %>
-  <form>
-    <fieldset id="new_project">
-    <legend>Project Details</legend>
-      <ul>
-        <li>
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-        </li>
+<%= simple_form_for(@project) do |f| %>
 
-        <li class="radio">
-          <%= f.label :status %>
-          <%= f.radio_button(:status, 'Not Started') %>
-          <%= f.label(:status, 'Not Started') %>
-          <%= f.radio_button(:status, 'In Progress') %>
-          <%= f.label(:status, 'In Progress') %>
-          <%= f.radio_button(:status, 'Completed') %>
-          <%= f.label(:status, 'Completed') %> 
-        </li>
+<%= f.input :name %> 
+<%= f.input :status,
+            as: :radio_buttons,
+            collection: Project::STATUS_OPTIONS %>
+<%= f.input :priority,
+            as: :radio_buttons,
+            collection: Project::PRIORITY_OPTIONS %>
+<%= f.input :start_date, as: :date,
+            order: [:month, :day, :year], include_blank: true %>
+<%= f.input :target_date, as: :date,
+            order: [:month, :day, :year], include_blank: true %>
+<%= f.input :deadline, as: :date,
+            order: [:month, :day, :year], include_blank: true %>
+<%= f.input :completion_date, as: :date,
+            order: [:month, :day, :year], include_blank: true %>
+<%= f.input :notes, as: :text %>
 
-        <li class="radio">
-          <%= f.label :priority %>
-          <%= f.radio_button(:priority, 'Low') %>
-          <%= f.label(:priority, 'Low') %>
-          <%= f.radio_button(:priority, 'High') %>
-          <%= f.label(:priority, 'High') %>
-          <%= f.radio_button(:priority, 'Urgent') %>
-          <%= f.label(:priority, 'Urgent') %>
-          <%= f.radio_button(:priority, 'N/A') %>
-          <%= f.label(:priority, 'N/A') %> 
-        </li>
-        
-        <li>
-          <%= f.label :notes %>
-          <%= f.text_area :notes %>
-        </li>
-      </ul>
-    </fieldset>
-
-    <fieldset id="new_project">
-    <legend align="right">Project Dates</legend>
-      <ul>
-        <li>
-          <%= f.label :start_date %>
-          <%= f.date_select :start_date, :order => [:month, :day, :year],
-            :include_blank => true %> 
-        </li>
-
-        <li>
-          <%= f.label :target_date %>
-          <%= f.date_select :target_date, :order => [:month, :day, :year],
-            :include_blank => true %>
-        </li>
-
-        <li>
-          <%= f.label :deadline %>
-          <%= f.date_select :deadline, :order => [:month, :day, :year],
-            :include_blank => true %> 
-        </li>
-
-        <li>
-          <%= f.label :completion_date %>
-          <%= f.date_select :completion_date, :order => [:month, :day, :year],
-            :include_blank => true %>
-        </li>
-
-      </ul>
-      <%= f.submit %>
-  </fieldset>
-</form>
+<%= f.button :submit %>
 <% end %>

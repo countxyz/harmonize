@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-gem 'pg'
+gem 'pg', '~> 0.17.0'
 
 group :development do
 	gem 'better_errors', '~> 1.0.1'
@@ -18,14 +18,6 @@ group :test do
 	gem 'capybara', '~> 2.1.0'
 end
 
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails', '~> 3.0.4'
-gem 'turbolinks', '~> 1.3.0'
-gem 'jbuilder', '~> 1.2'
-gem 'dynamic_form'
-
 group :doc do
   gem 'sdoc', require: false
 end
@@ -33,3 +25,12 @@ end
 group :production do
 	gem 'rails_12factor', '~> 0.0.2'
 end
+
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails', '~> 3.0.4'
+gem 'turbolinks', '~> 1.3.0'
+gem 'jbuilder', '~> 1.2'
+gem 'dynamic_form', '~> 1.1.4'
+gem 'simple_form', '~> 3.0.0'

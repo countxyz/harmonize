@@ -47,10 +47,10 @@ class ProjectsController < ApplicationController
 
 	private
 
-		def project_params
-			params.require(:project).permit(:name, :status, :priority,
-																			:start_date, :target_date,
-																			:deadline, :completion_date,
-																			:notes)
-		end
+	def project_params
+		params.require(:project).permit(:name, :status, :priority,
+																		:start_date, :target_date,
+																		:deadline, :completion_date,
+																		:notes)
+	end
 end

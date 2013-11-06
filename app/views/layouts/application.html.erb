@@ -18,8 +18,9 @@
     </nav>
     <section id="content">
       <%= render 'layouts/header' %>
-      <%= render 'layouts/notifications' %>
+      <section id="main_content">
         <%= yield %>
+      </section>
     </section>
   </div>
 </body>

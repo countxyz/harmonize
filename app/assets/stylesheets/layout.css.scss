@@ -52,19 +52,7 @@ li { list-style-type: none; }
   width: 100%;
 }
 
-/* notifications */
-
-#notifications {
-  position: absolute;
-  display: block;
-  left: 0px;
-  right: 0;
-  top: 80px;
-  height: 50px;
-  width: 100%;
-}
-
-/* main content */
+/* content - Third Column */
 
 #content {
   position: absolute;
@@ -76,4 +64,15 @@ li { list-style-type: none; }
   bottom: 0;
   height: 100%;
   overflow: hidden;
+}
+
+/* main content */
+
+#main_content {
+  position: absolute;
+  display: block;
+  top: 100px;
+  left: 50px;
+  right: 0;
+  width: 100%;
 }
