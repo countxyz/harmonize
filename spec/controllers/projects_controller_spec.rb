@@ -37,4 +37,19 @@ describe ProjectsController do
 			expect(assigns(:project)).to eq(@project)
 		end
 	end
+
+	describe "GET #new" do
+		let(:project) { Project.create(name: '1', status: 'Completed',
+																	 priority: 'N/A') }
+
+		it "renders the :new template" do
+			get :new
+			expect(response).to render_template("new")
+		end
+
+    it "assigns a new Project to @project" do
+    	get :new
+      expect(assigns(:project)).to be_a_new(Project)
+    end
+	end
 end
