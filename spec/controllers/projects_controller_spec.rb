@@ -58,15 +58,16 @@ describe ProjectsController do
 	describe "DELETE#destroy" do
 		let(:project) { Project.create(name: '1', status: 'Completed',
 																	 priority: 'N/A') }
-		it "deletes the project" do
+		before :each do
 			allow(project).to receive(:destroy).and_return(true)
 			delete :destroy, id: project
+		end
+
+		it "deletes the project" do
 			expect(Project.exists?(project)).to be_false
 		end
 
 		it "redirects to Project#index" do
-			allow(project).to receive(:destroy).and_return(true)
-			delete :destroy, id: project
 			expect(response).to redirect_to projects_path
 		end
 	end
