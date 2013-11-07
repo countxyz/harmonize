@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ProjectsController do
+	let(:project) { Project.create(name: '1', status: 'Completed', priority: 'N/A') }
 
 	describe "GET#index" do
 		before :each do
@@ -40,8 +41,6 @@ describe ProjectsController do
   end
 
 	describe "GET#new" do
-		let(:project) { Project.create(name: '1', status: 'Completed',
-																	 priority: 'N/A') }
 		before :each do
 			get :new
 		end
@@ -56,8 +55,6 @@ describe ProjectsController do
 	end
 
 	describe "DELETE#destroy" do
-		let(:project) { Project.create(name: '1', status: 'Completed',
-																	 priority: 'N/A') }
 		before :each do
 			allow(project).to receive(:destroy).and_return(true)
 			delete :destroy, id: project
