@@ -16,6 +16,13 @@ describe Project do
 			@project.name = 'a' * 51
 			expect(@project).to_not be_valid
 		end
+
+		it "is invalid when already taken" do
+			project_with_same_name = @project.dup
+			project_with_same_name.name = @project.name.upcase
+			project_with_same_name.save
+			expect(@project).to_not be_valid
+		end
 	end
 
 	describe "#status" do
