@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ProjectsController do
 
-	describe "GET #index" do
+	describe "GET#index" do
 		before :each do
 			get :index
 		end
@@ -22,7 +22,7 @@ describe ProjectsController do
 		end
 	end
 
-  describe "GET #show" do
+  describe "GET#show" do
     before(:each) do
       @project = Project.create(id: 1, name: '1',
                                 status: 'Completed', priority: 'N/A')
@@ -39,7 +39,7 @@ describe ProjectsController do
     end
   end
 
-	describe "GET #new" do
+	describe "GET#new" do
 		let(:project) { Project.create(name: '1', status: 'Completed',
 																	 priority: 'N/A') }
 		before :each do
@@ -53,5 +53,21 @@ describe ProjectsController do
     it "assigns a new Project to @project" do
       expect(assigns(:project)).to be_a_new(Project)
     end
+	end
+
+	describe "DELETE#destroy" do
+		let(:project) { Project.create(name: '1', status: 'Completed',
+																	 priority: 'N/A') }
+		it "deletes the project" do
+			allow(project).to receive(:destroy).and_return(true)
+			delete :destroy, id: project
+			expect(Project.exists?(project)).to be_false
+		end
+
+		it "redirects to Project#index" do
+			allow(project).to receive(:destroy).and_return(true)
+			delete :destroy, id: project
+			expect(response).to redirect_to projects_path
+		end
 	end
 end
