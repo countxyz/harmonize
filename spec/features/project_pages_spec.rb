@@ -19,4 +19,13 @@ describe "Project pages" do
       expect(current_path).to eq new_project_path
     end
   end
+
+  describe "New Project page" do
+    before { visit new_project_path }
+    
+    it "has h2 'New Project'" do
+      page_title = find('#main_content').find('h2')
+      expect(page_title).to have_content('New Project')
+    end
+  end
 end
