@@ -14,8 +14,8 @@ describe "Home" do
   describe "content" do
 
     it "has h1 'Harmonize'" do
-      page_title = find('#page_header').find('h1')
-      expect(page_title).to have_content('Harmonize')
+      page_header = find('#page_header').find('h1')
+      expect(page_header).to have_content('Harmonize')
     end
 
     it "has link to Projects index page" do
