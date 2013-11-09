@@ -18,17 +18,30 @@ describe "Home" do
       expect(page_title).to have_content('Harmonize')
     end
 
-    it "has a link to Projects index page in side menu" do
+    it "has a link to Projects index page" do
       find('#main_content').click_link('Projects')
       expect(page).to have_content 'All Projects'
     end
   end
 
-  describe "Home page side menu" do
+  describe "side menu" do
 
-    it "has a link to Projects index page in main content" do
+    it "has a link to Home page" do
+      find('#side_menu_list').click_link('Home')
+      expect(page).to have_content 'Harmonize'
+    end
+
+    it "has a link to Projects index page" do
       find('#side_menu_list').click_link('Projects')
       expect(page).to have_content 'All Projects'
+    end
+  end
+
+  describe "side nav" do
+
+    it "has a link to Projects index page" do
+      find('#sidenav_lists').click_link('All Projects')
+      expect(current_path).to eq projects_path
     end
   end
 end
