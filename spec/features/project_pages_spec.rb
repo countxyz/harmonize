@@ -8,5 +8,10 @@ describe "Project pages" do
     it "has title 'Harmonize | All Projects'" do
       expect(page).to have_title("Harmonize | All Projects")
     end
+
+    it "has link to Projects new project page" do
+      find('#main_content').click_link('New Project')
+      expect(current_path).to eq new_project_path
+    end
   end
 end
