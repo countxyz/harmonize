@@ -22,6 +22,10 @@ describe "Project pages" do
 
   describe "New Project page" do
     before { visit new_project_path }
+
+    it "has title 'Harmonize | New Project'" do
+      expect(page).to have_title("Harmonize | New Project")
+    end
     
     it "has h2 'New Project'" do
       page_title = find('#main_content').find('h2')
