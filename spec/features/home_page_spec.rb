@@ -28,12 +28,12 @@ describe "Home" do
 
     it "has a link to Home page" do
       find('#side_menu_list').click_link('Home')
-      expect(page).to have_content 'Harmonize'
+      expect(current_path).to eq root_path
     end
 
     it "has a link to Projects index page" do
       find('#side_menu_list').click_link('Projects')
-      expect(page).to have_content 'All Projects'
+      expect(current_path).to eq projects_path
     end
   end
 
