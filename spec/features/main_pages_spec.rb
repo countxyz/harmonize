@@ -3,11 +3,9 @@ require 'spec_helper'
 describe "Main pages" do
   
   describe "Home page" do
-    before :each do
-      visit '/'
-    end
+    before { visit root_path }
 
-    it "has the content 'Harmonize'" do
+    it "has an h1 'Harmonize'" do
       expect(page).to have_content('Harmonize')
     end
 
