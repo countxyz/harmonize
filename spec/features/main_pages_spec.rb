@@ -8,6 +8,11 @@ describe "Main pages" do
       visit '/'
       expect(page).to have_content('Harmonize')
     end
+
+    it "has title 'Harmonize | Home'" do
+      visit '/'
+      expect(page).to have_title("Harmonize | Home")
+    end
   end
 end
   
