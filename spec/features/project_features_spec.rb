@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'capybara'
 
 feature 'Project management' do
 
@@ -18,7 +17,6 @@ feature 'Project management' do
       expect(page).to have_text("Project has not been created.")
   end
 
-
   scenario "edit a project" do
     project = create(:project)
     visit edit_project_path(project)
@@ -27,5 +25,13 @@ feature 'Project management' do
       choose("Low")
       click_button 'Update Project'
       expect(page).to have_text("Project has been updated.")
+  end
+
+  scenario "delete a project" do
+    project = create(:project)
+    visit project_path(project)
+      click_link('Delete Project')
+      expect(page).to have_text("Project has been deleted.")
+      expect(current_path).to eq projects_path
   end
 end
