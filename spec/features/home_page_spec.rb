@@ -11,28 +11,28 @@ describe "Home" do
     end
   end
 
-  describe "content" do
+  describe "side menu" do
 
     it "has h1 'Harmonize'" do
-      page_header = find('#page_header').find('h1')
+      page_header = find('h1')
       expect(page_header).to have_content('Harmonize')
     end
 
-    it "has link to Projects index page" do
-      find('#main_content').click_link('Projects')
-      expect(current_path).to eq projects_path
-    end
-  end
-
-  describe "side menu" do
-
     it "has link to Home page" do
-      find('#side_menu_list').click_link('Home')
+      click_link('Home')
       expect(current_path).to eq root_path
     end
 
     it "has link to Projects index page" do
       find('#side_menu_list').click_link('Projects')
+      expect(current_path).to eq projects_path
+    end
+  end
+
+  describe "content" do
+
+    it "has link to Projects index page" do
+      find('#main_content').click_link('Projects')
       expect(current_path).to eq projects_path
     end
   end

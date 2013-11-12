@@ -1,6 +1,12 @@
 <h1>Harmonize</h1>
 
 <ul id="side_menu_list">
-  <li>Home</li>
-  <li>Projects</li>
+  <li>
+    <%= link_to "Home", root_path, 
+    class: "button button-pill button-flat-primary" %>
+  </li>
+  <li>
+    <%= link_to "Projects", projects_path,
+    class: "button button-pill button-flat-primary" %>
+  </li>
 </ul>

@@ -4,6 +4,7 @@
  *= require layout
  *= require side_menu
  *= require section_title
+ *= require buttons
  *= require notifications
  *= require forms
  */

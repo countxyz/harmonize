@@ -4,7 +4,7 @@
   h1 {
     padding-top: 50px;
     text-align: center;
-    color: #00AEEF;
+    color: #00A1CB;
   }
 }
 
@@ -20,5 +20,9 @@ ul#side_menu_list {
 
   li {
     margin-bottom: 10px;
+
+    a {
+      text-align: left;
+    }
   }
 }
