@@ -55,6 +55,7 @@ describe "Project pages" do
     it "has link to delete Project" do
       find('#main_content').click_link('Delete Project')
       expect(current_path).to eq projects_path
+      expect(page).to have_content "Project has been deleted."
     end
   end
 end

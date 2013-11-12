@@ -5,5 +5,6 @@
  *= require side_menu
  *= require side_nav
  *= require header
+ *= require notifications
  *= require forms
  */

@@ -17,7 +17,12 @@
       <%= render 'layouts/side_nav' %>
     </nav>
     <section id="content">
-      <%= render 'layouts/header' %>
+      <header id="page_header">
+        <%= render 'layouts/header' %>
+      </header>
+      <section id="notifications">
+        <%= render 'layouts/notifications' %>
+      </section>
       <section id="main_content">
         <%= yield %>
       </section>

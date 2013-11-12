@@ -1,0 +1,28 @@
+.notification {
+  background: {
+    position: 10px 9px;
+    repeat: no-repeat;
+  }
+  color: #FFF;
+  font: {
+    size: 14px;
+    weight: bold;
+  }
+  line-height: 1.6em;
+  margin: 0 auto 20px;
+  padding: 0.75em 0.75em 0.75em 45px;
+
+  &.notice {
+    background: {
+      color: #006302;
+      image: image-url("notifications/notification_check.png");
+    }
+  }
+
+  &.alert {
+    background: {
+      color: #920202;
+      image: image-url("notifications/notification_x.png");
+    }
+  }
+}
