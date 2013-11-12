@@ -1,5 +1,11 @@
 #side_menu {
-  background: #201F1F;
+  background: #2F2A2E;
+  
+  h1 {
+    padding-top: 50px;
+    text-align: center;
+    color: #00AEEF;
+  }
 }
 
 nav#side_menu {
@@ -14,9 +20,5 @@ ul#side_menu_list {
 
   li {
     margin-bottom: 10px;
-
-    span {
-    text-align: center;
-    }
   }
 }

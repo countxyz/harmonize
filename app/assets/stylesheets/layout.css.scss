@@ -24,28 +24,16 @@ li { list-style-type: none; }
   top: 0;
   padding: 5px;
   bottom: 0;
-  width: 80px;
+  width: 250px;
   height: 100%;
 }
 
-/* side nav */
-
-#side_nav {
-  position: absolute;
-  left: 80px;
-  top: 0;
-  padding: 5px;
-  bottom: 0;
-  width: 125px;
-  height: 100%; 
-}
-
-/* content - Third Column */
+/* content */
 
 #content {
   position: absolute;
   display: block;
-  left: 215px;
+  left: 260px;
   right: 0;
   top: 0px;
   padding: 5px;
@@ -54,9 +42,9 @@ li { list-style-type: none; }
   overflow: hidden;
 }
 
-/* header */
+/* section title */
 
-#page_header {
+#section_title {
   position: absolute;
   display: block;
   left: 0px;

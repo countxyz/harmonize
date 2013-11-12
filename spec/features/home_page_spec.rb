@@ -36,18 +36,5 @@ describe "Home" do
       expect(current_path).to eq projects_path
     end
   end
-
-  describe "side nav" do
-
-    it "has link to Projects index page" do
-      find('#sidenav_lists').click_link('All Projects')
-      expect(current_path).to eq projects_path
-    end
-
-    it "has link to Projects new project page" do
-      find('#sidenav_lists').click_link('New Project')
-      expect(current_path).to eq new_project_path
-    end
-  end
 end
   
