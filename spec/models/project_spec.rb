@@ -54,4 +54,11 @@ describe Project do
 			end
 		end
 	end
+
+	describe "#notes" do
+		it "is invalid when it has more than 1000 characters" do
+			@project.notes = 'a' * 1001
+			expect(@project).to_not be_valid
+		end
+	end
 end

@@ -16,4 +16,7 @@ class Project < ActiveRecord::Base
   validates :priority,
             presence: true,
             inclusion: PRIORITY_OPTIONS
+
+  validates :notes,
+            length: { maximum: 1000 }
 end
