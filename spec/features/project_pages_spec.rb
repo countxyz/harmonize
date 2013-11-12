@@ -46,5 +46,10 @@ describe "Project pages" do
       find('#main_content').click_link('Projects')
       expect(current_path).to eq projects_path
     end
+
+    it "has link to Projects edit page" do
+      find('#main_content').click_link('Edit Project')
+      expect(current_path).to eq edit_project_path(project)
+    end
   end
 end

@@ -10,9 +10,9 @@
 <p>Completion Date: <%= @project.completion_date %>	</p>
 <p>Notes: 					<%= @project.notes %>						</p>
 
-<%= link_to "Projects", projects_path %>
+<%= link_to 'Projects', projects_path %>
 
-<%= link_to "Edit Project", edit_project_path(@project) %>
+<%= link_to 'Edit Project', edit_project_path(@project) %>
 
-<%= link_to "Delete Project", @project, :method => :delete,
-	:confirm => "Are you sure you want to delete this project?" %>
+<%= link_to 'Delete Project', @project, :method => :delete,
+	data: { confirm: 'Are you sure you want to delete this project?' } %>
