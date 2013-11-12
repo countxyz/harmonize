@@ -31,6 +31,12 @@ describe "Project pages" do
       page_title = find('#main_content').find('h2')
       expect(page_title).to have_content('New Project')
     end
+
+    it "has form requirements" do
+      expect(page).to have_content('* Fields Required')
+      expect(page).to have_content('Dates must have Month,
+                                    Day, and Year to be saved')
+    end
   end
 
   describe "Show Project page" do
