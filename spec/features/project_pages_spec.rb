@@ -41,5 +41,10 @@ describe "Project pages" do
       page_title = find('#main_content').find('h2')
       expect(page_title).to have_content('a')
     end
+    
+    it "has link to Projects index page" do
+      find('#main_content').click_link('Projects')
+      expect(current_path).to eq projects_path
+    end
   end
 end
