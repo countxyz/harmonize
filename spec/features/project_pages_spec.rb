@@ -32,4 +32,14 @@ describe "Project pages" do
       expect(page_title).to have_content('New Project')
     end
   end
+
+  describe "Show Project page" do
+    let(:project) { FactoryGirl.create(:project) }
+    before { visit projects_path(project) }
+
+    it "has h2 'All Projects'" do
+      page_title = find('#main_content').find('h2')
+      expect(page_title).to have_content('All Projects')
+    end
+  end
 end
