@@ -1,5 +1,5 @@
 #side_menu {
-  background: #2F2A2E;
+  background: #171717;
   
   h1 {
     padding-top: 50px;
@@ -15,14 +15,9 @@ nav#side_menu {
 ul#side_menu_list {
   list-style-type: none;
   padding: 5px;
-  text-align: center;
   color: #FFF;
 
   li {
     margin-bottom: 10px;
-
-    a {
-      text-align: left;
-    }
   }
 }
