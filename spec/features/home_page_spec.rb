@@ -31,7 +31,7 @@ describe "Home" do
 
   describe "page header" do
 
-    it "has h2 'Home'" do
+    it "has h2 'Overview Home'" do
       page_header = find('h2')
       expect(page_header).to have_content('Overview Home')
     end

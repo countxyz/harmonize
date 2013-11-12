@@ -5,13 +5,13 @@ describe "Project pages" do
   describe "Index page" do
     before { visit projects_path }
 
-    it "has title 'Harmonize | All Projects'" do
-      expect(page).to have_title("Harmonize | All Projects")
+    it "has title 'Harmonize | Projects Index'" do
+      expect(page).to have_title("Harmonize | Projects Index")
     end
 
-    it "has h2 'All Projects'" do
-      page_title = find('#main_content').find('h2')
-      expect(page_title).to have_content('All Projects')
+    it "has h2 'Index Projects'" do
+      page_header = find('h2')
+      expect(page_header).to have_content('Index Projects')
     end
 
     it "has link to Projects new project page" do
