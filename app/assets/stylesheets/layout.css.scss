@@ -44,7 +44,7 @@ li { list-style-type: none; }
 
 /* section title */
 
-#section_title {
+.section_header {
   position: absolute;
   display: block;
   left: 0px;
@@ -67,9 +67,8 @@ li { list-style-type: none; }
 /* main content */
 
 #main_content {
-  position: absolute;
   display: block;
-  top: 125px;
+  margin-top: 125px;
   left: 50px;
   right: 0;
   width: 100%;

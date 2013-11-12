@@ -29,6 +29,14 @@ describe "Home" do
     end
   end
 
+  describe "page header" do
+
+    it "has h2 'Home'" do
+      page_header = find('h2')
+      expect(page_header).to have_content('Overview Home')
+    end
+  end
+
   describe "content" do
 
     it "has link to Projects index page" do

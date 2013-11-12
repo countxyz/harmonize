@@ -3,7 +3,7 @@
  *= require normalize
  *= require layout
  *= require side_menu
- *= require section_title
+ *= require section_header
  *= require buttons
  *= require notifications
  *= require forms
