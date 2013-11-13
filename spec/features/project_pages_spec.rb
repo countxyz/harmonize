@@ -74,4 +74,14 @@ describe "Project pages" do
       expect(page).to have_content "Project has been deleted."
     end
   end
+
+  describe "Edit Project page" do
+    let(:project) { FactoryGirl.create(:project) }
+    before { visit edit_project_path(project) }
+
+    it "has h1 'Edit Projects'" do
+      section_header = find('.section_header').find('h1')
+      expect(section_header).to have_content('Edit Projects')
+    end
+  end
 end
