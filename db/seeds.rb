@@ -17,9 +17,9 @@ Project.create(name: "Harmonize - Add Contact Model",
                        the week")
 
 Project.create(name: "Vandelay - Prototype",
-               status: "Not Started",
+               status: "In Progress",
                priority: "High",
-               start_date: "2013-11-12",
+               start_date: "2013-11-06",
                target_date: "2013-11-16",
                deadline: "2013-11-25",
                completion_date: nil,
