@@ -9,9 +9,9 @@ describe "Project pages" do
       expect(page).to have_title("Harmonize | Projects Index")
     end
 
-    it "has h2 'Index Projects'" do
-      page_header = find('h2')
-      expect(page_header).to have_content('Index Projects')
+    it "has h1 'Index Projects'" do
+      section_header = find('.section_header').find('h1')
+      expect(section_header).to have_content('Index Projects')
     end
 
     it "has link to Projects new project page" do

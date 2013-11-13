@@ -24,13 +24,13 @@ class Project < ActiveRecord::Base
             length: { maximum: 1000 }
 
   def deadline_cannot_be_earlier_than_start_date
-    if deadline.present? && deadline < start_date
+    if deadline.present? && start_date.present? && deadline < start_date
       errors.add(:deadline, "can't be before start date")
     end
   end
 
   def target_date_cannot_be_earlier_than_start_date
-    if target_date.present? && target_date < start_date
+    if target_date.present? && start_date.present? && target_date < start_date
       errors.add(:target_date, "can't be before start date")
     end
   end
