@@ -1,0 +1,28 @@
+$heading-font: 'abeezeeregular', 'Verdana', 'Helvetica', 'Arial', 'sans-serif';
+
+#side_menu {
+  font-family: $heading-font;
+
+  h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+}
+
+.section_header {
+  font-family: $heading-font;
+
+  h2 {
+    font-size: 36px;
+    font: bold;
+
+    small.header_right {
+      font-size: 24px;
+      font: bold;
+    }
+  }
+}
+
+nav#side_menu {
+  font-size: 14px;
+}
