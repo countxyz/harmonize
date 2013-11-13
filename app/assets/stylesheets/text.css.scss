@@ -1,4 +1,9 @@
 $heading-font: 'abeezeeregular', 'Verdana', 'Helvetica', 'Arial', 'sans-serif';
+$content-font: 'varela', 'Verdana', 'Helvetica', 'Arial', 'sans-serif';
+
+body {
+  font-family: $content-font;
+}
 
 #side_menu {
   font-family: $heading-font;
