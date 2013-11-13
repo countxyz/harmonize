@@ -6,6 +6,17 @@ describe Project do
 		@project = Project.new(name: 'a', status: 'Completed', priority: 'N/A')
 	end
 
+	describe "a project with all fields" do
+
+		it "is completely filled when all fields are provided" do
+			@project.start_date 			= "2013-11-01"
+			@project.target_date 			= "2013-11-02"
+			@project.deadline 				= "2013-11-03"
+			@project.completion_date 	= "2013-11-04"
+			expect(@project).to be_valid
+		end
+	end
+
 	describe "#name" do
 		it "is invalid when not provided" do
 			@project.name = nil
