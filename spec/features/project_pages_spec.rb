@@ -48,6 +48,11 @@ describe "Project pages" do
     let(:project) { FactoryGirl.create(:project) }
     before { visit project_path(project) }
 
+    it "has h1 'Details Projects'" do
+      section_header = find('.section_header').find('h1')
+      expect(section_header).to have_content('Details Projects')
+    end
+
     it "has h2 'All Projects'" do
       page_title = find('#main_content').find('h2')
       expect(page_title).to have_content('a')
