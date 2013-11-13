@@ -26,6 +26,11 @@ describe "Project pages" do
     it "has title 'Harmonize | New Project'" do
       expect(page).to have_title("Harmonize | New Project")
     end
+
+    it "has h1 'New Projects'" do
+      section_header = find('.section_header').find('h1')
+      expect(section_header).to have_content('New Projects')
+    end
     
     it "has h2 'New Project'" do
       page_title = find('#main_content').find('h2')
