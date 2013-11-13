@@ -62,6 +62,14 @@ describe Project do
 		end
 	end
 
+	describe "#target_date" do
+		it "cannot be a date before start date" do
+			@project.start_date 	= "2013-11-02"
+			@project.target_date 	= "2013-11-01"
+			expect(@project).to_not be_valid
+		end
+	end
+
 	describe "#deadline" do
 		it "cannot be a date before start date" do
 			@project.start_date = "2013-11-02"

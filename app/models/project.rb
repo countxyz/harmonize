@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   validate :deadline_cannot_be_earlier_than_start_date
-  
+  validate :target_date_cannot_be_earlier_than_start_date
+
   before_save { self.name = name.downcase }
 
   STATUS_OPTIONS = ['Not Started', 'In Progress', 'Completed']
@@ -25,6 +26,12 @@ class Project < ActiveRecord::Base
   def deadline_cannot_be_earlier_than_start_date
     if deadline.present? && deadline < start_date
       errors.add(:deadline, "can't be before start date")
+    end
+  end
+
+  def target_date_cannot_be_earlier_than_start_date
+    if target_date.present? && target_date < start_date
+      errors.add(:target_date, "can't be before start date")
     end
   end
 end
