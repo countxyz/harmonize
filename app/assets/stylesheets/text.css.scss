@@ -31,3 +31,23 @@ body {
 nav#side_menu {
   font-size: 14px;
 }
+
+table, td, tr, th {
+  font-weight: normal;
+}
+
+tbody th {
+  text-align: left;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tbody a {
+  text-decoration: none;
+}
+
+th.bold_name a {
+  font-weight: bold;
+}

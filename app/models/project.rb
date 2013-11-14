@@ -2,15 +2,13 @@ class Project < ActiveRecord::Base
   validate :deadline_cannot_be_earlier_than_start_date
   validate :target_date_cannot_be_earlier_than_start_date
 
-  before_save { self.name = name.downcase }
-
   STATUS_OPTIONS = ['Not Started', 'In Progress', 'Completed']
   PRIORITY_OPTIONS = %w(Low High Urgent N/A)
   
   validates :name, 
             presence: true,
             length: { maximum: 50 },
-            uniqueness: { case_sensitive: false }
+            uniqueness: true
   
   validates :status, 
             presence: true,

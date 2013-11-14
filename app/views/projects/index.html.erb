@@ -6,8 +6,35 @@
 
 <%= link_to "New Project", new_project_path %>
 
-<ul>
-	<% @projects.each do |project| %>
-		<li><%= link_to project.name, project %></li>
-	<% end %>
-</ul>
+<table>
+
+  <thead>
+    <tr>
+      <th scope="col">Project Name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Target Date</th>
+      <th scope="col">Deadline</th>
+      <th scope="col">Completion Date</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+    <tr>
+    
+      <th class="bold_name" scope="row"><%= link_to project.name, project %></th>
+
+      <td><%= project.status %></td>
+      <td><%= project.priority %></td>
+      <td><%= project.start_date %></td>
+      <td><%= project.target_date %></td>
+      <td><%= project.deadline %></td>
+      <td><%= project.completion_date %></td>
+      <td><%= project.notes %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

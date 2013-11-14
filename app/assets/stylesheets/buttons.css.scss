@@ -29,6 +29,16 @@
   text-align: left;
 }
 
+.side-button:hover {
+  background-color: #eeeeee;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
+  background: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
+  background: -moz-linear-gradient(top, #ffffff, #dcdcdc);
+  background: -o-linear-gradient(top, #ffffff, #dcdcdc);
+  background: linear-gradient(top, #ffffff, #dcdcdc);
+  color: #00A1CB;
+}
+
 .button-pill {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
@@ -53,4 +63,8 @@
   color: white;
   text-shadow: none;
   border: none;
+}
+
+.button-flat:hover {
+  background: #fbfbfb;
 }
