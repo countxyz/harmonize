@@ -1,4 +1,4 @@
-.side-button {
+.button {
   -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
@@ -16,7 +16,6 @@
   *display: inline;
   border: 1px solid #d4d4d4;
   height: 32px;
-  width: 180px;
   line-height: 32px;
   padding: 0px 25.6px;
   font-weight: 300;
@@ -29,7 +28,7 @@
   text-align: left;
 }
 
-.side-button:hover {
+.button:hover {
   background-color: #eeeeee;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
   background: -webkit-linear-gradient(top, #ffffff, #dcdcdc);

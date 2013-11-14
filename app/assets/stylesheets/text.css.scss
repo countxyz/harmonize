@@ -32,6 +32,8 @@ nav#side_menu {
   font-size: 14px;
 }
 
+/* tables */
+
 table, td, tr, th {
   font-weight: normal;
 }
@@ -50,4 +52,8 @@ tbody a {
 
 th.bold_name a {
   font-weight: bold;
+}
+
+h2#form_title {
+  text-align: center;
 }

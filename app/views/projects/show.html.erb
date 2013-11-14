@@ -1,8 +1,8 @@
 <% provide(:title, @project.name) %>
 
-<header class="section_header">
-  <h1>Details <small class="header_right">Projects</small></h1>
-</header>
+<% content_for :section_header do %>
+<h1>Details <small class="header_right">Projects</small></h1>
+<% end %>
 
 <h2><%= @project.name %></h2>
 

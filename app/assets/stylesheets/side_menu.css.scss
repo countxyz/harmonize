@@ -8,11 +8,14 @@
 }
 
 ul#side_menu_list {
-  list-style-type: none;
   padding: 5px;
-  color: #FFF;
+  color: white;
 
   li {
     margin-bottom: 10px;
+
+    .button {
+      width: 180px;
+    }
   }
 }

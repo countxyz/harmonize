@@ -4,15 +4,16 @@ table, td, tr, th {
 }
 
 table {
-  border-collapse: collapse;
+  margin-top: 60px;
   margin-bottom: 15px;
+  border-collapse: collapse;
   width: 90%;
 }
 
 table td,
 table th {
   padding: 5px;
-  border: 1px solid #FFF;
+  border: 1px solid white;
   border-width: 0 1px 1px 0;
 }
 
@@ -39,5 +40,5 @@ tbody tr:hover {
 }
 
 tbody a {
-  color: #000;
+  color: black;
 }

@@ -1,8 +1,8 @@
 <% provide(:title, 'Edit Project') %>
 
-<header class="section_header">
-  <h1>Edit <small class="header_right">Projects</small></h1>
-</header>
+<% content_for :section_header do %>
+<h1>Edit <small class="header_right">Projects</small></h1>
+<% end %>
 
 <h2>Edit Project</h2>
 <%= render "form" %>
