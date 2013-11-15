@@ -7,8 +7,7 @@ class Project < ActiveRecord::Base
   
   validates :name, 
             presence: true,
-            length: { maximum: 50 },
-            uniqueness: true
+            length: { maximum: 50 }
   
   validates :status, 
             presence: true,
