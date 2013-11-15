@@ -32,4 +32,8 @@ class Project < ActiveRecord::Base
       errors.add(:target_date, "can't be before start date")
     end
   end
+
+  def start_date
+    self[:start_date] || "N/A"
+  end
 end

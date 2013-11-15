@@ -66,6 +66,13 @@ describe Project do
 		end
 	end
 
+	describe "#start_date" do
+		it "returns 'N/A' when not available" do
+			entry = @project.start_date
+			expect(entry).to eq "N/A"
+		end
+	end
+
 	describe "#notes" do
 		it "is invalid when it has more than 1000 characters" do
 			@project.notes = 'a' * 1001
