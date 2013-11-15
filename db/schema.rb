@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023152113) do
+ActiveRecord::Schema.define(version: 20131115071645) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20131023152113) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
+
+  add_index "projects", ["name"], name: "index_projects_on_name", using: :btree
 
 end
