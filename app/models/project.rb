@@ -10,6 +10,9 @@ class Project < ActiveRecord::Base
   
   validates :name, 
             length: { maximum: 50 }
+
+  validates :role, 
+            length: { maximum: 100 }
   
   validates :status, 
             inclusion: STATUS_OPTIONS

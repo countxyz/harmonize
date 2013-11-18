@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Project do
 
 	before(:each) do
-		@project = Project.new(name: 'a', status: 'Completed', priority: 'N/A')
+		@project = Project.new(name: 'a', role: "Build prototype", 
+													 status: 'Completed', priority: 'N/A')
 	end
 
 	describe "a project with all fields" do
 
 		it "is completely filled when all fields are provided" do
-			@project.role							= "Build prototype"
 			@project.start_date 			= "2013-11-01"
 			@project.target_date 			= "2013-11-02"
 			@project.deadline 				= "2013-11-03"
@@ -27,6 +27,13 @@ describe Project do
 
 		it "is invalid when it has more than 50 characters" do
 			@project.name = 'a' * 51
+			expect(@project).to_not be_valid
+		end
+	end
+
+	describe "#role" do
+		it "is invalid when it has more than 100 characters" do
+			@project.role = 'a' * 101
 			expect(@project).to_not be_valid
 		end
 	end
