@@ -66,13 +66,6 @@ describe Project do
 		end
 	end
 
-	describe "#notes" do
-		it "is invalid when it has more than 1000 characters" do
-			@project.notes = 'a' * 1001
-			expect(@project).to_not be_valid
-		end
-	end
-
 	describe "#target_date" do
 		it "cannot be a date before start date" do
 			@project.start_date 	= "2013-11-02"
@@ -85,6 +78,13 @@ describe Project do
 		it "cannot be a date before start date" do
 			@project.start_date = "2013-11-02"
 			@project.deadline 	= "2013-11-01"
+			expect(@project).to_not be_valid
+		end
+	end
+
+	describe "#notes" do
+		it "is invalid when it has more than 1000 characters" do
+			@project.notes = 'a' * 1001
 			expect(@project).to_not be_valid
 		end
 	end
