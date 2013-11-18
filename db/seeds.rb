@@ -7,7 +7,8 @@
 #   Mayor.create(name: "Emanuel", city: cities.first)
 Project.delete_all
 
-Project.create(name: "Harmonize - Add Contact Model",
+Project.create(name: "Harmonize",
+               role: "Add contact model",
                status: "Not Started",
                priority: "High",
                start_date: "2013-11-12",
@@ -16,7 +17,8 @@ Project.create(name: "Harmonize - Add Contact Model",
                notes: "Ambitious target date, but try to finish by the end of
                        the week")
 
-Project.create(name: "Vandelay - Prototype",
+Project.create(name: "Vandelay",
+               role: "Create Prototype",
                status: "In Progress",
                priority: "High",
                start_date: "2013-11-06",
@@ -24,14 +26,16 @@ Project.create(name: "Vandelay - Prototype",
                deadline: "2013-11-25",
                notes: "Bring your A game with Vandelay")
 
-Project.create(name: "MastaMindzLLC - site",
+Project.create(name: "MastaMindzLLC",
+               role: "Site",
                status: "Completed",
                priority: "N/A",
                start_date: "2013-05-01",
                completion_date: "2013-05-15",
                notes: "Completed mid-May. Client very satisfied")
 
-Project.create(name: "Beneke Financials - Tshoot customer view",
+Project.create(name: "Beneke Financials",
+               role: "Tshoot customer view",
                status: "In Progress",
                priority: "Urgent",
                start_date: "2013-11-02",
@@ -39,10 +43,18 @@ Project.create(name: "Beneke Financials - Tshoot customer view",
                deadline: "2013-11-15",
                notes: "Need to wrap up this week.")
 
-Project.create(name: "Bill Burr - Redo show listings",
+Project.create(name: "Bill Burr",
+               role: "Redo show listings",
                status: "Not Started",
                priority: "High",
                target_date: "2013-11-21",
                deadline: "2013-12-15",
                notes: "Bill says this isn't too important, but for Bill, 
                        all priorities start at High")
+
+Project.create(name: "MastaMindzLLC",
+               role: "Update site content",
+               status: "Not Started",
+               priority: "Low",
+               target_date: "2013-12-15",
+               notes: "Client has no rush. Whenever I get around to it.")

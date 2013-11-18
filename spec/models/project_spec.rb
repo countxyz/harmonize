@@ -9,10 +9,12 @@ describe Project do
 	describe "a project with all fields" do
 
 		it "is completely filled when all fields are provided" do
+			@project.role							= "Build prototype"
 			@project.start_date 			= "2013-11-01"
 			@project.target_date 			= "2013-11-02"
 			@project.deadline 				= "2013-11-03"
 			@project.completion_date 	= "2013-11-04"
+			@project.notes						= "Only requirement is that it has a footer."
 			expect(@project).to be_valid
 		end
 	end
