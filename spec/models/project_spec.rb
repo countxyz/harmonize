@@ -72,6 +72,11 @@ describe Project do
 			@project.target_date 	= "2013-11-01"
 			expect(@project).to_not be_valid
 		end
+
+		it "returns 'N/A' when not available" do
+			entry = @project.target_date
+			expect(entry).to eq "N/A"
+		end
 	end
 
 	describe "#deadline" do
@@ -79,6 +84,18 @@ describe Project do
 			@project.start_date = "2013-11-02"
 			@project.deadline 	= "2013-11-01"
 			expect(@project).to_not be_valid
+		end
+
+		it "returns 'N/A' when not available" do
+			entry = @project.deadline
+			expect(entry).to eq "N/A"
+		end
+	end
+
+	describe "#completion_date" do
+		it "returns 'N/A' when not available" do
+			entry = @project.completion_date
+			expect(entry).to eq "N/A"
 		end
 	end
 
