@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 
   validate :deadline_cannot_be_earlier_than_start_date
   validate :target_date_cannot_be_earlier_than_start_date
+  validate :completion_date_cannot_be_earlier_than_start_date
 
   validates :name, :role, :status, :priority, :start_date, :target_date,
             :deadline, :completion_date, presence: true
@@ -51,6 +52,14 @@ class Project < ActiveRecord::Base
     unless start_date == "N/A" || deadline == "N/A"
       if deadline < start_date
         errors.add(:deadline, "can't be before start date")
+      end
+    end
+  end
+
+  def completion_date_cannot_be_earlier_than_start_date
+    unless start_date == "N/A" || completion_date == "N/A"
+      if completion_date < start_date
+        errors.add(:completion_date, "can't be before start date")
       end
     end
   end

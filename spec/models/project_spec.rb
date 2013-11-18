@@ -106,6 +106,12 @@ describe Project do
 			entry = @project.completion_date
 			expect(entry).to eq "N/A"
 		end
+
+		it "cannot be a date before start date" do
+			@project.start_date = "2013-11-02"
+			@project.completion_date 	= "2013-11-01"
+			expect(@project).to_not be_valid
+		end
 	end
 
 	describe "#notes" do
