@@ -41,7 +41,6 @@ a { color: #005596; }
   padding: 5px;
   bottom: 0;
   height: 100%;
-  overflow: hidden;
 }
 
 /* section header */
@@ -75,6 +74,7 @@ a { color: #005596; }
   left: 40px;
   right: 0;
   width: 100%;
+  height: 100%;
 }
 
 nav#project_nav_links {

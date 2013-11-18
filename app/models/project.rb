@@ -6,8 +6,7 @@ class Project < ActiveRecord::Base
   validate :target_date_cannot_be_earlier_than_start_date
   validate :completion_date_cannot_be_earlier_than_start_date
 
-  validates :name, :role, :status, :priority, :start_date, :target_date,
-            :deadline, :completion_date, presence: true
+  validates :name, :role, :status, :priority, presence: true
   
   validates :name, 
             length: { maximum: 50 }

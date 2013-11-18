@@ -1,21 +1,12 @@
-<%= simple_form_for(@project) do |f| %>
-
-<%= f.input :name %> 
-<%= f.input :status,
-            as: :radio_buttons,
-            collection: Project::STATUS_OPTIONS %>
-<%= f.input :priority,
-            as: :radio_buttons,
-            collection: Project::PRIORITY_OPTIONS %>
-<%= f.input :start_date, as: :date,
-            order: [:month, :day, :year], include_blank: true %>
-<%= f.input :target_date, as: :date,
-            order: [:month, :day, :year], include_blank: true %>
-<%= f.input :deadline, as: :date,
-            order: [:month, :day, :year], include_blank: true %>
-<%= f.input :completion_date, as: :date,
-            order: [:month, :day, :year], include_blank: true %>
-<%= f.input :notes, as: :text %>
-
-<%= f.button :submit %>
+<%= simple_form_for @project do |f| %>
+  <%= f.input :name %>
+  <%= f.input :role %>
+  <%= f.input :status, as: :radio_buttons, collection: Project::STATUS_OPTIONS %>
+  <%= f.input :priority, as: :radio_buttons, collection: Project::PRIORITY_OPTIONS %>
+  <%= f.input :start_date, as: :datepicker %>
+  <%= f.input :target_date, as: :datepicker %>
+  <%= f.input :deadline, as: :datepicker %>
+  <%= f.input :completion_date, as: :datepicker %>
+  <%= f.input :notes, as: :text %>
+  <%= f.button :submit %>
 <% end %>
