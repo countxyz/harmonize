@@ -1,0 +1,12 @@
+/* mixins, variables, etc. */
+
+$blue-theme: #00A1CB;
+$black-theme: #171717;
+
+/* universal */
+
+ul li a { text-decoration: none }
+
+li { list-style-type: none; }
+
+a { color: $blue-theme; }

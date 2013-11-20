@@ -1,13 +1,15 @@
-#side_menu {
-  background: #171717;
+@import "style";
+
+#sidenav {
+  background: $black-theme;
   
   h1 {
     padding-top: 50px;
-    color: #00A1CB;
+    color: $blue-theme;
   }
 }
 
-ul#side_menu_list {
+ul#sidenav_list {
   padding: 5px;
   color: white;
 

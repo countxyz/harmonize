@@ -1,15 +1,19 @@
 <% provide(:title, 'Projects Index') %>
 
-<% content_for :section_header do %>
+<% content_for :page_header do %>
 <h1>Index <small class="header_right">Projects</small></h1>
 <% end %>
 
 <nav id="project_nav_links">
-<%= link_to "New Project", new_project_path, 
-    class: "button button-pill button-flat-primary" %>
-    
-<%= link_to root_path do %>
-<i class="fa fa-home fa-2x"></i>
+  <ul>
+    <li>
+      <%= link_to root_path do %><i class="fa fa-home fa-2x"></i>
+    </li>
+    <li>
+      <%= link_to "New Project", new_project_path, 
+          class: "button button-pill button-flat-primary" %>
+    </li>
+  </ul>
 <% end %>
 </nav>
 

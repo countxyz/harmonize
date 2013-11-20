@@ -10,17 +10,17 @@
 </head>
 <body>
   <div id="page_wrapper">
-    <nav id="side_menu">
-      <%= render 'layouts/side_menu' %>
+    <nav id="sidenav">
+      <%= render 'layouts/sidenav' %>
     </nav>
-    <section id="content">
-      <header id="section_header">
-        <%= yield :section_header %>
+    <div id="main">
+      <header id="page_header">
+        <%= yield :page_header %>
       </header>
       <section id="notifications">
         <%= render 'layouts/notifications' %>
       </section>
-      <section id="main_content">
+      <section id="content">
         <%= yield %>
       </section>
     </section>

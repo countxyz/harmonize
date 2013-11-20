@@ -1,10 +1,12 @@
-#section_header {
-  background: #00A1CB;
+@import "style";
+
+#page_header {
+  background: $blue-theme;
   color: white;
 
   h1 {
     position: absolute;
-    left: 250px;
+    left: 500px;
 
     small.header_right {
       position: absolute;

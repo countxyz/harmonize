@@ -2,8 +2,9 @@
  *= require_self
  *= require normalize
  *= require layout
- *= require side_menu
- *= require section_header
+ *= require style
+ *= require sidenav
+ *= require page_header
  *= require jquery.ui.all
  *= require buttons
  *= require tables

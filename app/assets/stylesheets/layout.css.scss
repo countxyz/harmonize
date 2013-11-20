@@ -1,5 +1,3 @@
-/* universal */
-
 html,
 body {
   margin: 0;
@@ -7,96 +5,52 @@ body {
   height: 100%;
 }
 
-ul li a { text-decoration: none }
-
-li { list-style-type: none; }
-
-a { color: #005596; }
-
-#page_wrapper {
+div#page_wrapper {
+  display: flex;
+  display: -webkit-flex;
   min-height: 100%;
-  position: relative;
 }
 
-/* side menu */
+/* sidenav */
 
-#side_menu {
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 5px;
-  bottom: 0;
+nav#sidenav {
+  order: 1;
   width: 250px;
-  height: 100%;
 }
 
-/* content */
+/* main */
 
-#content {
-  position: absolute;
-  display: block;
-  left: 260px;
-  right: 0;
-  top: 0px;
-  padding: 5px;
-  bottom: 0;
-  height: 100%;
+div#main {
+  flex: 1;
+  -webkit-flex: 1;
+  order: 2;
 }
 
-/* section header */
+/* page header */
 
-#section_header {
-  position: absolute;
-  display: block;
-  left: 0px;
-  right: 0;
-  top: 0px;
-  height: 80px;
-  width: 100%;
-}
+header#page_header { height: 80px; }
 
 /* notifications */
 
-#notifications {
-  position: absolute;
-  display: block;
-  top: 90px;
-  width: 100%;
-}
+section#notifications { height: 50px; }
 
+/* notifications */
 
-/* main content */
-
-#main_content {
-  position: absolute;
-  display: block;
-  top: 130px;
-  left: 40px;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
+section#content { margin-left: 100px; }
 
 nav#project_nav_links {
-  position: absolute;
-  display: block;
-  top: 15px;
   left: 500px;
   height: 50px;
+  width: 90%;
 
-  a {
+  ul {
 
-    .button.button-pill.button-flat-primary {
-    }
-  }
-
-  a {
-    margin-left: 150px;
-
-    i.fa.fa-home.fa-2x {
-      color: black;
+    li {
+      display: inline;
       float: right;
-      padding-top: 10px;
+      padding: 10px;
+
+      a i { color: black; }
     }
   }
 }
