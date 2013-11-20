@@ -1,35 +1,10 @@
 form {
-  margin: 0 auto;
-  width: 1000px;
+  width: 90%;
+}
+
+details.form_info {
   display: block;
-}
-
-fieldset#new_project {
-  display: block;
-  float: left;
-  min-height: 410px;
-  max-height: 422px;
-  margin: 10px auto;
-  padding: 5px;
-  font-size: 12px;
-  height: 100%;
-}
-
-fieldset label {
-	display: block;
-}
-
-fieldset li {
-  padding: 5px 5px;
-}
-
-fieldset.radio label,
-fieldset li.radio label {
-	display: inline;
-  padding: 5px 5px;
-}
-
-ul#new_project li {
-	display: inline-block;
-	padding: 40px;
+  width: 90%;
+  height: 25px;
+  padding-bottom: -10px;
 }

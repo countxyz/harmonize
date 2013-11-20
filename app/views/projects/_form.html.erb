@@ -1,12 +1,44 @@
 <%= simple_form_for @project do |f| %>
-  <%= f.input :name %>
-  <%= f.input :role %>
-  <%= f.input :status, as: :radio_buttons, collection: Project::STATUS_OPTIONS %>
-  <%= f.input :priority, as: :radio_buttons, collection: Project::PRIORITY_OPTIONS %>
-  <%= f.input :start_date, as: :datepicker %>
-  <%= f.input :target_date, as: :datepicker %>
-  <%= f.input :deadline, as: :datepicker %>
-  <%= f.input :completion_date, as: :datepicker %>
-  <%= f.input :notes, as: :text %>
-  <%= f.button :submit %>
+<form>
+  <fieldset>
+  <legend class="bold_title">Project Details</legend>
+    <ul>
+      <li>
+        <%= f.input :name %>
+      </li>
+      <li>
+        <%= f.input :role %>
+      </li>
+      <li>
+        <%= f.input :status, as: :radio_buttons, 
+                    collection: Project::STATUS_OPTIONS %>
+      </li>
+      <li>
+        <%= f.input :priority, as: :radio_buttons,
+                    collection: Project::PRIORITY_OPTIONS %>
+      </li>
+      <li>
+        <%= f.input :notes, as: :text %>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset>
+  <legend class="bold_title">Project Dates</legend>
+    <ul>
+      <li>
+        <%= f.input :start_date, as: :datepicker %>
+      </li>
+      <li>
+        <%= f.input :target_date, as: :datepicker %>
+      </li>
+      <li>
+        <%= f.input :deadline, as: :datepicker %>
+      </li>
+      <li>
+        <%= f.input :completion_date, as: :datepicker %>
+      </li>
+    </ul>
+    <%= f.button :submit %>
+  </fieldset>
 <% end %>

@@ -19,17 +19,29 @@ body {
 
   h1 {
     font-size: 36px;
-    font: bold;
+    font-weight: bold;
 
     small.header_right {
       font-size: 24px;
-      font: bold;
+      font-weight: bold;
     }
   }
 }
 
 nav#side_menu {
   font-size: 14px;
+}
+
+/* forms */
+
+details.form_info {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+}
+
+legend.bold_title {
+  font-weight: bold;
 }
 
 /* tables */
