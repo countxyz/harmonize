@@ -10,3 +10,7 @@ ul li a { text-decoration: none }
 li { list-style-type: none; }
 
 a { color: $blue-theme; }
+
+input[type="radio"] {
+  background: $black-theme;
+}

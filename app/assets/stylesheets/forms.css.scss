@@ -1,13 +1,23 @@
+/* universal */
+
 form {
   padding-top: 10px;
   padding-left: 40px;
 }
+
+button, input, select, textarea { margin: 5px; }
+
+label { padding-left: 5px; }
+
+/* form */
 
 form#new_project {
   display: flex;
   flex-flow: row wrap;
   width: 90%;
 }
+
+/* fieldset */
 
 fieldset.projects {
   margin: 0;
@@ -64,6 +74,8 @@ fieldset.projects#dates {
       }    
     }
   }
+
+/* other */
 
   span {
     &#project_submit {

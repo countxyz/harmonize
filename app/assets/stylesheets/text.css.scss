@@ -1,9 +1,18 @@
+/* mixins, variables, etc. */
+
 $heading-font: 'abeezeeregular', 'Verdana', 'Helvetica', 'Arial', 'sans-serif';
 $content-font: 'varela', 'Verdana', 'Helvetica', 'Arial', 'sans-serif';
 
-body {
-  font-family: $content-font;
+/* universal */
+
+body { font-family: $content-font; }
+
+label {
+  font-size: 13px;
+  font-weight: bold;
 }
+
+/* sidenav */
 
 #sidenav {
   font-family: $heading-font;
@@ -14,7 +23,11 @@ body {
   }
 }
 
-.section_header {
+nav#side_menu { font-size: 14px; }
+
+/* page header */
+
+header#page_header {
   font-family: $heading-font;
 
   h1 {
@@ -28,10 +41,6 @@ body {
   }
 }
 
-nav#side_menu {
-  font-size: 14px;
-}
-
 /* forms */
 
 details.form_info {
@@ -39,36 +48,18 @@ details.form_info {
   font-weight: bold;
 }
 
-details.form_info#date {
-  text-align: center;
-}
+details.form_info#date { text-align: center; }
 
-legend.bold_title {
-  font-weight: bold;
-}
+legend.bold_title { font-weight: bold; }
 
 /* tables */
 
-table, td, tr, th {
-  font-weight: normal;
-}
+table, td, tr, th { font-weight: normal; }
 
-tbody th {
-  text-align: left;
-}
+tbody th { text-align: left; }
 
-tbody td {
-  text-align: center;
-}
+tbody td { text-align: center; }
 
-tbody a {
-  text-decoration: none;
-}
+tbody a { text-decoration: none; }
 
-th.bold_name a {
-  font-weight: bold;
-}
-
-h2#form_title {
-  text-align: center;
-}
+th.bold_name a { font-weight: bold; }
