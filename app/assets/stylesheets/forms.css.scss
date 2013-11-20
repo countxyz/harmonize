@@ -1,5 +1,6 @@
 form {
   padding-top: 10px;
+  padding-left: 40px;
 }
 
 form#new_project {
@@ -8,15 +9,20 @@ form#new_project {
   width: 90%;
 }
 
-fieldset label {
-  display: block;
+fieldset.projects {
+  margin: 0;
+  width: 400px;
+  border: 1.5px solid;
+
+  label {
+    display: block;
+  }
 }
 
-fieldset#project_forms {
-  width: 400px;
+fieldset.projects#new_details {
 
   ul {
-    &.flex_list {
+    &.flex_details {
       display: flex;
       display: -webkit-flex;
       -webkit-flex-flow: row wrap;
@@ -24,21 +30,48 @@ fieldset#project_forms {
       margin: 0;
 
       li {
-        &.flex_item {
+        &.details_item {
           padding: 5px;
           height: 100px;
           width: 200px;
           margin-top: 10px;
           justify-content: space-around;
         }
-        &.flex_radio {
-          padding-left: 75px;
+        &.details_radio {
+          padding-left: 50px;
         }
       }
     }
   }
 }
 
-fieldset#project_forms textarea {
+fieldset.projects#new_details textarea {
   width: 350px;
+}
+
+fieldset.projects#dates {
+  ul {
+    &.flex_dates {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0 30px;
+      margin: 0;
+      width: 350px;
+
+      li {
+        padding-top: 5px;
+      }    
+    }
+  }
+
+  span {
+    &#project_submit {
+      margin-left: 200px;
+    }
+  }
+}
+
+details.form_info#required {
+  padding-left: 40px;
 }
