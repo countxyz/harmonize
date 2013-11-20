@@ -1,3 +1,5 @@
+@import "style";
+
 table, td, tr, th {
   margin: 0;
   padding: 0;
@@ -17,28 +19,17 @@ table th {
   border-width: 0 1px 1px 0;
 }
 
-thead th {
-  background: #91C5D4;
-}
+thead th { background: #91C5D4;}
 
 thead th[colspan],
-thead th[rowspan] {
-  background: #66A9bd;
-}
+thead th[rowspan] { background: #66A9bd; }
 
-tbody th {
-  background: #91C5D4;
-}
+tbody th { background: #91C5D4; }
 
+tbody tr { background: #D5EAF0; }
 
-tbody tr {
-  background: #D5EAF0;
-}
+tbody tr:hover { background: #BCD9E1; }
 
-tbody tr:hover {
-  background: #BCD9E1;
-}
+tbody a { color: black; }
 
-tbody a {
-  color: black;
-}
+tbody td.table_actions a { color: $blue-theme; }

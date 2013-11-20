@@ -22,13 +22,13 @@
   <thead>
     <tr>
       <th scope="col">Project Name</th>
+      <th scope="col">Role</th>
       <th scope="col">Status</th>
       <th scope="col">Priority</th>
       <th scope="col">Start Date</th>
-      <th scope="col">Target Date</th>
       <th scope="col">Deadline</th>
       <th scope="col">Completion Date</th>
-      <th scope="col">Notes</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
 
@@ -38,13 +38,19 @@
     
       <th class="bold_name" scope="row"><%= link_to project.name, project %></th>
 
+      <td><%= project.role %></td>
       <td><%= project.status %></td>
       <td><%= project.priority %></td>
       <td><%= project.start_date %></td>
-      <td><%= project.target_date %></td>
       <td><%= project.deadline %></td>
       <td><%= project.completion_date %></td>
-      <td><%= project.notes %></td>
+      <td class="table_actions">
+        <%= link_to 'Show', project %><br />
+        <%= link_to 'Edit', edit_project_path(project) %><br />
+        <%= link_to 'Delete', project,
+                     confirm: 'Are you sure?',
+                     method: :delete %>
+      </td>
     </tr>
     <% end %>
   </tbody>
