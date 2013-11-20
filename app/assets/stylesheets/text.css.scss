@@ -37,11 +37,14 @@ nav#side_menu {
 details.form_info {
   font-size: 12px;
   font-weight: bold;
-  text-align: right;
 }
 
 legend.bold_title {
   font-weight: bold;
+}
+
+fieldset li.flex_item.radio {
+  text-align: left;
 }
 
 /* tables */

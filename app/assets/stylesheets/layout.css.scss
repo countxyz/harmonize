@@ -36,21 +36,18 @@ section#notifications { height: 50px; }
 
 /* notifications */
 
-section#content { margin-left: 100px; }
+section#content { margin-left: 50px; }
 
 nav#project_nav_links {
   left: 500px;
   height: 50px;
   width: 90%;
 
-  ul {
+  ul li { 
+    display: inline;
+    float: right;
+    padding: 10px;
 
-    li {
-      display: inline;
-      float: right;
-      padding: 10px;
-
-      a i { color: black; }
-    }
+    a i { color: black; }
   }
 }

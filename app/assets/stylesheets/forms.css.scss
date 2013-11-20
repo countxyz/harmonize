@@ -1,10 +1,44 @@
 form {
+  padding-top: 10px;
+}
+
+form#new_project {
+  display: flex;
+  flex-flow: row wrap;
   width: 90%;
 }
 
-details.form_info {
+fieldset label {
   display: block;
-  width: 90%;
-  height: 25px;
-  padding-bottom: -10px;
+}
+
+fieldset#project_forms {
+  width: 400px;
+
+  ul {
+    &.flex_list {
+      display: flex;
+      display: -webkit-flex;
+      -webkit-flex-flow: row wrap;
+      padding: 0;
+      margin: 0;
+
+      li {
+        &.flex_item {
+          padding: 5px;
+          height: 100px;
+          width: 200px;
+          margin-top: 10px;
+          justify-content: space-around;
+        }
+        &.flex_radio {
+          padding-left: 75px;
+        }
+      }
+    }
+  }
+}
+
+fieldset#project_forms textarea {
+  width: 350px;
 }

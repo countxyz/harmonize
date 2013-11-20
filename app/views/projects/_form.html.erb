@@ -1,30 +1,37 @@
 <%= simple_form_for @project do |f| %>
-<form>
-  <fieldset>
+
+<form id="new_project">
+  <fieldset id="project_forms">
   <legend class="bold_title">Project Details</legend>
-    <ul>
-      <li>
+
+    <ul class="flex_list">
+      <li class="flex_item">
         <%= f.input :name %>
       </li>
-      <li>
-        <%= f.input :role %>
-      </li>
-      <li>
+      <li class="flex_radio">
         <%= f.input :status, as: :radio_buttons, 
                     collection: Project::STATUS_OPTIONS %>
       </li>
-      <li>
+    </ul>
+
+    <ul class="flex_list">
+      <li class="flex_item">
+        <%= f.input :role %>
+      </li>
+      <li class="flex_radio">
         <%= f.input :priority, as: :radio_buttons,
                     collection: Project::PRIORITY_OPTIONS %>
       </li>
-      <li>
-        <%= f.input :notes, as: :text %>
-      </li>
     </ul>
+    <span class="project_text"><%= f.input :notes, as: :text %></span>
+
   </fieldset>
 
-  <fieldset>
-  <legend class="bold_title">Project Dates</legend>
+  <fieldset id="project_forms">
+  <legend class="bold_title" align="right">Project Dates</legend>
+    <details class="form_info">
+      Dates must have Month, Day, and Year to be saved
+    </details>
     <ul>
       <li>
         <%= f.input :start_date, as: :datepicker %>
