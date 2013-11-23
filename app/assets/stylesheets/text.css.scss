@@ -12,14 +12,6 @@ label {
   font-weight: bold;
 }
 
-tbody th { text-align: left; }
-
-tbody td { text-align: center; }
-
-tbody a { text-decoration: none; }
-
-table, td, tr, th { font-weight: normal; }
-
 /* sidenav */
 
 #sidenav {
@@ -61,6 +53,14 @@ details.form_info#date { text-align: center; }
 legend.bold_title { font-weight: bold; }
 
 /* tables */
+
+tbody th { text-align: left; }
+
+tbody td { text-align: center; }
+
+tbody a { text-decoration: none; }
+
+table, td, tr, th { font-weight: normal; }
 
 th.bold_name a { font-weight: bold; }
 

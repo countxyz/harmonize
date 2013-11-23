@@ -36,11 +36,13 @@ header#page_header { height: 80px; }
 
 section#notifications { height: 50px; }
 
-/* notifications */
+/* content */
 
 section#content { margin-left: 50px; }
 
-nav#project_nav_links {
+/* nav links */
+
+nav.index_nav_links {
   left: 500px;
   height: 50px;
   width: 90%;

@@ -1,0 +1,51 @@
+<% provide(:title, 'Contacts Index') %>
+
+<% content_for :page_header do %>
+<h1>Index <small class="header_right">Contacts</small></h1>
+<% end %>
+
+<nav class="index_nav_links">
+  <ul>
+    <li>
+      <%= link_to root_path do %><i class="fa fa-home fa-2x"></i>
+    </li>
+    <li>
+      <%= link_to "New Contact", new_contact_path, 
+          class: "button button-pill button-flat-primary" %>
+    </li>
+  </ul>
+<% end %>
+</nav>
+
+<table>
+
+  <thead>
+    <tr>
+      <th scope="col">Contact Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+    <tr>
+    
+      <th class="bold_name" scope="row">
+        <%= contact.first_name contact.last_name %>
+      </th>
+
+      <td><%= contact.email %></td>
+      <td><%= contact.phone %></td>
+      <td class="table_actions">
+        <%= link_to 'Show', contact %><br />
+        <%= link_to 'Edit', edit_contact_path(contact) %><br />
+        <%= link_to 'Delete', contact,
+                     confirm: 'Are you sure?',
+                     method: :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

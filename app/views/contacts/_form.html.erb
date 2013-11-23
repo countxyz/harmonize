@@ -1,0 +1,22 @@
+<details class="form_info required">
+  * Fields Required
+</details>
+
+<%= simple_form_for @contact do |f| %>
+
+<form>
+  <fieldset>
+  <legend class="bold_title">New Contact</legend>
+
+    <ul>
+      <li><%= f.input :first_name %></li>
+      <li><%= f.input :last_name %></li>
+      <li><%= f.input :email %></li>
+      <li><%= f.input :phone %></li>
+    </ul>
+    <span id="project_submit">
+      <%= f.button :submit, :class => "button button-pill button-flat-primary" %>
+    </span>
+  </fieldset>
+</form>
+<% end %>
