@@ -2,6 +2,7 @@ Harmonize::Application.routes.draw do
 
   root 'main_pages#home'
   resources :projects
+  resources :contacts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
