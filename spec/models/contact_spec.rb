@@ -12,7 +12,10 @@ describe Contact do
   it "is invalid without a first name" do
     expect(Contact.new(first_name: nil)).to have(1).errors_on(:first_name)
   end
+
+  it "is invalid without a last name" do
+    expect(Contact.new(last_name: nil)).to have(1).errors_on(:last_name)
+  end
   
-  it "is invalid without a last name"
   it "is invalid without an email address"
 end
