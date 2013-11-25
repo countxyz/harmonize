@@ -17,10 +17,6 @@ describe Contact do
     it "is invalid without an email address" do
       expect(build(:contact, email: nil)).to_not be_valid
     end
-
-    it "is valid without a phone" do
-      expect(build(:contact, phone: nil)).to be_valid
-    end
   end
 
   describe "field lengths" do

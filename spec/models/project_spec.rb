@@ -6,122 +6,76 @@ describe Project do
 		expect(build(:project)).to be_valid
 	end
 
-	before(:each) do
-		@project = Project.new(name: 'a', role: "Build prototype", 
-													 status: 'Completed', priority: 'N/A')
+	it "is completely filled when all fields are provided" do
+		expect(build(:project_all_fields)).to be_valid
 	end
 
-	describe "a project with all fields" do
-
-		it "is completely filled when all fields are provided" do
-			@project.start_date 			= "2013-11-01"
-			@project.target_date 			= "2013-11-02"
-			@project.deadline 				= "2013-11-03"
-			@project.completion_date 	= "2013-11-04"
-			@project.notes						= "Only requirement is that it has a footer."
-			expect(@project).to be_valid
-		end
-	end
-
-	describe "#name" do
-		it "is invalid when not provided" do
-			@project.name = nil
-			expect(@project).to_not be_valid
+	describe "empty fields" do
+		it "is invalid when name is not provided" do
+			expect(build(:project, name: nil)).to_not be_valid
 		end
 
-		it "is invalid when it has more than 50 characters" do
-			@project.name = 'a' * 51
-			expect(@project).to_not be_valid
+		it "is invalid when status is not provided" do
+			expect(build(:project, status: nil)).to_not be_valid
+		end
+
+		it "is invalid when priority is not provided" do
+			expect(build(:project, priority: nil)).to_not be_valid
+		end
+
+		it "is valid for dates and returns 'N/A' when not provided" do
+			project = create(:project)
+			expect(project.start_date).to eq "N/A"
+			expect(project.target_date).to eq "N/A"
+			expect(project.deadline).to eq "N/A"
+			expect(project.completion_date).to eq "N/A"
 		end
 	end
 
-	describe "#role" do
-		it "is invalid when it has more than 100 characters" do
-			@project.role = 'a' * 101
-			expect(@project).to_not be_valid
-		end
+	describe "field lengths" do
+    it "is invalid when name has more than 50 characters" do
+      expect(build(:project, name: 'a' * 51)).to_not be_valid
+    end
+
+    it "is invalid when role has more than 100 characters" do
+      expect(build(:project, role: 'a' * 101)).to_not be_valid
+    end
+
+    it "is invalid when notes has more than 1000 characters" do
+      expect(build(:project, notes: 'a' * 1001)).to_not be_valid
+    end
 	end
 
-	describe "#status" do
-		it "is invalid when not provided" do
-			@project.status = nil
-			expect(@project).to_not be_valid
-		end
-
-		it "is valid with 'Not Started', 'In Progress', 'Completed'" do
+	describe "valid entries" do
+		it "is valid when status is 'Not Started', 'In Progress', 'Completed'" do
 			valid_statuses = ['Not Started', 'In Progress', 'Completed']
 			valid_statuses.each do |valid_status|
-				@project.status = valid_status
-				expect(@project).to be_valid
+				expect(build(:project, status: valid_status)).to be_valid
 			end
 		end
-	end
 
-	describe "#priority" do
-		it "is invalid when not provided" do
-			@project.priority = nil
-			expect(@project).to_not be_valid
-		end
-
-		it "is valid with 'N/A', 'Low', 'High', 'Urgent'" do
+		it "is valid when priority is 'N/A', 'Low', 'High', 'Urgent'" do
 			valid_priorities = %w[Low High Urgent N/A]
 			valid_priorities.each do |valid_priority|
-				@project.priority = valid_priority
-				expect(@project).to be_valid
+				expect(build(:project, priority: valid_priority)).to be_valid
 			end
 		end
 	end
 
-	describe "#start_date" do
-		it "returns 'N/A' when not available" do
-			entry = @project.start_date
-			expect(entry).to eq "N/A"
+	describe "invalid dates" do
+		it "cannot have a target date before start date" do
+			project = build(:project, start_date: "2013-11-02", target_date: "2013-11-01")
+			expect(project).to_not be_valid
 		end
+
+		it "cannot have a deadline before start date" do
+			project = build(:project, start_date: "2013-11-02", deadline: "2013-11-01")
+			expect(project).to_not be_valid
 	end
-
-	describe "#target_date" do
-		it "cannot be a date before start date" do
-			@project.start_date 	= "2013-11-02"
-			@project.target_date 	= "2013-11-01"
-			expect(@project).to_not be_valid
-		end
-
-		it "returns 'N/A' when not available" do
-			entry = @project.target_date
-			expect(entry).to eq "N/A"
-		end
-	end
-
-	describe "#deadline" do
-		it "cannot be a date before start date" do
-			@project.start_date = "2013-11-02"
-			@project.deadline 	= "2013-11-01"
-			expect(@project).to_not be_valid
-		end
-
-		it "returns 'N/A' when not available" do
-			entry = @project.deadline
-			expect(entry).to eq "N/A"
-		end
-	end
-
-	describe "#completion_date" do
-		it "returns 'N/A' when not available" do
-			entry = @project.completion_date
-			expect(entry).to eq "N/A"
-		end
 
 		it "cannot be a date before start date" do
-			@project.start_date = "2013-11-02"
-			@project.completion_date 	= "2013-11-01"
-			expect(@project).to_not be_valid
-		end
-	end
-
-	describe "#notes" do
-		it "is invalid when it has more than 1000 characters" do
-			@project.notes = 'a' * 1001
-			expect(@project).to_not be_valid
+			project = build(:project, start_date: "2013-11-02", completion_date: "2013-11-01")
+			expect(project).to_not be_valid
 		end
 	end
 end
