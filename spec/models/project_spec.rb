@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Project do
 
+	it "has a valid factory" do
+		expect(build(:project)).to be_valid
+	end
+
 	before(:each) do
 		@project = Project.new(name: 'a', role: "Build prototype", 
 													 status: 'Completed', priority: 'N/A')
