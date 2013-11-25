@@ -7,6 +7,10 @@ describe Contact do
                            email: "contact@target.com")
   end
 
+  it "has a valid factory" do
+    expect(build(:contact)).to be_valid
+  end
+
   it "is valid with a first name, last name, email, and phone number" do
     contact = Contact.new(
       first_name:   'Bill',
