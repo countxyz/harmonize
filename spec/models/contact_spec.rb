@@ -15,8 +15,15 @@ describe Contact do
     expect(contact).to be_valid
   end
 
-  it "is invalid without a first name" do
-    expect(Contact.new(first_name: nil)).to have(1).errors_on(:first_name)
+  describe "#first_name" do
+    it "is invalid when not provided" do
+      expect(Contact.new(first_name: nil)).to have(1).errors_on(:first_name)
+    end
+
+    it "is invalid when it has more than 30 characters" do
+      @contact.first_name = 'a' * 31
+      expect(@contact).to_not be_valid
+    end   
   end
 
   it "is invalid without a last name" do

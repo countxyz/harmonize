@@ -3,4 +3,5 @@ class Contact < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :first_name, length: { maximum: 30 }
 end
