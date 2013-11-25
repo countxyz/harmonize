@@ -6,4 +6,8 @@ class Contact < ActiveRecord::Base
   validates :email,
             length: { maximum: 50 },
             format: { with: VALID_EMAIL_REGEX }
+
+  def name
+    [first_name, last_name].join(' ')
+  end
 end

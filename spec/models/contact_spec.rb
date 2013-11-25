@@ -5,6 +5,11 @@ describe Contact do
     expect(create(:contact)).to be_valid
   end
 
+  it "returns a contact's full name as a string" do
+    contact = build_stubbed(:contact, first_name: "John", last_name: "Doe")
+    expect(contact.name).to eq "John Doe"
+  end
+
   describe "empty fields" do
     it "is invalid without a first name" do
       expect(build(:contact, first_name: nil)).to_not be_valid
