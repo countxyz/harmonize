@@ -41,9 +41,8 @@
       <td class="table_actions">
         <%= link_to 'Show', contact %><br />
         <%= link_to 'Edit', edit_contact_path(contact) %><br />
-        <%= link_to 'Delete', contact,
-                     confirm: 'Are you sure?',
-                     method: :delete %>
+        <%= link_to 'Delete', contact, method: :delete,
+                     data: { :confirm => 'Are you sure?' } %>
       </td>
     </tr>
     <% end %>
