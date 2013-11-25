@@ -59,5 +59,10 @@ describe Contact do
         expect(@contact).not_to be_valid
       end
     end
+
+    it "is invalid when it has more than 50 characters" do
+      @contact.email = 'a' * 45 + "@a.com"
+      expect(@contact).to_not be_valid
+    end
   end
 end
