@@ -15,8 +15,6 @@
 <p>Completion Date: <%= @project.completion_date %>	</p>
 <p>Notes: 					<%= @project.notes %>						</p>
 
-<%= link_to 'Projects', projects_path %>
-
 <%= link_to 'Edit Project', edit_project_path(@project) %>
 
 <%= link_to 'Delete Project', @project, :method => :delete,

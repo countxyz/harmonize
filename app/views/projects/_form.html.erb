@@ -37,10 +37,10 @@
       Dates must have Month, Day, and Year to be saved
     </details>
     <ul class="flex_dates">
-      <li><%= f.input :start_date, as: :datepicker %></li>
-      <li><%= f.input :target_date, as: :datepicker %></li>
-      <li><%= f.input :deadline, as: :datepicker %></li>
-      <li><%= f.input :completion_date, as: :datepicker %></li>
+      <li><%= f.input :start_date, as: :datepicker, label: "Start Date" %></li>
+      <li><%= f.input :target_date, as: :datepicker, label: "Target Date" %></li>
+      <li><%= f.input :deadline, as: :datepicker, label: "Deadline" %></li>
+      <li><%= f.input :completion_date, as: :datepicker, label: "Completion Date" %></li>
     </ul>
     <span id="project_submit">
       <%= f.button :submit, "Create Project", :class => "button button-pill button-flat-primary" %>
