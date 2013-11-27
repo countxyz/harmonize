@@ -49,7 +49,7 @@ describe ProjectsController do
     end
 	end
 
-  describe "POST #create" do
+  describe "POST#create" do
     context "with valid attributes" do
       before :each do
         post :create, project: attributes_for(:project)
@@ -75,6 +75,28 @@ describe ProjectsController do
 
       it "renders the new project template again" do
         expect(response).to render_template :new
+      end
+    end
+  end
+
+  describe "PUT#update" do
+    before(:each) { @project = create(:project) }
+
+    context "with valid attributes" do
+      it "locates the requested @project" do
+        put :update, id: @project, project: attributes_for(:project)
+        expect(assigns(:project)).to eq(@project)
+      end
+
+      it "changes @project's attributes" do
+        put :update, id: @project, project: attributes_for(:project)
+        @project.reload
+        expect(assigns(:project)).to eq(@project)
+      end
+
+      it "redirects to the updated project" do
+        put :update, id: @project, project: attributes_for(:project)
+        expect(response).to redirect_to @project
       end
     end
   end
