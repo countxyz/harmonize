@@ -79,6 +79,20 @@ describe ProjectsController do
     end
   end
 
+  describe "GET#show" do
+    before(:each) { @project = create(:project) }
+
+    it "renders the :edit template" do
+      get :edit, id: @project
+      expect(response).to render_template("edit")
+    end
+
+    it "assigns the requested project to @project" do
+      get :edit, id: @project
+      expect(assigns(:project)).to eq(@project)
+    end
+  end
+
   describe "PUT#update" do
     before(:each) { @project = create(:project) }
 
