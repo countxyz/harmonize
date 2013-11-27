@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe ProjectsController do
-	let(:project) { Project.create(name: '1', status: 'Completed', priority: 'N/A') }
 
 	describe "GET#index" do
 		before :each do
@@ -17,20 +16,16 @@ describe ProjectsController do
 		end
 
 		it "loads all projects into @projects" do
-			project_1 = Project.create(name: '1', status: 'Completed', priority: 'N/A')
-			project_2 = Project.create(name: '2', status: 'Completed', priority: 'N/A')
-			expect(assigns(:projects)).to match_array([project_1, project_2])
+      project = create(:project)
+      expect(assigns(:projects)).to match_array [project]
 		end
 	end
 
   describe "GET#show" do
-    before(:each) do
-      @project = Project.create(id: 1, name: '1',
-                                status: 'Completed', priority: 'N/A')
-    end
+    before(:each) { @project = create(:project) }
 
     it "renders the :show template" do
-      get :show, id: 1
+      get :show, id: @project
       expect(response).to render_template("show")
     end
 
@@ -55,17 +50,15 @@ describe ProjectsController do
 	end
 
 	describe "DELETE#destroy" do
-		before :each do
-			allow(project).to receive(:destroy).and_return(true)
-			delete :destroy, id: project
-		end
+    before(:each) { @project = create(:project) }
 
 		it "deletes the project" do
-			expect(Project.exists?(project)).to be_false
+			expect{ delete :destroy, id: @project }.to change(Project, :count).by(-1)
 		end
 
 		it "redirects to Project#index" do
-			expect(response).to redirect_to projects_path
+      delete :destroy, id: @project
+			expect(response).to redirect_to projects_url
 		end
 	end
 end
