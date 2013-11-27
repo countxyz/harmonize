@@ -22,23 +22,22 @@ describe ProjectsController do
 	end
 
   describe "GET#show" do
-    before(:each) { @project = create(:project) }
+    before :each do 
+      @project = create(:project)
+      get :show, id: @project
+    end
 
     it "renders the :show template" do
-      get :show, id: @project
       expect(response).to render_template("show")
     end
 
     it "assigns the requested project to @project" do
-      get :show, id: @project
       expect(assigns(:project)).to eq(@project)
     end
   end
 
 	describe "GET#new" do
-		before :each do
-			get :new
-		end
+		before(:each) { get :new }
 
 		it "renders the :new template" do
 			expect(response).to render_template("new")
@@ -80,15 +79,16 @@ describe ProjectsController do
   end
 
   describe "GET#show" do
-    before(:each) { @project = create(:project) }
+    before :each do 
+      @project = create(:project)
+      get :edit, id: @project
+    end
 
     it "renders the :edit template" do
-      get :edit, id: @project
       expect(response).to render_template("edit")
     end
 
     it "assigns the requested project to @project" do
-      get :edit, id: @project
       expect(assigns(:project)).to eq(@project)
     end
   end
