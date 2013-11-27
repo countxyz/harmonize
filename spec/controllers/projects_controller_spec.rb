@@ -49,6 +49,37 @@ describe ProjectsController do
     end
 	end
 
+  describe "POST #create" do
+    context "with valid attributes" do
+      before :each do
+        post :create, project: attributes_for(:project)
+      end
+
+      it "creates a new project" do
+        expect(Project.exists?(assigns[:project])).to be_true
+      end
+
+      it "redirects to the new project" do
+        expect(response).to redirect_to Project.last
+      end
+    end
+
+    context "with invalid attributes" do
+      before :each do
+        post :create, project: attributes_for(:invalid_project)
+      end
+
+      it "does not save the new project" do
+        expect(Project.exists?(assigns[:project])).to be_false
+      end
+
+      it "renders the new project template again" do
+        expect(response).to render_template :new
+      end
+    end
+  end
+
+
 	describe "DELETE#destroy" do
     before(:each) { @project = create(:project) }
 

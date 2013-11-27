@@ -15,6 +15,10 @@ FactoryGirl.define do
       f.deadline        "2013-05-12"
       f.completion_date "2013-05-09"
       f.notes           "Completed mid-May. Client very satisfied"
+
+      factory :invalid_project do |f|
+        f.name nil
+      end
     end
   end
 end
