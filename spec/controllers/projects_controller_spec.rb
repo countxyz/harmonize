@@ -99,6 +99,24 @@ describe ProjectsController do
         expect(response).to redirect_to @project
       end
     end
+
+    context "with invalid attributes" do
+      it "locates the requested @project" do
+        put :update, id: @project, project: attributes_for(:invalid_project)
+        expect(assigns(:project)).to eq(@project)
+      end
+
+      it "does not change @project's attributes" do
+        put :update, id: @project, project: attributes_for(:invalid_project)
+        @project.reload
+        expect(assigns(:invalid_project)).to_not eq(@project)
+      end
+
+      it "renders the new project template again" do
+        put :update, id: @project, project: attributes_for(:invalid_project)
+        expect(response).to render_template :edit
+      end
+    end
   end
 
 
