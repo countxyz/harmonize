@@ -21,27 +21,38 @@ feature "Project management" do
     find_link("Delete Project").visible?
   end
 
-  # scenario "does not create a new project" do
-  #   visit new_project_path
-  #     click_link "Create Project"
-  #     expect(page).to have_text("Project has not been created.")
-  # end
+  scenario "does not create a new project", :js => true do
 
-  # scenario "edit a project" do
-  #   project = create(:project)
-  #   visit edit_project_path(project)
-  #     fill_in "Name", with: "b"
-  #     choose("Not Started")
-  #     choose("Low")
-  #     click_button "Update Project"
-  #     expect(page).to have_text("Project has been updated.")
-  # end
+    visit new_project_path
+    click_on "Create Project"
+    expect(page).to have_content("Project has not been created.")
+  end
+
+  scenario "it updates a project", :js => true do
+
+    project = create(:project)
+    visit edit_project_path(project)
+    fill_in "Name", with: "b"
+    click_on "Update Project"
+    expect(page).to have_content("Project has been updated.")
+    expect(current_path).to eq project_path(project)
+  end
+
+  scenario "it does not update a project", :js => true do
+
+    project = create(:project_all_fields)
+    visit edit_project_path(project)
+    fill_in "Start Date", with: "05/05/2013"
+    click_on "Update Project"
+    expect(page).to have_content("Project has not been updated.")
+  end
 
   scenario "delete a project" do
+
     project = create(:project)
     visit project_path(project)
-      click_link("Delete Project")
-      expect(page).to have_text("Project has been deleted.")
-      expect(current_path).to eq projects_path
+    click_link("Delete Project")
+    expect(page).to have_content("Project has been deleted.")
+    expect(current_path).to eq projects_path
   end
 end
