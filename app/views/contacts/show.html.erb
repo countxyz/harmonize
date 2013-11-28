@@ -1,12 +1,11 @@
-<% provide(:title, @contact.first_name) %>
+<% provide(:title, @contact.name) %>
 
 <% content_for :page_header do %>
 <h1>Details <small class="header_right">Contact</small></h1>
 <% end %>
 
-<h2><%= @contact.first_name %></h2>
+<h2><%= @contact.name %></h2>
 
 <p>First Name:    <%= @contact.first_name %>  </p>
 <p>Last Name:     <%= @contact.last_name %>   </p>
 <p>Email:         <%= @contact.email %>       </p>
-<p>Phone:         <%= @contact.phone %>       </p>

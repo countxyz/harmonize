@@ -9,10 +9,9 @@
   <legend class="bold_title">New Contact</legend>
 
     <ul>
-      <li><%= f.input :first_name %></li>
-      <li><%= f.input :last_name %></li>
+      <li><%= f.input :first_name,  label: "First Name" %></li>
+      <li><%= f.input :last_name,   label: "Last Name" %></li>
       <li><%= f.input :email %></li>
-      <li><%= f.input :phone, as: :tel %></li>
     </ul>
     <span id="project_submit">
       <%= f.button :submit, :class => "button button-pill button-flat-primary" %>
