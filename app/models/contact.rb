@@ -2,6 +2,8 @@ class Contact < ActiveRecord::Base
   has_one :phone
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  validate :secondary_email_cannot_be_email
+
   validates :first_name, :last_name, :email, presence: true
   validates :first_name, :last_name, length: { maximum: 30 }
   validates :email,
@@ -10,5 +12,11 @@ class Contact < ActiveRecord::Base
 
   def name
     [first_name, last_name].join(' ')
+  end
+
+  def secondary_email_cannot_be_email
+    if email == secondary_email
+      errors.add(:secondary_email, "can't be the same as email")
+    end
   end
 end

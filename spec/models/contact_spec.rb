@@ -10,6 +10,12 @@ describe Contact do
     expect(contact.name).to eq "John Doe"
   end
 
+  it "is invalid with a duplicate email" do
+    invalid_contact = build_stubbed(:contact, email: "firstemail@firstemail.com",
+                                    secondary_email: "firstemail@firstemail.com")
+    expect(invalid_contact).to_not be_valid
+  end
+
   describe "empty fields" do
     it "is invalid without a first name" do
       expect(build(:contact, first_name: nil)).to_not be_valid
