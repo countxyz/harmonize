@@ -47,7 +47,9 @@ describe Contact do
       expect(build(:contact, secondary_email: 'a' * 45 + "@a.com")).to_not be_valid
     end
 
-    it "is invalid when notes has more than 600 characters"
+    it "is invalid when notes has more than 600 characters" do
+      expect(build(:contact, notes: 'a' * 601)).to_not be_valid
+    end
   end
 
   describe "format" do
