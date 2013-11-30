@@ -7,8 +7,11 @@ feature "Contact management" do
     click_on "Contacts"
     click_on "New Contact"
     fill_in "First Name", with: "Art"
-    fill_in "Last Name", with: "Vandelay"
-    fill_in "Email", with: "artvandelay@vandelay.com"
+    fill_in "Last Name", with: "Vandalay"
+    within(".contact_email") do
+      fill_in "Email", :with => "artvandelay@vandalay.com"
+    end
+    fill_in "Secondary Email", with: "artshizzle@gmail.com"
     click_on "Create Contact"
     expect(page).to have_content("Contact has been created.")
   end

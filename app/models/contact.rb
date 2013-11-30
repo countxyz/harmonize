@@ -7,9 +7,10 @@ class Contact < ActiveRecord::Base
   validates :first_name, :last_name, :email, presence: true
   validates :first_name, :last_name, length: { maximum: 30 }
   validates :notes, length: { maximum: 600 }
-  validates :email, :secondary_email,
-            length: { maximum: 50 },
-            format: { with: VALID_EMAIL_REGEX }
+  validates :email, length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }
+  validates :secondary_email, presence: false, length: { maximum: 50 },
+                              allow_blank: true, 
+                              format: { with: VALID_EMAIL_REGEX }
 
   def name
     [first_name, last_name].join(' ')
