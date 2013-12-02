@@ -1,5 +1,6 @@
 class Contact < ActiveRecord::Base
   has_one :phone
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validate :secondary_email_cannot_be_email
@@ -11,6 +12,8 @@ class Contact < ActiveRecord::Base
   validates :secondary_email, presence: false, length: { maximum: 50 },
                               allow_blank: true, 
                               format: { with: VALID_EMAIL_REGEX }
+
+  accepts_nested_attributes_for :phone
 
   def name
     [first_name, last_name].join(' ')

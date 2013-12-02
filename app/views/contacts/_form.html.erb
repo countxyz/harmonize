@@ -9,11 +9,18 @@
   <legend class="bold_title">New Contact</legend>
 
     <ul>
-      <li><%= f.input :first_name,  label: "First Name" %></li>
-      <li><%= f.input :last_name,   label: "Last Name" %></li>
-      <li><%= f.input :email, label: "Email" %></li>
+      <li><%= f.input :first_name,      label: "First Name" %></li>
+      <li><%= f.input :last_name,       label: "Last Name" %></li>
+      <li><%= f.input :email,           label: "Email" %></li>
       <li><%= f.input :secondary_email, label: "Secondary Email"%></li>
       <li><%= f.input :notes, as: :text %></li>
+
+      <%= f.simple_fields_for :phones do |phones_form| %>
+        <li><%= phones_form.input :office,  required: false%></li>
+        <li><%= phones_form.input :mobile,  required: false %></li>
+        <li><%= phones_form.input :fax,     required: false %></li>
+        <li><%= phones_form.input :home,    required: false %></li>
+      <% end %>
     </ul>
     <span id="project_submit">
       <%= f.button :submit, :class => "button button-pill button-flat-primary" %>
