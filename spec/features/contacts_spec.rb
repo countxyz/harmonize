@@ -27,4 +27,14 @@ feature "Contact management" do
     click_on "Create Contact"
     expect(page).to have_content("Contact has not been created.")
   end
+
+  scenario "delete a contact" do
+    
+    contact = create(:contact)
+    create(:phone, contact: contact)
+    visit contact_path(contact)
+    click_link("Delete Contact")
+    expect(page).to have_content("Contact has been deleted.")
+    expect(current_path).to eq contacts_path
+  end
 end

@@ -14,3 +14,8 @@
 <p>Mobile:        <%= @phone.mobile %>        </p>
 <p>Fax:           <%= @phone.fax %>           </p>
 <p>Home:          <%= @phone.home %>          </p>
+
+<%= link_to 'Edit Contact', edit_contact_path(@contact) %>
+
+<%= link_to 'Delete Contact', @contact, :method => :delete,
+  data: { confirm: 'Are you sure you want to delete this contact?' } %>

@@ -2,9 +2,9 @@ FactoryGirl.define do
   factory :phone do
     association :contact
     contact_id 1
-    office "212-555-5555"
-    mobile "917-555-5555"
-    fax "718-555-5555"
-    home "516-555-5555"
+    office "2125555555"
+    mobile "9175555555"
+    fax "7185555555"
+    home "5165555555"
   end
 end
