@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  has_one :phone
+  has_one :phone, inverse_of: :contact
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

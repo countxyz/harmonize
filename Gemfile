@@ -19,6 +19,7 @@ group :development do
 	gem 'better_errors', '~> 1.0.1'
 	gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard-rspec', '~> 4.0.4'
+  gem 'spork-rails', '~> 4.0.0'
   gem 'guard-spork', '~> 1.5.1'
 end
 

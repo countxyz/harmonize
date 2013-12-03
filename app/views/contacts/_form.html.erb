@@ -15,11 +15,11 @@
       <li><%= f.input :secondary_email, label: "Secondary Email"%></li>
       <li><%= f.input :notes, as: :text %></li>
 
-      <%= f.simple_fields_for :phones do |phones_form| %>
-        <li><%= phones_form.input :office,  required: false%></li>
-        <li><%= phones_form.input :mobile,  required: false %></li>
-        <li><%= phones_form.input :fax,     required: false %></li>
-        <li><%= phones_form.input :home,    required: false %></li>
+      <%= f.simple_fields_for :phone do |ff| %>
+        <li><%= ff.input :office,  required: false%></li>
+        <li><%= ff.input :mobile,  required: false %></li>
+        <li><%= ff.input :fax,     required: false %></li>
+        <li><%= ff.input :home,    required: false %></li>
       <% end %>
     </ul>
     <span id="project_submit">
