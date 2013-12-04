@@ -5,6 +5,8 @@
  *= require style
  *= require sidenav
  *= require page_header
+ *= require fullcalendar
+ *= require calendar
  *= require jquery.ui.all
  *= require buttons
  *= require tables
