@@ -15,7 +15,7 @@ feature "Contact management" do
     fill_in "Notes", with: "The Vandalays are priority."
     fill_in "Office", with: "2125555555"
     fill_in "Mobile", with: "9175555555"
-    fill_in "Fax", with: "7185555555"
+    fill_in "Fax", with: "2125555556"
     fill_in "Home", with: "5165555555"
     click_on "Create Contact"
     expect(page).to have_content("Contact has been created.")

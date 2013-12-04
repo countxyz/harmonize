@@ -3,7 +3,7 @@ class Phone < ActiveRecord::Base
 
   VALID_PHONE_REGEX = /\d{10}/
 
-  validates :mobile, :office, :fax, :home, 
+  validates :office, :mobile, :fax, :home, 
             presence: false, 
             allow_blank: true,
             uniqueness: { scope: :contact_id },
