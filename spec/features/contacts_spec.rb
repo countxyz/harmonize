@@ -28,6 +28,27 @@ feature "Contact management" do
     expect(page).to have_content("Contact has not been created.")
   end
 
+  scenario "it updates a contact", :js => true do
+    
+    contact = create(:contact)
+    create(:phone, contact: contact)
+    visit edit_contact_path(contact)
+    fill_in "First Name", with: "b"
+    click_on "Update Contact"
+    expect(page).to have_content("Contact has been updated.")
+    expect(current_path).to eq contact_path(contact)
+  end
+
+  scenario "it does not update a contact", :js => true do
+
+    contact = create(:contact)
+    create(:phone, contact: contact)
+    visit edit_contact_path(contact)
+    fill_in "Mobile", with: "1"
+    click_on "Update Contact"
+    expect(page).to have_content("Contact has not been updated.")
+  end
+
   scenario "delete a contact" do
     
     contact = create(:contact)
