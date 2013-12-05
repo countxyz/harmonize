@@ -6,9 +6,9 @@ Project.create!(name: "Harmonize",
                 role: "Add contact model",
                 status: "Not Started",
                 priority: "High",
-                start_date: "11/12/2013",
-                target_date: "11/14/2013",
-                deadline: "11/18/2013",
+                start_date: "2013-11-12",
+                target_date: "2013-11-14",
+                deadline: "2013-11-18",
                 notes: "Ambitious target date, but try to finish by the end of
                        the week")
 
@@ -16,34 +16,34 @@ Project.create!(name: "Vandelay",
                 role: "Create Prototype",
                 status: "In Progress",
                 priority: "High",
-                start_date: "11/06/2013",
-                target_date: "11/16/2013",
-                deadline: "11/25/2013",
+                start_date: "2013-11-06",
+                target_date: "2013-11-16",
+                deadline: "2013-11-25",
                 notes: "Bring your A game with Vandelay")
 
 Project.create!(name: "MastaMindzLLC",
                 role: "Site",
                 status: "Completed",
                 priority: "N/A",
-                start_date: "05/01/2013",
-                completion_date: "05/15/2013",
+                start_date: "2013-05-01",
+                completion_date: "2013-05-15",
                 notes: "Completed mid-May. Client very satisfied")
 
 Project.create!(name: "Beneke Financials",
                role: "Tshoot customer view",
                status: "In Progress",
                priority: "Urgent",
-               start_date: "11/02/2013",
-               target_date: "11/12/2013",
-               deadline: "11/15/2013",
+               start_date: "2013-11-02",
+               target_date: "2013-11-12",
+               deadline: "2013-11-15",
                notes: "Need to wrap up this week.")
 
 Project.create!(name: "Bill Burr",
                 role: "Redo show listings",
                 status: "Not Started",
                 priority: "High",
-                target_date: "12/12/2013",
-                deadline: "12/15/2013",
+                target_date: "2013-12-12",
+                deadline: "2013-12-15",
                 notes: "Bill says this isn't too important, but for Bill, 
                        all priorities start at High")
 
@@ -51,7 +51,7 @@ Project.create!(name: "MastaMindzLLC",
                 role: "Update site content",
                 status: "Not Started",
                 priority: "Low",
-                target_date: "01/15/2014",
+                target_date: "2014-01-15",
                 notes: "Client has no rush. Whenever I get around to it.")
 
 # Contact data

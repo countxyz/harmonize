@@ -10,10 +10,10 @@ FactoryGirl.define do
       f.role            "Site"
       f.status          "Completed"
       f.priority        "N/A"
-      f.start_date      "05/01/2013"
-      f.target_date     "05/02/2013"
-      f.deadline        "05/03/2013"
-      f.completion_date "05/04/2013"
+      f.start_date      "2013-05-01"
+      f.target_date     "2013-05-02"
+      f.deadline        "2013-05-03"
+      f.completion_date "2013-05-04"
       f.notes           "Completed mid-May. Client very satisfied"
 
       factory :invalid_project do |f|

@@ -11,10 +11,10 @@ feature "Project management" do
     choose("project_status_completed")
     choose("project_priority_na")
     fill_in "Notes", with: "Bring your A game with Vandelay."
-    fill_in "Start Date", with: "10/01/2013"
-    fill_in "Target Date", with: "10/02/2013"
-    fill_in "Deadline", with: "10/03/2013"
-    fill_in "Completion Date", with: "10/04/2013"
+    fill_in "Start Date", with: "2013-10-01"
+    fill_in "Target Date", with: "2013-10-02"
+    fill_in "Deadline", with: "2013-10-03"
+    fill_in "Completion Date", with: "2013-10-04"
     click_on "Create Project" 
     expect(page).to have_content("Project has been created.")
     find_link("Edit Project").visible?
@@ -42,7 +42,7 @@ feature "Project management" do
 
     project = create(:project_all_fields)
     visit edit_project_path(project)
-    fill_in "Start Date", with: "05/05/2013"
+    fill_in "Start Date", with: "2013-05-05"
     click_on "Update Project"
     expect(page).to have_content("Project has not been updated.")
   end

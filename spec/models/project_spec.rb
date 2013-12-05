@@ -64,17 +64,17 @@ describe Project do
 
 	describe "invalid dates" do
 		it "cannot have a target date before start date" do
-			project = build(:project, start_date: "11/02/2013", target_date: "11/01/2013")
+			project = build(:project, start_date: "2013-11-02", target_date: "2013-11-01")
 			expect(project).to_not be_valid
 		end
 
 		it "cannot have a deadline before start date" do
-			project = build(:project, start_date: "11/02/2013", deadline: "11/01/2013")
+			project = build(:project, start_date: "2013-11-02", deadline: "2013-11-01")
 			expect(project).to_not be_valid
 	end
 
 		it "cannot be a date before start date" do
-			project = build(:project, start_date: "11/02/2013", completion_date: "11/01/2013")
+			project = build(:project, start_date: "2013-11-02", completion_date: "2013-11-01")
 			expect(project).to_not be_valid
 		end
 	end
