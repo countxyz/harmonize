@@ -17,6 +17,7 @@ feature "Project management" do
     fill_in "Completion Date", with: "2013-10-04"
     click_on "Create Project" 
     expect(page).to have_content("Project has been created.")
+    find_link("Back to Projects").visible?
     find_link("Edit Project").visible?
     find_link("Delete Project").visible?
   end
@@ -42,7 +43,7 @@ feature "Project management" do
 
     project = create(:project_all_fields)
     visit edit_project_path(project)
-    fill_in "Start Date", with: "2013-05-05"
+    fill_in "Start Date", with: "05/05/2013"
     click_on "Update Project"
     expect(page).to have_content("Project has not been updated.")
   end

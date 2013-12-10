@@ -57,7 +57,7 @@ describe Contact do
     it "is invalid with an incorrect email format" do
       addresses = %w[a@foo,com a_at_foo.org a.b@foo. a@b_baz.com foo@b+baz.com]
       addresses.each do |invalid_address|
-        expect(build(:contact, email: invalid_address)).to_not be_valid
+        expect(build(:just_contact, email: invalid_address)).to_not be_valid
       end
     end
 

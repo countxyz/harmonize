@@ -31,7 +31,6 @@ feature "Contact management" do
   scenario "it updates a contact", :js => true do
     
     contact = create(:contact)
-    create(:phone, contact: contact)
     visit edit_contact_path(contact)
     fill_in "First Name", with: "b"
     click_on "Update Contact"
@@ -42,7 +41,6 @@ feature "Contact management" do
   scenario "it does not update a contact", :js => true do
 
     contact = create(:contact)
-    create(:phone, contact: contact)
     visit edit_contact_path(contact)
     fill_in "Mobile", with: "1"
     click_on "Update Contact"
@@ -52,7 +50,6 @@ feature "Contact management" do
   scenario "delete a contact" do
     
     contact = create(:contact)
-    create(:phone, contact: contact)
     visit contact_path(contact)
     click_link("Delete Contact")
     expect(page).to have_content("Contact has been deleted.")
