@@ -43,6 +43,14 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def profile_date_format(date)
+    if date != "N/A"
+      date.strftime("%B %d, %Y")
+    else
+      date
+    end
+  end
+
   def completion_date
     self[:completion_date] || "N/A"
   end  

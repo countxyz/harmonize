@@ -6,14 +6,40 @@
 
 <h2><%= @project.name %></h2>
 
-<p>Role:            <%= @project.role %>            </p>
-<p>Status: 					<%= @project.status %>					</p>
-<p>Priority: 				<%= @project.priority %>				</p>
-<p>Start Date: 			<%= @project.start_date %>			</p>
-<p>Target Date: 		<%= @project.target_date %>			</p>
-<p>Deadline: 				<%= @project.deadline %>				</p>
-<p>Completion Date: <%= @project.completion_date %>	</p>
-<p>Notes: 					<%= @project.notes %>						</p>
+<table>
+  <tr>
+    <th>Role</th>
+    <td><%= @project.role %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <td><%= @project.status %></td>
+  </tr>
+  <tr>
+    <th>Priority</th>
+    <td><%= @project.priority %></td>
+  </tr>
+  <tr>
+    <th>Start Date</th>
+    <td><%= @project.profile_date_format(@project.start_date) %></td>
+  </tr>
+  <tr>
+    <th>Target Date</th>
+    <td><%= @project.profile_date_format(@project.target_date) %></td>
+  </tr>
+  <tr>
+    <th>Deadline</th>
+    <td><%= @project.profile_date_format(@project.deadline) %></td>
+  </tr>
+  <tr>
+    <th>Completion Date</th>
+    <td><%= @project.profile_date_format(@project.completion_date) %></td>
+  </tr>
+  <tr>
+    <th>Notes</th>   
+    <td><%= @project.notes %>
+  </tr>
+</table>
 
 <%= link_to 'Edit Project', edit_project_path(@project) %>
 
