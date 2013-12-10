@@ -4,7 +4,7 @@
 <h1>Index <small class="header_right">Contacts</small></h1>
 <% end %>
 
-<nav class="index_nav_links">
+<nav class="site_links">
   <ul>
     <li>
       <%= link_to root_path do %><i class="fa fa-home fa-2x"></i>
@@ -23,6 +23,8 @@
     <tr>
       <th scope="col">Contact Name</th>
       <th scope="col">Email</th>
+      <th scope="col">Office Phone</th>
+      <th scope="col">Mobile Phone</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -31,11 +33,11 @@
     <% @contacts.each do |contact| %>
     <tr>
     
-      <th class="bold_name" scope="row">
-        <%= contact.name %>
-      </th>
+      <th class="bold_name" scope="row"><%= contact.name %></th>
 
       <td><%= contact.email %></td>
+      <td><%= contact.phone.office %></td>
+      <td><%= contact.phone.mobile %></td>
       <td class="table_actions">
         <%= link_to 'Show', contact %><br />
         <%= link_to 'Edit', edit_contact_path(contact) %><br />
