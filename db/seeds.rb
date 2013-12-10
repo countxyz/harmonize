@@ -12,14 +12,14 @@ Project.create!(name: "Harmonize",
                 notes: "Ambitious target date, but try to finish by the end of
                        the week")
 
-Project.create!(name: "Vandelay",
+Project.create!(name: "Vandalay",
                 role: "Create Prototype",
                 status: "In Progress",
                 priority: "High",
                 start_date: "2013-11-06",
                 target_date: "2013-11-16",
                 deadline: "2013-11-25",
-                notes: "Bring your A game with Vandelay")
+                notes: "Bring your A game with Vandalay")
 
 Project.create!(name: "MastaMindzLLC",
                 role: "Site",
@@ -58,14 +58,17 @@ Project.create!(name: "MastaMindzLLC",
 
 Contact.delete_all
 
-contact_1 = Contact.create!(first_name: "Art", last_name: "Vandelay",
-                            email: "artvandalay@vandelayindustries.com")
+contact_1 = Contact.create!(first_name: "Art", last_name: "Vandalay",
+                            email: "artvandalay@vandalayindustries.com")
 
 contact_2 = Contact.create!(first_name: "Eleanor", last_name: "Rigby",
                             email: "erigby@applestudios.com")
 
 contact_3 = Contact.create!(first_name: "Bill", last_name: "Burr",
                             email: "redface@billburr.com")
+
+Contact.create!(first_name: "Theodore", last_name: "Vandelay",
+                email: "theovandalay@vandalayindustries.com")
 
 #Phone data
 

@@ -32,12 +32,11 @@
   <tbody>
     <% @contacts.each do |contact| %>
     <tr>
-    
       <th class="bold_name" scope="row"><%= contact.name %></th>
 
       <td><%= contact.email %></td>
-      <td><%= contact.phone.office %></td>
-      <td><%= contact.phone.mobile %></td>
+      <td><%= phone_format(contact.phone.office) %></td>
+      <td><%= phone_format(contact.phone.mobile) %></td>
       <td class="table_actions">
         <%= link_to 'Show', contact %><br />
         <%= link_to 'Edit', edit_contact_path(contact) %><br />
