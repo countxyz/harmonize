@@ -41,9 +41,9 @@
       <td><%= project.role %></td>
       <td><%= project.status %></td>
       <td><%= project.priority %></td>
-      <td><%= project.start_date %></td>
-      <td><%= project.deadline %></td>
-      <td><%= project.completion_date %></td>
+      <td><%= project.table_date_format(project.start_date) %></td>
+      <td><%= project.table_date_format(project.deadline) %></td>
+      <td><%= project.table_date_format(project.completion_date) %></td>
       <td class="table_actions">
         <%= link_to 'Show', project %><br />
         <%= link_to 'Edit', edit_project_path(project) %><br />

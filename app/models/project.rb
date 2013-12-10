@@ -35,6 +35,14 @@ class Project < ActiveRecord::Base
     self[:deadline] || "N/A"
   end
 
+  def table_date_format(date)
+    if date != "N/A"
+      date.strftime("%m/%d/%Y")
+    else
+      date
+    end
+  end
+
   def completion_date
     self[:completion_date] || "N/A"
   end  
