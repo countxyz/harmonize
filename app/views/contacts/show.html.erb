@@ -29,11 +29,11 @@
       </tr>
       <tr>
         <th>Secondary Email</th>   
-        <td class="profile_spacing"><%= @contact.secondary_email %></td>
+        <td class="profile_spacing"><%= data_format(@contact.secondary_email) %></td>
       </tr>
       <tr>
         <th>Notes</th>   
-        <td class="profile_spacing"><%= @contact.notes %></td>
+        <td class="profile_spacing"><%= data_format(@contact.notes) %></td>
       </tr>
     </tbody>
   </table>

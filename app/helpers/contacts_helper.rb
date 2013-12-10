@@ -7,4 +7,12 @@ module ContactsHelper
       number_to_phone(phone, area_code: true)
     end
   end
+
+  def data_format(data)
+    if data == nil || data.empty?
+      data = "N/A"
+    else
+      data
+    end
+  end
 end

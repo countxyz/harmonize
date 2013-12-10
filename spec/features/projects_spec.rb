@@ -17,9 +17,6 @@ feature "Project management" do
     fill_in "Completion Date", with: "2013-10-04"
     click_on "Create Project" 
     expect(page).to have_content("Project has been created.")
-    find_link("Back to Projects").visible?
-    find_link("Edit Project").visible?
-    find_link("Delete Project").visible?
   end
 
   scenario "does not create a new project", :js => true do
