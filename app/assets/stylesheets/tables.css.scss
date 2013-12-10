@@ -12,6 +12,18 @@ table {
   width: 90%;
 }
 
+div.table_container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+}
+
+table.profile {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+}
+
 table td,
 table th {
   padding: 5px;
@@ -35,3 +47,7 @@ tbody a { color: black; }
 tbody td.table_actions a { color: $blue-theme; }
 
 tbody td.table_actions a:hover { color: white; }
+
+td.profile_spacing {
+  padding: 15px;
+}
