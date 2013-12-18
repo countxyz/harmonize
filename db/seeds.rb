@@ -59,18 +59,24 @@ Project.create!(name: "MastaMindzLLC",
 Contact.delete_all
 
 contact_1 = Contact.create!(first_name: "Art", last_name: "Vandalay",
-                            email: "artvandalay@vandalayindustries.com")
+                            email: "artvandalay@vandalayindustries.com",
+                            secondary_email: "artshizzle@gmail.com",
+                            notes: "Arty is on it 24-7.")
 
 contact_2 = Contact.create!(first_name: "Eleanor", last_name: "Rigby",
-                            email: "erigby@applestudios.com")
+                            email: "erigby@applestudios.com",
+                            notes: "No calls after 9.")
 
 contact_3 = Contact.create!(first_name: "Bill", last_name: "Burr",
-                            email: "redface@billburr.com")
+                            email: "redface@billburr.com",
+                            notes: "Make sure you stay on top of his tour
+                                    schedule. It's a lot harder to get in
+                                    contact with him when he's away.")
 
-Contact.create!(first_name: "Theodore", last_name: "Vandelay",
-                email: "theovandalay@vandalayindustries.com")
+contact_4 = Contact.create!(first_name: "Thurston", last_name: "Howell",
+                            email: "tHowellIII@gilliganisle.com")
 
-#Phone data
+# Phone data
 
 Phone.delete_all
 
@@ -86,4 +92,8 @@ Phone.create!(contact: contact_2,
 
 Phone.create!(contact: contact_3,
               mobile:  "9175555555",
+              home:    "7185555555")
+
+Phone.create!(contact: contact_4,
+              fax:     "2125555555",
               home:    "7185555555")
