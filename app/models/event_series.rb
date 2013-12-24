@@ -4,7 +4,7 @@ class EventSeries < ActiveRecord::Base
   validates_presence_of :frequency, :period, :starttime, :endtime,
                         :title, :description
   
-  has_many :events, :dependent => :destroy
+  has_many :events, dependent: :destroy
 
   after_create :create_events_until_end_time
   

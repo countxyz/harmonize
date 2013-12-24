@@ -31,8 +31,6 @@ class EventsController < ApplicationController
     render :text => events.to_json
   end
   
-  
-  
   def move
     @event = Event.find_by_id params[:id]
     if @event

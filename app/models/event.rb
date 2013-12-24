@@ -6,13 +6,7 @@ class Event < ActiveRecord::Base
   
   belongs_to :event_series
   
-  REPEATS = [
-              "Does not repeat",
-              "Daily"          ,
-              "Weekly"         ,
-              "Monthly"        ,
-              "Yearly"         
-  ]
+  REPEATS = ["Does not repeat", "Daily", "Weekly", "Monthly", "Yearly"]
   
   def validate_timings
     if (starttime >= endtime) and !all_day
