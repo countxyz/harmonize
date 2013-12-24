@@ -2,7 +2,7 @@ class EventSeries < ActiveRecord::Base
   attr_accessor :title, :description, :commit_button
   
   validates_presence_of :frequency, :period, :starttime, :endtime
-  validates_presence_of :title, :description
+                        :title, :description
   
   has_many :events, :dependent => :destroy
 
