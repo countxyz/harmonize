@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20131201203614) do
+ActiveRecord::Schema.define(version: 20131224095202) do
 
   create_table "contacts", force: true do |t|
     t.string   "first_name"
@@ -8,6 +8,16 @@ ActiveRecord::Schema.define(version: 20131201203614) do
     t.datetime "updated_at"
     t.string   "secondary_email"
     t.text     "notes"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",     default: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "phones", force: true do |t|
