@@ -3,6 +3,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require fullcalendar
+//= require calendar
+//= require gcal
 //= require turbolinks
 //= require dates
-//= require calendar
