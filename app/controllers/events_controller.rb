@@ -7,20 +7,21 @@ class EventsController < ApplicationController
   
   def create
     if params[:event][:period] == "Does not repeat"
-      event = Event.new(event_params)
+      @event = Event.new(event_params)
     else
-      event = EventSeries.new(event_params)
+      @event = EventSeries.new(event_params)
     end
-    if event.save
-      render :nothing => true
+    if @event.save
+      flash[:notice] = "Event has been created."
+      redirect_to root_path
     else
-      render :text => event.errors.full_messages.to_sentence, :status => 422
+      flash[:alert] = "Event has not been created."
+      redirect_to :back
     end
   end
   
   def index   
   end
-  
   
   def get_events
     @events = Event.find(:all, :conditions => [
@@ -33,7 +34,7 @@ class EventsController < ApplicationController
   end
   
   def move
-    @event = Event.find_by_id params[:id]
+    @event = Event.find(params[:id])
     if @event
       @event.starttime = (params[:minute_delta].to_i).minutes.from_now(
         (params[:day_delta].to_i).days.from_now(@event.starttime))
