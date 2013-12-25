@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   
   def validate_timings
     if (starttime >= endtime) and !all_day
-      errors[:base] << "Start Time must be less than End Time"
+      errors[:base] << "Start Time must be before End Time"
     end
   end
   

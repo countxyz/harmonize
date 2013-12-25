@@ -1,8 +1,16 @@
 class EventsController < ApplicationController
+
+  def index   
+  end
   
   def new
     @event = Event.new(:endtime => 1.hour.from_now, :period => "Does not repeat")
     render :json => {:form => render_to_string(:partial => 'form')}
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    render :json => { :form => render_to_string(:partial => 'edit_form') } 
   end
   
   def create
@@ -19,8 +27,37 @@ class EventsController < ApplicationController
       redirect_to :back
     end
   end
-  
-  def index   
+
+  def update
+    @event = Event.find(params[:event][:id])
+    if params[:event][:commit_button] == "Update All Occurrence"
+      @events = @event.event_series.events
+      @event.update_events(@events, event_params)
+    elsif params[:event][:commit_button] == "Update All Following Occurrence"
+      @events = @event.event_series.events.find(
+        :all, :conditions => [
+        "starttime > '#{@event.starttime.to_formatted_s(:db)}' "])
+      @event.update_events(@events, event_params)
+    else
+      @event.attributes = event_params
+      @event.save
+    end
+    render :nothing => true    
+  end
+
+  def destroy
+    @event = Event.find_by_id(params[:id])
+    if params[:delete_all] == 'true'
+      @event.event_series.destroy
+    elsif params[:delete_all] == 'future'
+      @events = @event.event_series.events.find(
+        :all, :conditions => [
+        "starttime > '#{@event.starttime.to_formatted_s(:db)}' "])
+      @event.event_series.events.delete(@events)
+    else
+      @event.destroy
+    end
+    render :nothing => true   
   end
   
   def get_events
@@ -55,44 +92,7 @@ class EventsController < ApplicationController
       @event.save
     end    
     render :nothing => true
-  end
-  
-  def edit
-    @event = Event.find(params[:id])
-    render :json => { :form => render_to_string(:partial => 'edit_form') } 
-  end
-  
-  def update
-    @event = Event.find(params[:event][:id])
-    if params[:event][:commit_button] == "Update All Occurrence"
-      @events = @event.event_series.events
-      @event.update_events(@events, event_params)
-    elsif params[:event][:commit_button] == "Update All Following Occurrence"
-      @events = @event.event_series.events.find(
-        :all, :conditions => [
-        "starttime > '#{@event.starttime.to_formatted_s(:db)}' "])
-      @event.update_events(@events, event_params)
-    else
-      @event.attributes = event_params
-      @event.save
-    end
-    render :nothing => true    
   end  
-  
-  def destroy
-    @event = Event.find_by_id(params[:id])
-    if params[:delete_all] == 'true'
-      @event.event_series.destroy
-    elsif params[:delete_all] == 'future'
-      @events = @event.event_series.events.find(
-        :all, :conditions => [
-        "starttime > '#{@event.starttime.to_formatted_s(:db)}' "])
-      @event.event_series.events.delete(@events)
-    else
-      @event.destroy
-    end
-    render :nothing => true   
-  end
 
   private
     def event_params
