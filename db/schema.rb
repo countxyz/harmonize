@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20131224104938) do
+ActiveRecord::Schema.define(version: 20131224095202) do
 
   create_table "contacts", force: true do |t|
     t.string   "first_name"
@@ -10,28 +10,15 @@ ActiveRecord::Schema.define(version: 20131224104938) do
     t.text     "notes"
   end
 
-  create_table "event_series", force: true do |t|
-    t.integer  "frequency",  default: 1
-    t.string   "period",     default: "monthly"
-    t.datetime "starttime"
-    t.datetime "endtime"
-    t.boolean  "all_day",    default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "events", force: true do |t|
     t.string   "title"
     t.datetime "starttime"
     t.datetime "endtime"
-    t.boolean  "all_day",         default: false
+    t.boolean  "all_day",     default: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_series_id"
   end
-
-  add_index "events", ["event_series_id"], name: "index_events_on_event_series_id", using: :btree
 
   create_table "phones", force: true do |t|
     t.integer  "contact_id"
