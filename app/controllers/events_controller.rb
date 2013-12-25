@@ -8,11 +8,6 @@ class EventsController < ApplicationController
     render :json => {:form => render_to_string(:partial => 'form')}
   end
 
-  def edit
-    @event = Event.find(params[:id])
-    render :json => { :form => render_to_string(:partial => 'edit_form') } 
-  end
-  
   def create
     if params[:event][:period] == "Does not repeat"
       @event = Event.new(event_params)
@@ -28,8 +23,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    render :json => { :form => render_to_string(:partial => 'edit_form') } 
+  end
+
   def update
-    @event = Event.find(params[:event][:id])
+    @event = Event.find(params[:id])
     if params[:event][:commit_button] == "Update All Occurrence"
       @events = @event.event_series.events
       @event.update_events(@events, event_params)
