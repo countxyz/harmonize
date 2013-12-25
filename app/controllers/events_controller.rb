@@ -9,16 +9,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    if params[:event][:period] == "Does not repeat"
-      @event = Event.new(event_params)
-    else
-      @event = EventSeries.new(event_params)
-    end
+    @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "Event has been created."
+      flash[:notice] = "Event has been created"
       redirect_to root_path
     else
-      flash[:alert] = "Event has not been created."
+      flash[:alert] = "Event has not been created"
       redirect_to :back
     end
   end
@@ -30,34 +26,20 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if params[:event][:commit_button] == "Update All Occurrence"
-      @events = @event.event_series.events
-      @event.update_events(@events, event_params)
-    elsif params[:event][:commit_button] == "Update All Following Occurrence"
-      @events = @event.event_series.events.find(
-        :all, :conditions => [
-        "starttime > '#{@event.starttime.to_formatted_s(:db)}' "])
-      @event.update_events(@events, event_params)
+    if @event.update_attributes(event_params)
+      flash[:notice] = "Event has been updated"
+      redirect_to root_path
     else
-      @event.attributes = event_params
-      @event.save
-    end
-    render :nothing => true    
+      flash[:alert] = "Event has not been updated"
+      render :action => "edit"
+    end   
   end
 
   def destroy
-    @event = Event.find_by_id(params[:id])
-    if params[:delete_all] == 'true'
-      @event.event_series.destroy
-    elsif params[:delete_all] == 'future'
-      @events = @event.event_series.events.find(
-        :all, :conditions => [
-        "starttime > '#{@event.starttime.to_formatted_s(:db)}' "])
-      @event.event_series.events.delete(@events)
-    else
-      @event.destroy
-    end
-    render :nothing => true   
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:notice] = "Event has been deleted."
+    redirect_to root_path
   end
   
   def get_events
@@ -96,9 +78,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit('title', 'description', 'starttime(1i)', 
-        'starttime(2i)', 'starttime(3i)', 'starttime(4i)', 'starttime(5i)', 
-        'endtime(1i)', 'endtime(2i)', 'endtime(3i)', 'endtime(4i)', 
-        'endtime(5i)', 'all_day', 'period', 'frequency', 'commit_button')
+      params.require(:event).permit(:title, :description, 
+                                    :starttime, :endtime, :all_day)
     end  
 end

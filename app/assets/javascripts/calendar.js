@@ -63,29 +63,6 @@ function refetch_events_and_close_dialog() {
   $('.dialog:visible').dialog('destroy');
 }
 
-function showPeriodAndFrequency(value){
-  switch (value) {
-    case 'Daily':
-      $('#period').html('day');
-      $('#frequency').show();
-      break;
-    case 'Weekly':
-      $('#period').html('week');
-      $('#frequency').show();
-      break;
-    case 'Monthly':
-      $('#period').html('month');
-      $('#frequency').show();
-      break;
-    case 'Yearly':
-      $('#period').html('year');
-      $('#frequency').show();
-      break;      
-    default:
-      $('#frequency').hide();
-  }    
-}
-
 $(document).ready(function(){
   $('#new_event').click(function(event) {
     event.preventDefault();

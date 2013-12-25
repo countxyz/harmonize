@@ -4,10 +4,6 @@ class Event < ActiveRecord::Base
   validates_presence_of :title, :description
   validate :validate_timings
   
-  belongs_to :event_series
-  
-  REPEATS = ["Does not repeat", "Daily", "Weekly", "Monthly", "Yearly"]
-  
   def validate_timings
     if (starttime >= endtime) and !all_day
       errors[:base] << "Start Time must be before End Time"

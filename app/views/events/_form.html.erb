@@ -5,8 +5,6 @@
     <li><%= f.input :starttime,   as: :datetime, label: 'Start' %></li>
     <li><%= f.input :endtime,     as: :datetime, label: 'End'   %></li>
     <li><%= f.input :all_day,     as: :check_boxes              %></li>
-    <li><%= f.input :period,      collection: Event::REPEATS    %></li>
-    <li><%= f.input :frequency,   collection: 1..30             %></li>
   </ul>
   <span>
     <%= f.button :submit, class: "button button-pill button-flat-primary" %>
