@@ -1,57 +1,3 @@
-$(document).ready(function(){
-  $('#new_event').click(function(event) {
-    event.preventDefault();
-    var url = $(this).attr('href');
-    $.ajax({
-      url: url,
-      beforeSend: function() {
-        $('#loading').show();
-      },
-      complete: function() {
-        $('#loading').hide();
-      },
-      success: function(data) {
-        $('#create_event').replaceWith(data['form']);
-        $('#create_event_dialog').dialog({
-          title: 'New Event',
-          modal: true,
-          width: 500,
-          close: function(event, ui) { $('#create_event_dialog').dialog('destroy') }
-        });
-      }
-    });
-  });
-
-  $('#calendar').fullCalendar({
-    editable: true,
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek,agendaDay'
-    },
-    height: 500,
-    slotMinutes: 15,
-    loading: function(bool){
-      if (bool) 
-          $('#loading').show();
-      else 
-          $('#loading').hide();
-    },
-    events: "/events/get_events",
-    timeFormat: 'h:mm t{ - h:mm t} ',
-    dragOpacity: "0.5",
-    eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
-      moveEvent(event, dayDelta, minuteDelta, allDay);
-    },          
-    eventResize: function(event, dayDelta, minuteDelta, revertFunc){
-      resizeEvent(event, dayDelta, minuteDelta);
-    },          
-    eventClick: function(event, jsEvent, view){
-      showEventDetails(event);
-    },      
-  });
-});
-
 function moveEvent(event, dayDelta, minuteDelta, allDay){
   jQuery.ajax({
     data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay + '&authenticity_token=' + authenticity_token,
@@ -139,6 +85,60 @@ function showPeriodAndFrequency(value){
       $('#frequency').hide();
   }    
 }
+
+$(document).ready(function(){
+  $('#new_event').click(function(event) {
+    event.preventDefault();
+    var url = $(this).attr('href');
+    $.ajax({
+      url: url,
+      beforeSend: function() {
+        $('#loading').show();
+      },
+      complete: function() {
+        $('#loading').hide();
+      },
+      success: function(data) {
+        $('#create_event').replaceWith(data['form']);
+        $('#create_event_dialog').dialog({
+          title: 'New Event',
+          modal: true,
+          width: 500,
+          close: function(event, ui) { $('#create_event_dialog').dialog('destroy') }
+        });
+      }
+    });
+  });
+
+  $('#calendar').fullCalendar({
+    editable: true,
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    height: 500,
+    slotMinutes: 15,
+    loading: function(bool){
+      if (bool) 
+          $('#loading').show();
+      else 
+          $('#loading').hide();
+    },
+    events: "/events/get_events",
+    timeFormat: 'h:mm t{ - h:mm t} ',
+    dragOpacity: "0.5",
+    eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
+      moveEvent(event, dayDelta, minuteDelta, allDay);
+    },          
+    eventResize: function(event, dayDelta, minuteDelta, revertFunc){
+      resizeEvent(event, dayDelta, minuteDelta);
+    },          
+    eventClick: function(event, jsEvent, view){
+      showEventDetails(event);
+    },      
+  });
+});
 
 $(document).ready(function(){
   $('#create_event_dialog, #desc_dialog').on('submit', "#event_form", function(event) {
