@@ -8,10 +8,10 @@
     <li><%= f.input :period,      collection: Event::REPEATS    %></li>
     <li><%= f.input :frequency,   collection: 1..30             %></li>
   </ul>
-  <span id="project_submit">
+  <span>
     <%= f.button :submit, class: "button button-pill button-flat-primary" %>
   </span>
-  <span id="creating_events" class="spinner"style="display:none;">
-    Creating, Please wait...
+  <span id="creating_events" class="spinner" style="display:none;">
+    Creating, Please Wait...
   </span>
 <%end %>
