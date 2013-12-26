@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
   
   def new
-    @event = Event.new(:endtime => 1.hour.from_now, :period => "Does not repeat")
+    @event = Event.new(:end_time => 1.hour.from_now)
     render :json => {:form => render_to_string(:partial => 'form')}
   end
 
@@ -49,6 +49,6 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:title, :description, 
-                                    :starttime, :endtime, :all_day)
+                                    :start_time, :end_time, :all_day)
     end  
 end
