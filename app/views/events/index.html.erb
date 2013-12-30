@@ -4,17 +4,7 @@
   <h1>Overview <small class="header_right">Home</small></h1>
 <% end %>
 
-<%=link_to 'Create Event', new_event_url, :id => 'new_event' %>
+<%=link_to 'Create Event', new_event_path,
+   class: "button button-pill button-flat-primary" %>
 
 <section id="calendar"></section>
-
-<section id="desc_dialog" class="dialog">
-  <section id="event_desc"></section>
-  <section id="event_actions">
-    <span id="edit_event"></span>
-    <span id="delete_event"></span>
-  </section>
-</section>
-<section id="create_event_dialog" class="dialog">
-  <section id="create_event"></section>
-</section>
