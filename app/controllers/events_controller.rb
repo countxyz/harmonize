@@ -8,8 +8,7 @@ class EventsController < ApplicationController
   end
   
   def new
-    @event = Event.new(:end_time => 1.hour.from_now)
-    render :json => {:form => render_to_string(:partial => 'form')}
+    @event = Event.new
   end
 
   def create

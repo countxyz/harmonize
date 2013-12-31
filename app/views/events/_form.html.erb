@@ -1,12 +1,21 @@
+<details class="form_info required">
+  * Fields Required
+</details>
+
 <%= simple_form_for @event do |f| %>
-  <ul>
-    <li><%= f.input :title                                       %></li>
-    <li><%= f.input :description, as: :text                      %></li>
-    <li><%= f.input :start_time,  as: :datetime,  label: 'Start' %></li>
-    <li><%= f.input :end_time,    as: :datetime,  label: 'End'   %></li>
-    <li><%= f.input :all_day,     as: :check_boxes               %></li>
-  </ul>
-  <span>
-    <%= f.button :submit, class: "button button-pill button-flat-primary" %>
-  </span>
+<form>
+  <fieldset>
+  <legend class="bold_title">New Contact</legend>
+    <ul>
+      <li><%= f.input :title                                          %></li>
+      <li><%= f.input :description, as: :text                         %></li>
+      <li><%= f.input :start_time,  as: :datetime,  label: 'Start'    %></li>
+      <li><%= f.input :end_time,    as: :datetime,  label: 'End'      %></li>
+      <li><%= f.input :all_day,     as: :boolean,   label: 'All Day'  %></li>
+    </ul>
+    <span>
+      <%= f.button :submit, class: "button button-pill button-flat-primary" %>
+    </span>
+  </fieldset>
+</form>
 <%end %>
