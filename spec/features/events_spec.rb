@@ -46,4 +46,13 @@ feature 'Event management' do
     click_on 'Update Event'
     expect(page).to have_content('Event has not been updated')
   end
+
+  scenario 'delete an event' do
+
+    event = create(:event)
+    visit event_path(event)
+    click_link('Delete Event')
+    expect(page).to have_content('Event has been deleted')
+    expect(current_path).to eq root_path
+  end
 end
