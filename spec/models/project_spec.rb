@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Project do
-
+	let(:project) { FactoryGirl.create :project }
+	
 	it 'has a valid factory' do
 		expect(create(:project)).to be_valid
 	end
@@ -23,19 +24,19 @@ describe Project do
 			expect(build(:project, priority: nil)).to_not be_valid
 		end
 
-		it 'is valid for start date and returns 'N/A' when not provided' do
+		it "is valid for start date and returns 'N/A' when not provided" do
 			expect(project.start_date).to eq 'N/A'
 		end
 
-		it 'is valid for target date and returns 'N/A' when not provided' do
+		it "is valid for target date and returns 'N/A' when not provided" do
 			expect(project.target_date).to eq 'N/A'
 		end
 
-		it 'is valid for deadline and returns 'N/A' when not provided' do
+		it "is valid for deadline and returns 'N/A' when not provided" do
 			expect(project.deadline).to eq 'N/A'
 		end
 
-		it 'is valid for completion date and returns 'N/A' when not provided' do
+		it "is valid for completion date and returns 'N/A' when not provided" do
 			expect(project.completion_date).to eq 'N/A'
 		end
 

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Event do
+  let(:event) { FactoryGirl.create :event }
 
   it 'has a valid factory' do
     expect(create(:event)).to be_valid
@@ -16,6 +17,10 @@ describe Event do
     end
 
     it 'is invalid when start_time is not provided' do
+      expect(build(:no_dates)).to_not be_valid
+    end
+
+    it 'is invalid when end_time is not provided' do
       expect(build(:no_dates)).to_not be_valid
     end
   end
