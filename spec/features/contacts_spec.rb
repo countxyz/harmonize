@@ -18,14 +18,14 @@ feature 'Contact management' do
     fill_in 'Fax', with: '2125555556'
     fill_in 'Home', with: '5165555555'
     click_on 'Create Contact'
-    expect(page).to have_content('Contact has been created.')
+    expect(page).to have_content('Contact has been created')
   end
 
   scenario 'does not create a new contact', :js => true do
 
     visit new_contact_path
     click_on 'Create Contact'
-    expect(page).to have_content('Contact has not been created.')
+    expect(page).to have_content('Contact has not been created')
   end
 
   scenario 'it updates a contact', :js => true do
@@ -34,7 +34,7 @@ feature 'Contact management' do
     visit edit_contact_path(contact)
     fill_in 'First Name', with: 'b'
     click_on 'Update Contact'
-    expect(page).to have_content('Contact has been updated.')
+    expect(page).to have_content('Contact has been updated')
     expect(current_path).to eq contact_path(contact)
   end
 
@@ -44,7 +44,7 @@ feature 'Contact management' do
     visit edit_contact_path(contact)
     fill_in 'Mobile', with: '1'
     click_on 'Update Contact'
-    expect(page).to have_content('Contact has not been updated.')
+    expect(page).to have_content('Contact has not been updated')
   end
 
   scenario 'delete a contact' do
@@ -52,7 +52,7 @@ feature 'Contact management' do
     contact = create(:contact)
     visit contact_path(contact)
     click_link('Delete Contact')
-    expect(page).to have_content('Contact has been deleted.')
+    expect(page).to have_content('Contact has been deleted')
     expect(current_path).to eq contacts_path
   end
 end

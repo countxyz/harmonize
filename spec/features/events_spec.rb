@@ -21,4 +21,11 @@ feature 'Event management' do
     click_on 'Create Event'
     expect(page).to have_content('Event has been created')
   end
+
+  scenario 'does not create a new event', :js => true do
+
+    visit new_event_path
+    click_on 'Create Event'
+    expect(page).to have_content('Event has not been created')
+  end
 end

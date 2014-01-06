@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = "Event has not been created"
-      redirect_to :back
+      render :action => "new"
     end
   end
 
