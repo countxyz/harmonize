@@ -28,4 +28,9 @@ feature 'Event management' do
     click_on 'Create Event'
     expect(page).to have_content('Event has not been created')
   end
+
+  scenario 'it updates a contact', :js => true do
+    event = create(:event)
+  end
+
 end
