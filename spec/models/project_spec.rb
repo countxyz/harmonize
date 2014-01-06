@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Project do
-	let(:project) { FactoryGirl.create :project }
 
 	it 'has a valid factory' do
 		expect(create(:project)).to be_valid
