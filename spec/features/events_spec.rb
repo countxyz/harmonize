@@ -29,8 +29,21 @@ feature 'Event management' do
     expect(page).to have_content('Event has not been created')
   end
 
-  scenario 'it updates a contact', :js => true do
+  scenario 'it updates an event', :js => true do
     event = create(:event)
+    visit edit_event_path(event)
+    fill_in 'Title', with: 'b'
+    click_on 'Update Event'
+    expect(page).to have_content('Event has been updated')
+    expect(current_path).to eq root_path
   end
 
+  scenario 'it does not update an event', :js => true do
+
+    event = create(:event)
+    visit edit_event_path(event)
+    fill_in 'Title', with: ''
+    click_on 'Update Event'
+    expect(page).to have_content('Event has not been updated')
+  end
 end

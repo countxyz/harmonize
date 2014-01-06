@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
   end
   
   def new
@@ -24,7 +25,6 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    render :json => { :form => render_to_string(:partial => 'edit_form') } 
   end
 
   def update

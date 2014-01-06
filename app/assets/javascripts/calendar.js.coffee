@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'ready page:load', ->
   $('#calendar').fullCalendar
     editable: true,
     header:
@@ -25,4 +25,3 @@ updateEvent = (the_event) ->
       description: the_event.description,
       start_time: "" + the_event.start,
       end_time: "" + the_event.end
-      
