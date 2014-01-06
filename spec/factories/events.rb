@@ -10,6 +10,5 @@ FactoryGirl.define do
   factory :no_dates, class: Event do
     title 'No Dates'
     description 'I have no dates'
-    all_day false
   end
 end

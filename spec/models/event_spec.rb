@@ -23,6 +23,10 @@ describe Event do
     it 'is invalid when end_time is not provided' do
       expect(build(:no_dates)).to_not be_valid
     end
+
+    it 'is invalid when all_day is not provided' do
+      expect(build(:no_dates)).to_not be_valid
+    end
   end
 
   describe 'invalid dates' do
