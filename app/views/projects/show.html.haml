@@ -1,0 +1,62 @@
+- provide(:title, @project.name)
+- content_for :page_header do
+  %h1
+    Details
+    %span.header_right Projects
+
+%h2.center= @project.name
+
+.table_container
+  %table#project_details.profile
+    %thead
+      %tr
+        %th{colspan: "2"} Project Details
+    %tbody
+      %tr
+        %th Role
+        %td.profile_spacing= @project.role
+      %tr
+        %th Status
+        %td.profile_spacing= @project.status
+      %tr
+        %th Priority
+        %td.profile_spacing= @project.priority
+      %tr
+        %th Notes
+        %td.profile_spacing= @project.notes
+
+  %table.profile
+    %thead
+      %tr
+        %th{colspan: "2"} Project Dates
+    %tbody
+      %tr
+        %th Start Date
+        %td.profile_spacing
+          = @project.profile_date_format(@project.start_date)
+      %tr
+        %th Target Date
+        %td.profile_spacing
+          = @project.profile_date_format(@project.target_date)
+      %tr
+        %th Deadline
+        %td.profile_spacing
+          = @project.profile_date_format(@project.deadline)
+      %tr
+        %th Completion Date
+        %td.profile_spacing
+          = @project.profile_date_format(@project.completion_date)
+
+%nav.site_links
+  %ul
+    %li
+      = link_to 'Edit Project', edit_project_path(@project), |
+        class: "button button-pill button-flat-primary"      |
+    %li
+      = link_to 'Delete Project', @project,                                |
+        class: "button button-pill button-flat-primary",                   |
+        :method => :delete,                                                |
+        data: { confirm: 'Are you sure you want to delete this project?' } |
+    %li
+      = link_to "Back to Projects", projects_path,      |
+        class: "button button-pill button-flat-primary" |

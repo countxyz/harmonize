@@ -1,0 +1,9 @@
+- provide(:title, 'Home')
+- content_for :page_header do
+  %h1
+    Overview
+    %span.header_right Home
+
+= link_to 'Create Event', new_event_path,         |
+  class: "button button-pill button-flat-primary" |
+%section#calendar

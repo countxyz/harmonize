@@ -1,0 +1,15 @@
+%details.form_info.required
+  * Fields Required
+
+= simple_form_for @event do |f|
+  %form
+    %fieldset
+      %legend.bold_title New Contact
+      %ul
+        %li= f.input :title
+        %li= f.input :description, as: :text
+        %li= f.input :start_time,  as: :datetime,  label: 'Start'
+        %li= f.input :end_time,    as: :datetime,  label: 'End'
+        %li= f.input :all_day,     as: :boolean,   label: 'All Day'
+      %span
+        = f.button :submit, class: "button button-pill button-flat-primary"

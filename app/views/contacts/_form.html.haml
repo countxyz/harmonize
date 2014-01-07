@@ -1,0 +1,20 @@
+%details.form_info.required
+  * Fields Required
+  
+= simple_form_for @contact do |f|
+  %form
+    %fieldset
+      %legend.bold_title New Contact
+      %ul
+        %li= f.input :first_name,      label: "First Name"
+        %li= f.input :last_name,       label: "Last Name"
+        %li= f.input :email,           label: "Email"
+        %li= f.input :secondary_email, label: "Secondary Email"
+        %li= f.input :notes, as: :text
+        = f.simple_fields_for :phone do |ff|
+          %li= ff.input :office,  required: false
+          %li= ff.input :mobile,  required: false
+          %li= ff.input :fax,     required: false
+          %li= ff.input :home,    required: false
+      %span
+        = f.button :submit, :class => "button button-pill button-flat-primary"

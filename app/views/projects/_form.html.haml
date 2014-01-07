@@ -1,0 +1,31 @@
+%details.form_info.required
+  * Fields Required
+
+= simple_form_for @project do |f|
+  %form#new_project
+    %fieldset#new_details.projects
+      %legend.bold_title Project Details
+      %ul.flex_details
+        %li.details_item
+          = f.input :name
+        %li.details_radio
+          = f.input :status, as: :radio_buttons, |
+            collection: Project::STATUS_OPTIONS  |
+      %ul.flex_details
+        %li.details_item
+          = f.input :role
+        %li.details_radio
+          = f.input :priority, as: :radio_buttons, |
+            collection: Project::PRIORITY_OPTIONS  |
+      = f.input :notes, as: :text
+    %fieldset#dates.projects
+      %legend.bold_title{align: "right"} Project Dates
+      %details#date.form_info
+        Dates must have Month, Day, and Year to be saved
+      %ul.flex_dates
+        %li= f.input :start_date, as: :datepicker, label: "Start Date"
+        %li= f.input :target_date, as: :datepicker, label: "Target Date"
+        %li= f.input :deadline, as: :datepicker, label: "Deadline"
+        %li= f.input :completion_date, as: :datepicker, label: "Completion Date"
+      %span#project_submit
+        = f.button :submit, class: "button button-pill button-flat-primary"

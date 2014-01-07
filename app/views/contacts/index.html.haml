@@ -1,0 +1,37 @@
+- provide(:title, 'Contacts Index')
+- content_for :page_header do
+  %h1
+    Index
+    %span.header_right Contacts
+
+%nav.site_links
+  %ul
+    %li
+      = link_to root_path do
+        %i.fa.fa-home.fa-2x
+    %li
+      = link_to "New Contact", new_contact_path,        |
+        class: "button button-pill button-flat-primary" |
+
+%table
+  %thead
+    %tr
+      %th{scope: "col"} Contact Name
+      %th{scope: "col"} Email
+      %th{scope: "col"} Office Phone
+      %th{scope: "col"} Mobile Phone
+      %th{scope: "col"} Actions
+  %tbody
+    - @contacts.each do |contact|
+      %tr
+        %th.bold_name{scope: "row"}= contact.name
+        %td= contact.email
+        %td= phone_format(contact.phone.office)
+        %td= phone_format(contact.phone.mobile)
+        %td.table_actions
+          = link_to 'Show', contact
+          %br/
+          = link_to 'Edit', edit_contact_path(contact)
+          %br/
+          = link_to 'Delete', contact, method: :delete, |
+            data: { :confirm => 'Are you sure?' }       |

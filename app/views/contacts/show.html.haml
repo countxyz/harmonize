@@ -1,0 +1,61 @@
+- provide(:title, @contact.name)
+- content_for :page_header do
+  %h1
+    Details
+    %span.header_right Contact
+
+%h2.center= @contact.name
+
+.table_container
+  %table#project_details.profile
+    %thead
+      %tr
+        %th{colspan: "2"} Contact Details
+    %tbody
+      %tr
+        %th First Name
+        %td.profile_spacing= @contact.first_name
+      %tr
+        %th Last Name
+        %td.profile_spacing= @contact.last_name
+      %tr
+        %th Email
+        %td.profile_spacing= @contact.email
+      %tr
+        %th Secondary Email
+        %td.profile_spacing= data_format(@contact.secondary_email)
+      %tr
+        %th Notes
+        %td.profile_spacing= data_format(@contact.notes)
+
+  %table.profile
+    %thead
+      %tr
+        %th{colspan: "2"} Contact Phones
+    %tbody
+      %tr
+        %th Office Phone
+        %td.profile_spacing= phone_format(@phone.office)
+      %tr
+        %th Mobile Phone
+        %td.profile_spacing= phone_format(@phone.mobile)
+      %tr
+        %th Fax Phone
+        %td.profile_spacing= phone_format(@phone.fax)
+      %tr
+        %th Home Phone
+        %td.profile_spacing= phone_format(@phone.home)
+
+%nav.site_links
+  %ul
+    %li
+      = link_to 'Edit Contact', edit_contact_path(@contact), |
+        class: "button button-pill button-flat-primary"      |
+    %li
+      = link_to 'Delete Contact', @contact,                                |
+        class: "button button-pill button-flat-primary",                   |
+        :method => :delete,                                                |
+        data: { confirm: 'Are you sure you want to delete this contact?' } |
+    %li
+      = link_to "Back to Contacts", contacts_path,      |
+        class: "button button-pill button-flat-primary" |
