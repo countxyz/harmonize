@@ -14,7 +14,6 @@ gem 'turbolinks', '~> 2.2.1'
 gem 'rabl', '~> 0.9.3'
 gem 'json', '~> 1.8.1'
 gem 'jbuilder', '~> 2.0.3'
-gem 'dynamic_form', '~> 1.1.4'
 gem 'simple_form', '~> 3.0.0'
 gem 'font-awesome-sass', '~> 4.0.2'
 
