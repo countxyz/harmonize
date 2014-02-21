@@ -9,14 +9,14 @@
         %li.details_item
           = f.input :name
         %li.details_radio
-          = f.input :status, as: :radio_buttons, |
-            collection: Project::STATUS_OPTIONS  |
+          = f.input :status, as: :radio_buttons,
+            collection: Project::STATUS_OPTIONS
       %ul.flex_details
         %li.details_item
           = f.input :role
         %li.details_radio
-          = f.input :priority, as: :radio_buttons, |
-            collection: Project::PRIORITY_OPTIONS  |
+          = f.input :priority, as: :radio_buttons,
+            collection: Project::PRIORITY_OPTIONS
       = f.input :notes, as: :text
     %fieldset#dates.projects
       %legend.bold_title{align: "right"} Project Dates
