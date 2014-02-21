@@ -14,3 +14,9 @@
   %li
     = link_to 'Events', events_path,
       class: 'button button-pill button-flat-primary'
+  %li
+    = link_to 'About', about_path,
+      class: 'button button-pill button-flat-primary'
+
+%footer#sidenav_footer
+  = link_to(image_tag("license/wtfpl-badge-2.png", id: 'license'), about_path)

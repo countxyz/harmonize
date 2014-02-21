@@ -20,6 +20,26 @@ nav#sidenav {
   width: 250px;
 }
 
+nav.site_links {
+  left: 500px;
+  height: 50px;
+  width: 90%;
+
+  ul li { 
+    display: inline;
+    float: right;
+    padding: 10px;
+
+    a i { color: black; }
+  }
+}
+
+footer#sidenav_footer {
+  position: fixed;
+  bottom: 0;
+  width: 250px;
+}
+
 /* main */
 
 div#main {
@@ -39,19 +59,3 @@ section#notifications { height: 50px; }
 /* content */
 
 section#content { margin-left: 50px; }
-
-/* nav links */
-
-nav.site_links {
-  left: 500px;
-  height: 50px;
-  width: 90%;
-
-  ul li { 
-    display: inline;
-    float: right;
-    padding: 10px;
-
-    a i { color: black; }
-  }
-}
