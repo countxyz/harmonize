@@ -1,6 +1,6 @@
 Harmonize::Application.routes.draw do
 
-  root :to => 'events#index'
+  root :to => 'dashboard#index'
 
   resources :projects, :contacts, :events
 end
