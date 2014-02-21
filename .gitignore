@@ -4,5 +4,4 @@
 *~
 database.yml
 .secret
-.rvmrc
 .rspec
