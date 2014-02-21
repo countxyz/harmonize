@@ -18,7 +18,7 @@ gem 'simple_form', '~> 3.0.0'
 gem 'font-awesome-sass', '~> 4.0.2'
 
 group :development do
-  gem 'better_errors', '~> 1.0.1'
+  gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard-rspec', '~> 4.0.4'
   gem 'spork-rails', '~> 4.0.0'

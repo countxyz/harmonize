@@ -27,7 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.14)
-    better_errors (1.0.1)
+    better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
@@ -222,7 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors (~> 1.0.1)
+  better_errors (~> 1.1.0)
   binding_of_caller (~> 0.7.2)
   capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0)
