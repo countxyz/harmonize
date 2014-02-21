@@ -21,8 +21,6 @@ group :development do
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard-rspec', '~> 4.2.6'
-  gem 'spork-rails', '~> 4.0.0'
-  gem 'guard-spork', '~> 1.5.1'
 end
 
 group :development, :test do
