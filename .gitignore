@@ -9,3 +9,5 @@ database.yml
 .ruby-version
 zeus.json
 custom_plan.rb
+.env
+Procfile
