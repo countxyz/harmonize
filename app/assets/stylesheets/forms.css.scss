@@ -34,6 +34,7 @@ fieldset.projects {
 }
 
 fieldset.projects#new_details {
+  textarea { width: 450px; }
   ul {
     &.flex_details {
       display: flex;
@@ -51,13 +52,12 @@ fieldset.projects#new_details {
           justify-content: space-around;
         }
           input { width: 300px; }
+          // textarea { width: 450px;}
         &.details_radio { padding-left: 50px; }
       }
     }
   }
 }
-
-fieldset.projects#new_details textarea { width: 450px; }
 
 fieldset.projects#dates {
   width: 200px;
