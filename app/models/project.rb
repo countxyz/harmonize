@@ -5,23 +5,16 @@ class Project < ActiveRecord::Base
   validate :deadline_cannot_be_earlier_than_start_date
   validate :target_date_cannot_be_earlier_than_start_date
   validate :completion_date_cannot_be_earlier_than_start_date
-
-  validates :name, :role, :status, :priority, presence: true
   
-  validates :name, 
-            length: { maximum: 50 }
+  validates :name, length: { maximum: 50 }, presence: true
 
-  validates :role, 
-            length: { maximum: 100 }
+  validates :role, length: { maximum: 100 }, presence: true
   
-  validates :status, 
-            inclusion: STATUS_OPTIONS
+  validates :status, inclusion: STATUS_OPTIONS, presence: true
 
-  validates :priority,
-            inclusion: PRIORITY_OPTIONS
+  validates :priority, inclusion: PRIORITY_OPTIONS, presence: true
 
-  validates :notes,
-            length: { maximum: 1000 }
+  validates :notes, length: { maximum: 1000 }
 
   def start_date
     self[:start_date] || "N/A"
