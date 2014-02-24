@@ -1,7 +1,7 @@
 %details.form_info.required
   * Fields Required
 
-= simple_form_for @project do |f|
+= simple_form_for @project, html: { multipart: true } do |f|
   %form#new_project
     %fieldset#new_details.projects
       %legend.bold_title Project Details
@@ -15,12 +15,13 @@
       %ul.flex_details
         %li.details_item
           = f.input :role, input_html: { maxlength: 100 }
+          = f.input :image, as: :file
         %li.details_radio
           = f.input :priority, as: :radio_buttons,
             collection: Project::PRIORITY_OPTIONS
       = f.input :notes, as: :text, input_html: { rows: 4, maxlength: 1000 }
     %fieldset#dates.projects
-      %legend.bold_title{align: "right"} Project Dates
+      %legend.bold_title{align: 'right'} Project Dates
       %details#date.form_info
         Dates must have Month, Day, and Year to be saved
       %ul.flex_dates
