@@ -17,26 +17,26 @@ class Project < ActiveRecord::Base
   validates :notes, length: { maximum: 1000 }
 
   def target_date_cannot_be_earlier_than_start_date
-    unless start_date == "N/A" || target_date == "N/A"
-      if target_date < start_date
-        errors.add(:target_date, "can't be before start date")
-      end
+    unless start_date.nil? || target_date.nil?
+      start_date_error if target_date < start_date
     end
   end
 
   def deadline_cannot_be_earlier_than_start_date
-    unless start_date == "N/A" || deadline == "N/A"
-      if deadline < start_date
-        errors.add(:deadline, "can't be before start date")
-      end
+    unless start_date.nil? || deadline.nil?
+      start_date_error if deadline < start_date
     end
   end
 
   def completion_date_cannot_be_earlier_than_start_date
-    unless start_date == "N/A" || completion_date == "N/A"
-      if completion_date < start_date
-        errors.add(:completion_date, "can't be before start date")
-      end
+    unless start_date.nil? || completion_date.nil?
+      start_date_error if completion_date < start_date
     end
   end
+
+  private
+
+    def start_date_error
+      errors.add(:target_date, "can't be before start date")
+    end
 end
