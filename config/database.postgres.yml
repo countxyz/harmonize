@@ -1,0 +1,19 @@
+development: &development
+  adapter: postgresql
+  encoding: unicode
+  database: harmonize_development
+  pool: 5
+
+test:
+  <<: *development
+  database: harmonize_test
+  pool: 5
+
+staging:
+  <<: *development
+  database: harmonize_staging
+
+production:
+  <<: *development
+  database: harmonize_production
+  pool: 5
