@@ -7,17 +7,17 @@
       %legend.bold_title Project Details
       %ul.flex_details
         %li.details_item
-          = f.input :name
+          = f.input :name, input_html: { maxlength: 50 }
         %li.details_radio
           = f.input :status, as: :radio_buttons,
             collection: Project::STATUS_OPTIONS
       %ul.flex_details
         %li.details_item
-          = f.input :role
+          = f.input :role, input_html: { maxlength: 100 }
         %li.details_radio
           = f.input :priority, as: :radio_buttons,
             collection: Project::PRIORITY_OPTIONS
-      = f.input :notes, as: :text
+      = f.input :notes, as: :text, input_html: { rows: 4 }
     %fieldset#dates.projects
       %legend.bold_title{align: "right"} Project Dates
       %details#date.form_info
