@@ -18,6 +18,9 @@ class Project < ActiveRecord::Base
 
   validates :notes, length: { maximum: 1000 }
 
+  has_attached_file :image, styles: { small: '100x100', medium: '200x200',
+                                      large: '300x300' }
+
   def target_date_cannot_be_earlier_than_start_date
     unless start_date.nil? || target_date.nil?
       start_date_error if target_date < start_date
