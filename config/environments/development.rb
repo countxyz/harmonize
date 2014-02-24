@@ -8,5 +8,4 @@ Harmonize::Application.configure do
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
   config.assets.debug = true
-  config.allow_concurrency = true
 end

@@ -15,8 +15,6 @@ gem 'rabl', '~> 0.9.3'
 gem 'json', '~> 1.8.1'
 gem 'jbuilder', '~> 2.0.3'
 gem 'simple_form', '~> 3.0.0'
-gem 'dashing-rails', '~> 2.2.0'
-gem 'puma', '~> 2.7.1'
 gem 'font-awesome-sass', '~> 4.0.2'
 
 group :development do
