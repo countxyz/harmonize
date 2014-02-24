@@ -29,9 +29,9 @@
         %td= project.role
         %td= project.status
         %td= project.priority
-        %td= project.table_date_format(project.start_date)
-        %td= project.table_date_format(project.deadline)
-        %td= project.table_date_format(project.completion_date)
+        %td= table_date_format(project.start_date)
+        %td= table_date_format(project.deadline)
+        %td= table_date_format(project.completion_date)
         %td.table_actions
           = link_to 'Show', project
           %br/

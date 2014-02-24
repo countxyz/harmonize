@@ -16,18 +16,6 @@ class Project < ActiveRecord::Base
 
   validates :notes, length: { maximum: 1000 }
 
-  def start_date
-    self[:start_date] || "N/A"
-  end
-
-  def target_date
-    self[:target_date] || "N/A"
-  end
-
-  def deadline
-    self[:deadline] || "N/A"
-  end
-
   def table_date_format(date)
     if date != "N/A"
       date.strftime("%m/%d/%Y")
@@ -43,10 +31,6 @@ class Project < ActiveRecord::Base
       date
     end
   end
-
-  def completion_date
-    self[:completion_date] || "N/A"
-  end  
 
   def target_date_cannot_be_earlier_than_start_date
     unless start_date == "N/A" || target_date == "N/A"
