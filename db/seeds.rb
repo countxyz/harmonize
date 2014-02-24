@@ -1,5 +1,3 @@
-# Project data
-
 Project.delete_all
 
 Project.create!(name: 'Harmonize',
@@ -53,8 +51,6 @@ Project.create!(name: 'MastaMindzLLC',
                 priority: 'Low',
                 target_date: '2014-01-25',
                 notes: 'Client has no rush. Whenever I get around to it.')
-
-# Contact data
 
 Contact.delete_all
 
