@@ -8,6 +8,7 @@ feature 'Project management' do
     click_on 'New Project'
     fill_in 'Name', with: 'Vandalay'
     fill_in 'Role', with: 'Build prototype'
+    fill_in 'Website', with: 'target.com'
     choose('project_status_completed')
     choose('project_priority_na')
     fill_in 'Notes', with: 'Bring your A game with Vandalay.'
@@ -19,13 +20,6 @@ feature 'Project management' do
     expect(page).to have_content('Project has been created')
   end
 
-  scenario 'does not create a new project', :js => true do
-
-    visit new_project_path
-    click_on 'Create Project'
-    expect(page).to have_content('Project has not been created')
-  end
-
   scenario 'it updates a project', :js => true do
 
     project = create(:project)
@@ -34,15 +28,6 @@ feature 'Project management' do
     click_on 'Update Project'
     expect(page).to have_content('Project has been updated')
     expect(current_path).to eq project_path(project)
-  end
-
-  scenario 'it does not update a project', :js => true do
-
-    project = create(:project_all_fields)
-    visit edit_project_path(project)
-    fill_in 'Start Date', with: '05/05/2013'
-    click_on 'Update Project'
-    expect(page).to have_content('Project has not been updated')
   end
 
   scenario 'delete a project' do

@@ -14,6 +14,7 @@
       %ul.flex_details
         %li.details_item
           = f.input :role, input_html: { maxlength: 100 }
+          = f.input :website, input_html: { maxlength: 100 }
         %li.details_radio
           = f.input :priority, as: :radio_buttons,
             collection: Project::PRIORITY_OPTIONS
