@@ -25,7 +25,7 @@ form#new_project {
 
 fieldset.projects {
   margin: 0;
-  width: 400px;
+  width: 500px;
   border: 1.5px solid;
 
   label {
@@ -51,15 +51,16 @@ fieldset.projects#new_details {
           justify-content: space-around;
         }
           input { width: 200px; }
-        &.details_radio { padding-left: 50px; }
+        &.details_radio { padding-left: 100px; }
       }
     }
   }
 }
 
-fieldset.projects#new_details textarea { width: 350px; }
+fieldset.projects#new_details textarea { width: 450px; }
 
 fieldset.projects#dates {
+  width: 200px;
   ul {
     &.flex_dates {
       display: flex;
@@ -89,6 +90,4 @@ span {
   }
 }
 
-details.form_info.required {
-  padding-left: 40px;
-}
+details.form_info.required { padding-left: 40px; }
