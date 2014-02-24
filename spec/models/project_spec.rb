@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe Project do
   let(:project) { FactoryGirl.create :project }
-  
-  it 'has a valid factory' do
-    expect(create(:project)).to be_valid
-  end
-
-  it 'is completely filled when all fields are provided' do
-    expect(create(:project_all_fields)).to be_valid
-  end
 
   describe 'empty fields' do
     it 'is invalid when name is not provided' do
