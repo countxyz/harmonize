@@ -3,10 +3,6 @@ require 'spec_helper'
 describe Event do
   let(:event) { FactoryGirl.create :event }
 
-  it 'has a valid factory' do
-    expect(create(:event)).to be_valid
-  end
-
   describe 'empty fields' do
     it 'is invalid when title is not provided' do
       expect(build(:event, title: nil)).to_not be_valid

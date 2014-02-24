@@ -17,7 +17,7 @@
         %li.details_radio
           = f.input :priority, as: :radio_buttons,
             collection: Project::PRIORITY_OPTIONS
-      = f.input :notes, as: :text, input_html: { rows: 4 }
+      = f.input :notes, as: :text, input_html: { rows: 4, maxlength: 1000 }
     %fieldset#dates.projects
       %legend.bold_title{align: "right"} Project Dates
       %details#date.form_info
