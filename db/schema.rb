@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20140224231337) do
+ActiveRecord::Schema.define(version: 20140225150330) do
 
   enable_extension "plpgsql"
 
@@ -10,6 +10,7 @@ ActiveRecord::Schema.define(version: 20140224231337) do
     t.datetime "updated_at"
     t.string   "secondary_email"
     t.text     "notes"
+    t.string   "company"
   end
 
   create_table "events", force: true do |t|
