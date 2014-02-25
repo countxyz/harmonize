@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe Contact do
-  it "has a valid factory" do
-    expect(create(:contact)).to be_valid
-  end
 
   it "returns a contact's full name as a string" do
     contact = build_stubbed(:contact, first_name: "John", last_name: "Doe")
@@ -53,13 +50,6 @@ describe Contact do
   end
 
   describe "format" do
-
-    it "is invalid with an incorrect email format" do
-      addresses = %w[a@foo,com a_at_foo.org a.b@foo. a@b_baz.com foo@b+baz.com]
-      addresses.each do |invalid_address|
-        expect(build(:just_contact, email: invalid_address)).to_not be_valid
-      end
-    end
 
     it "is valid with a correct email format" do
       addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
