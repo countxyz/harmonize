@@ -8,6 +8,7 @@ feature 'Contact management' do
     click_on 'New Contact'
     fill_in 'First Name', with: 'Art'
     fill_in 'Last Name', with: 'Vandalay'
+    fill_in 'Company', with: 'Vandalay Industries'
     within('.contact_email') do
       fill_in 'Email', with: 'artvandalay@vandalay.com'
     end
