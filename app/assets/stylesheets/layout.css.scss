@@ -40,22 +40,14 @@ footer#sidenav_footer {
   width: 250px;
 }
 
-/* main */
-
 div#main {
   flex: 1;
   -webkit-flex: 1;
   order: 2;
 }
 
-/* page header */
-
 header#page_header { height: 82px; }
 
-/* notifications */
-
 section#notifications { height: 50px; }
-
-/* content */
 
 section#content { margin-left: 50px; }
