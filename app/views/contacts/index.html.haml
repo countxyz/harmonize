@@ -18,6 +18,7 @@
   %thead
     %tr
       %th{scope: "col"} Contact Name
+      %th{scope: "col"} Company
       %th{scope: "col"} Email
       %th{scope: "col"} Office Phone
       %th{scope: "col"} Mobile Phone
@@ -26,6 +27,7 @@
     - @contacts.each do |contact|
       %tr
         %th.bold_name{scope: "row"}= contact.name
+        %td= data_format(contact.company)
         %td= contact.email
         %td= phone_format(contact.phone.office)
         %td= phone_format(contact.phone.mobile)
