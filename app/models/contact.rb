@@ -10,6 +10,8 @@ class Contact < ActiveRecord::Base
 
   validates :last_name, presence: true, length: { maximum: 30 }
 
+  validates :company, length: { maximum: 50 }
+
   validates :email, presence: true, length: { maximum: 50 },
             format: { with: VALID_EMAIL_REGEX }
 
