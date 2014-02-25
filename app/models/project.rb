@@ -16,13 +16,15 @@ class Project < ActiveRecord::Base
 
   validates :website, length: { maximum: 100 }
 
-  validates_attachment_content_type :image, content_type: IMAGE_TYPES
+  validates :employer, length: { maximum: 50 }
   
   validates :status, presence: true, inclusion: STATUS_OPTIONS
 
   validates :priority, presence: true, inclusion: PRIORITY_OPTIONS
 
   validates :notes, length: { maximum: 1000 }
+
+  validates_attachment_content_type :image, content_type: IMAGE_TYPES
 
   def target_date_cannot_be_earlier_than_start_date
     unless start_date.nil? || target_date.nil?

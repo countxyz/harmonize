@@ -22,6 +22,10 @@ describe Project do
       expect(build(:project, name: 'a' * 51)).to_not be_valid
     end
 
+    it 'is invalid when employer has more than 50 characters' do
+      expect(build(:project, employer: 'a' * 51)).to_not be_valid
+    end
+
     it 'is invalid when role has more than 100 characters' do
       expect(build(:project, role: 'a' * 101)).to_not be_valid
     end
