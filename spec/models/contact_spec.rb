@@ -36,6 +36,10 @@ describe Contact do
       expect(build(:contact, last_name: 'a' * 31)).to_not be_valid
     end
 
+    it "is invalid when company has more than 50 characters" do
+      expect(build(:contact, company: 'a' * 51)).to_not be_valid
+    end
+
     it "is invalid when email has more than 50 characters" do
       expect(build(:contact, email: 'a' * 45 + "@a.com")).to_not be_valid
     end
