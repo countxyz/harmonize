@@ -17,6 +17,9 @@
         %th Role
         %td.profile_spacing= @project.role
       %tr
+        %th Website
+        %td.profile_spacing= @project.website
+      %tr
         %th Status
         %td.profile_spacing= @project.status
       %tr
@@ -47,6 +50,15 @@
         %th Completion Date
         %td.profile_spacing
           = profile_date_format(@project.completion_date)
+
+    / %table
+    /   %thead
+    /     %tr
+    /       %th{colspan: "2"} Images
+    /   %tbody
+    /     %tr
+    /       %td
+    /         = image_tag @project.image.url(:thumb)
 
 %nav.site_links
   %ul
