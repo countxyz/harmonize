@@ -51,7 +51,7 @@
   %table.profile
     %thead
       %tr
-        %th{colspan: "2"} Project Notes
+        %th{colspan: '2'} Project Notes
     %tbody
       %tr
         %th Notes
@@ -60,7 +60,11 @@
 %h3#project_images
   Images
 %hr
-= link_to image_tag(@project.image.url(:large)), @project.image.url
+- if @project.image_file_name
+  = image_tag @project.image.url
+  = image_tag @project.image.url(:thumb)
+- else
+  %p No images have been uploaded
 
 %nav.site_links
   %ul

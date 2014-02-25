@@ -9,6 +9,7 @@ feature 'Project management' do
     fill_in 'Name', with: 'Vandalay'
     fill_in 'Role', with: 'Build prototype'
     fill_in 'Website', with: 'target.com'
+    fill_in 'Employer', with: 'Target'
     choose('project_status_completed')
     choose('project_priority_na')
     fill_in 'Notes', with: 'Bring your A game with Vandalay.'
