@@ -20,6 +20,9 @@
         %th Last Name
         %td.profile_spacing= @contact.last_name
       %tr
+        %th Company
+        %td.profile_spacing= data_format(@contact.company)
+      %tr
         %th Email
         %td.profile_spacing= @contact.email
       %tr
@@ -50,13 +53,12 @@
 %nav.site_links
   %ul
     %li
-      = link_to 'Edit Contact', edit_contact_path(@contact), |
-        class: "button button-pill button-flat-primary"      |
+      = link_to 'Edit Contact', edit_contact_path(@contact),
+        class: 'button button-pill button-flat-primary'
     %li
-      = link_to 'Delete Contact', @contact,                                |
-        class: "button button-pill button-flat-primary",                   |
-        :method => :delete,                                                |
-        data: { confirm: 'Are you sure you want to delete this contact?' } |
+      = link_to 'Delete Contact', @contact,
+        class: 'button button-pill button-flat-primary', :method => :delete,
+        data: { confirm: 'Are you sure you want to delete this contact?' }
     %li
-      = link_to "Back to Contacts", contacts_path,      |
-        class: "button button-pill button-flat-primary" |
+      = link_to "Back to Contacts", contacts_path,
+        class: 'button button-pill button-flat-primary'
