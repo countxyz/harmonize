@@ -8,7 +8,7 @@
 %h2.center= @project.name
 
 .table_container
-  %table#project_details.profile
+  %table.profile#project_details
     %thead
       %tr
         %th{colspan: "2"} Project Details
@@ -25,9 +25,6 @@
       %tr
         %th Priority
         %td.profile_spacing= @project.priority
-      %tr
-        %th Notes
-        %td.profile_spacing= @project.notes
 
   %table.profile
     %thead
@@ -50,15 +47,20 @@
         %th Completion Date
         %td.profile_spacing
           = profile_date_format(@project.completion_date)
+  
+  %table.profile
+    %thead
+      %tr
+        %th{colspan: "2"} Project Notes
+    %tbody
+      %tr
+        %th Notes
+        %td= @project.notes
 
-    / %table
-    /   %thead
-    /     %tr
-    /       %th{colspan: "2"} Images
-    /   %tbody
-    /     %tr
-    /       %td
-    /         = image_tag @project.image.url(:thumb)
+%h3#project_images
+  Images
+%hr
+= link_to image_tag(@project.image.url(:large)), @project.image.url
 
 %nav.site_links
   %ul
