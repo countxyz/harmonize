@@ -5,7 +5,22 @@
     %span.header_right
       Projects
 
-%h2.center= @project.name
+%section#project_dates
+  %section.date_block#project_name
+    %h2= @project.name
+    %i.fa.fa-calendar.fa-2x
+  %section.date_block
+    %h3.center_h3 Start Date
+    = profile_date_format(@project.start_date)
+  %section.date_block
+    %h3.center_h3 Target Date
+    = profile_date_format(@project.target_date)
+  %section.date_block
+    %h3.center_h3 Deadline
+    = profile_date_format(@project.deadline)
+  %section.date_block
+    %h3.center_h3 Completion
+    = profile_date_format(@project.completion_date)
 
 .table_container
   %table.profile#project_details
@@ -25,28 +40,6 @@
       %tr
         %th Priority
         %td.profile_spacing= @project.priority
-
-  %table.profile
-    %thead
-      %tr
-        %th{colspan: "2"} Project Dates
-    %tbody
-      %tr
-        %th Start Date
-        %td.profile_spacing
-          = profile_date_format(@project.start_date)
-      %tr
-        %th Target Date
-        %td.profile_spacing
-          = profile_date_format(@project.target_date)
-      %tr
-        %th Deadline
-        %td.profile_spacing
-          = profile_date_format(@project.deadline)
-      %tr
-        %th Completion Date
-        %td.profile_spacing
-          = profile_date_format(@project.completion_date)
   
   %table.profile
     %thead
@@ -61,7 +54,7 @@
   Images
 %hr
 - if @project.image_file_name
-  = image_tag @project.image.url
+  = image_tag @project.image.url(:large)
   = image_tag @project.image.url(:thumb)
 - else
   %p No images have been uploaded

@@ -12,9 +12,9 @@ label {
   font-weight: bold;
 }
 
-h2.center {
-  text-align: center;
-}
+h2.center { text-align: center; }
+
+h3.center_h3 { text-align: center }
 
 /* sidenav */
 
@@ -87,3 +87,5 @@ span#date {
 /* other */
 
 h3#project_images { font-size: 22px; }
+
+section.date_block { text-align: center; }

@@ -1,6 +1,6 @@
 class MainPagesController < ApplicationController
 
-  def home
+  def dashboard
     @time = Time.new
     @day = @time.strftime("%A")
     @date = @time.strftime("%B %e, %Y")

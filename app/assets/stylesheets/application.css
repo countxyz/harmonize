@@ -13,7 +13,8 @@
  *= require notifications
  *= require forms
  *= require text
- *= require home
+ *= require dashboard
+ *= require profiles
  *= require about
  *= require font-awesome
  */
