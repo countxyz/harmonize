@@ -1,4 +1,8 @@
 - provide(:title, 'Dashboard')
+- content_for :page_header do
+  %h1
+    Overview
+    %span.header_right Dashboard
 
 %section#day
   %span#day= @day
