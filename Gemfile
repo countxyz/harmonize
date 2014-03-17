@@ -28,6 +28,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.0'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'jazz_hands', '~> 0.5.2'
+  gem 'formulaic', '~> 0.0.5'
 end
 
 group :test do

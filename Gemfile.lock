@@ -78,6 +78,10 @@ GEM
     ffi (1.9.3)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
+    formulaic (0.0.5)
+      activesupport
+      capybara
+      i18n
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -249,6 +253,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.4.0)
   faker (~> 1.2.0)
   font-awesome-sass (~> 4.0.2)
+  formulaic (~> 0.0.5)
   haml-rails (~> 0.5.0)
   jazz_hands (~> 0.5.2)
   jbuilder (~> 2.0.3)
