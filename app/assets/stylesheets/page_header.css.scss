@@ -1,16 +1,16 @@
 @import "style";
 
-#page_header {
+header#page_header {
   background: $blue-theme;
   color: white;
 
   h1 {
     position: absolute;
-    left: 500px;
+    left: 300px;
 
     span.header_right {
       position: absolute;
-      left: 600px;
+      left: 500px;
       top: 24px;
     }
   }

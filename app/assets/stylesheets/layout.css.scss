@@ -46,7 +46,10 @@ div#main {
   order: 2;
 }
 
-header#page_header { height: 82px; }
+header#page_header {
+  height: 82px;
+  min-width: 1100px;
+}
 
 section#notifications { height: 50px; }
 
