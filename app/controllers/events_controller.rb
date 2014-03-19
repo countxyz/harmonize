@@ -15,11 +15,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "Event has been created"
-      redirect_to root_path
+      flash[:notice] = 'Event has been created'
+      redirect_to @event
     else
-      flash[:alert] = "Event has not been created"
-      render :action => "new"
+      flash[:alert] = 'Event has not been created'
+      render :action => 'new'
     end
   end
 
@@ -30,19 +30,19 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      flash[:notice] = "Event has been updated"
-      redirect_to root_path
+      flash[:notice] = 'Event has been updated'
+      redirect_to @event
     else
-      flash[:alert] = "Event has not been updated"
-      render :action => "edit"
+      flash[:alert] = 'Event has not been updated'
+      render :action => 'edit'
     end   
   end
 
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    flash[:notice] = "Event has been deleted."
-    redirect_to root_path
+    flash[:notice] = 'Event has been deleted.'
+    redirect_to @event
   end 
 
   private

@@ -1,15 +1,10 @@
-%details.form_info.required
-  * Fields Required
-
 = simple_form_for @event do |f|
   %form
     %fieldset
       %legend.bold_title New Event
-      %ul
-        %li= f.input :title
-        %li= f.input :description, as: :text
-        %li= f.input :start_time,  as: :datepicker,  label: 'Start'
-        %li= f.input :end_time,    as: :datepicker,  label: 'End'
-        %li= f.input :all_day,     as: :boolean,     label: 'All Day'
-      %span
-        = f.button :submit, class: "button button-pill button-flat-primary"
+      = f.input :title
+      = f.input :start_time,  as: :datepicker,  label: 'Start'
+      = f.input :end_time,    as: :datepicker,  label: 'End'
+      = f.input :description, as: :text
+      %section.button_center
+        = f.button :submit, class: 'button button-pill button-flat-primary'
