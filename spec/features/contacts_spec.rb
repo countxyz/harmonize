@@ -1,29 +1,25 @@
 require 'spec_helper'
 
 feature 'Contact management' do
-  scenario 'creates a new contact', :js => true do
-
+  scenario 'creates a new contact', js: true do
     visit root_path
     click_on 'Contacts'
     click_on 'New Contact'
     fill_in 'First Name', with: 'Art'
-    fill_in 'Last Name', with: 'Vandalay'
-    fill_in 'Company', with: 'Vandalay Industries'
-    within('.contact_email') do
-      fill_in 'Email', with: 'artvandalay@vandalay.com'
-    end
+    fill_in 'Last Name',  with: 'Vandalay'
+    fill_in 'Company',    with: 'Vandalay Industries'
+    within('.contact_email') { fill_in 'Email', with: 'art@vandalay.com' }
     fill_in 'Secondary Email', with: 'artshizzle@gmail.com'
-    fill_in 'Notes', with: 'The Vandalays are priority.'
-    fill_in 'Office', with: '2125555555'
-    fill_in 'Mobile', with: '9175555555'
-    fill_in 'Fax', with: '2125555556'
-    fill_in 'Home', with: '5165555555'
+    fill_in 'Notes',           with: 'The Vandalays are priority.'
+    fill_in 'Office',          with: '2125555555'
+    fill_in 'Mobile',          with: '9175555555'
+    fill_in 'Fax',             with: '2125555556'
+    fill_in 'Home',            with: '5165555555'
     click_on 'Create Contact'
     expect(page).to have_content('Contact has been created')
   end
 
-  scenario 'it updates a contact', :js => true do
-    
+  scenario 'it updates a contact', js: true do 
     contact = create(:contact)
     visit edit_contact_path(contact)
     fill_in 'First Name', with: 'b'
@@ -32,8 +28,7 @@ feature 'Contact management' do
     expect(current_path).to eq contact_path(contact)
   end
 
-  scenario 'delete a contact' do
-    
+  scenario 'delete a contact' do  
     contact = create(:contact)
     visit contact_path(contact)
     click_link('Delete Contact')

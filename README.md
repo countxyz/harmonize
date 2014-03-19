@@ -8,18 +8,6 @@ A CRM (Client-Relationship Manager) built on Rails.
 
 http://harmonize.herokuapp.com/
 
-## Install
-
-```bash
-git clone git@github.com:countxyz/harmonize.git
-cd harmonize
-cp config/database.postgres.yml config/database.yml
-bundle install
-RAILS_ENV=production bundle exec rake db:migrate
-RAILS_ENV=production bundle exec rake assets:precompile
-RAILS_ENV=production bundle exec rails server
-```
-
 ## License
 
 Copyright (C) 2014 Efren Aguirre <skeptoid@gmail.com>
@@ -37,5 +25,3 @@ for more details.
        width="80" height="15" alt="WTFPL" /></a>
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/countxyz/harmonize/trend.png)]
 (https://bitdeli.com/free "Bitdeli Badge")
-
-

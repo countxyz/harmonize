@@ -5,13 +5,13 @@
  *= require style
  *= require sidenav
  *= require page_header
+ *= require forms
+ *= require jquery.ui.datepicker
  *= require fullcalendar
  *= require calendar
- *= require jquery.ui.all
  *= require buttons
  *= require tables
- *= require notifications
- *= require forms
+ *= require notifications 
  *= require text
  *= require dashboard
  *= require profiles
