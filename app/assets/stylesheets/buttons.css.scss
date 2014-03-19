@@ -1,9 +1,13 @@
 .button {
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
+    0px 1px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
+    0px 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
+    0px 1px 2px rgba(0, 0, 0, 0.15);
   background-color: #eeeeee;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fbfbfb), color-stop(100%, #e1e1e1));
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%,
+    color-stop(0%, #fbfbfb), color-stop(100%, #e1e1e1));
   background: -webkit-linear-gradient(top, #fbfbfb, #e1e1e1);
   background: -moz-linear-gradient(top, #fbfbfb, #e1e1e1);
   background: -o-linear-gradient(top, #fbfbfb, #e1e1e1);
@@ -20,7 +24,8 @@
   padding: 0px 25.6px;
   font-weight: 300;
   font-size: 14px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
   color: #666666;
   text-shadow: 0 1px 1px white;
   margin: 0;
@@ -30,7 +35,8 @@
 
 .button:hover {
   background-color: #eeeeee;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%,
+    color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
   background: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
   background: -moz-linear-gradient(top, #ffffff, #dcdcdc);
   background: -o-linear-gradient(top, #ffffff, #dcdcdc);
@@ -64,6 +70,4 @@
   border: none;
 }
 
-.button-flat:hover {
-  background: #fbfbfb;
-}
+.button-flat:hover { background: #fbfbfb; }

@@ -1,0 +1,48 @@
+html,
+body
+  margin: 0
+  padding: 0
+  height: 100%
+
+div#page_wrapper
+  display: flex
+  display: -webkit-flex
+  min-height: 100%
+
+nav#sidenav
+  order: 1
+  width: 250px
+
+nav.site_links
+  left: 500px
+  height: 50px
+  width: 90%
+
+  ul li
+    display: inline
+    float: right
+    padding: 10px
+
+    a i
+      color: black
+
+footer#sidenav_footer
+  position: fixed
+  bottom: 0
+  width: 250px
+
+div#main
+  flex: 1
+  -webkit-flex: 1
+  order: 2
+
+header#page_header
+  height: 82px
+  min-width: 1100px
+
+section#notifications
+  height: 50px
+
+section#content
+  margin-left: 50px
+  margin-right: 25px

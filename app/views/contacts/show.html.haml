@@ -5,8 +5,6 @@
     %span.header_right
       Contact
 
-%h2.center= @contact.name
-
 .table_container
   %table#project_details.profile
     %thead
@@ -31,12 +29,6 @@
       %tr
         %th Notes
         %td.profile_spacing= data_format(@contact.notes)
-
-  %table.profile
-    %thead
-      %tr
-        %th{colspan: "2"} Contact Phones
-    %tbody
       %tr
         %th Office Phone
         %td.profile_spacing= phone_format(@phone.office)
