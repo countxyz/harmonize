@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def full_title(page_title)
+  def full_title page_title
     base_title
     if page_title.empty?
       base_title
@@ -13,7 +13,7 @@ module ApplicationHelper
     'Harmonize'
   end
 
-  def data_format(data)
+  def data_format data
     if data.nil? || data.empty?
       'N/A'
     else

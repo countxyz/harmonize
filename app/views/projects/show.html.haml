@@ -22,11 +22,8 @@
     %h3.center_h3 Completion
     = profile_date_format(@project.completion_date)
 
-.table_container
-  %table.profile#project_details
-    %thead
-      %tr
-        %th{colspan: "2"} Project Details
+.table_container.profile_container
+  %table.profile_table
     %tbody
       %tr
         %th Role
@@ -40,18 +37,11 @@
       %tr
         %th Priority
         %td.profile_spacing= @project.priority
-  
-  %table.profile
-    %thead
-      %tr
-        %th{colspan: '2'} Project Notes
-    %tbody
       %tr
         %th Notes
-        %td= @project.notes
+        %td.profile_spacing= @project.notes
 
-%h3#project_images
-  Images
+%h3#project_images Images
 %hr
 - if @project.image_file_name
   = image_tag @project.image.url(:large)

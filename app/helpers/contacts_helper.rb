@@ -1,6 +1,6 @@
 module ContactsHelper
 
-  def phone_format(phone)
+  def phone_format phone
     if phone.nil?
       'N/A'
     else

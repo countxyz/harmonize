@@ -1,6 +1,6 @@
 module ProjectsHelper
   
-  def table_date_format(date)
+  def table_date_format date
     if date.nil?
       'N/A'
     else
@@ -8,7 +8,7 @@ module ProjectsHelper
     end
   end
 
-  def profile_date_format(date)
+  def profile_date_format date
     if date.nil?
       'N/A'
     else
