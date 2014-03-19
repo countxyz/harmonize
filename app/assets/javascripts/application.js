@@ -1,9 +1,7 @@
 //= require modernizr-latest
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
 //= require fullcalendar
 //= require calendar
-//= require gcal
 //= require turbolinks
 //= require dates
