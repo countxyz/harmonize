@@ -2,7 +2,6 @@
  *= require_self
  *= require normalize
  *= require layout
- *= require style
  *= require sidenav
  *= require page_header
  *= require forms
@@ -16,4 +15,5 @@
  *= require profiles
  *= require main_pages
  *= require font-awesome
+ *= require other
  */

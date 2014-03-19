@@ -1,4 +1,4 @@
-@import 'style'
+@import 'variables'
 
 div.table_container
   display: flex
@@ -8,14 +8,22 @@ div.table_container
 div.profile_container
   padding-top: 25px
 
+table, td, tr, th
+  font-weight: normal
+
 table
   margin-top: 5px
   margin-bottom: 15px
   border-collapse: collapse
   width: 90%
+  font-size: 13px
+  font-weight: bold
 
 table.profile_table
   width: 40%
+
+legend.bold_title
+  font-weight: bold
 
 table td,
 table th
@@ -32,6 +40,7 @@ thead th[rowspan]
 
 tbody th
   background: #91C5D4
+  text-align: left
 
 tbody tr
   background: #D5EAF0
@@ -39,8 +48,12 @@ tbody tr
 tbody tr:hover
   background: #BCD9E1
 
+tbody td
+  text-align: center
+
 tbody a
   color: black
+  text-decoration: none
 
 tbody td.table_actions a
   color: $blue-theme
@@ -48,5 +61,12 @@ tbody td.table_actions a
 tbody td.table_actions a:hover
   color: white
 
+th.bold_name a
+  font-weight: bold
+
 td.profile_spacing
   padding: 15px
+
+td.table_actions
+  font-size: 11px
+  font-weight: bold
