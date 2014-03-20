@@ -34,5 +34,12 @@ describe Assignment do
         expect(build(:assignment, status: valid_status)).to be_valid
       end
     end
+    
+    it "is valid when priority is N/A', 'Low', 'High', 'Urgent'" do
+      valid_priorities = %w[Low High Urgent N/A]
+      valid_priorities.each do |valid_priority|
+        expect(build(:assignment, priority: valid_priority)).to be_valid
+      end
+    end
   end
 end
