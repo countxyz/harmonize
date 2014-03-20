@@ -11,17 +11,21 @@
       = link_to root_path do
         %i.fa.fa-home.fa-2x
     %li
-      = link_to "New Project", new_project_path,
-        class: "button button-pill button-flat-primary"
+      = link_to 'New Project', new_project_path,
+        class: 'button button-pill button-flat-primary'
 %table
   %thead
     %tr
-      %th{scope: "col"} Project Name
-      %th{scope: "col"} Actions
+      %th{scope: 'col'} Project Name
+      %th{scope: 'col'} Website
+      %th{scope: 'col'} Employer
+      %th{scope: 'col'} Actions
   %tbody
     - @projects.each do |project|
       %tr
-        %th.bold_name{scope: "row"}= link_to project.name, project
+        %th.bold_name{scope: 'row'}= link_to project.name, project
+        %td= project.website
+        %td= project.employer
         %td.table_actions
           = link_to 'Show', project
           %br/
