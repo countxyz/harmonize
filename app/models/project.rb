@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+  has_many :assignments
+  
   IMAGE_TYPES = %w(image/jpeg image/jpg image/png)
   has_attached_file :image, styles: { small: '100x100', large: '300x300' }
   validates_attachment_content_type :image, content_type: IMAGE_TYPES
