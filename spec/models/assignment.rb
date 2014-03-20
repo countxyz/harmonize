@@ -21,5 +21,9 @@ describe Assignment do
     it 'is invalid when description has more than 100 characters' do
       expect(build(:assignment, description: 'a' * 101)).to_not be_valid
     end
+
+    it 'is invalid when notes has more than 1000 characters' do
+      expect(build(:assignment, notes: 'a' * 1001)).to_not be_valid
+    end
   end
 end
