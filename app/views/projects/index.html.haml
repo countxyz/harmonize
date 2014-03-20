@@ -17,23 +17,11 @@
   %thead
     %tr
       %th{scope: "col"} Project Name
-      %th{scope: "col"} Role
-      %th{scope: "col"} Status
-      %th{scope: "col"} Priority
-      %th{scope: "col"} Start Date
-      %th{scope: "col"} Deadline
-      %th{scope: "col"} Completion Date
       %th{scope: "col"} Actions
   %tbody
     - @projects.each do |project|
       %tr
         %th.bold_name{scope: "row"}= link_to project.name, project
-        %td= project.role
-        %td= project.status
-        %td= project.priority
-        %td= table_date_format(project.start_date)
-        %td= table_date_format(project.deadline)
-        %td= table_date_format(project.completion_date)
         %td.table_actions
           = link_to 'Show', project
           %br/

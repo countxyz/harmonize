@@ -9,34 +9,13 @@
   %section.date_block#project_name
     %h2= @project.name
     %i.fa.fa-calendar.fa-2x
-  %section.date_block
-    %h3.center_h3 Start Date
-    = profile_date_format(@project.start_date)
-  %section.date_block
-    %h3.center_h3 Target Date
-    = profile_date_format(@project.target_date)
-  %section.date_block
-    %h3.center_h3 Deadline
-    = profile_date_format(@project.deadline)
-  %section.date_block
-    %h3.center_h3 Completion
-    = profile_date_format(@project.completion_date)
 
 .table_container.profile_container
   %table.profile_table
     %tbody
       %tr
-        %th Role
-        %td.profile_spacing= @project.role
-      %tr
         %th Website
         %td.profile_spacing= @project.website
-      %tr
-        %th Status
-        %td.profile_spacing= @project.status
-      %tr
-        %th Priority
-        %td.profile_spacing= @project.priority
       %tr
         %th Notes
         %td.profile_spacing= @project.notes

@@ -3,19 +3,11 @@ require 'spec_helper'
 feature 'Project management' do
   scenario 'creates a new project', js: true do
     visit root_path
-    click_on 'Projects'
     click_on 'New Project'
     within('div.project_name')     { fill_in 'Name',     with: 'Vandalay'   }
-    within('div.project_role')     { fill_in 'Role',     with: 'Refactor'   }
     within('div.project_website')  { fill_in 'Website',  with: 'target.com' }
     within('div.project_employer') { fill_in 'Employer', with: 'Target'     }
-    select('In Progress', from: 'Status'  )
-    select('High',        from: 'Priority')
-    fill_in 'Notes',           with: 'Bring your A game with Vandalay.'
-    fill_in 'Start Date',      with: '2013-10-01'
-    fill_in 'Target Date',     with: '2013-10-02'
-    fill_in 'Deadline',        with: '2013-10-03'
-    fill_in 'Completion Date', with: '2013-10-04'
+    fill_in 'Notes', with: 'Bring your A game with Vandalay.'
     click_on 'Create Project' 
     expect(page).to have_content('Project has been created')
   end

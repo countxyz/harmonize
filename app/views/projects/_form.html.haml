@@ -4,19 +4,9 @@
       %legend.bold_title Project Details
       = f.input :name,     input_html: { id: 'regular_field', maxlength: 50  }
       = f.input :website,  input_html: { id: 'regular_field', maxlength: 100 }
-      = f.input :role,     input_html: { id: 'regular_field', maxlength: 100 }
       = f.input :employer, input_html: { id: 'regular_field', maxlength: 50  }
-      = f.input :status,   as: :select, collection: Project::STATUS_OPTIONS
-      = f.input :priority, as: :select, collection: Project::PRIORITY_OPTIONS
       = f.input :image, as: :file, input_html: { id: 'file', multiple: true }
       = f.label :notes
       = f.input_field :notes, as: :text, input_html: { rows: 4, maxlength: 1000 }
-      
-    %fieldset
-      %legend.bold_title Project Dates
-      = f.input :start_date,       as: :datepicker, label: 'Start Date'
-      = f.input :target_date,      as: :datepicker, label: 'Target Date'
-      = f.input :deadline,         as: :datepicker, label: 'Deadline'
-      = f.input :completion_date,  as: :datepicker, label: 'Completion Date'
       %section.button_center
         = f.button :submit, class: 'button button-pill button-flat-primary'
