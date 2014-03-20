@@ -1,4 +1,5 @@
 class Assignment < ActiveRecord::Base
+  STATUS_OPTIONS = ['Not Started', 'In Progress', 'Completed']
   belongs_to :project
 
   validates :description, presence: true, length: { maximum: 100 }

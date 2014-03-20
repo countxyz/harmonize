@@ -26,4 +26,13 @@ describe Assignment do
       expect(build(:assignment, notes: 'a' * 1001)).to_not be_valid
     end
   end
+
+  describe 'valid entries' do
+    it "is valid when status is 'Not Started', 'In Progress', 'Completed'" do
+      valid_statuses = ['Not Started', 'In Progress', 'Completed']
+      valid_statuses.each do |valid_status|
+        expect(build(:assignment, status: valid_status)).to be_valid
+      end
+    end
+  end
 end
