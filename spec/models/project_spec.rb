@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Project do
-  let(:project) { FactoryGirl.create :project }
 
   describe 'uniqueness' do
     it 'is invalid when name is used more than once' do

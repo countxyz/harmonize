@@ -7,9 +7,7 @@ class Contact < ActiveRecord::Base
   validate :secondary_email_cannot_be_email
 
   validates :first_name, presence: true, length: { maximum: 30 }
-
-  validates :last_name, presence: true, length: { maximum: 30 }
-
+  validates :last_name,  presence: true, length: { maximum: 30 }
   validates :company, length: { maximum: 50 }
 
   validates :email, presence: true, length: { maximum: 50 },
@@ -24,9 +22,13 @@ class Contact < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  def secondary_email_cannot_be_email
-    if email == secondary_email
-      errors.add(:secondary_email, "can't be the same as email")
+  private
+
+    def secondary_email_cannot_be_email
+      email_error if email == secondary_email
     end
-  end
+
+    def email_error
+      errors.add(:email_error, "can't be the same as email")
+    end
 end

@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe Assignment do
-  let(:project) { FactoryGirl.create :project }
-
+  
   describe 'empty fields' do
     it 'is invalid without a description' do
       expect(build(:assignment, description: nil)).to_not be_valid
@@ -27,18 +26,36 @@ describe Assignment do
     end
   end
 
-  describe 'valid entries' do
-    it "is valid when status is 'Not Started', 'In Progress', 'Completed'" do
-      valid_statuses = ['Not Started', 'In Progress', 'Completed']
-      valid_statuses.each do |valid_status|
-        expect(build(:assignment, status: valid_status)).to be_valid
+  describe 'status' do
+    context 'valid entry' do
+      ['Not Started', 'In Progress', 'Completed'].each do |valid_status|
+
+        it "is valid with 'Not Started', 'In Progress', 'Completed'" do
+          expect(build(:assignment, status: valid_status)).to be_valid
+        end
       end
     end
-    
-    it "is valid when priority is N/A', 'Low', 'High', 'Urgent'" do
-      valid_priorities = %w[Low High Urgent N/A]
-      valid_priorities.each do |valid_priority|
-        expect(build(:assignment, priority: valid_priority)).to be_valid
+
+    context 'invalid entry' do
+      it "is invalid without 'Not Started', 'In Progress', 'Completed'" do
+        expect(build(:assignment, status: 'a')).to_not be_valid
+      end
+    end
+  end
+
+  describe 'priority' do
+    context 'valid entry' do
+      %w[Low High Urgent N/A].each do |valid_priority|
+
+        it "is valid with 'N/A', 'Low', 'High', 'Urgent'" do
+          expect(build(:assignment, priority: valid_priority)).to be_valid
+        end
+      end
+    end
+
+    context 'invalid entry' do
+      it "is invalid without 'N/A', 'Low', 'High', 'Urgent'" do
+        expect(build(:assignment, priority: 'a')).to_not be_valid
       end
     end
   end

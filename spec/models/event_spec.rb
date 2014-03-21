@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Event do
-  let(:event) { FactoryGirl.create :event }
 
   describe 'empty fields' do
     it 'is invalid when title is not provided' do

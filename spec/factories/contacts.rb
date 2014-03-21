@@ -6,7 +6,6 @@ FactoryGirl.define do
     last_name       { Faker::Name.last_name  }
     email           { Faker::Internet.email  }
     secondary_email { Faker::Internet.email  }
-    phone
   end
 
   factory :other_contact, class: Contact do
