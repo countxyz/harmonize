@@ -5,6 +5,8 @@ class Assignment < ActiveRecord::Base
   belongs_to :project
 
   validate :target_date_cannot_be_earlier_than_start_date
+  validate :deadline_cannot_be_earlier_than_start_date
+  validate :cannot_be_completed_before_start_date
 
   validates :description, presence: true, length: { maximum: 100 }
   validates :status,      presence: true, inclusion: STATUS_OPTIONS
@@ -15,11 +17,23 @@ class Assignment < ActiveRecord::Base
 
     def target_date_cannot_be_earlier_than_start_date
       unless start_date.nil? || target_date.nil?
-        start_date_error if target_date < start_date
+        date_error if target_date < start_date
       end
     end
 
-    def start_date_error
-      errors.add(:target_date, "can't be before start date")
+    def deadline_cannot_be_earlier_than_start_date
+      unless start_date.nil? || deadline.nil?
+        date_error if deadline < start_date
+      end
+    end
+
+    def cannot_be_completed_before_start_date
+      unless start_date.nil? || completed.nil?
+        date_error if completed < start_date
+      end
+    end
+
+    def date_error
+      errors.add(:date_error, "can't be before start date")
     end
 end

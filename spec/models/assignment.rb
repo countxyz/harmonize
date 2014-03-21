@@ -49,5 +49,17 @@ describe Assignment do
                                       target_date: '2013-11-01')
       expect(assignment).to_not be_valid
     end
+
+    it 'cannot have a deadline before start date' do
+      assignment = build(:assignment, start_date: '2013-11-02',
+                                      deadline: '2013-11-01')
+      expect(assignment).to_not be_valid
+    end
+
+    it 'cannot be completed before start date' do
+      assignment = build(:assignment, start_date: '2013-11-02',
+                                      completed: '2013-11-01')
+      expect(assignment).to_not be_valid
+    end
   end
 end
