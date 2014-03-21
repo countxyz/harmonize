@@ -1,3 +1,6 @@
+[![endorse](https://api.coderwall.com/countxyz/endorsecount.png)]
+(https://coderwall.com/countxyz)
+
 # Harmonize
 
 ## About
