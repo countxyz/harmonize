@@ -1,18 +1,19 @@
-%h1 Harmonize
+%a{href: '#', class: 'bt-menu-trigger'}
+  %span Filler
 
-%ul#sidenav_list
-  %li
-    = link_to 'Projects', projects_path,
-      class: 'button button-pill button-flat-primary'
-  %li
-    = link_to 'Contacts', contacts_path,
-      class: 'button button-pill button-flat-primary'
-  %li
-    = link_to 'Events', events_path,
-      class: 'button button-pill button-flat-primary'
-  %li
-    = link_to 'About', about_path,
-      class: 'button button-pill button-flat-primary'
+%ul
+  %li= link_to 'Projects', root_path
+  %li= link_to 'Contacts', contacts_path
+  %li= link_to 'Events',   events_path
+  %li= link_to 'About',    about_path
 
-%footer#sidenav_footer
-  = link_to(image_tag("license/wtfpl-badge-2.png", id: 'license'), about_path)
+%ul
+  %li
+    = link_to 'Twitter', 'https://twitter.com/count_x_y_z',
+      class: 'bt-icon icon-twitter'
+  %li
+    = link_to 'GitHub', 'https://github.com/countxyz',
+      class: 'bt-icon icon-github'
+
+%footer#main_footer
+  = link_to(image_tag('wtfpl-badge-2.png', id: 'license'), about_path)

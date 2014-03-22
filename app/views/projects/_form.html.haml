@@ -1,7 +1,7 @@
 = simple_form_for @project, html: { multipart: true } do |f|
   %form
     %fieldset
-      %legend.bold_title Project Details
+      %legend.bold_title New Project
       = f.input :name,     input_html: { id: 'regular_field', maxlength: 50  }
       = f.input :website,  input_html: { id: 'regular_field', maxlength: 100 }
       = f.input :employer, input_html: { id: 'regular_field', maxlength: 50  }

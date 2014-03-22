@@ -1,8 +1,11 @@
 //= require modernizr-latest
+//= require opal
+//= require opal_ujs
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require fullcalendar.min
 //= require calendar
-//= require turbolinks
 //= require dates
+//= require projects

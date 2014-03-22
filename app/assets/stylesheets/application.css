@@ -2,7 +2,7 @@
  *= require_self
  *= require normalize
  *= require layout
- *= require sidenav
+ *= require borders
  *= require page_header
  *= require forms
  *= require jquery.ui.datepicker
@@ -14,6 +14,7 @@
  *= require text
  *= require profiles
  *= require main_pages
+ *= require icons
  *= require font-awesome
  *= require other
  */

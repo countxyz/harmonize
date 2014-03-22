@@ -7,14 +7,12 @@
       'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
-    #page_wrapper
-      %nav#sidenav
-        = render 'layouts/sidenav'
-      #main
-        %header#page_header
-          = yield :page_header
-        %section#notifications
-          = render 'layouts/notifications'
-        %section#content
-          = yield
+    .container
+      %header#main_header= yield :page_header
+      %nav.bt-menu#bt-menu= render 'layouts/sidenav'
+      %section#notifications= render 'layouts/notifications'
+      %section#content= yield
+
+  = javascript_include_tag 'classie', 'borders'
