@@ -11,6 +11,12 @@
       = link_to root_path do
         %i.fa.fa-home.fa-2x
     %li
+      = link_to 'All Projects', "#",
+        class: 'button button-pill button-flat-primary'
+    %li
+      = link_to 'New Assignment', "#",
+        class: 'button button-pill button-flat-primary'
+    %li
       = link_to 'New Project', new_project_path,
         class: 'button button-pill button-flat-primary'
 %table
