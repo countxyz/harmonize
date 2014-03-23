@@ -11,8 +11,9 @@
   %body
     .container
       %header#main_header= yield :page_header
-      %nav.bt-menu#bt-menu= render 'layouts/sidenav'
+      %nav.bt-menu#bt-menu= render 'layouts/border_nav'
       %section#notifications= render 'layouts/notifications'
       %section#content= yield
+      %footer#main_footer= render 'layouts/footer'
 
   = javascript_include_tag 'classie', 'borders'
