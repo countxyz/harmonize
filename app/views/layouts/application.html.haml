@@ -11,7 +11,7 @@
   %body
     .container
       %header#main_header= yield :page_header
-      %nav.bt-menu#bt-menu= render 'layouts/border_nav'
+      %nav.bt-menu.bt-menu-close#bt-menu= render 'layouts/border_nav'
       %section#notifications= render 'layouts/notifications'
       %section#content= yield
       %footer#main_footer= render 'layouts/footer'
