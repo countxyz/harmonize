@@ -1,5 +1,5 @@
 %a{href: '#', class: 'bt-menu-trigger'}
-  %span Filler
+  %span Menu
 
 %ul
   %li= link_to 'Projects', root_path
@@ -9,10 +9,10 @@
 
 %ul
   %li
-    = link_to 'Twitter', 'https://twitter.com/count_x_y_z',
-      class: 'bt-icon icon-twitter'
+    = link_to 'https://github.com/countxyz' do
+      %i.fa.fa-github-alt.fa-3x GitHub
   %li
-    = link_to 'GitHub', 'https://github.com/countxyz',
-      class: 'bt-icon icon-github'
+    = link_to 'https://twitter.com/count_x_y_z' do
+      %i.fa.fa-twitter.fa-3x#twitter Twitter
 
 .bt-overlay
