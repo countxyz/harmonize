@@ -1,2 +1,7 @@
 - content_for :page_header do
   %h1 Projects
+
+  %nav
+    %ul
+      %li= link_to 'All', root_path
+      %li.last_link= link_to 'New', new_project_path

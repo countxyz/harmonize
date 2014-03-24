@@ -1,9 +1,5 @@
 - provide(:title, @project.name)
-- content_for :page_header do
-  %h1 
-    Details
-    %span.header_right
-      Projects
+= render 'project_header'
 
 %section#project_dates
   %section.date_block#project_name

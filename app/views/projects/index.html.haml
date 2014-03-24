@@ -1,18 +1,6 @@
 - provide(:title, 'Projects Index')
 = render 'project_header'
 
-%nav.site_links
-  %ul
-    / %li
-    /   = link_to 'All Projects', root_path,
-    /     class: 'button button-pill button-flat-primary'
-    / %li#new_assignment
-    /   = link_to 'New Assignment', "#",
-    /     class: 'button button-pill button-flat-primary'
-    / %li
-    /   = link_to 'New Project', new_project_path,
-    /     class: 'button button-pill button-flat-primary'
-
 %table.project_table
   %thead
     %tr
@@ -33,11 +21,3 @@
           %br/
           = link_to 'Delete', project, method: :delete,
             data: { :confirm => 'Are you sure?' }
-
-/ .assignments(style="display:none;")
-/ = simple_form_for @assignment do |f|
-/   %form
-/     %fieldset
-/       %legend.bold_title New Assignment
-/       = f.input :name, as: :select, label: 'Project Name',
-/         collection: @project

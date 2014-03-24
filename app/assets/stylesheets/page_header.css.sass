@@ -1,12 +1,48 @@
 @import 'variables'
 
-header#main_header
-  background: $blue-theme
+header h1,
+header nav,
+header::after,
+header nav,
+ul li
+  display: inline-block
+
+header h1,
+header nav ul li a
   color: white
+
+header::after
+  content: ''
+  width: 100%
+
+header
+  text-align: justify
+  letter-spacing: 1px
+  background: $blue-theme
   font-family: $heading-font
+  border-bottom: 3px solid black
+  border-radius-bottom: 40px
 
   h1
-    position: absolute
-    left: 250px
     font-size: 36px
     font-weight: bold
+
+  nav
+    left: 300px
+
+    ul 
+      li
+        padding: 15px
+        border-right: 5px solid white
+
+        &.last_link
+          border-right: none
+
+        a
+          padding: 15px
+          font-size: 32px
+          font-weight: 900         
+
+          &:hover
+            background: white
+            color: $blue-theme

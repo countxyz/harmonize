@@ -1,8 +1,3 @@
 - provide(:title, 'New Project')
-- content_for :page_header do
-  %h1
-    New
-    %span.header_right
-      Projects
-
+= render 'project_header'
 = render 'form'
