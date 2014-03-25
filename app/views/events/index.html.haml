@@ -1,10 +1,4 @@
 - provide(:title, 'Home')
-- content_for :page_header do
-  %h1
-    Index
-    %span.header_right Events
-
-= link_to 'Create Event', new_event_path,
-  class: "button button-pill button-flat-primary"
+= render 'event_header'
 
 %section#calendar
