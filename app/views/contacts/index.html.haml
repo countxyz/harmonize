@@ -1,15 +1,5 @@
 - provide(:title, 'Contacts Index')
-- content_for :page_header do
-  %h1 Contacts
-
-%nav.site_links
-  %ul
-    %li
-      = link_to root_path do
-        %i.fa.fa-home.fa-2x
-    %li
-      = link_to "New Contact", new_contact_path,
-        class: "button button-pill button-flat-primary"
+= render 'contact_header'
 
 %table
   %thead

@@ -1,0 +1,15 @@
+- content_for :page_header do
+  %h1 Contacts
+
+  %nav
+    %ul
+      %li
+        = link_to contacts_path do
+          %button.btn.btn-1.btn-1c
+            %i.fa.fa-archive.in_button
+            All
+      %li
+        = link_to new_contact_path do
+          %button.btn.btn-1.btn-1c
+            %i.fa.fa-plus.in_button
+            New
