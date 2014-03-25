@@ -7,10 +7,6 @@ header nav,
 ul li
   display: inline-block
 
-header h1,
-header nav ul li a
-  color: white
-
 header::after
   content: ''
   width: 100%
@@ -26,23 +22,15 @@ header
   h1
     font-size: 36px
     font-weight: bold
+    color: white
 
   nav
     left: 300px
 
-    ul 
-      li
-        padding: 15px
-        border-right: 5px solid white
+    ul li a
+      position: relative
+      z-index: 1
 
-        &.last_link
-          border-right: none
-
-        a
-          padding: 15px
-          font-size: 32px
-          font-weight: 900         
-
-          &:hover
-            background: white
-            color: $blue-theme
+.in_button
+  padding-left: 25px
+  padding-right: 50px

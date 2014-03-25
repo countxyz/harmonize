@@ -3,7 +3,7 @@
  *= require normalize
  *= require layout
  *= require borders
- *= require page_header
+ *= require header
  *= require forms
  *= require jquery.ui.datepicker
  *= require fullcalendar

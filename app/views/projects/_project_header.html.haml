@@ -3,5 +3,13 @@
 
   %nav
     %ul
-      %li= link_to 'All', root_path
-      %li.last_link= link_to 'New', new_project_path
+      %li
+        = link_to root_path do
+          %button.btn.btn-1.btn-1c
+            %i.fa.fa-archive.in_button
+            All
+      %li
+        = link_to new_project_path do
+          %button.btn.btn-1.btn-1c
+            %i.fa.fa-plus.in_button
+            New
