@@ -1,19 +1,30 @@
-= simple_form_for @contact do |f|
-  %form
-    %fieldset
-      %legend.bold_title New Contact
-      = f.input :first_name, label: 'First Name'
-      = f.input :last_name,  label: 'Last Name'
-      = f.input :company
-      = f.input :email
-      = f.input :secondary_email, label: 'Secondary Email'
-      = f.input :notes, as: :text
-    %fieldset
-      %legend.bold_title New Phone
+%form
+  %fieldset
+    %legend.bold_title New Contact
+    = simple_form_for @contact do |f|
+      = f.input :first_name, label: 'First Name',
+        input_html: { id: 'regular_field', maxlength: 30 }
+      = f.input :last_name,  label: 'Last Name',
+        input_html: { id: 'regular_field', maxlength: 30 }
+      = f.input :company, input_html: { id: 'regular_field', maxlength: 50 }
+      = f.input :email,   input_html: { id: 'regular_field', maxlength: 50 }
+      = f.input :secondary_email, label: 'Secondary Email',
+        input_html: { id: 'regular_field', maxlength: 50 }
+      = f.label :notes
+      = f.input_field :notes, as: :text, input_html: { rows: 4, maxlength: 600 }
+      %section.button_center.contact
+        %p
+          = f.button :submit, class: 'btn btn-6 btn-6j'
+          = link_to '#' do
+            %button.btn.btn-6.btn-6j#add_phone + Add Phone
+
+  %fieldset{style: 'display:none', class: 'phone_form'}
+    %legend.bold_title New Phone
+    = simple_form_for @contact do |f|
       = f.simple_fields_for :phone do |ff|
-        = ff.input :office
-        = ff.input :mobile
-        = ff.input :fax
-        = ff.input :home
-      %section.button_center
-        = f.button :submit, class: 'button button-pill button-flat-primary'
+        = ff.input :office, input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :mobile, input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :fax,    input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :home,   input_html: { id: 'regular_field', maxlength: 10 }
+        %section.button_center
+          %p= f.button :submit, class: 'btn btn-6 btn-6j'

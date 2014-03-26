@@ -2,9 +2,8 @@ require 'spec_helper'
 
 feature 'Event management' do
   scenario 'creates a new event', js: true do
-    visit root_path
-    click_on 'Events'
-    click_on 'Create Event'
+    visit events_path
+    click_button('New')
     fill_in 'Title',       with: 'Vandalay Prototype'
     fill_in 'Description', with: 'Build prototype for the new Vandalay site.'
     fill_in 'Start',       with: '04/01/2014'

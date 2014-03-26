@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Project management' do
   scenario 'creates a new project', js: true do
     visit root_path
-    click_on 'New Project'
+    click_button('New')
     within('div.project_name')     { fill_in 'Name',     with: 'Vandalay'   }
     within('div.project_website')  { fill_in 'Website',  with: 'target.com' }
     within('div.project_employer') { fill_in 'Employer', with: 'Target'     }
@@ -24,7 +24,7 @@ feature 'Project management' do
   scenario 'delete a project' do
     project = create(:project)
     visit project_path(project)
-    click_link('Delete Project')
+    click_link('Delete')
     expect(page).to have_content('Project has been deleted')
     expect(current_path).to eq projects_path
   end

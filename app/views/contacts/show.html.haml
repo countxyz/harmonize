@@ -1,9 +1,5 @@
 - provide(:title, @contact.name)
-- content_for :page_header do
-  %h1
-    Details
-    %span.header_right
-      Contact
+= render 'contact_header'
 
 .table_container
   %table#project_details.profile
@@ -42,15 +38,14 @@
         %th Home Phone
         %td.profile_spacing= phone_format(@phone.home)
 
-%nav.site_links
+%nav
   %ul
     %li
-      = link_to 'Edit Contact', edit_contact_path(@contact),
-        class: 'button button-pill button-flat-primary'
+      = link_to edit_contact_path(@contact) do
+        %button.btn.btn-form.btn-6.btn-6j Edit
     %li
-      = link_to 'Delete Contact', @contact,
-        class: 'button button-pill button-flat-primary', :method => :delete,
-        data: { confirm: 'Are you sure you want to delete this contact?' }
+      = link_to @contact do
+        %button.btn.btn-form.btn-6.btn-6j Delete
     %li
-      = link_to "Back to Contacts", contacts_path,
-        class: 'button button-pill button-flat-primary'
+      = link_to contacts_path do
+        %button.btn.btn-form.btn-6.btn-6j Back

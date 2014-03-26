@@ -1,7 +1,3 @@
 - provide(:title, 'Edit Event')
-- content_for :page_header do
-  %h1
-    Edit
-    %span.header_right Events
-
+= render 'event_header'
 = render 'form'

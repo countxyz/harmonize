@@ -10,3 +10,4 @@
 //= require calendar
 //= require dates
 //= require projects
+//= require contacts

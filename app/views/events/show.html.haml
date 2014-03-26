@@ -1,8 +1,5 @@
 - provide(:title, @event.title)
-- content_for :page_header do
-  %h1
-    Details
-    %span.header_right Events
+= render 'event_header'
 
 .table_container
   %table#project_details.profile
@@ -21,20 +18,19 @@
         %td.profile_spacing= @event.all_day
       %tr
         %th Start Time
-        %td.profile_spacing= profile_date_format(@event.start_time)
+        %td.profile_spacing= @event.start_time
       %tr
         %th End Time
-        %td.profile_spacing= profile_date_format(@event.end_time)
+        %td.profile_spacing= @event.end_time
 
-%nav.site_links
+%nav
   %ul
     %li
-      = link_to 'Edit Event', edit_event_path(@event),
-        class: 'button button-pill button-flat-primary'
+      = link_to edit_event_path(@event) do
+        %button.btn.btn-form.btn-6.btn-6j Edit
     %li
-      = link_to 'Delete Event', @event,
-        class: 'button button-pill button-flat-primary', :method => :delete,
-        data: { confirm: 'Are you sure you want to delete this event?' }
+      = link_to @event do
+        %button.btn.btn-form.btn-6.btn-6j Delete
     %li
-      = link_to 'Back to Events', events_path,
-        class: 'button button-pill button-flat-primary'
+      = link_to events_path do
+        %button.btn.btn-form.btn-6.btn-6j Back

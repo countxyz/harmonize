@@ -5,6 +5,8 @@
       = f.input :title
       = f.input :start_time,  as: :datepicker,  label: 'Start'
       = f.input :end_time,    as: :datepicker,  label: 'End'
-      = f.input :description, as: :text
+      = f.label :description
+      = f.input_field :description, as: :text
       %section.button_center
-        = f.button :submit, class: 'button button-pill button-flat-primary'
+        %p
+          = f.button :submit, class: 'btn btn-form btn-6 btn-6j'

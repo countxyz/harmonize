@@ -27,12 +27,11 @@
 %nav.site_links
   %ul
     %li
-      = link_to 'Edit Project', edit_project_path(@project),
-        class: 'button button-pill button-flat-primary'
+      = link_to edit_project_path(@project) do
+        %button.btn.btn-form.btn-6.btn-6j Edit
     %li
-      = link_to 'Delete Project', @project,
-        class: 'button button-pill button-flat-primary', :method => :delete,
-        data: { confirm: 'Are you sure you want to delete this project?' }
+      = link_to @project, method: :delete do
+        %button.btn.btn-form.btn-6.btn-6j Delete
     %li
-      = link_to "Back to Projects", projects_path,
-        class: 'button button-pill button-flat-primary'
+      = link_to projects_path do
+        %button.btn.btn-form.btn-6.btn-6j Back
