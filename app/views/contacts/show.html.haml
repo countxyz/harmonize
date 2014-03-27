@@ -42,10 +42,10 @@
   %ul
     %li
       = link_to edit_contact_path(@contact) do
-        %button.btn.btn-form.btn-6.btn-6j Edit
+        %button.btn.btn-6.btn-6j Edit
     %li
-      = link_to @contact do
-        %button.btn.btn-form.btn-6.btn-6j Delete
+      = link_to @contact, method: :delete do
+        %button.btn.btn-6.btn-6j Delete
     %li
       = link_to contacts_path do
-        %button.btn.btn-form.btn-6.btn-6j Back
+        %button.btn.btn-6.btn-6j Back

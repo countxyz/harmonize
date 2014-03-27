@@ -24,14 +24,14 @@
 - else
   %p No images have been uploaded
 
-%nav.site_links
+%nav
   %ul
     %li
       = link_to edit_project_path(@project) do
-        %button.btn.btn-form.btn-6.btn-6j Edit
+        %button.btn.btn-6.btn-6j Edit
     %li
       = link_to @project, method: :delete do
-        %button.btn.btn-form.btn-6.btn-6j Delete
+        %button.btn.btn-6.btn-6j Delete
     %li
       = link_to projects_path do
-        %button.btn.btn-form.btn-6.btn-6j Back
+        %button.btn.btn-6.btn-6j Back

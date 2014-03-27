@@ -24,7 +24,7 @@ feature 'Event management' do
   scenario 'delete an event' do
     event = create(:event)
     visit event_path(event)
-    click_link('Delete Event')
+    click_link('Delete')
     expect(page).to have_content('Event has been deleted')
     expect(current_path).to eq events_path
   end

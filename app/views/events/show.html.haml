@@ -27,10 +27,10 @@
   %ul
     %li
       = link_to edit_event_path(@event) do
-        %button.btn.btn-form.btn-6.btn-6j Edit
+        %button.btn.btn-6.btn-6j Edit
     %li
-      = link_to @event do
-        %button.btn.btn-form.btn-6.btn-6j Delete
+      = link_to @event, method: :delete do
+        %button.btn.btn-6.btn-6j Delete
     %li
       = link_to events_path do
-        %button.btn.btn-form.btn-6.btn-6j Back
+        %button.btn.btn-6.btn-6j Back
