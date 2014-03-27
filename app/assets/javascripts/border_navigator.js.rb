@@ -10,6 +10,10 @@ class BorderNavigator
     Element.find('.bt-menu')
   end
 
+  def overlay
+    Element.find('.bt-overlay')
+  end
+
   def toggle_menu
     navigation.toggle_class 'bt-menu-open'
   end
@@ -22,16 +26,19 @@ class BorderNavigator
   end
 
   def close_on_overlay
-    Element.find('.bt-overlay').on :click do |event|
+    overlay.on :click do |event|
       toggle_menu
       event.stop_propagation
+    end
+  end
+
+  def navigate_borders
+    Document.on 'page:change' do
+      toggle_border_navigation
+      close_on_overlay
     end
   end
 end
 
 navigator = BorderNavigator.new
-
-Document.on 'page:change' do
-  navigator.toggle_border_navigation
-  navigator.close_on_overlay
-end
+navigator.navigate_borders
