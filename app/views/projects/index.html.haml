@@ -12,12 +12,12 @@
     - @projects.each do |project|
       %tr
         %th.bold_name{scope: 'row'}= link_to project.name, project
-        %td= project.website
-        %td= project.employer
+        %td= data_format(project.website)
+        %td= data_format(project.employer)
         %td.table_actions
           = link_to 'Show', project
           %br/
           = link_to 'Edit', edit_project_path(project)
           %br/
           = link_to 'Delete', project, method: :delete,
-            data: { :confirm => 'Are you sure?' }
+            data: { confirm: 'Are you sure?' }

@@ -6,7 +6,7 @@ class ContactForm
     Element.find('.contact').hide
   end
 
-  def show_phone
+  def fade_in_phone
     Element.find('.phone_form').effect(:fade_in)
   end
 
@@ -18,13 +18,17 @@ class ContactForm
     find_add_phone.on :click do |click|
       click.prevent_default
       hide_submit_button
-      show_phone
+      fade_in_phone
+    end
+  end
+
+  def show_phone_form
+    Document.on 'page:change' do
+      click_add_phone
     end
   end
 end
 
 new_phone = ContactForm.new
 
-Document.on 'page:change' do
-  new_phone.click_add_phone
-end
+new_phone.show_phone_form

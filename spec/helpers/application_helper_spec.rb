@@ -11,4 +11,11 @@ describe ApplicationHelper do
       expect(helper.full_title 'Home').to eql 'Harmonize | Home'
     end
   end
+
+  describe 'Data Format' do
+    it "is 'N/A' when data not given" do
+      data = nil
+      expect(helper.data_format data).to eql 'N/A'
+    end
+  end
 end

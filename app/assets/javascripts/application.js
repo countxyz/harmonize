@@ -9,5 +9,4 @@
 //= require border_navigator
 //= require calendar
 //= require dates
-//= require projects
-//= require contacts
+//= require contact_form
