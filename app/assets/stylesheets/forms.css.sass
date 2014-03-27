@@ -1,5 +1,5 @@
 form,
-.phone_form
+form simple_form.new_contact#new_contact
   min-width: 350px
   margin-right: 150px
   margin-bottom: 50px
@@ -10,6 +10,28 @@ form,
 
   legend
     padding-bottom: 5px
+
+  input
+    padding: 5px 4px 0px 5px
+    margin-top: 2px
+    margin-right: 6px
+    margin-bottom: 16px
+    border: 1px solid #CEE2E7
+    background: #FBFBFB
+    outline: 0
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2)
+    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2)
+
+section .button_center
+  padding-top: 25px
+
+  p
+    height: 75px
+    text-align: center
+
+    input
+      width: 200px
+      height: 50px
 
 abbr[title]
   border-bottom: none
@@ -22,21 +44,10 @@ label
   padding-right: 10px
   text-align: left
 
-input
-  padding: 5px 4px 0px 5px
-  margin-top: 2px
-  margin-right: 6px
-  margin-bottom: 16px
-  border: 1px solid #CEE2E7
-  background: #FBFBFB
-  outline: 0
-  -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2)
-  box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2)
-
-input#regular_field
+#regular_field
   width: 400px
 
-input#file
+#file
   height: 30px
   font-size: 14px
 
@@ -53,14 +64,3 @@ select
 textarea
   width: 500px
   height: 100px
-
-section.button_center
-  padding-top: 25px
-
-  p
-    height: 75px
-    text-align: center
-
-    input
-      width: 200px
-      height: 50px

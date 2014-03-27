@@ -1,7 +1,7 @@
-%form
-  %fieldset
-    %legend.bold_title New Contact
-    = simple_form_for @contact do |f|
+= simple_form_for @contact do |f|
+  %form
+    %fieldset
+      %legend.bold_title New Contact    
       = f.input :first_name, label: 'First Name',
         input_html: { id: 'regular_field', maxlength: 30 }
       = f.input :last_name,  label: 'Last Name',
@@ -18,13 +18,16 @@
           = link_to '#' do
             %button.btn.btn-6.btn-6j#add_phone + Add Phone
 
-  %fieldset{style: 'display:none', class: 'phone_form'}
-    %legend.bold_title New Phone
-    = simple_form_for @contact do |f|
+    %fieldset{style: 'display:none', class: 'phone_form'}
+      %legend.bold_title New Phone
       = f.simple_fields_for :phone do |ff|
-        = ff.input :office, input_html: { id: 'regular_field', maxlength: 10 }
-        = ff.input :mobile, input_html: { id: 'regular_field', maxlength: 10 }
-        = ff.input :fax,    input_html: { id: 'regular_field', maxlength: 10 }
-        = ff.input :home,   input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :office, required: false,
+          input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :mobile, required: false,
+          input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :fax, required: false,
+          input_html: { id: 'regular_field', maxlength: 10 }
+        = ff.input :home, required: false,
+          input_html: { id: 'regular_field', maxlength: 10 }
         %section.button_center
           %p= f.button :submit, class: 'btn btn-6 btn-6j'
