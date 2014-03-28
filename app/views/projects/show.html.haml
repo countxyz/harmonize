@@ -1,37 +1,20 @@
 - provide(:title, @project.name)
 = render 'project_header'
+= render 'profile_links'
 
-%section#project_dates
-  %section.date_block#project_name
-    %h2= @project.name
-    %i.fa.fa-calendar.fa-2x
+%section.project_heading
+  %h2= @project.name.capitalize
+  %hr
+  %section= @project.website
+  %section= @project.notes
 
-.table_container.profile_container
-  %table.profile_table
-    %tbody
-      %tr
-        %th Website
-        %td.profile_spacing= @project.website
-      %tr
-        %th Notes
-        %td.profile_spacing= @project.notes
+%section.image_heading
+  %h2 Images
+  %hr
+  - if @project.image_file_name
+    = image_tag @project.image.url(:large)
+    = image_tag @project.image.url(:thumb)
+  - else
+    %p No images have been uploaded
 
-%h3#project_images Images
-%hr
-- if @project.image_file_name
-  = image_tag @project.image.url(:large)
-  = image_tag @project.image.url(:thumb)
-- else
-  %p No images have been uploaded
-
-%nav
-  %ul
-    %li
-      = link_to edit_project_path(@project) do
-        %button.btn.btn-6.btn-6j Edit
-    %li
-      = link_to @project, method: :delete, data: { confirm: 'Are you sure?' } do
-        %button.btn.btn-6.btn-6j Delete
-    %li
-      = link_to projects_path do
-        %button.btn.btn-6.btn-6j Back
+= render 'bottom_navigation'
