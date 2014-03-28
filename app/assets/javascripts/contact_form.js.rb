@@ -30,5 +30,4 @@ class ContactForm
 end
 
 new_phone = ContactForm.new
-
 new_phone.show_phone_form

@@ -17,4 +17,14 @@
   - else
     %p No images have been uploaded
 
+%section{style: 'display:none;', class: 'assignment_form'}
+  %h2 New Assignment
+  %hr
+  = simple_form_for([@project, @assignment]) do |f|
+    %form
+      %fieldset
+        %legend New Assignment
+        = f.input :description
+
+
 = render 'bottom_navigation'

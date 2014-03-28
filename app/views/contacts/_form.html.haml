@@ -18,7 +18,7 @@
           = link_to '#' do
             %button.btn.btn-6.btn-6j#add_phone + Add Phone
 
-    %fieldset{style: 'display:none', class: 'phone_form'}
+    %fieldset{style: 'display:none;', class: 'phone_form'}
       %legend.bold_title New Phone
       = f.simple_fields_for :phone do |ff|
         = ff.input :office, required: false,
