@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   def index
     @contacts = Contact.all
   end
 
   def show
-    @contact  = Contact.find(params[:id])
     @phone = @contact.phone
   end
 
@@ -25,12 +25,9 @@ class ContactsController < ApplicationController
     end
   end
 
-  def edit
-    @contact = Contact.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @contact = Contact.find(params[:id])
     if @contact.update_attributes(contact_params)
       flash[:notice] = 'Contact has been updated'
       redirect_to @contact
@@ -41,13 +38,16 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact = Contact.find(params[:id])
     @contact.destroy
     flash[:notice] = 'Contact has been deleted'
     redirect_to contacts_path
   end
 
   private
+
+    def set_contact
+      @contact = Contact.find(params[:id])
+    end
 
     def contact_params
       params.require(:contact).permit(:first_name, :last_name, :company, :email,
