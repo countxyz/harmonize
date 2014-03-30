@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320200858) do
+ActiveRecord::Schema.define(version: 20140330083427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140320200858) do
     t.datetime "image_updated_at"
     t.string   "employer"
     t.string   "name"
+    t.string   "github"
   end
 
   add_index "projects", ["name"], name: "index_projects_on_name", unique: true, using: :btree

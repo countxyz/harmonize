@@ -1,3 +1,9 @@
 - provide(:title, 'Edit Project')
 = render 'project_header'
+= render 'profile_links'
+
+%section.project_heading
+  %h2= @project.name.capitalize
+  %hr
+
 = render 'form'
