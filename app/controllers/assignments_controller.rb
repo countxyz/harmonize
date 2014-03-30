@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+  before_action :set_project, only: [:index, :create]
 
   def index
     @assignments = Assignment.all
@@ -9,7 +10,6 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @assignment = Assignment.new(assignment_params)
     @project.add_assignment(@project, @assignment)
 
@@ -23,6 +23,10 @@ class AssignmentsController < ApplicationController
   end
 
   private
+
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
 
     def assignment_params
       params.require(:assignment).permit(:description, :status, :priority,

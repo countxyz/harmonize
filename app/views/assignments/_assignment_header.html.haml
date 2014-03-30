@@ -1,0 +1,15 @@
+- content_for :page_header do
+  %h1 Assignments
+
+  %nav
+    %ul
+      %li
+        = link_to root_path do
+          %button.btn.btn-1.btn-1c
+            %i.fa.fa-archive.in_button
+            Projects
+      %li
+        = link_to @project do
+          %button.btn.btn-1.btn-1c
+            %i.fa.fa-plus.in_button
+            Profile
