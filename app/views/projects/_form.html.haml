@@ -4,6 +4,8 @@
       %legend.bold_title Project
       = f.input :name,     input_html: { id: 'regular_field', maxlength: 50  }
       = f.input :website,  input_html: { id: 'regular_field', maxlength: 100 }
+      = f.input :github,   input_html: { id: 'regular_field', maxlength: 100 },
+        label: 'GitHub'
       = f.input :employer, input_html: { id: 'regular_field', maxlength: 50  }
       = f.input :image, as: :file, input_html: { id: 'file', multiple: true }
       = f.label :notes

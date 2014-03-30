@@ -5,8 +5,15 @@
 %section.project_heading
   %h2= @project.name.capitalize
   %hr
-  %section= @project.website
-  %section= @project.notes
+  %section
+    Website:
+    = @project.website
+  %section
+    Notes:
+    = @project.notes
+  %section
+    GitHub:
+    = @project.github
 
 %section.project_profile
   %section.project_images

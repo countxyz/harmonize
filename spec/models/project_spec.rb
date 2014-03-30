@@ -43,7 +43,7 @@ describe Project do
       @project = create(:project) do |project|
         project.assignments.create(attributes_for(:assignment))
       end
-    end    
+    end
 
     it 'has assignment' do
       expect(@project.assignments.count).to eq 1

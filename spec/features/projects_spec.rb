@@ -6,6 +6,7 @@ feature 'Project management' do
     click_button('New')
     within('div.project_name')     { fill_in 'Name',     with: 'Vandalay'   }
     within('div.project_website')  { fill_in 'Website',  with: 'target.com' }
+    within('div.project_github')   { fill_in 'Website',  with: 'github.com' }
     within('div.project_employer') { fill_in 'Employer', with: 'Target'     }
     fill_in 'Notes', with: 'Bring your A game with Vandalay.'
     click_on 'Create Project' 
