@@ -8,7 +8,16 @@
   %section= @project.website
   %section= @project.notes
 
-%section.image_heading
+%section.project_profile
+  %section.assignments
+  %h2 Assignments
+  %hr
+
+  - unless @project.assignments.nil?
+    = @project.assignments.each do |assignment|
+      = assignment.description
+
+  %section.project_images
   %h2 Images
   %hr
   - if @project.image_file_name
@@ -17,14 +26,5 @@
   - else
     %p No images have been uploaded
 
-%section{style: 'display:none;', class: 'assignment_form'}
-  %h2 New Assignment
-  %hr
-  = simple_form_for([@project, @assignment]) do |f|
-    %form
-      %fieldset
-        %legend New Assignment
-        = f.input :description
-
-
+= render 'assignment_form'
 = render 'bottom_navigation'

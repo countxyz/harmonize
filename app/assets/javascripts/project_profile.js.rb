@@ -6,8 +6,8 @@ class ProjectProfile
     Element.find('#new_assignment')
   end
 
-  def hide_image_heading
-    Element.find('.image_heading').hide
+  def hide_project_profile
+    Element.find('.project_profile').hide
   end
 
   def fade_in_assignment_form
@@ -16,7 +16,7 @@ class ProjectProfile
 
   def click_new_assignment
     find_new_assignment.on :click do |click|
-      hide_image_heading
+      hide_project_profile
       fade_in_assignment_form
       click.stop_propagation
     end

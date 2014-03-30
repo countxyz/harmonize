@@ -5,7 +5,9 @@ class ProjectsController < ApplicationController
     @projects = Project.all 
   end
 
-  def show; end
+  def show
+    @assignment = @project.assignments.build
+  end
 
   def new
     @project = Project.new
@@ -48,7 +50,6 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:name, :website, :employer, :image,
-        :notes, assignment_attributes: [:description, :status, :priority,
-        :start_date, :target_date, :deadline, :completed, :notes])
+        :notes)
     end
 end
