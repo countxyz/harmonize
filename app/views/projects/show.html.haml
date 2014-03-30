@@ -9,14 +9,6 @@
   %section= @project.notes
 
 %section.project_profile
-  %section.assignments
-  %h2 Assignments
-  %hr
-
-  - unless @project.assignments.nil?
-    = @project.assignments.each do |assignment|
-      = assignment.description
-
   %section.project_images
   %h2 Images
   %hr
@@ -27,4 +19,3 @@
     %p No images have been uploaded
 
 = render 'assignment_form'
-= render 'bottom_navigation'

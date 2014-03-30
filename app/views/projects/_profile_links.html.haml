@@ -6,3 +6,9 @@
     %li
       = link_to '#' do
         %button.btn.btn-6.btn-6j#new_assignment New Assignment
+    %li
+      = link_to edit_project_path(@project) do
+        %button.btn.btn-6.btn-6j Edit
+    %li
+      = link_to @project, method: :delete, data: { confirm: 'Are you sure?' } do
+        %button.btn.btn-6.btn-6j Delete
