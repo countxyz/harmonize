@@ -16,7 +16,7 @@ feature 'Contact management' do
     within('div.contact_phone_mobile')  { fill_in 'Mobile', with: '9175555555' }
     within('div.contact_phone_fax')     { fill_in 'Fax',    with: '2125555556' }
     within('div.contact_phone_home')    { fill_in 'Home',   with: '5165555555' }
-    click_on 'Create Contact'
+    click_on 'Update'
     expect(page).to have_content('Contact has been created')
   end
 
@@ -27,7 +27,7 @@ feature 'Contact management' do
   #   visit edit_contact_path(contact)
   #   within('div.contact_first_name') { fill_in 'First Name', with: 'b' }
   #   click_button('Add Phone')
-  #   within('section.button_center') { click_on 'Update Contact' }
+  #   click_on 'Update'
   #   expect(page).to have_content('Contact has been updated')
   #   expect(current_path).to eq contact_path(contact)
   # end

@@ -17,6 +17,8 @@
           = f.button :submit, class: 'btn btn-6 btn-6j'
           = link_to '#' do
             %button.btn.btn-6.btn-6j#add_phone + Add Phone
+          = link_to contacts_path do
+            %button.btn.btn-6.btn-6j#add_phone Back
 
     %fieldset{style: 'display:none;', class: 'phone_form'}
       %legend.bold_title New Phone
@@ -30,4 +32,4 @@
         = ff.input :home, required: false,
           input_html: { id: 'regular_field', maxlength: 10 }
         %section.button_center
-          %p= f.button :submit, class: 'btn btn-6 btn-6j'
+          %p= ff.button :submit, 'Update', class: 'btn btn-6 btn-6j'

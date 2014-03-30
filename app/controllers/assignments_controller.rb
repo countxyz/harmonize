@@ -7,7 +7,8 @@ class AssignmentsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @assignment = Assignment.new(assignment_params)
-    @project.assignments << @assignment
+    @project.add_assignment(@project, @assignment)
+
     if @project.save
       flash[:notice] = 'Assignment has been added'
       redirect_to :back

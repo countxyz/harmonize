@@ -1,6 +1,5 @@
 class Project < ActiveRecord::Base
   has_many :assignments, dependent: :destroy
-  accepts_nested_attributes_for :assignments
 
   IMAGE_TYPES = %w(image/jpeg image/jpg image/png)
   has_attached_file :image, styles: { small: '100x100', large: '300x300' }
@@ -13,4 +12,8 @@ class Project < ActiveRecord::Base
   validates :employer, length: { maximum: 50 }
 
   validates :notes, length: { maximum: 1000 }
+
+  def add_assignment project, assignment
+    project.assignments << assignment
+  end
 end
