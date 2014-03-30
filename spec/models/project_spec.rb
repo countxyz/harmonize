@@ -29,6 +29,10 @@ describe Project do
       expect(build(:project, website: 'a' * 101)).to_not be_valid
     end
 
+    it 'is invalid when github has more than 100 characters' do
+      expect(build(:project, github: 'a' * 101)).to_not be_valid
+    end
+
     it 'is invalid when notes has more than 1000 characters' do
       expect(build(:project, notes: 'a' * 1001)).to_not be_valid
     end

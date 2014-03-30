@@ -9,6 +9,8 @@ class Project < ActiveRecord::Base
 
   validates :website, length: { maximum: 100 }
 
+  validates :github, length: { maximum: 100 }
+
   validates :employer, length: { maximum: 50 }
 
   validates :notes, length: { maximum: 1000 }
