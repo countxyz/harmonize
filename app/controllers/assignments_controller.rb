@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
-  before_action :set_project, only: [:index, :create]
+  before_action :set_assignment, only: [:destroy]
+  before_action :set_project,    only: [:index, :create]
 
   def index
     @assignments = Assignment.all
@@ -23,7 +24,13 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def edit; end
+
   private
+
+    def set_assignment
+      @assignment = Assignment.find(params[:id])
+    end
 
     def set_project
       @project = Project.find(params[:project_id])
