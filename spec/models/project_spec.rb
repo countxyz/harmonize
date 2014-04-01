@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe Project do
-
+  
+  it 'counts assignments per project' do
+    two_assignments = create(:project_with_assignments)
+    expect(two_assignments.project_assignment_total).to eq 2
+  end
+  
   describe 'uniqueness' do
     it 'is invalid when name is used more than once' do
       project_1 = create(:project)

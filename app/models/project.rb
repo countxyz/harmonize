@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
     project.assignments << assignment
   end
 
-  def assignment_total
-    project.assignments.count
+  def project_assignment_total
+    assignments.count
   end
 end
