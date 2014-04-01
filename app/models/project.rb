@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   has_many :assignments, dependent: :destroy
 
-  IMAGE_TYPES    = %w(image/jpeg image/jpg image/png)
+  IMAGE_TYPES = %w(image/jpeg image/jpg image/png)
 
   has_attached_file :image, styles: { small: '100x100', large: '300x300' }
   validates_attachment_content_type :image, content_type: IMAGE_TYPES
@@ -20,7 +20,15 @@ class Project < ActiveRecord::Base
     project.assignments << assignment
   end
 
-  def project_assignment_total
+  def assignment_total
     assignments.count
+  end
+
+  def find_unfinished_assignments
+    assignments.select { |assignment| assignment.status =~ /Completed/ }
+  end
+
+  def unfinished_assignments_total
+    find_unfinished_assignments.count
   end
 end

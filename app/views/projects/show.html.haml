@@ -15,8 +15,8 @@
     GitHub:
     = @project.github
   %section
-    Assignments:
-    = @project.project_assignment_total
+    Assignments: #{@project.unfinished_assignments_total} /
+    #{@project.assignment_total}
 
 %section.project_profile
   %section.project_images
