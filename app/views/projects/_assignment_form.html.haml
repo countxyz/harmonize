@@ -7,9 +7,9 @@
         %legend.bold_title New Assignment
         = f.input :description,
           input_html: { id: 'regular_field', maxlength: 100 }
-        = f.input :status,   as: :select,
+        = f.input :status,   as: :select, include_blank: false,
           collection: Assignment::STATUS_OPTIONS
-        = f.input :priority, as: :select,
+        = f.input :priority, as: :select, include_blank: false,
           collection: Assignment::PRIORITY_OPTIONS
         = f.input :start_date,  as: :datepicker, label: 'Start Date'
         = f.input :target_date, as: :datepicker, label: 'Target Date'

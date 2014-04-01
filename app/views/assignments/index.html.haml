@@ -1,3 +1,4 @@
 = render 'assignment_header'
 
-= @assignments.select(:description)
+- @assignment.each do |assignment|
+  = assignment.description

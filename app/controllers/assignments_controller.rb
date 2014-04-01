@@ -3,6 +3,7 @@ class AssignmentsController < ApplicationController
 
   def index
     @assignments = Assignment.all
+    @assignment = @project.assignments
   end
 
   def new
