@@ -1,1 +1,4 @@
 = render 'assignment_header'
+
+= @assignments.map do |assignment|
+  assignment.description

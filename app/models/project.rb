@@ -19,4 +19,8 @@ class Project < ActiveRecord::Base
   def add_assignment project, assignment
     project.assignments << assignment
   end
+
+  def assignment_total
+    project.assignments.count
+  end
 end
