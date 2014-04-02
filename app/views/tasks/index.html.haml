@@ -1,2 +1,24 @@
 - provide(:title, 'Tasks')
 = render 'task_header'
+
+%h2 Tasks
+%hr
+
+= render 'form'
+
+%section#tasks
+  %section#as_soon_as_possible
+  %h3.task_heading As Soon As Possible
+  %hr.task_cat
+  %section#as_soon_as_possible
+  %h3.task_heading Today
+  %hr.task_cat
+  %section#as_soon_as_possible
+  %h3.task_heading Tomorrow
+  %hr.task_cat
+  %section#as_soon_as_possible
+  %h3.task_heading This Week
+  %hr.task_cat
+  %section#as_soon_as_possible
+  %h3.task_heading No Deadline
+  %hr.task_cat

@@ -12,6 +12,7 @@
  *= require tables
  *= require notifications 
  *= require profiles
+ *= require tasks
  *= require main_pages
  *= require font-awesome
  *= require other

@@ -61,22 +61,8 @@ describe Assignment do
   end
 
   describe 'invalid dates' do
-    it 'cannot have a target date before start date' do
-      assignment = build(:assignment, start_date:  '03-02-2014',
-                                      target_date: '03-01-2014')
-      expect(assignment).to_not be_valid
-    end
-
-    it 'cannot have a deadline before start date' do
-      assignment = build(:assignment, start_date: '2013-11-02',
-                                      deadline: '2013-11-01')
-      expect(assignment).to_not be_valid
-    end
-
     it 'cannot be completed before start date' do
-      assignment = build(:assignment, start_date: '2013-11-02',
-                                      completed: '2013-11-01')
-      expect(assignment).to_not be_valid
+      expect(create(:invalid_date)).to_not be_valid
     end
   end
 end

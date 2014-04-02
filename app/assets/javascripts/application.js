@@ -11,3 +11,4 @@
 //= require dates
 //= require project_profile
 //= require contact_form
+//= require task_form

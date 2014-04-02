@@ -12,4 +12,12 @@ FactoryGirl.define do
     status      'In Progress'
     priority    'High'
   end
+
+  factory :invalid_date, class: Assignment do
+    description 'Illogical'
+    status      'Completed'
+    priority    'N/A'
+    start_date  { 1.day.ago  }
+    completed   { 1.week.ago }
+  end
 end
