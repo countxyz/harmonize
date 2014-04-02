@@ -27,7 +27,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14.1'
+  gem 'rspec-rails', '~> 2.14.2'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'jazz_hands', '~> 0.5.2'
