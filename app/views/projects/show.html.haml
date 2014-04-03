@@ -5,15 +5,9 @@
 %section.project_heading
   %h2= @project.name.capitalize
   %hr
-  %section
-    Website:
-    = @project.website
-  %section
-    Notes:
-    = @project.notes
-  %section
-    GitHub:
-    = @project.github
+  %section Website: #{@project.website}
+  %section Notes: #{@project.notes}
+  %section GitHub: #{@project.github}
   %section
     Assignments: #{@project.unfinished_assignments_total} /
     #{@project.assignment_total}
