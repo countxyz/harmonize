@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Task do
+  it 'falls into No Dealine catagory without a date' do
+    @no_deadline = create(:task)
+    expect(Task.no_deadline).to eq [@no_deadline]
+  end
 
   describe 'description' do
     it 'is invalid when description not provided' do

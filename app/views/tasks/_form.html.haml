@@ -1,5 +1,5 @@
 %section{style: 'display:none;', class: 'task_form'}
-  = simple_form_for @task do |f|
+  = simple_form_for Task.new do |f|
     %form
       %fieldset
         %legend.bold_title New Task
