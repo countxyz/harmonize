@@ -1,33 +1,10 @@
 - provide(:title, 'Tasks')
 = render 'task_header'
 
-%h2.task_heading Tasks
-
-= render 'form'
-
 %section#tasks
-  %section
-    %h3 As Soon As Possible
-    %ul
-      %li
-  
-  %section
-    %h3 Today
-    %ul
-      %li  
-  
-  %section
-    %h3 Tomorrow
-    %ul
-      %li  
-  
-  %section
-    %h3 This Week
-    %ul
-      %li  
-  
-  %section
-    %h3 No Deadline
-    - @tasks.no_deadline.each do |task|
-      %ul
-        %li= task.description
+  %h2.task_heading Tasks
+  = render 'form'
+
+%section#sort_tasks
+  %ul#task_list
+    = render @tasks
