@@ -49,22 +49,4 @@ describe Project do
       expect(build(:project, notes: 'a' * 1001)).to_not be_valid
     end
   end
-
-  describe 'assignments' do
-    before(:each) do
-      @project = create(:project) do |project|
-        project.assignments.create(attributes_for(:assignment))
-      end
-    end
-
-    it 'has assignment' do
-      expect(@project.assignments.count).to eq 1
-    end
-
-    it 'adds assignment to assignments' do
-      @assignment = create(:another_assignment)
-      @project.add_assignment(@project, @assignment)
-      expect(@project.assignments.count).to eq 2
-    end
-  end
 end

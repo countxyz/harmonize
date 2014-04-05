@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all 
+    @projects = Project.all
   end
 
   def show
@@ -39,8 +39,11 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    flash[:notice] = 'Project has been deleted'
-    redirect_to projects_path
+
+    respond_to do |format|
+      format.html { redirect_to @project }
+      format.js { head :no_content }
+    end
   end
 
   private

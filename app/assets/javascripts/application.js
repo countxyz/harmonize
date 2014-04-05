@@ -7,6 +7,7 @@
 //= require jquery.ui.datepicker
 //= require fullcalendar.min
 //= require border_navigator
+//= require tables
 //= require calendar
 //= require dates
 //= require project_profile

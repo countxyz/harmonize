@@ -1,7 +1,7 @@
 - provide(:title, 'Projects')
 = render 'project_header'
 
-%table.project_table
+%table
   %thead
     %tr
       %th{scope: 'col'} Project Name
@@ -9,15 +9,4 @@
       %th{scope: 'col'} Employer
       %th{scope: 'col'} Actions
   %tbody
-    - @projects.each do |project|
-      %tr
-        %th.bold_name{scope: 'row'}= link_to project.name, project
-        %td= data_format(project.website)
-        %td= data_format(project.employer)
-        %td.table_actions
-          = link_to 'Show', project
-          %br/
-          = link_to 'Edit', edit_project_path(project)
-          %br/
-          = link_to 'Delete', project, method: :delete,
-            data: { confirm: 'Are you sure?' }
+    = render @projects

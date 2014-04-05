@@ -12,8 +12,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @assignment = Assignment.new(assignment_params)
-    @project.add_assignment(@project, @assignment)
+    @assignment = @project.assignments.new(assignment_params)
 
     if @project.save
       flash[:notice] = 'Assignment has been added'

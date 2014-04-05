@@ -16,10 +16,6 @@ class Project < ActiveRecord::Base
 
   validates :notes, length: { maximum: 1000 }
 
-  def add_assignment project, assignment
-    project.assignments << assignment
-  end
-
   def assignment_total
     assignments.count
   end
