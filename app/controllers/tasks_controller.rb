@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = Task.create(task_params)
 
     respond_to do |format|
       format.html { redirect_to tasks_path }
