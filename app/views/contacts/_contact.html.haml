@@ -1,0 +1,14 @@
+= content_tag_for(:tr, contact, 'data-id' => contact.id)
+%tr
+  %th.bold_name{scope: "row"}= contact.name
+  %td= data_format(contact.company)
+  %td= contact.email
+  %td= phone_format(contact.phone.office)
+  %td= phone_format(contact.phone.mobile)
+  %td.table_actions
+    = link_to 'Show', contact
+    %br/
+    = link_to 'Edit', edit_contact_path(contact)
+    %br/
+    = link_to 'Delete', contact, method: :delete, remote: true,
+      data: { confirm: 'Are you sure?' }, class: 'delete_row'

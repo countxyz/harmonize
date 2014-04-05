@@ -1,3 +1,3 @@
 $ ->
-  $('.delete_project').on 'ajax:success', ->
+  $('.delete_row').on 'ajax:success', ->
     $(@).closest('tr').fadeOut()

@@ -39,8 +39,11 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    flash[:notice] = 'Contact has been deleted'
-    redirect_to contacts_path
+
+    respond_to do |format|
+      format.html { redirect_to @contact }
+      format.js { head :no_content }
+    end
   end
 
   private

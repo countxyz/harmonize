@@ -14,9 +14,9 @@
       = f.input_field :notes, as: :text, input_html: { rows: 4, maxlength: 600 }
       %section.button_center.contact
         %p
-          = f.button :submit, class: 'btn btn-6 btn-6j'
+          = f.button :submit, 'Create', class: 'btn btn-6 btn-6j'
           = link_to '#' do
-            %button.btn.btn-6.btn-6j#add_phone + Add Phone
+            %button.btn.btn-6.btn-6j#add_phone + Phone
           = link_to contacts_path do
             %button.btn.btn-6.btn-6j#add_phone Back
 
