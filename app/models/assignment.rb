@@ -1,5 +1,5 @@
 class Assignment < ActiveRecord::Base
-  STATUS_OPTIONS = ['Not Started', 'In Progress', 'Completed']
+  STATUS_OPTIONS   = ['Not Started', 'In Progress', 'Completed']
   PRIORITY_OPTIONS = %w(Low High Urgent N/A)
 
   belongs_to :project
