@@ -1,10 +1,8 @@
 class TasksController < ApplicationController
-  load_and_authorize_resource
   before_action :set_task, only: [:destroy]
 
   def index
-    @tasks = Task.accessible_by(current_ability)
-    @task  = Task.new
+    @tasks, @task = Task.all, Task.new
   end
 
   def create

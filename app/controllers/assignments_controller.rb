@@ -3,8 +3,7 @@ class AssignmentsController < ApplicationController
   before_action :set_project,    only: [:index, :create]
 
   def index
-    @assignments = Assignment.all
-    @assignment = @project.assignments
+    @assignments, @assignment = Assignment.all, @project.assignments
   end
 
   def new

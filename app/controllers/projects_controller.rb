@@ -6,8 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @assignment = @project.assignments.build
-    @assignments = @project.assignments
+    @assignment, @assignments = @project.assignments.build, @project.assignments
   end
 
   def new
