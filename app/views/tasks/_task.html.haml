@@ -1,3 +1,4 @@
 %li
   = task.description
-  = link_to 'Delete', task, remote: true, method: :delete
+  = link_to 'Delete', task, remote: true, method: :delete,
+    data: { confirm: 'Are you sure?' }
