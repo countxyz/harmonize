@@ -22,4 +22,12 @@ describe User do
       end
     end
   end
+
+  describe 'uniqueness' do
+    it 'is invalid when email is used more than once' do
+      user_1 = create(:user)
+      user_2 = user_1.dup
+      expect(user_2).to_not be_valid
+    end
+  end
 end
