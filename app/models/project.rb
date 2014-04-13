@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-  has_many :assignments, dependent: :destroy
+  belongs_to :user
+  has_many   :assignments, dependent: :destroy
 
   IMAGE_TYPES = %w(image/jpeg image/jpg image/png)
 
