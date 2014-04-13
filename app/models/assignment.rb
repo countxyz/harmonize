@@ -4,7 +4,7 @@ class Assignment < ActiveRecord::Base
 
   belongs_to :project
 
-  validates_date :completed, on_or_after: :start_date, allow_blank: true
+  validate  :completed_is_after_start
 
   validates :description, presence: true, length: { maximum: 100 }
   validates :status,      presence: true, inclusion: STATUS_OPTIONS

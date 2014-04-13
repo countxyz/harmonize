@@ -10,6 +10,7 @@ Bundler.require(:default, Rails.env)
 module Harmonize
   class Application < Rails::Application
     config.assets.initialize_on_precompile = false
+    config.time_zone = 'Eastern Time (US & Canada)'
     config.opal.method_missing             = true
     config.opal.optimized_operators        = true
     config.opal.arity_check                = false

@@ -1,4 +1,5 @@
 %li
   = task.description
+  = l task.deadline, format: :america
   = link_to 'Delete', task, remote: true, method: :delete,
     data: { confirm: 'Are you sure?' }
