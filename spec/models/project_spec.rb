@@ -9,7 +9,7 @@ describe Project do
 
   it 'counts assignments per project' do
     two_assignments = create(:project_with_assignments)
-    expect(two_assignments.assignment_total).to eq 2
+    expect(two_assignments.assignment_total_for_project).to eq 2
   end
   
   describe 'uniqueness' do
@@ -35,8 +35,16 @@ describe Project do
       expect(build(:project, employer: 'a' * 51)).to_not be_valid
     end
 
+    it 'is invalid when website has fewer than 4 characters' do
+      expect(build(:project, website: 'a' * 3)).to_not be_valid
+    end
+
     it 'is invalid when website has more than 100 characters' do
       expect(build(:project, website: 'a' * 101)).to_not be_valid
+    end
+
+    it 'is invalid when github has fewer than 12 characters' do
+      expect(build(:project, github: 'a' * 101)).to_not be_valid
     end
 
     it 'is invalid when github has more than 100 characters' do

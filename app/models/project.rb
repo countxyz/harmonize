@@ -8,28 +8,23 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: IMAGE_TYPES
   
   validates :name, uniqueness: true, presence: true, length: { maximum: 50 }
-
-  validates :website, length: { maximum: 100 }
-
-  validates :github, length: { maximum: 100 }
-
+  
   validates :employer, length: { maximum: 50 }
 
+  validates :website, allow_blank: true, length: { in: 4..100 }
+  validates :github,  allow_blank: true, length: { in: 12..100 }
+  
   validates :notes, length: { maximum: 1000 }
 
   def self.list_by_recent
     order('created_at desc')
   end
 
-  def assignment_total
-    assignments.count
+  def assignment_total_for_project
+    assignments.distinct.count(:project_id)
   end
 
-  def find_unfinished_assignments
-    assignments.select { |assignment| assignment.status =~ /Completed/ }
-  end
-
-  def unfinished_assignments_total
-    find_unfinished_assignments.count
+  def assignments_completed_for_project
+    assignments.where("status = 'completed'").count
   end
 end
