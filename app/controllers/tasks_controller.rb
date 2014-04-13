@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:destroy]
 
   def index
-    @tasks, @task = Task.all, Task.new
+    @tasks, @task = Task.pending, Task.new
   end
 
   def create

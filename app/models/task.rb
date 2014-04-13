@@ -6,4 +6,8 @@ class Task < ActiveRecord::Base
   def self.no_deadline
     where('deadline is NULL')
   end
+
+  def self.pending
+    where('completed is NULL')
+  end
 end

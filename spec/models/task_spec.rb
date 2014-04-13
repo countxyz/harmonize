@@ -1,9 +1,14 @@
 require 'spec_helper'
 
 describe Task do
-  it 'falls into No Dealine catagory without a date' do
+  it 'falls into No Deadline catagory without a date' do
     @no_deadline = create(:task)
     expect(Task.no_deadline).to eq [@no_deadline]
+  end
+
+  it 'sorts pending tasks' do
+    task_1, task_2, task_3 = create(:task), create(:task_2), create(:task_3)
+    expect(Task.pending).to eq [task_1, task_2]
   end
 
   describe 'description' do
