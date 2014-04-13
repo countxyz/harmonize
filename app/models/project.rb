@@ -16,6 +16,10 @@ class Project < ActiveRecord::Base
 
   validates :notes, length: { maximum: 1000 }
 
+  def self.list_by_recent
+    order('created_at desc')
+  end
+
   def assignment_total
     assignments.count
   end

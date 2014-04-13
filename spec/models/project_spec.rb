@@ -2,21 +2,19 @@ require 'spec_helper'
 
 describe Project do
   
+  it 'sorts projects in descending order' do
+    first_project, last_project = create(:project), create(:last_project)
+    expect(Project.list_by_recent).to eq [last_project, first_project]
+  end
+
   it 'counts assignments per project' do
     two_assignments = create(:project_with_assignments)
     expect(two_assignments.assignment_total).to eq 2
   end
-
-
-  # TODO: issues with FactoryGirl has_many associations
-  # it 'counts unfinished assignments per project' do
-  #   two_unfinished_assignments = create(:project_with_assignments)
-  #   expect(two_unfinished_assignments.unfinished_assignments_total).to eq 2
-  # end
   
   describe 'uniqueness' do
     it 'is invalid when name is used more than once' do
-      project_1 = create(:project)
+      project_1, project_2 = create(:project)
       project_2 = project_1.dup
       expect(project_2).to_not be_valid
     end
