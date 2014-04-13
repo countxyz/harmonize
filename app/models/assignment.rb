@@ -10,4 +10,16 @@ class Assignment < ActiveRecord::Base
   validates :status,      presence: true, inclusion: STATUS_OPTIONS
   validates :priority,    presence: true, inclusion: PRIORITY_OPTIONS
   validates :notes, length: { maximum: 1000 }
+
+  private
+
+    def completed_is_after_start
+      unless start_date.nil? || completed.nil?
+        date_error if completed < start_date
+      end
+    end
+
+    def date_error
+      errors.add(:date_error, "can't be before start date")
+    end
 end
