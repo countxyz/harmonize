@@ -11,6 +11,11 @@ describe Task do
     expect(Task.pending).to eq [task_1, task_2]
   end
 
+  it 'sorts completed tasks' do
+    task_2, task_3, task_4 = create(:task_2), create(:task_3), create(:task_4)
+    expect(Task.completed_task).to eq [task_3, task_4]
+  end
+
   describe 'description' do
     it 'is invalid when description not provided' do
       expect(build(:task, description: nil)).to_not be_valid

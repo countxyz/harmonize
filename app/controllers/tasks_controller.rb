@@ -32,6 +32,10 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def completed
+    @tasks = Task.completed_task
+  end
+
   private
 
     def set_task

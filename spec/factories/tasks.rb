@@ -11,4 +11,9 @@ FactoryGirl.define do
     description 'Dinner with Jerry'
     completed { 1.day.ago }
   end
+
+  factory :task_4, class: Task do
+    description 'Breakfast with Tiffany'
+    completed { 2.days.ago }
+  end
 end

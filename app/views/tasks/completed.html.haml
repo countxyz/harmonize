@@ -1,5 +1,8 @@
 - provide(:title, 'Tasks')
 = render 'task_header'
 
-%section#tasks
+%section#completed_tasks
   %h2.task_heading Completed Tasks
+  %ul
+  - @tasks.each do |task|
+    %li= task.description
