@@ -23,6 +23,8 @@ class TasksController < ApplicationController
     end
   end
 
+  def completed; end
+
   private
 
     def set_task

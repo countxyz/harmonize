@@ -8,11 +8,11 @@
           %button.btn.btn-1.btn-1c#new_task
             %i.fa.fa-plus.in_button
             New
-        = link_to '#' do
+        = link_to tasks_path do
           %button.btn.btn-1.btn-1c
-            %i.fa.fa-plus.in_button
+            %i.fa.fa-tasks.in_button
             Pending
-        = link_to '#' do
+        = link_to completed_tasks_path do
           %button.btn.btn-1.btn-1c
-            %i.fa.fa-plus.in_button
+            %i.fa.fa-archive.in_button
             Completed
