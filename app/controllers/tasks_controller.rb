@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy, :complete]
 
   def index
     @tasks, @task = Task.pending, Task.new
@@ -27,7 +27,10 @@ class TasksController < ApplicationController
     end
   end
 
-  def completed; end
+  def complete
+    @task.update_attributes completed: Time.now
+    redirect_to tasks_path
+  end
 
   private
 

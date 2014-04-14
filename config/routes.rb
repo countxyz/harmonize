@@ -8,8 +8,14 @@ Harmonize::Application.routes.draw do
 
   resources :contacts, :events
 
-  resources :tasks, except: :show do
-    get :completed, on: :collection
+  resources :tasks, except: :show, :id => /\d+/ do
+    collection do
+      get :completed
+    end
+
+    member do
+      post :complete
+    end
   end
 
   resources :projects do
