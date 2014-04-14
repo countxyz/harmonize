@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:destroy]
+  before_action :set_task, only: [:edit, :update, :destroy]
 
   def index
     @tasks, @task = Task.pending, Task.new
@@ -13,6 +13,10 @@ class TasksController < ApplicationController
       format.js
     end
   end
+
+  def edit; end
+
+  def update; end
 
   def destroy
     @task.destroy

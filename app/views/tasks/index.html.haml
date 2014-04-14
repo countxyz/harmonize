@@ -2,9 +2,9 @@
 = render 'task_header'
 
 %section#tasks
-  %h2.task_heading Tasks
+  %h2.task_heading Pending Tasks
   = render 'form'
 
 %section#sort_tasks
   %ul#task_list
-  = render @tasks
+    = render @tasks

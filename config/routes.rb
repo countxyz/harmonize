@@ -8,7 +8,7 @@ Harmonize::Application.routes.draw do
 
   resources :contacts, :events
 
-  resources :tasks do
+  resources :tasks, except: :show do
     get :completed, on: :collection
   end
 
