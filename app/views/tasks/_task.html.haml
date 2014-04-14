@@ -1,5 +1,6 @@
 %li
   = task.description
+  = button_to 'Complete', remote: true
   %br
   %time= l task.deadline, format: :america
   = link_to 'Edit', edit_task_path(task)
