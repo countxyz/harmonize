@@ -1,14 +1,13 @@
 = simple_form_for(@task, remote: true) do |f|
   %form
     %fieldset
-      %legend.bold_title Edit
-      = f.input :description,
-        input_html: { id: 'regular_field', maxlength: 50 }
-      = f.input :deadline, as: :datepicker, label: 'Due Date'
-      = f.input :deadline, as: :time,       label: 'Time Due', ampm: true,
-        minute_step: 15
+    = f.input :description,
+      input_html: { class: 'text_input', id: 'regular_field', maxlength: 50 }
+    = f.input :deadline, as: :datepicker, label: 'Due Date'
+    = f.input :deadline, as: :time,       label: 'Time Due', ampm: true,
+      minute_step: 15
   %section.button_center
     %p
-      = f.button :submit, 'Update', class: 'btn btn-6 btn-6j'
+      = f.button :submit, 'Update'
       = link_to '#' do
-        %button.btn.btn-6.btn-6j#cancel_task Cancel
+        %button.purebtn Cancel
