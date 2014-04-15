@@ -2,7 +2,7 @@
   = task.description
   = button_to 'Complete', { action: 'complete', id: task.id },
     method: :complete, data: { confirm: "Set task as completed" },
-    class: 'btn btn-6 btn-6j', id: 'complete'
+    class: 'purebtn'
   %br
   %time= l task.deadline, format: :america
   = link_to 'Edit', edit_task_path(task), remote: true, id: 'edit_task'

@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy, :complete]
+  respond_to :html, :js
 
   def index
     @tasks, @new_task = Task.pending, Task.new
@@ -7,33 +8,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-
-    respond_to do |format|
-      format.html { redirect_to tasks_path }
-      format.js
-    end
-  end
-
-  def edit
   end
 
   def update
-    if @task.update_attributes(task_params)
-      flash[:notice] = 'Task has been updated'
-      render action: 'index'
-    else
-      flash[:alert] = 'Task has not been updated'
-      render action: 'edit'
-    end
+    @task.update_attributes(task_params)
   end
 
   def destroy
     @task.destroy
-    
-    respond_to do |format|
-      format.html { redirect_to @task }
-      format.js
-    end
   end
 
   def complete
