@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy, :complete]
 
   def index
-    @tasks, @task = Task.pending, Task.new
+    @tasks, @new_task = Task.pending, Task.new
   end
 
   def create
@@ -14,9 +14,18 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
-  def update; end
+  def update
+    if @task.update_attributes(task_params)
+      flash[:notice] = 'Task has been updated'
+      render action: 'index'
+    else
+      flash[:alert] = 'Task has not been updated'
+      render action: 'edit'
+    end
+  end
 
   def destroy
     @task.destroy

@@ -1,5 +1,4 @@
-= content_tag_for(:tr, project, 'data-id' => project.id) 
-%tr
+= content_tag_for(:tr, project, 'data-id' => project.id) do
   %th.bold_name{scope: 'row'}= link_to project.name, project
 
   %td= data_format(project.website)

@@ -3,7 +3,7 @@
 
 %section#tasks
   %h2.task_heading Pending Tasks
-  = render 'form'
+  = render partial: 'form', locals: { task: @new_task }
 
 %section#sort_tasks
   %ul#task_list
