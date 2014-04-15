@@ -3,11 +3,8 @@
     %fieldset
     = f.input :description,
       input_html: { class: 'text_input', id: 'regular_field', maxlength: 50 }
-    = f.input :deadline, as: :datepicker, label: 'Due Date'
+    = f.input :deadline, as: :datepicker, label: 'Due Date',
+      input_html: { class: 'text_input' }
     = f.input :deadline, as: :time,       label: 'Time Due', ampm: true,
       minute_step: 15
-    %section.button_center
-      %p
-        = f.button :submit, 'Update'
-        = link_to '#' do
-          %button.purebtn Cancel
+    = render partial: 'shared/submit_center', locals: { f: f }
