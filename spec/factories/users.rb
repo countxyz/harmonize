@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    email                 'art@vandalay.com'
+    handle                'BigBird'
+    email                 'BigBird@sesamestreet.org'
     password              'password'
     password_confirmation 'password'
   end

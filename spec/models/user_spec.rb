@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe User do
 
+  describe 'passwords' do
+    it 'require password and confirmation' do
+      expect(build(:user)).to be_valid
+    end
+  end
+
   describe 'empty fields' do
     it 'is invalid without an email address' do
       expect(build(:user, email: nil)).to_not be_valid
