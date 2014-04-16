@@ -1,6 +1,6 @@
 Harmonize::Application.routes.draw do
 
-  root :to => 'projects#index'
+  root :to => 'main_pages#sign_in'
 
   match '/about', to: 'main_pages#about', via: 'get'
 
