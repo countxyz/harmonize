@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   has_many :tasks
 
   validates :email, uniqueness: true, allow_blank: true,
-            length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }
+            length: { in: 5..50 }, format: { with: VALID_EMAIL_REGEX }
 end

@@ -9,7 +9,11 @@ describe User do
   end
 
   describe 'field lengths' do
-    it 'is invalid when email has more than 50 characters' do
+    it 'is invalid when email is fewer than 5 characters' do
+      expect(build(:user, email: 'a')).to_not be_valid
+    end
+
+    it 'is invalid when email is longer than 50 characters' do
       expect(build(:user, email: 'a' * 45 + '@a.com')).to_not be_valid
     end    
   end
