@@ -6,4 +6,5 @@
   = render partial: 'form', locals: { task: @new_task }
 
 %section#sort_tasks
-  = render 'index'
+  %ul#task_list
+    = render @tasks

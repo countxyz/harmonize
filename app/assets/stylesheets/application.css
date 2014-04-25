@@ -8,8 +8,7 @@
  *= require jquery.ui.datepicker
  *= require fullcalendar
  *= require events
- *= require buttons/btn
- *= require buttons/pure
+ *= require buttons
  *= require tables
  *= require notifications 
  *= require profiles

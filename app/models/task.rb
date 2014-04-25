@@ -12,4 +12,8 @@ class Task < ActiveRecord::Base
   def self.completed_task
     where.not 'completed is NULL'
   end
+
+  def self.overdue
+    where 'deadline IS NOT NULL AND deadline < ?', Time.now
+  end
 end
