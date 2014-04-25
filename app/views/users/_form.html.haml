@@ -1,11 +1,9 @@
 = simple_form_for @user do |f|
   %fieldset
     %legend.bold_title New Account
-    = f.input :handle, label: 'User Name', input_html: { class: 'text_input',
-      id: 'regular_field' }
-    = f.input :password, input_html: { class: 'text_input',
-      id: 'regular_field' }
+    = f.input :handle, label: 'User Name', input_html: { id: 'regfield' }
+    = f.input :password,                   input_html: { id: 'regfield' }
     = f.input :password_confirmation, label: 'Password Confirmation',
-      input_html: { class: 'text_input', id: 'regular_field' }
+      input_html: { id: 'regfield' }
     %section.button_center
       %p= f.button :submit, 'Submit'

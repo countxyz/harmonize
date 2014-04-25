@@ -1,0 +1,7 @@
+= simple_form_for(:signin, method: 'POST') do |f|
+  %fieldset
+    %legend.bold_title Sign In
+    = f.input :handle, label: 'User Name', input_html: { id: 'regfield' }
+    = f.input :password,                   input_html: { id: 'regfield' }
+    %section.button_center
+      %p= f.button :submit, 'Sign In'
