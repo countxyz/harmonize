@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  has_many :projects
-  has_many :tasks
-
   validates :email, uniqueness: true, allow_blank: true,
             length: { in: 5..50 }, format: { with: VALID_EMAIL_REGEX }
 end
