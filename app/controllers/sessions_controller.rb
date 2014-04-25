@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Sign in successful'
       redirect_to root_url
     else
-      flash[:error] = 'Unsuccessful sign in'
+      flash[:alert] = 'Unsuccessful sign in'
       render :new
     end
   end
