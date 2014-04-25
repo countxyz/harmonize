@@ -1,35 +1,28 @@
 = simple_form_for @contact, defaults: { class: 'form' } do |f|
-  %form
-    %fieldset
-      %legend.bold_title New Contact    
-      = f.input :first_name, label: 'First Name',
-        input_html: { id: 'regular_field', maxlength: 30 }
-      = f.input :last_name,  label: 'Last Name',
-        input_html: { id: 'regular_field', maxlength: 30 }
-      = f.input :company, input_html: { id: 'regular_field', maxlength: 50 }
-      = f.input :email,   input_html: { id: 'regular_field', maxlength: 50 }
-      = f.input :secondary_email, label: 'Secondary Email',
-        input_html: { id: 'regular_field', maxlength: 50 }
-      = f.label :notes
-      = f.input_field :notes, as: :text, input_html: { rows: 4, maxlength: 600 }
-      %section.button_center.contact
-        %p
-          = f.button :submit, 'Create', class: 'btn btn-6 btn-6j'
-          = link_to '#' do
-            %button.btn.btn-6.btn-6j#add_phone + Phone
-          = link_to contacts_path do
-            %button.btn.btn-6.btn-6j#back Back
+  %fieldset
+    %legend.bold_title New Contact    
+    = f.input :first_name, input_html: { id: 'regfield' }, label: 'First Name',
+    = f.input :last_name,  input_html: { id: 'regfield' }, label: 'Last Name'
+    = f.input :company,    input_html: { id: 'regfield' }
+    = f.input :email,      input_html: { id: 'regfield' }
+    = f.input :secondary_email, input_html: { id: 'regfield' }
+      label: 'Secondary Email'
+    = f.label :notes
+    = f.input_field :notes, as: :text, input_html: { rows: 4 }
+    %section.button_center.contact
+      %p
+        = f.button :submit, 'Create', class: 'btn btn-6 btn-6j'
+        = link_to '#' do
+          %button.btn.btn-6.btn-6j#add_phone + Phone
+        = link_to contacts_path do
+          %button.btn.btn-6.btn-6j#back Back
 
-    %fieldset{style: 'display:none;', class: 'phone_form'}
-      %legend.bold_title New Phone
-      = f.simple_fields_for :phone do |ff|
-        = ff.input :office, required: false,
-          input_html: { id: 'regular_field', maxlength: 10 }
-        = ff.input :mobile, required: false,
-          input_html: { id: 'regular_field', maxlength: 10 }
-        = ff.input :fax, required: false,
-          input_html: { id: 'regular_field', maxlength: 10 }
-        = ff.input :home, required: false,
-          input_html: { id: 'regular_field', maxlength: 10 }
-        %section.button_center
-          %p= ff.button :submit, 'Update', class: 'btn btn-6 btn-6j'
+  %fieldset{style: 'display:none;', class: 'phone_form'}
+    %legend.bold_title New Phone
+    = f.simple_fields_for :phone do |ff|
+      = ff.input :office, required: false, input_html: { id: 'regfield' }
+      = ff.input :mobile, required: false, input_html: { id: 'regfield' }
+      = ff.input :fax,    required: false, input_html: { id: 'regfield' }
+      = ff.input :home,   required: false, input_html: { id: 'regfield' }
+      %section.button_center
+        %p= ff.button :submit, 'Update', class: 'btn btn-6 btn-6j'

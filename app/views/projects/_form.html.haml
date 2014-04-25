@@ -1,20 +1,15 @@
 = simple_form_for @project, html: { multipart: true } do |f|
-  %form
-    %fieldset
-      %legend.bold_title Project
-      = f.input :name, input_html: { class: 'text_input',
-        id: 'regular_field', maxlength: 50  }
-      = f.input :website, input_html: { class: 'text_input',
-        id: 'regular_field', maxlength: 100 }
-      = f.input :github, input_html: { class: 'text_input',
-        id: 'regular_field', maxlength: 100 }, label: 'GitHub'
-      = f.input :employer, input_html: { class: 'text_input',
-        id: 'regular_field', maxlength: 50  }
-      = f.input :image, as: :file, input_html: { id: 'file', multiple: true }
-      = f.label :notes
-      = f.input_field :notes, as: :text, input_html: { rows: 4, maxlength: 1000 }
-      %section.button_center
-        %p
-          = f.button :submit, 'Submit'
-          = link_to root_path do
-            %button.purebtn Back
+  %fieldset
+    %legend.bold_title Project
+    = f.input :name, input_html:     { id: 'regfield' }
+    = f.input :website, input_html:  { id: 'regfield' }
+    = f.input :github, input_html:   { id: 'regfield' }, label: 'GitHub'
+    = f.input :employer, input_html: { id: 'regfield' }
+    = f.input :image, as: :file, input_html: { id: 'file', multiple: true }
+    = f.label :notes
+    = f.input_field :notes, as: :text, input_html: { rows: 4 }
+    %section.button_center
+      %p
+        = f.button :submit, 'Submit'
+        = link_to root_path do
+          %button.purebtn Back
