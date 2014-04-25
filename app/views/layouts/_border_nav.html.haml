@@ -1,20 +1,21 @@
-%a{href: '#', class: 'bt-menu-trigger'}
-  %span Menu
+-unless current_user.nil?
+  %a{href: '#', class: 'bt-menu-trigger'}
+    %span Menu
 
-%ul
-  %li= link_to 'Projects', projects_path
-  %li= link_to 'Contacts', contacts_path
-  %li= link_to 'Tasks',    tasks_path
-  %li= link_to 'Events',   events_path
-  %li= link_to 'About',    about_path
-  %li= link_to 'Sign Out', signout_path, method: :delete
+  %ul
+    %li= link_to 'Projects', projects_path
+    %li= link_to 'Contacts', contacts_path
+    %li= link_to 'Tasks',    tasks_path
+    %li= link_to 'Events',   events_path
+    %li= link_to 'About',    about_path
+    %li= link_to 'Sign Out', signout_path, method: :delete
 
-%ul
-  %li
-    = link_to 'https://github.com/countxyz' do
-      %i.fa.fa-github-alt.fa-3x GitHub
-  %li
-    = link_to 'https://twitter.com/count_x_y_z' do
-      %i.fa.fa-twitter.fa-3x#twitter Twitter
+  %ul
+    %li
+      = link_to 'https://github.com/countxyz' do
+        %i.fa.fa-github-alt.fa-3x GitHub
+    %li
+      = link_to 'https://twitter.com/count_x_y_z' do
+        %i.fa.fa-twitter.fa-3x#twitter Twitter
 
-.bt-overlay
+  .bt-overlay
