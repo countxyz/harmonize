@@ -9,6 +9,13 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
+    if @task.save
+      flash[:notice] = 'Task has been created'
+      redirect_to tasks_path
+    else
+      flash[:alert] = 'Task has not been created'
+      redirect_to tasks_path
+    end
   end
 
   def update

@@ -1,5 +1,5 @@
 %section{style: 'display:none;', id: 'new_task_form' }
-  = simple_form_for(task, remote: true) do |f|
+  = simple_form_for(task) do |f|
     %fieldset
       %legend.bold_title New Task
       = f.input :description, input_html: { class: 'text_input',
