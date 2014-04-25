@@ -1,8 +1,14 @@
 Harmonize::Application.routes.draw do
+  root 'tasks#index'
 
-  root :to => 'main_pages#sign_in'
+  get    '/signup',  to: 'users#new'
+  get    '/signin',  to: 'sessions#new'
+  post   '/signin',  to: 'sessions#create'
+  delete '/signout', to: 'sessions#destroy', as: 'signout'
 
-  match '/about', to: 'main_pages#about', via: 'get'
+  get '/about', to: 'main_pages#about'
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :contacts, :events, :users
 

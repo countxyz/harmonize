@@ -116,7 +116,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.9)
+    meta_request (0.3.0)
       callsite
       rack-contrib
       railties
@@ -276,7 +276,7 @@ DEPENDENCIES
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 4.2.0)
   json (~> 1.8.1)
-  meta_request (~> 0.2.9)
+  meta_request (~> 0.3.0)
   opal-rails (~> 0.6.3)
   paperclip (~> 4.1.1)
   pg (~> 0.17.1)

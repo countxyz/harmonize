@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :require_signin!
   before_action :set_task, only: [:edit, :update, :destroy, :complete]
   respond_to :html, :js
 
@@ -30,7 +31,7 @@ class TasksController < ApplicationController
   private
 
     def set_task
-      @task = Task.find(params[:id])
+      @task = Task.for(current_user).find(params[:id])
     end
 
     def task_params
