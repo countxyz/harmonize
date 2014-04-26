@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks, @new_task = Task.pending, Task.new
+    @overdue = Task.overdue
   end
 
   def create

@@ -2,10 +2,6 @@
   = simple_form_for(task) do |f|
     %fieldset
       %legend.bold_title New Task
-      = f.input :description, input_html: { class: 'text_input',
-        id: 'regular_field', maxlength: 50 }
-      = f.input :deadline, as: :datepicker, label: 'Due Date',
-        input_html: { class: 'text_input' }
-      = f.input :deadline, as: :time,       label: 'Time Due', ampm: true,
-        minute_step: 15
+      = f.input :description, input_html: { id: 'regfield' }
+      = f.input :deadline, as: :datetimepicker, input_html: { id: 'datetimepicker1' }, label: 'Due Date'
     = render partial: 'shared/submit_center', locals: { f: f }

@@ -5,6 +5,15 @@
   %h2.task_heading Pending Tasks
   = render partial: 'form', locals: { task: @new_task }
 
-%section#sort_tasks
-  %ul#task_list
-    = render @tasks
+%section.tasks
+  %h3 Overdue
+  %ul.task_list
+  - @overdue.each do |overdue|
+    %li= overdue.description
+    %li= overdue.deadline
+
+%section.tasks
+  %h3 No Deadline
+  %ul.task_list
+    %li h
+

@@ -6,10 +6,14 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require fullcalendar.min
+//= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require border_navigator
 //= require tables
 //= require calendar
-//= require dates
+//= require datepicker
+//= require datetimepicker
 //= require flash
 //= require project_profile
 //= require contact_form

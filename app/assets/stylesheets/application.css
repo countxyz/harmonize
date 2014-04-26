@@ -1,6 +1,8 @@
 /*
  *= require_self
  *= require normalize
+ *= require bootstrap
+ *= require bootstrap-datetimepicker
  *= require layout
  *= require borders
  *= require header
