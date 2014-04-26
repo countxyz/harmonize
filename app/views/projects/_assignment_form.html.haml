@@ -9,10 +9,10 @@
         collection: Assignment::STATUS_OPTIONS
       = f.input :priority, as: :select, include_blank: false,
         collection: Assignment::PRIORITY_OPTIONS
-      = f.input :start_date,  as: :datepicker, label: 'Start Date',
-      = f.input :target_date, as: :datepicker, label: 'Target Date',
-      = f.input :deadline,    as: :datepicker,
-      = f.input :completed,   as: :datepicker,
+      = f.input :start_date,  as: :datepicker, label: 'Start Date'
+      = f.input :target_date, as: :datepicker, label: 'Target Date'
+      = f.input :deadline,    as: :datepicker
+      = f.input :completed,   as: :datepicker
       = f.label :notes
       = f.input_field :notes, as: :text, input_html: { rows: 4 }
       = render partial: 'shared/submit_center', locals: { f: f }
