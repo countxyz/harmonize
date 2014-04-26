@@ -17,6 +17,7 @@ gem 'json', '~> 1.8.1'
 gem 'bcrypt', '~> 3.1.5'
 gem 'simple_form', '~> 3.0.2'
 gem 'paperclip', '~> 4.1.1'
+gem 'friendly_id', '~> 5.0.3'
 gem 'font-awesome-sass', '~> 4.0.3.1'
 
 group :development do
