@@ -1,8 +1,6 @@
 /*
  *= require_self
  *= require normalize
- *= require bootstrap
- *= require bs_overrides
  *= require bootstrap-datetimepicker
  *= require layout
  *= require borders
@@ -20,3 +18,10 @@
  *= require font-awesome
  *= require other
  */
+
+@import 'bootstrap';
+
+.container {
+  width: 100%;
+  padding: 0;
+}
