@@ -3,5 +3,14 @@
     %fieldset
       %legend.bold_title New Task
       = f.input :description, input_html: { id: 'regfield' }
-      = f.input :deadline, as: :datetimepicker, input_html: { id: 'datetimepicker1' }, label: 'Due Date'
+      = f.input :deadline, :as => :datetimepicker
     = render partial: 'shared/submit_center', locals: { f: f }
+
+:javascript
+  $(function() {
+    $('#datetimepicker2').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
+  });
+  

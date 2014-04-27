@@ -2,6 +2,7 @@
  *= require_self
  *= require normalize
  *= require bootstrap
+ *= require bs_overrides
  *= require bootstrap-datetimepicker
  *= require layout
  *= require borders

@@ -9,6 +9,7 @@ Bundler.require(:default, Rails.env)
 
 module Harmonize
   class Application < Rails::Application
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.initialize_on_precompile = false
     config.time_zone = 'Eastern Time (US & Canada)'
     config.opal.method_missing             = true
