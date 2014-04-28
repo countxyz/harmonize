@@ -1,7 +1,14 @@
 - provide(:title, 'Sign In')
 = render 'session_header'
-= render 'form'
 
-%h2 Demo Credentials
-%p User Name: demo
-%p Password: harmonize
+.row
+  .col-md-3
+    = simple_form_for(:signin, method: 'POST') do |f|
+      = f.input :handle, label: 'User Name'
+      = f.input :password
+      = f.button :submit, 'Sign In'
+  .col-md-1
+  .col-md-8
+    %h2 Demo Credentials
+    %p User Name: demo
+    %p Password: harmonize

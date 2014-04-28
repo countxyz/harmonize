@@ -25,9 +25,15 @@ $table-bg-hover: #00A1CB;
 $panel-default-heading-bg: #00A1CB;
 $panel-default-text: white;
 
+ul li a { text-decoration: none; }
+
 @import 'bootstrap';
 
 .container {
   width: 100%;
   padding: 0;
 }
+
+li { list-style-type: none; }
+
+a { color: #00A1CB; }

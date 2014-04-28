@@ -8,7 +8,5 @@
   %td.table_actions
     = link_to 'Show', contact
     %br/
-    = link_to 'Edit', edit_contact_path(contact)
-    %br/
     = link_to 'Delete', contact, method: :delete, remote: true,
       data: { confirm: 'Are you sure?' }, class: 'delete_row'

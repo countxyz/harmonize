@@ -25,3 +25,13 @@
         %tr
           %th Notes
           %td= data_format(@contact.notes)
+
+    %section{ style: 'display:none;', id: 'edit-ci-form' }
+      = simple_form_for(@contact) do |f|
+        = f.input :first_name, label: 'First Name'
+        = f.input :last_name, label: 'Last Name'
+        = f.input :company
+        = f.input :email
+        = f.input :secondary_email, label: 'Secondary Email'
+        = f.input :notes, as: :text, input_html: { rows: 5 }
+        = f.button :submit

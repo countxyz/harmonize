@@ -19,3 +19,12 @@
         %tr
           %th Home Phone
           %td= phone_format(@phone.home)
+
+    %section{ style: 'display:none;', id: 'edit-pb-form' }
+      = simple_form_for(@contact) do |f|
+        = f.simple_fields_for :phone do |ff|
+          = ff.input :office
+          = ff.input :mobile
+          = ff.input :fax
+          = ff.input :home
+          = ff.button :submit
