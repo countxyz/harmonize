@@ -2,16 +2,16 @@
   %ul
     %li
       = link_to @project do
-        %button.purebtn Profile
+        %button.btn.btn-primary.btn-lg Profile
     %li
       = link_to project_assignments_path(@project) do
-        %button.purebtn Assignments
+        %button.btn.btn-primary.btn-lg Assignments
     %li
       = link_to '#' do
-        %button.purebtn#new_assignment New Assignment
+        %button.btn.btn-primary.btn-lg#new_assignment New Assignment
     %li
       = link_to edit_project_path(@project) do
-        %button.purebtn Edit
+        %button.btn.btn-primary.btn-lg Edit
     %li
       = link_to @project, method: :delete, data: { confirm: 'Are you sure?' } do
-        %button.purebtn Delete
+        %button.btn.btn-primary.btn-lg Delete

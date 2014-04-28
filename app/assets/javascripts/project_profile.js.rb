@@ -1,24 +1,23 @@
 require 'opal-jquery'
 
 class ProjectProfile
-
   def find_new_assignment
-    Element.find('#new_assignment')
+    Element.find '#new_assignment'
   end
 
   def hide_project_profile
     Element.find('.project_profile').hide
   end
 
-  def fade_in_assignment_form
-    Element.find('.assignment_form').effect(:fade_in)
+  def assignment_form_slide
+    Element.find('#assignment-form').effect :slide_down
   end
 
   def click_new_assignment
-    find_new_assignment.on :click do |click|
+    find_new_assignment.on :click do |event|
       hide_project_profile
-      fade_in_assignment_form
-      click.stop_propagation
+      assignment_form_slide
+      event.stop_propagation
     end
   end
 

@@ -2,7 +2,7 @@
 %tr
   %th.bold_name{scope: "row"}= contact.name
   %td= data_format(contact.company)
-  %td= contact.email
+  %td= data_format(contact.email)
   %td= phone_format(contact.phone.office)
   %td= phone_format(contact.phone.mobile)
   %td.table_actions

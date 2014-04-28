@@ -1,13 +1,9 @@
 = simple_form_for @project, html: { multipart: true } do |f|
-  %fieldset
-    %legend.bold_title Project
-    = f.input :name, input_html:     { id: 'regfield' }
-    = f.input :website, input_html:  { id: 'regfield' }
-    = f.input :github, input_html:   { id: 'regfield' }, label: 'GitHub'
-    = f.input :employer, input_html: { id: 'regfield' }
-    = f.input :image, as: :file, input_html: { id: 'file', multiple: true }
-    = f.label :notes
-    = f.input_field :notes, as: :text, input_html: { rows: 4 }
-    %section.button_center
-      %p
-        = f.button :submit
+  %legend.bold_title Project
+  = f.input :name
+  = f.input :website
+  = f.input :github, label: 'GitHub'
+  = f.input :employer
+  = f.input :image, as: :file
+  = f.input :notes, as: :text, input_html: { rows: 4 }
+  = f.button :submit

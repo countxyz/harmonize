@@ -1,3 +1,14 @@
 - provide(:title, 'New Project')
 = render 'project_header'
-= render 'form'
+
+.row
+  .col-md-3
+    = simple_form_for @project, html: { multipart: true } do |f|
+      %legend.bold_title Project
+      = f.input :name
+      = f.input :website
+      = f.input :github, label: 'GitHub'
+      = f.input :employer
+      = f.input :image, as: :file
+      = f.input :notes, as: :text, input_html: { rows: 4 }
+      = f.button :submit

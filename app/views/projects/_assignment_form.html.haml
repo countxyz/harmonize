@@ -1,18 +1,18 @@
-%section{style: 'display:none;', class: 'assignment_form' }
-  %h2 New Assignment
-  %hr
-  = simple_form_for([@project, @assignment]) do |f|
-    %fieldset
-      %legend.bold_title New Assignment
-      = f.input :description, input_html: { id: 'regfield' }
-      = f.input :status,   as: :select, include_blank: false,
-        collection: Assignment::STATUS_OPTIONS
-      = f.input :priority, as: :select, include_blank: false,
-        collection: Assignment::PRIORITY_OPTIONS
-      = f.input :start_date,  as: :datepicker, label: 'Start Date'
-      = f.input :target_date, as: :datepicker, label: 'Target Date'
-      = f.input :deadline,    as: :datepicker
-      = f.input :completed,   as: :datepicker
-      = f.label :notes
-      = f.input_field :notes, as: :text, input_html: { rows: 4 }
-      = render partial: 'shared/submit_center', locals: { f: f }
+%section{style: 'display:none;', id: 'assignment-form' }
+  .row#assignment-container
+    = simple_form_for([@project, @assignment]) do |f|
+      .col-md-4     
+        %legend.bold_title New Assignment
+        = f.input :description
+        = f.input :status,   as: :select, include_blank: false,
+          collection: Assignment::STATUS_OPTIONS
+        = f.input :priority, as: :select, include_blank: false,
+          collection: Assignment::PRIORITY_OPTIONS
+      .col-md-2
+      .col-md-4
+        = f.input :start_date,  as: :datepicker, label: 'Start Date'
+        = f.input :target_date, as: :datepicker, label: 'Target Date'
+        = f.input :deadline,    as: :datepicker
+        = f.input :completed,   as: :datepicker
+        = f.input :notes, as: :text, input_html: { rows: 4 }
+        = f.button :submit
