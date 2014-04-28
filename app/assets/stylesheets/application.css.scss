@@ -1,16 +1,15 @@
 /*
  *= require_self
- *= require normalize
  *= require bootstrap-datetimepicker
  *= require layout
  *= require borders
  *= require header
  *= require forms
+ *= require tables
  *= require jquery.ui.datepicker
  *= require fullcalendar
  *= require events
  *= require buttons
- *= require tables
  *= require notifications 
  *= require profiles
  *= require tasks
@@ -18,6 +17,13 @@
  *= require font-awesome
  *= require other
  */
+
+$btn-default-bg: #00A1CB;
+$btn-default-color: black;
+$table-border-color: black;
+$table-bg-hover: #00A1CB;
+$panel-default-heading-bg: #00A1CB;
+$panel-default-text: white;
 
 @import 'bootstrap';
 

@@ -6,12 +6,13 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @phone = @contact.phone
+    @phone, @social_media = @contact.phone, @contact.social_media
   end
 
   def new
     @contact = Contact.new
     @contact.build_phone
+    @contact.build_social_media
   end
 
   def create
@@ -20,12 +21,10 @@ class ContactsController < ApplicationController
       flash[:notice] = 'Contact has been created'
       redirect_to @contact
     else
-      flash[:alert] = 'Contact has not been created'
+      flash[:error] = 'Contact has not been created'
       render :action => 'new'
     end
   end
-
-  def edit; end
 
   def update
     if @contact.update_attributes(contact_params)
@@ -49,12 +48,14 @@ class ContactsController < ApplicationController
   private
 
     def set_contact
-      @contact = Contact.friendly.find(params[:id])
+      @contact = Contact.find(params[:id])
     end
 
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :company, :email,
-        :secondary_email, :notes,
-          phone_attributes: [:id, :mobile, :office, :fax, :home])
+      params.require(:contact).permit( 
+        :first_name, :last_name, :company, :email, :secondary_email, :notes,
+          phone_attributes: [:id, :mobile, :office, :fax, :home],
+          social_media_attributes: [:id, :skype, :google_plus, :github,
+            :linkedin, :twitter, :facebook, :coderwall])
     end
 end

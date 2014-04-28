@@ -1,7 +1,4 @@
 class Project < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :name
-
   has_many   :assignments, dependent: :destroy
 
   IMAGE_TYPES = %w(image/jpeg image/jpg image/png)

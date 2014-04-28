@@ -13,5 +13,5 @@
       %header= yield :page_header
       %nav.bt-menu= render 'layouts/border_nav'
       %section#notifications= render 'layouts/notifications'
-      %section#content= yield
+      .row.content= yield
       %footer#main_footer= render 'layouts/footer'

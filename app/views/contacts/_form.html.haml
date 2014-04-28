@@ -1,28 +1,26 @@
-= simple_form_for @contact, defaults: { class: 'form' } do |f|
-  %fieldset
-    %legend.bold_title New Contact    
-    = f.input :first_name, input_html: { id: 'regfield' }, label: 'First Name'
-    = f.input :last_name,  input_html: { id: 'regfield' }, label: 'Last Name'
-    = f.input :company,    input_html: { id: 'regfield' }
-    = f.input :email,      input_html: { id: 'regfield' }
-    = f.input :secondary_email, input_html: { id: 'regfield' },
-      label: 'Secondary Email'
-    = f.label :notes
-    = f.input_field :notes, as: :text, input_html: { rows: 4 }
-    %section.button_center.contact
-      %p
-        = f.button :submit, 'Create', class: 'btn btn-6 btn-6j'
-        = link_to '#' do
-          %button.btn.btn-6.btn-6j#add_phone + Phone
-        = link_to contacts_path do
-          %button.btn.btn-6.btn-6j#back Back
+= simple_form_for @contact do |f|
+  .col-md-4.new-contact
+    = f.input :first_name, label: 'First Name'
+    = f.input :last_name, label: 'Last Name'
+    = f.input :company
+    = f.input :email
+    = f.input :secondary_email, label: 'Secondary Email'
+    = f.input :notes, as: :text, input_html: { rows: 5 }
 
-  %fieldset{style: 'display:none;', class: 'phone_form'}
-    %legend.bold_title New Phone
+  .col-md-3.new-contact
     = f.simple_fields_for :phone do |ff|
-      = ff.input :office, required: false, input_html: { id: 'regfield' }
-      = ff.input :mobile, required: false, input_html: { id: 'regfield' }
-      = ff.input :fax,    required: false, input_html: { id: 'regfield' }
-      = ff.input :home,   required: false, input_html: { id: 'regfield' }
-      %section.button_center
-        %p= ff.button :submit, 'Update', class: 'btn btn-6 btn-6j'
+      = ff.input :office
+      = ff.input :mobile
+      = ff.input :fax
+      = ff.input :home
+
+  .col-md-4.new-contact
+    = f.simple_fields_for :social_media do |ff|
+      = ff.input :skype
+      = ff.input :google_plus, label: 'Google Plus'
+      = ff.input :github
+      = ff.input :linkedin
+      = ff.input :twitter
+      = ff.input :facebook
+      = ff.input :facebook
+      = ff.button :submit, 'Create Contact'

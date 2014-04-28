@@ -1,51 +1,10 @@
 - provide(:title, @contact.name)
 = render 'contact_header'
 
-.table_container
-  %table#project_details.profile
-    %thead
-      %tr
-        %th{colspan: "2"} Contact Details
-    %tbody
-      %tr
-        %th First Name
-        %td.profile_spacing= @contact.first_name
-      %tr
-        %th Last Name
-        %td.profile_spacing= @contact.last_name
-      %tr
-        %th Company
-        %td.profile_spacing= data_format(@contact.company)
-      %tr
-        %th Email
-        %td.profile_spacing= @contact.email
-      %tr
-        %th Secondary Email
-        %td.profile_spacing= data_format(@contact.secondary_email)
-      %tr
-        %th Notes
-        %td.profile_spacing= data_format(@contact.notes)
-      %tr
-        %th Office Phone
-        %td.profile_spacing= phone_format(@phone.office)
-      %tr
-        %th Mobile Phone
-        %td.profile_spacing= phone_format(@phone.mobile)
-      %tr
-        %th Fax Phone
-        %td.profile_spacing= phone_format(@phone.fax)
-      %tr
-        %th Home Phone
-        %td.profile_spacing= phone_format(@phone.home)
+%nav.navbar.navbar-inverse#contact-subnav
+  %h2= @contact.name
 
-%nav
-  %ul
-    %li
-      = link_to edit_contact_path(@contact) do
-        %button.btn.btn-6.btn-6j Edit
-    %li
-      = link_to @contact, method: :delete, data: { confirm: 'Are you sure?' } do
-        %button.btn.btn-6.btn-6j Delete
-    %li
-      = link_to contacts_path do
-        %button.btn.btn-6.btn-6j Back
+.row#contact-profile
+  = render 'contact_info'
+  = render 'phone_book'
+  = render 'social_media'

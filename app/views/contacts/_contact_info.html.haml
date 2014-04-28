@@ -1,0 +1,27 @@
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      Contact Info
+      %span.panel-right
+        = link_to 'Edit', '#', id: 'contact-info-panel'
+
+    %table.table.table-hover      
+      %tbody
+        %tr
+          %th First Name
+          %td= @contact.first_name
+        %tr
+          %th Last Name
+          %td= @contact.last_name
+        %tr
+          %th Company
+          %td= data_format(@contact.company)
+        %tr
+          %th Email
+          %td= @contact.email
+        %tr
+          %th Secondary Email
+          %td= data_format(@contact.secondary_email)
+        %tr
+          %th Notes
+          %td= data_format(@contact.notes)

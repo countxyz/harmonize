@@ -1,5 +1,5 @@
 SimpleForm.setup do |config|
-  config.button_class = 'btn btn-default'
+  config.button_class = 'btn'
   config.boolean_label_class = nil
 
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
@@ -96,5 +96,6 @@ SimpleForm.setup do |config|
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
   end
+
   config.default_wrapper = :vertical_form
 end
