@@ -4,4 +4,4 @@
       %legend.bold_title New Task
       = f.input :description, input_html: { id: 'regfield' }
       = f.input :deadline, as: :datetime
-    = render partial: 'shared/submit_center', locals: { f: f }
+      = f.button :submit
