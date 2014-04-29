@@ -1,9 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'sprockets/railtie'
+require 'csv'
 
 Bundler.require(:default, Rails.env)
 
@@ -26,7 +27,7 @@ module Harmonize
         request_specs:    false,
         feature_specs:    true,
         model_specs:      true
-      g.fixture_replacement :factory_girl, dir: "spec/factories"
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
   end
 end

@@ -1,8 +1,13 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
     @contacts = Contact.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv }
+    end
   end
 
   def show
@@ -22,7 +27,7 @@ class ContactsController < ApplicationController
       redirect_to @contact
     else
       flash[:error] = 'Contact has not been created'
-      render :action => 'new'
+      redirect_to @contact
     end
   end
 
@@ -32,7 +37,7 @@ class ContactsController < ApplicationController
       redirect_to @contact
     else
       flash[:alert] = 'Contact has not been updated'
-      render :action => 'edit'
+      redirect_to @contact
     end
   end
 

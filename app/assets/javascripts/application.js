@@ -13,7 +13,6 @@
 //= require tables
 //= require calendar
 //= require datepicker
-//= require datetimepicker
 //= require flash
 //= require project_profile
 //= require contact_form

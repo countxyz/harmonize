@@ -1,5 +1,6 @@
 class Contact < ActiveRecord::Base
   extend FriendlyId
+
   friendly_id :name, use: [:slugged, :finders]
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -25,6 +26,15 @@ class Contact < ActiveRecord::Base
 
   def name
     [first_name, last_name].join(' ')
+  end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |contact|
+        csv << contact.attributes.values_at(*column_names)
+      end
+    end
   end
 
   private

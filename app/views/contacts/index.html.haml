@@ -1,14 +1,22 @@
 - provide(:title, 'Contacts')
 = render 'contact_header'
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th{scope: "col"} Contact Name
-      %th{scope: "col"} Company
-      %th{scope: "col"} Email
-      %th{scope: "col"} Office Phone
-      %th{scope: "col"} Mobile Phone
-      %th{scope: "col"} Actions
-  %tbody
-    = render @contacts
+.col-md-12
+  .panel.panel-default
+    .panel-heading
+      Contact Info
+    .panel-body
+      %span.panel-right
+        = link_to 'CSV', contacts_path(format: 'csv')
+
+    %table.table.table-hover
+      %thead
+        %tr
+          %th{scope: "col"} Contact Name
+          %th{scope: "col"} Company
+          %th{scope: "col"} Email
+          %th{scope: "col"} Office Phone
+          %th{scope: "col"} Mobile Phone
+          %th{scope: "col"} Actions
+      %tbody
+        = render @contacts
