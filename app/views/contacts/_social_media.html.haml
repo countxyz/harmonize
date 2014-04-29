@@ -1,11 +1,11 @@
 .col-md-4
-  .panel.panel-default
+  .panel.panel-default.panel-borderless
     .panel-heading
       Contact Info
       %span.panel-right
-        = link_to 'Edit', '#', id: 'social-media-panel'
+        = link_to 'Edit', '#', id: 'sm-panel'
 
-    %table.table.table-hover#social-media-table
+    %table.table.table-hover#sm-table
       %tbody
         %tr
           %th Skype
@@ -39,4 +39,6 @@
           = ff.input :twitter
           = ff.input :facebook
           = ff.input :coderwall
-          = ff.button :submit
+          %span.form-action-inline
+            = ff.button :submit
+            %button.btn.btn-default#close-sm close

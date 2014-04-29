@@ -1,11 +1,11 @@
 .col-md-4
-  .panel.panel-default
+  .panel.panel-default.panel-borderless
     .panel-heading
       Contact Info
       %span.panel-right
-        = link_to 'Edit', '#', id: 'contact-info-panel'
+        = link_to 'Edit', '#', id: 'ci-panel'
 
-    %table.table.table-hover#contact-info-table
+    %table.table.table-hover#ci-table
       %tbody
         %tr
           %th First Name
@@ -34,4 +34,6 @@
         = f.input :email
         = f.input :secondary_email, label: 'Secondary Email'
         = f.input :notes, as: :text, input_html: { rows: 5 }
-        = f.button :submit
+        %span.form-action-inline
+          = f.button :submit
+          %button.btn.btn-default#close-ci Close

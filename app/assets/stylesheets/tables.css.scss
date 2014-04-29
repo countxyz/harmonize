@@ -1,9 +1,11 @@
+.panel-borderless { border: none; }
+
 .panel-right {
   float: right;
 }
 
-#contact-info-panel,
-#phone-book-panel,
-#social-media-panel {
+#ci-panel,
+#pb-panel,
+#sm-panel {
   color: white;
 }

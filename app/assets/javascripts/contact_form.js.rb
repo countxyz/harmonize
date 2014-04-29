@@ -1,74 +1,36 @@
 require 'opal-jquery'
 
-class ContactForm
-  def contact_info
-    Element.find '#contact-info-panel'
-  end
+class ContactUpdater
 
-  def phone_book
-    Element.find '#phone-book-panel'
-  end
-
-  def social_media
-    Element.find '#social-media-panel'
-  end
-
-  def hide_contact_info
-    Element.find('#contact-info-table').hide
-  end 
-
-  def hide_phone_book
-    Element.find('#phone-book-table').hide
-  end
-
-  def hide_social_media
-    Element.find('#social-media-table').hide
-  end
-
-  def contact_info_edit
-    Element.find('#edit-ci-form').effect :fade_in
-  end
-
-  def phone_book_edit
-    Element.find('#edit-pb-form').effect :fade_in
-  end
-
-  def social_media_edit
-    Element.find('#edit-sm-form').effect :fade_in
-  end
-
-  def contact_info_form
-    contact_info.on :click do |event|
+  def table_to_form panel, table, form
+    Element.find(panel).on :click do |event|
       event.prevent_default
-      hide_contact_info
-      contact_info_edit
+      Element.find(table).hide
+      Element.find(form).effect :slide_down
     end
   end
 
-  def phone_book_form
-    phone_book.on :click do |event|
+  def form_to_table close, table, form
+    Element.find(close).on :click do |event|    
       event.prevent_default
-      hide_phone_book
-      phone_book_edit
+      Element.find(form).hide
+      Element.find(table).effect(:slide_down, 200)
     end
   end
 
-  def social_media_form
-    social_media.on :click do |event|
-      event.prevent_default
-      hide_social_media
-      social_media_edit
-    end
-  end
-
-  def update_contact
+  def update_contact panel, table, form, close
     Document.on 'page:change' do
-      contact_info_form
-      phone_book_form
-      social_media_form
+      table_to_form panel, table, form
+      form_to_table close, table, form
     end
   end
 end
 
-contact_updater = ContactForm.new
-contact_updater.update_contact
+contact_forms = ContactUpdater.new
+
+contact_forms.update_contact(
+  '#ci-panel', '#ci-table', '#edit-ci-form', '#close-ci')
+contact_forms.update_contact(
+  '#pb-panel', '#pb-table', '#edit-pb-form', '#close-pb')
+contact_forms.update_contact(
+  '#sm-panel', '#sm-table', '#edit-sm-form', '#close-sm')

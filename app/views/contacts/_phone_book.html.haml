@@ -1,11 +1,11 @@
 .col-md-4
-  .panel.panel-default
+  .panel.panel-default.panel-borderless
     .panel-heading
       Phone Book
       %span.panel-right
-        = link_to 'Edit', '#', id: 'phone-book-panel'
+        = link_to 'Edit', '#', id: 'pb-panel'
 
-    %table.table.table-hover#phone-book-table
+    %table.table.table-hover#pb-table
       %tbody
         %tr
           %th Office Phone
@@ -27,4 +27,6 @@
           = ff.input :mobile
           = ff.input :fax
           = ff.input :home
-          = ff.button :submit
+          %span.form-action-inline
+            = ff.button :submit
+            %button.btn.btn-default#close-pb Close
