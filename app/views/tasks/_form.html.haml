@@ -1,7 +1,18 @@
 %section{style: 'display:none;', id: 'new_task_form' }
-  = simple_form_for(task) do |f|
+  = form_for(task) do |f|
     %fieldset
       %legend.bold_title New Task
-      = f.input :description, input_html: { id: 'regfield' }
-      = f.input :deadline, as: :datetime
-      = f.button :submit
+      = f.label :description
+      = f.text_field :description, class: 'form-control regfield'
+      %br
+      = f.label :deadline, 'Deadline', style: 'float:none;'
+      .input-group.date#dtp
+        = f.text_field :deadline, class: 'form-control'
+        %span{class: 'input-group-addon'}
+          %span{class: 'glyphicon glyphicon-calendar'}
+      = javascript_tag "$(function () { $('#dtp').datetimepicker(); });"
+    %section.button_center
+      %p
+        = f.submit 'Submit', class: 'btn'
+        = link_to '#' do
+          %button.submit Cancel
