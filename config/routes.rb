@@ -1,5 +1,5 @@
 Harmonize::Application.routes.draw do
-  root 'tasks#index'
+  root 'contacts#index'
 
   get '/about', to: 'main_pages#about'
 

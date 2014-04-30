@@ -11,6 +11,7 @@ Bundler.require(:default, Rails.env)
 module Harmonize
   class Application < Rails::Application
     config.assets.initialize_on_precompile = false
+    config.autoload_paths << "#{Rails.root}/app/pdfs"
     config.time_zone = 'Eastern Time (US & Canada)'
     config.opal.method_missing             = true
     config.opal.optimized_operators        = true

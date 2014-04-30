@@ -1,13 +1,14 @@
 - provide(:title, 'Contacts')
 = render 'contact_header'
 
-.col-md-12
+.col-md-10
   .panel.panel-default
     .panel-heading
-      Contact Info
+      Contacts
     .panel-body
-      %span.panel-right
-        = link_to 'CSV', contacts_path(format: 'csv')
+      %ul.panel-right
+        %li= link_to 'CSV', contacts_path(format: 'csv')
+        %li= link_to 'PDF', contacts_path(format: 'pdf')
 
     %table.table.table-hover
       %thead
