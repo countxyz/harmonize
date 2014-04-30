@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+  before_action :require_signin!
   before_action :set_assignment, only: [:destroy]
   before_action :set_project,    only: [:index, :create]
 

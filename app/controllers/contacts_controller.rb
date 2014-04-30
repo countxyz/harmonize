@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :require_signin!
   before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
