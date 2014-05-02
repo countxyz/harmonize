@@ -1,4 +1,5 @@
-= content_tag_for(:li, task, class: 'list-group-item list-group-item-info', 'data-id' => task.id) do
+= content_tag_for(:li, task, class: 'list-group-item list-group-item-info',
+  'data-id' => task.id) do
   %span#task-description= task.description
   %br
   = datetime_format(task.deadline)

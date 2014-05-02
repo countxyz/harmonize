@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
   end
 
   def self.completed_task
-    where.not('completed is NULL')
+    where.not('completed is NULL').order(completed: :desc)
   end
 
   def self.overdue
