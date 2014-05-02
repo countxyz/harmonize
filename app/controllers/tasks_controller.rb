@@ -9,8 +9,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(description: task_params[:description], 
-      deadline: parse_date(task_params[:deadline]))
+    @task = Task.create(task_params)
     if @task.save
       flash[:notice] = 'Task has been created'
       redirect_to tasks_path
@@ -45,10 +44,5 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:description, :deadline, :completed)
-    end
-
-    def parse_date date
-      offset = ' ' + DateTime.now.strftime("%z")
-      DateTime.strptime(date + offset, '%m/%d/%Y %I:%M %p %z')
     end
 end

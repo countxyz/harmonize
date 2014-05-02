@@ -6,14 +6,5 @@
   = render partial: 'form', locals: { task: @new_task }
 
 %section.tasks
-  %h3 Overdue
   %ul.task_list
-  - @overdue.each do |overdue|
-    %li= overdue.description
-    %li= overdue.deadline
-
-%section.tasks
-  %h3 No Deadline
-  %ul.task_list
-    %li
-
+    = render @tasks

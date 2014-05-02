@@ -1,12 +1,10 @@
 /*
  *= require_self
- *= require bootstrap-datetimepicker
  *= require layout
  *= require borders
  *= require header
  *= require forms
  *= require tables
- *= require jquery.ui.datepicker
  *= require fullcalendar
  *= require events
  *= require buttons
@@ -28,6 +26,7 @@ $panel-default-text: white;
 ul li a { text-decoration: none; }
 
 @import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
 .container {
   width: 100%;

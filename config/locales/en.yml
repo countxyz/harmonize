@@ -1,4 +1,4 @@
 en:
-  time:
+  date:
     formats:
-      america: '%A - %B %d, %Y - %l:%M %P %Z'
+      default: '%A - %B %d, %Y - %l:%M %P %Z'

@@ -1,7 +1,7 @@
 = content_tag_for(:li, task, 'data-id' => task.id) do
   = task.description
   %br
-  %time= l task.deadline, format: :america
+  = datetime_format(task.deadline)
   = link_to 'Edit', edit_task_path(task), remote: true, id: 'edit_task'
   = link_to 'Delete', task, remote: true, method: :delete,
     data: { confirm: 'Are you sure?' }

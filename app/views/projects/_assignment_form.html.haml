@@ -8,11 +8,15 @@
           collection: Assignment::STATUS_OPTIONS
         = f.input :priority, as: :select, include_blank: false,
           collection: Assignment::PRIORITY_OPTIONS
+        = f.input :notes, as: :text, input_html: { rows: 4 }
       .col-md-2
       .col-md-4
-        = f.input :start_date,  as: :datepicker, label: 'Start Date'
-        = f.input :target_date, as: :datepicker, label: 'Target Date'
-        = f.input :deadline,    as: :datepicker
-        = f.input :completed,   as: :datepicker
-        = f.input :notes, as: :text, input_html: { rows: 4 }
-        = f.button :submit
+        = f.input :start_date, as: :datepicker, label: 'Start Date',
+          input_html: { class: 'form-control datetimepicker6' }
+        = f.input :target_date, as: :datepicker, label: 'Target Date',
+          input_html: { class: 'form-control datetimepicker6' }       
+        = f.input :deadline, as: :datepicker,
+          input_html: { class: 'form-control datetimepicker6' }
+        = f.input :completed, as: :datepicker,
+          input_html: { class: 'form-control datetimepicker6' }
+        = f.button :submit, class: 'btn-block'

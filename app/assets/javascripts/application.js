@@ -4,7 +4,6 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
 //= require fullcalendar.min
 //= require bootstrap
 //= require moment
