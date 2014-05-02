@@ -1,10 +1,19 @@
 - provide(:title, 'Tasks')
 = render 'task_header'
 
-%section#tasks
-  %h2.task_heading Pending Tasks
-  = render partial: 'form', locals: { task: @new_task }
+.row#tasks
+  .col-md-2
+    %h2 Pending Tasks
+  .col-md-6
+  .col-md-4
+    .task-actions
+      = link_to '#' do
+        %button.btn.btn-default.btn-lg#new-task
+          %i.fa.fa-plus.in_button
+          New
 
-%section.tasks
-  %ul.task_list
+= render partial: 'form', locals: { task: @new_task }
+
+.row
+  %ul.list-group-item.list-group-item-info.task_list
     = render @tasks
