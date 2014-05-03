@@ -4,22 +4,22 @@ class TasksController < ApplicationController
   respond_to :html, :js
 
   def index
-    @tasks, @new_task = Task.pending, Task.new
-    @overdue = Task.overdue
+    @tasks = Task.pending
+  end
+
+  def new
+    @task = Task.new
   end
 
   def create
+    @tasks = Task.pending
     @task = Task.create(task_params)
-    if @task.save
-      flash[:notice] = 'Task has been created'
-      redirect_to tasks_path
-    else
-      flash[:alert] = 'Task has not been created'
-      redirect_to tasks_path
-    end
   end
 
+  def edit; end
+
   def update
+    @tasks = Task.pending
     @task.update_attributes(task_params)
   end
 
@@ -29,7 +29,6 @@ class TasksController < ApplicationController
 
   def complete
     @task.update_attributes completed: Time.now
-    redirect_to tasks_path
   end
 
   def completed

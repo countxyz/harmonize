@@ -1,9 +1,5 @@
 class Task < ActiveRecord::Base
-  validates :description, presence: true, length: { maximum: 50 }
-  
-  def self.no_deadline
-    where('deadline is NULL')
-  end
+  validates :description, presence: true, length: { maximum: 100 }
 
   def self.pending
     where('completed is NULL').order(deadline: :asc)
@@ -15,5 +11,9 @@ class Task < ActiveRecord::Base
 
   def self.overdue
     where 'deadline IS NOT NULL AND deadline < ?', Time.zone.now.utc
+  end
+  
+  def self.no_deadline
+    where('deadline is NULL')
   end
 end

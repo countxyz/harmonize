@@ -6,7 +6,7 @@
   .col-md-3
     = simple_form_for @user do |f|
       %legend.bold_title New Account
-      = f.input :handle, label: 'User Name'
+      = f.input :handle, label: 'Username'
       = f.input :password
       = f.input :password_confirmation, label: 'Password Confirmation'
       = f.button :submit, 'Create Account'

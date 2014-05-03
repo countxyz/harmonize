@@ -1,17 +1,20 @@
 = content_tag_for(:li, task, class: 'list-group-item list-group-item-info',
   'data-id' => task.id) do
-  %span#task-description= task.description
-  %br
-  = datetime_format(task.deadline)
-  .task-actions
-    %button.btn.btn-default
-      %i.fa.fa-pencil.in_button
-      = link_to 'Edit', edit_task_path(task), remote: true
-    %button.btn.btn-default.btn-danger
-      %i.fa.fa-times.in_button
-      = link_to 'Delete', task, remote: true, method: :delete,
-      data: { confirm: 'Are you sure?' }
-    %button.btn.btn-default.btn-success
-      %i.fa.fa-check.in_button
-      = link_to 'Complete', { action: 'complete', id: task.id },
-        method: :complete, data: { confirm: "Set task as completed" }
+  .row
+    .col-md-9
+      %span.task-description= task.description
+    .col-md-3.task-actions
+      %button.btn.btn-default
+        %i.fa.fa-pencil.in_button
+        = link_to 'Edit', edit_task_path(task), remote: true
+      %button.btn.btn-default.btn-danger
+        %i.fa.fa-times.in_button
+        = link_to 'Delete', task, remote: true, method: :delete,
+          data: { confirm: 'Are you sure?' }
+      %button.btn.btn-default.btn-success
+        %i.fa.fa-check.in_button
+        = link_to 'Complete', complete_task_path(task), remote: true,
+          method: :post, data: { confirm: "Set task as completed?" }
+  .row
+    .col-md-9
+      = datetime_format(task.deadline)

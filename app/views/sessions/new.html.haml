@@ -4,7 +4,7 @@
 .row
   .col-md-3
     = simple_form_for(:signin, method: 'POST') do |f|
-      = f.input :handle, label: 'User Name'
+      = f.input :handle, label: 'Username'
       = f.input :password
       = f.button :submit, 'Sign In'
   .col-md-1

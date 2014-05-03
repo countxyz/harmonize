@@ -1,12 +1,11 @@
-%section{style: 'display:none;', id: 'new-task-form' }
-  .row
-    = simple_form_for task, html: { class: 'form-inline' } do |f|
-      .col-md-12
-        = f.input :description, input_html: { id: 'task-description' }
-      %br
-      .col-md-12
-        = f.input :deadline, as: :datetime, ampm: true, minute_step: 15
-      %br
-      .col-md-2
-      .col-md-2#task-submit
-        = f.button :submit, class: 'btn-block'
+= simple_form_for @task, remote: true, html: { class: 'form-inline' } do |f|
+  .row.task-form-row
+    = f.input :description, as: :text, input_html: { id: 'task-inline-input' }
+  .row.task-form-row
+    = f.input :deadline, as: :datetime, ampm: true, minute_step: 15,
+      include_blank: true
+  .row.task-form-row
+    .col-md-2
+    .col-md-2#task-submit
+      %button.btn.btn-default Close
+      = f.button :submit

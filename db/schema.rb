@@ -98,7 +98,10 @@ ActiveRecord::Schema.define(version: 20140427222421) do
     t.string   "description"
     t.datetime "deadline"
     t.datetime "completed"
+    t.integer  "user_id"
   end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "handle"
