@@ -1,0 +1,23 @@
+- provide(:title, 'Accounts')
+= render 'account_header'
+
+.col-md-10
+  .panel.panel-default
+    .panel-heading
+      Accounts
+    .panel-body
+      %ul.panel-right
+        / %li= link_to 'CSV', contacts_path(format: 'csv')
+        / %li= link_to 'PDF', contacts_path(format: 'pdf')
+
+    %table.table.table-hover
+      %thead
+        %tr
+          %th{scope: "col"} Account
+          %th{scope: "col"} Website
+          %th{scope: "col"} Email
+          %th{scope: "col"} Office Phone
+          %th{scope: "col"} Fax
+          %th{scope: "col"} Actions
+      %tbody
+        = render @accounts

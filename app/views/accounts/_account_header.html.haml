@@ -1,0 +1,15 @@
+- content_for :page_header do
+  %h1 Accounts
+
+  %nav
+    %ul
+      %li
+        = link_to accounts_path do
+          %button.header-btn.btn-1.btn-1c
+            %i.fa.fa-archive.in_button
+            All
+      %li
+        = link_to new_account_path do
+          %button.header-btn.btn-1.btn-1c
+            %i.fa.fa-user.in_button
+            New
