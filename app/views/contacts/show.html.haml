@@ -1,15 +1,7 @@
 - provide(:title, @contact.name)
 = render 'contact_header'
 
-%nav.navbar.navbar-inverse.navbar-fixed-bottom#contact-subnav
-  .container-fluid
-    .navbar-header#contact-header
-      %p.navbar-text.navbar-left= @contact.name.upcase
-    .collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right
-        %li.active
-          = link_to 'Delete', @contact, method: :delete,
-            data: { confirm: 'Are you sure?' }, id: 'delete-link'
+= render 'navbar'
 
 .row#contact-profile
   = render 'contact_info'
