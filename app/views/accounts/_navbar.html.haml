@@ -1,0 +1,9 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header#contact-header
+      %p.navbar-text.navbar-left= @account.name.upcase
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.active
+          = link_to 'Delete', @account, method: :delete,
+            data: { confirm: 'Are you sure?' }, id: 'delete-link'
