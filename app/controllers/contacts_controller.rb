@@ -10,8 +10,8 @@ class ContactsController < ApplicationController
       format.html
       format.csv { send_data @contacts.to_csv }
       format.pdf do
-        send_data pdf.render, filename: 'contacts.pdf',
-                   type: 'application/pdf', disposition: 'inline'
+        send_data pdf.render, filename: 'contacts.pdf',type: 'application/pdf',
+                              disposition: 'inline'
       end
     end
   end

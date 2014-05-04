@@ -16,6 +16,7 @@
  *= require other
  */
 
+$link-color: #00A1CB;
 $btn-default-bg: #00A1CB;
 $btn-default-color: white;
 $table-border-color: black;
@@ -26,6 +27,8 @@ $list-group-border: black;
 
 ul li a { text-decoration: none; }
 
+li { list-style-type: none; }
+
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
@@ -33,7 +36,3 @@ ul li a { text-decoration: none; }
   width: 100%;
   padding: 0;
 }
-
-li { list-style-type: none; }
-
-a { color: #00A1CB; }

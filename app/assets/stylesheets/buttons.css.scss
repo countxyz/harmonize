@@ -46,3 +46,10 @@
 
 .btn-1c:hover:after,
 .btn-1c:active:after { width: 100%; }
+
+.blue-btn {
+  color: white;
+  text-decoration: none;
+
+  &:hover { text-decoration: none; }
+}

@@ -7,8 +7,16 @@
       Accounts
     .panel-body
       %ul.panel-right
-        / %li= link_to 'CSV', contacts_path(format: 'csv')
-        / %li= link_to 'PDF', contacts_path(format: 'pdf')
+        %li
+          = link_to accounts_path(format: 'csv') do
+            %button.btn.btn-default
+              %i.fa.fa-table.in_button
+              CSV
+        %li
+          = link_to accounts_path(format: 'pdf') do
+            %button.btn.btn-default
+              %i.fa.fa-table.in_button
+              PDF
 
     %table.table.table-hover
       %thead
