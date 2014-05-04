@@ -1,0 +1,37 @@
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Account Info
+    %span.panel-right= link_to 'Edit', '#', class: 'edit-panel', id: 'ai-panel'
+
+  %table.table.table-hover#ai-table
+    %tbody
+      %tr
+        %th Account
+        %td= @account.name
+      %tr
+        %th Website
+        %td= data_format(@account.website)
+      %tr
+        %th Email
+        %td= data_format(@account.email)
+      %tr
+        %th Office Phone
+        %td= phone_format(@account.phone)
+      %tr
+        %th Office Phone
+        %td= phone_format(@account.fax)
+      %tr
+        %th Notes
+        %td= data_format(@account.notes)
+
+  %section{ style: 'display:none;', id: 'edit-ai-form' }
+    = simple_form_for @account do |f|
+      = f.input :name
+      = f.input :phone
+      = f.input :fax 
+      = f.input :website
+      = f.input :email
+      = f.input :notes, as: :text, input_html: { rows: 5 }   
+      %span.form-action-inline
+        = f.button :submit
+        %button.btn.btn-default#close-ai Close

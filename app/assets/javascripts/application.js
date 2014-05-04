@@ -13,5 +13,5 @@
 //= require calendar
 //= require datepicker
 //= require flash
+//= require profile_updater
 //= require project_profile
-//= require contact_form

@@ -1,6 +1,6 @@
 require 'opal-jquery'
 
-class ContactUpdater
+class ProfileUpdater
 
   def table_to_form panel, table, form
     Element.find(panel).on :click do |event|
@@ -18,7 +18,7 @@ class ContactUpdater
     end
   end
 
-  def update_contact panel, table, form, close
+  def update_profile panel, table, form, close
     Document.on 'page:change' do
       table_to_form panel, table, form
       form_to_table close, table, form
@@ -26,11 +26,12 @@ class ContactUpdater
   end
 end
 
-contact_forms = ContactUpdater.new
+contact = ProfileUpdater.new
 
-contact_forms.update_contact(
-  '#ci-panel', '#ci-table', '#edit-ci-form', '#close-ci')
-contact_forms.update_contact(
-  '#pb-panel', '#pb-table', '#edit-pb-form', '#close-pb')
-contact_forms.update_contact(
-  '#sm-panel', '#sm-table', '#edit-sm-form', '#close-sm')
+contact.update_profile('#ci-panel', '#ci-table', '#edit-ci-form', '#close-ci')
+contact.update_profile('#pb-panel', '#pb-table', '#edit-pb-form', '#close-pb')
+contact.update_profile('#sm-panel', '#sm-table', '#edit-sm-form', '#close-sm')
+
+account = ProfileUpdater.new
+
+account.update_profile('#ai-panel', '#ai-table', '#edit-ai-form', '#close-ai')

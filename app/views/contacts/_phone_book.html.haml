@@ -1,31 +1,30 @@
-.col-md-4
-  .panel.panel-default.panel-borderless
-    .panel-heading
-      Phone Book
-      %span.panel-right= link_to 'Edit', '#', id: 'pb-panel'
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Phone Book
+    %span.panel-right= link_to 'Edit', '#', class: 'edit-panel', id: 'pb-panel'
 
-    %table.table.table-hover#pb-table
-      %tbody
-        %tr
-          %th Office Phone
-          %td= phone_format(@phone.office)
-        %tr
-          %th Mobile Phone
-          %td= phone_format(@phone.mobile)
-        %tr
-          %th Fax Phone
-          %td= phone_format(@phone.fax)
-        %tr
-          %th Home Phone
-          %td= phone_format(@phone.home)
+  %table.table.table-hover#pb-table
+    %tbody
+      %tr
+        %th Office Phone
+        %td= phone_format(@phone.office)
+      %tr
+        %th Mobile Phone
+        %td= phone_format(@phone.mobile)
+      %tr
+        %th Fax Phone
+        %td= phone_format(@phone.fax)
+      %tr
+        %th Home Phone
+        %td= phone_format(@phone.home)
 
-    %section{ style: 'display:none;', id: 'edit-pb-form' }
-      = simple_form_for(@contact) do |f|
-        = f.simple_fields_for :phone do |ff|
-          = ff.input :office
-          = ff.input :mobile
-          = ff.input :fax
-          = ff.input :home
-          %span.form-action-inline
-            = ff.button :submit
-            %button.btn.btn-default#close-pb Close
+  %section{ style: 'display:none;', id: 'edit-pb-form' }
+    = simple_form_for(@contact) do |f|
+      = f.simple_fields_for :phone do |ff|
+        = ff.input :office
+        = ff.input :mobile
+        = ff.input :fax
+        = ff.input :home
+        %span.form-action-inline
+          = ff.button :submit
+          %button.btn.btn-default#close-pb Close

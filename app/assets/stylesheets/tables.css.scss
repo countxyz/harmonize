@@ -1,14 +1,8 @@
 .panel-borderless { border: none; }
 
-.panel-right {
-  float: right;
-}
+.panel-right { float: right; }
 
-#ci-panel,
-#pb-panel,
-#sm-panel {
-  color: white;
-}
+.edit-panel { color: white; }
 
 ul.panel-right li {
   padding-right: 10px;

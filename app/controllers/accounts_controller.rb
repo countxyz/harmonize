@@ -21,10 +21,8 @@ class AccountsController < ApplicationController
     end    
   end
 
-  def show; end
-
   def update
-    if @account.update_attributes(contact_params)
+    if @account.update_attributes(account_params)
       flash[:notice] = 'Account not updated'
       redirect_to @account
     else
@@ -35,11 +33,8 @@ class AccountsController < ApplicationController
   
   def destroy
     @account.destroy
-
-    respond_to do |format|
-      format.html { redirect_to @account }
-      format.js { head :no_content }
-    end
+    flash[:notice] = 'Account deleted'
+    redirect_to @account
   end
 
   private
