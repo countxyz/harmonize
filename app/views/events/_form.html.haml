@@ -1,11 +1,17 @@
-= simple_form_for @event do |f|
-  %fieldset
-    %legend.bold_title New Event
-    = f.input :title
-    = f.input :start_time,  as: :datepicker,  label: 'Start'
-    = f.input :end_time,    as: :datepicker,  label: 'End'
-    = f.label :description
-    = f.input_field :description, as: :text
-    %section.button_center
-      %p
-        = f.button :submit, class: 'btn btn-form btn-6 btn-6j'
+.row#modal-form
+  .col-md-8
+  .col-md-4
+    = simple_form_for @event, remote: true, html: { class: 'form-inline' } do |f|
+      .row
+      = f.input :title
+      .row
+      = f.input :start_time, as: :datetime,  label: 'Start'
+      .row
+      = f.input :end_time,   as: :datetime,  label: 'End'
+      .row
+      = f.input :description, as: :text, input_html: { rows: 5 }
+      %span.form-action-inline
+        %button.btn.btn-default#modal-close(type="button"
+          data-dismiss="modal")
+          Close
+        = f.button :submit

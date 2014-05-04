@@ -4,7 +4,8 @@
   %nav
     %ul
       %li
-        = link_to new_event_path do
-          %button.header-btn.btn-1.btn-1c
+        = link_to new_event_path, remote: true do
+          %button.header-btn.btn-1.btn-1c(data-toggle="modal"
+            data-target="#event-modal")
             %i.fa.fa-plus.in_button
             New
