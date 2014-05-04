@@ -1,24 +1,25 @@
 = content_tag_for(:li, task, class: 'list-group-item list-group-item-info',
   'data-id' => task.id) do
   .row
-    .col-md-9
+    .col-md-6
       %span.task-description= task.description
-    .col-md-3.task-actions
+    .col-md-2
+    .col-md-4.task-actions
       = link_to edit_task_path(task), remote: true do
-        %button.btn.btn-default
+        %button.btn.btn-default.btn-xs
           %i.fa.fa-pencil.in_button
           Edit
       = link_to task, remote: true, method: :delete,
         data: { confirm: 'Are you sure?' } do
-        %button.btn.btn-default.btn-danger
+        %button.btn.btn-default.btn-danger.btn-xs
           %i.fa.fa-times.in_button
           Delete
       = link_to complete_task_path(task), remote: true,method: :post,
         data: { confirm: "Set task as completed?" } do
-        %button.btn.btn-default.btn-success
+        %button.btn.btn-default.btn-success.btn-xs
           %i.fa.fa-check.in_button
           Complete
 
   .row
     .col-md-9
-      = task.deadline
+      %span.deadline= task.deadline

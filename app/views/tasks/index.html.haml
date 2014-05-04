@@ -2,13 +2,13 @@
 = render 'task_header'
 
 .row#tasks
-  .col-md-2
+  .col-md-5
     %h2 Pending Tasks
-  .col-md-6
-  .col-md-4
+  .col-md-2
+  .col-md-5
     .task-actions
       = link_to new_task_path, remote: true do
-        %button.btn.btn-default.btn-lg
+        %button.btn.btn-default
           %i.fa.fa-plus.in_button
           New
 
