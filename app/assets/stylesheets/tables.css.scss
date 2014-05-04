@@ -2,7 +2,11 @@
 
 .panel-right { float: right; }
 
-.edit-panel { color: white; }
+.edit-panel {
+  color: white;
+
+  &:hover { text-decoration: none; }
+}
 
 ul.panel-right li {
   padding-right: 10px;

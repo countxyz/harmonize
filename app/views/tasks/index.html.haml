@@ -7,9 +7,10 @@
   .col-md-6
   .col-md-4
     .task-actions
-      %button.btn.btn-default.btn-lg
-        %i.fa.fa-plus.in_button
-        = link_to 'New', new_task_path, remote: true
+      = link_to new_task_path, remote: true do
+        %button.btn.btn-default.btn-lg
+          %i.fa.fa-plus.in_button
+          New
 
 .row#task-form{ style: 'display:none;' }
 
