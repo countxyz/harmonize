@@ -1,11 +1,21 @@
-= simple_form_for @task, remote: true, html: { class: 'form-inline' } do |f|
-  .row.task-form-row
-    = f.input :description, as: :text, input_html: { id: 'task-inline-input' }
-  .row.task-form-row
-    = f.input :deadline, as: :datetime, ampm: true, minute_step: 15,
-      include_blank: true
-  .row.task-form-row
-    .col-md-2
-    .col-md-2#task-submit
-      %button.btn.btn-default Close
-      = f.button :submit
+= simple_form_for @task, remote: true do |f|
+  .row
+    .col-md-1
+    .col-md-6
+      = f.input :description, as: :text
+      .input-group.date#datetimepicker10(data-date-format="YYYY-MM-DD HH:mm Z")
+        = f.input_field :deadline, as: :string, class: 'form-control'
+        %span.input-group-addon
+          %span.fa.fa-calendar
+      %span.form-action-inline
+        %button.btn.btn-default Close
+        = f.button :submit
+
+:coffeescript
+  $ ->
+    $('#datetimepicker10').datetimepicker icons:
+      time: 'fa fa-clock-o'
+      date: 'fa fa-calendar'
+      up:   'fa fa-arrow-up'
+      down: 'fa fa-arrow-down'
+    return

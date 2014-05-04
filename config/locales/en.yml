@@ -1,4 +1,1 @@
 en:
-  date:
-    formats:
-      default: '%A - %B %d, %Y - %l:%M %P %Z'
