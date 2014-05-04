@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427222421) do
+ActiveRecord::Schema.define(version: 20140504003149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "fax"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assignments", force: true do |t|
     t.string  "description"
@@ -51,6 +62,29 @@ ActiveRecord::Schema.define(version: 20140427222421) do
     t.datetime "start_time"
     t.datetime "end_time"
   end
+
+  create_table "fullcalendar_engine_event_series", force: true do |t|
+    t.integer  "frequency",  default: 1
+    t.string   "period",     default: "monthly"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fullcalendar_engine_events", force: true do |t|
+    t.string   "title"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",         default: false
+    t.text     "description"
+    t.integer  "event_series_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fullcalendar_engine_events", ["event_series_id"], name: "index_fullcalendar_engine_events_on_event_series_id", using: :btree
 
   create_table "phones", force: true do |t|
     t.integer  "contact_id"
@@ -98,10 +132,7 @@ ActiveRecord::Schema.define(version: 20140427222421) do
     t.string   "description"
     t.datetime "deadline"
     t.datetime "completed"
-    t.integer  "user_id"
   end
-
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "handle"
