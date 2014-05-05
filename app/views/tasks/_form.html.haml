@@ -3,12 +3,16 @@
     .col-md-1
     .col-md-6
       = f.input :description, as: :text
-      .input-group.date#datetimepicker10(data-date-format="lll")
-        = f.input_field :deadline, as: :string, class: 'form-control'
-        %span.input-group-addon
-          %span.fa.fa-calendar
-      %span.form-action-inline#task-form-buttons
-        %button.btn.btn-default Close
-        = f.button :submit
+      .div
+        = f.label 'Deadline'
+        .input-group.date.datetimepicker10(data-date-format="lll")
+          = f.input_field :deadline, as: :string, class: 'form-control'
+          %span.input-group-addon
+            %span.fa.fa-calendar
+    .col-md-1
+    .col-md-4#task-form-buttons
+      %button.btn.btn-default Close
+      %br
+      = f.button :submit, 'Submit', id: 'task-submit'
 
 = javascript_include_tag 'datetimepicker'

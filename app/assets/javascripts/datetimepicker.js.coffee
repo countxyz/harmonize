@@ -1,5 +1,5 @@
 ready = ->
-  $('#datetimepicker10').datetimepicker icons:
+  $('.datetimepicker10').datetimepicker icons:
     time: 'fa fa-clock-o'
     date: 'fa fa-calendar'
     up:   'fa fa-arrow-up'
