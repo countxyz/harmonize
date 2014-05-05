@@ -5,7 +5,6 @@
  *= require header
  *= require forms
  *= require tables
- *= require bootstrap-datetimepicker
  *= require fullcalendar
  *= require events
  *= require buttons
@@ -21,7 +20,6 @@ $link-color: #00A1CB;
 $btn-default-bg: #00A1CB;
 $btn-default-color: white;
 $table-border-color: black;
-$table-bg-hover: #00A1CB;
 $panel-default-heading-bg: #00A1CB;
 $panel-default-text: white;
 $list-group-border: black;

@@ -3,18 +3,8 @@
   .col-md-3
     = simple_form_for @event, remote: true do |f|
       = f.input :title
-      .div
-        = f.label 'Start'
-        .input-group.date.datetimepicker10(data-date-format="lll")
-          = f.input_field :start_time, as: :string, class: 'form-control'
-          %span.input-group-addon
-            %span.fa.fa-thumbs-up
-      .div
-        = f.label 'End'
-        .input-group.date.datetimepicker10(data-date-format="lll") 
-          = f.input_field :end_time, as: :string, class: 'form-control'
-          %span.input-group-addon
-            %span.fa.fa-bullseye            
+      = f.input :start_time,  as: :datetimepicker,   label: 'Start'
+      = f.input :end_time,    as: :datetimepicker,   label: 'End'
       = f.input :description, as: :text, input_html: { rows: 5 }
       %span.form-action-inline
         %button.btn.btn-default#modal-close(type="button"
@@ -22,3 +12,5 @@
           Close
         = f.button :submit
   .col-md-1
+
+= javascript_include_tag 'datetimepicker'
