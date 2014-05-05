@@ -5,10 +5,10 @@
   %h2 Completed Tasks
 
 .row
-  %ul.list-group
+  %ul.list-group#completed
     - @tasks.each do |task|
       %li.list-group-item.list-group-item-success
         %i.fa.fa-check
         %ul
           %li.task-description= task.description
-          %li#completed-datetime= task.completed
+          %li.completed-datetime= task.completed

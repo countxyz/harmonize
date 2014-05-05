@@ -1,7 +1,15 @@
 .task-actions,
 #new-task,
-#completed-datetime
+.completed-datetime
   float: right
+
+ul.list-group#pending-tasks li,
+ul.list-group#completed li
+  padding: 5px 15px
+
+.deadline
+.completed-datetime
+  font-size: 0.8em
 
 .task-actions
   display: inline-block
@@ -27,12 +35,6 @@
 #task-completed
   color: white
   float: right
-
-.deadline
-  font-size: 0.8em
-
-ul.list-group#pending-tasks li
-  padding: 5px 15px
 
 #task-form-buttons
   padding-top: 10px

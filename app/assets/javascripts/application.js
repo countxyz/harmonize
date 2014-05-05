@@ -11,6 +11,7 @@
 //= require border_navigator
 //= require tables
 //= require calendar
+//= require datetimepicker
 //= require datepicker
 //= require flash
 //= require profile_updater

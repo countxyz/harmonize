@@ -3,7 +3,7 @@
     .col-md-1
     .col-md-6
       = f.input :description, as: :text
-      .input-group.date#datetimepicker10(data-date-format="YYYY-MM-DD HH:mm Z")
+      .input-group.date#datetimepicker10(data-date-format="lll")
         = f.input_field :deadline, as: :string, class: 'form-control'
         %span.input-group-addon
           %span.fa.fa-calendar
@@ -11,11 +11,4 @@
         %button.btn.btn-default Close
         = f.button :submit
 
-:coffeescript
-  $ ->
-    $('#datetimepicker10').datetimepicker icons:
-      time: 'fa fa-clock-o'
-      date: 'fa fa-calendar'
-      up:   'fa fa-arrow-up'
-      down: 'fa fa-arrow-down'
-    return
+= javascript_include_tag 'datetimepicker'
