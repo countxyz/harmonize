@@ -11,4 +11,7 @@
       %button.btn.btn-default Close
       = f.button :submit, 'Submit', id: 'task-submit'
 
-= javascript_include_tag 'datetimepicker'
+:coffeescript
+  $ ->
+    $('.datetimepicker10').datetimepicker()
+    return

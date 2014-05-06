@@ -13,4 +13,7 @@
         = f.button :submit
   .col-md-1
 
-= javascript_include_tag 'datetimepicker'
+:coffeescript
+  $ ->
+    $('#datetimepicker10').datetimepicker()
+    return
