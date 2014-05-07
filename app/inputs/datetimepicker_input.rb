@@ -1,6 +1,8 @@
 class DatetimepickerInput < SimpleForm::Inputs::StringInput
   def input(wrapper_options)
+    value = object.send(attribute_name) if object.respond_to? attribute_name
     input_html_options[:type] = 'text'
+    input_html_options[:value] ||= value.strftime('%B %d %Y %l:%M %p') if value.present?
     input_html_options[:data] ||= {}
     input_html_options[:data].merge!({ class: 'form-control' })
 
