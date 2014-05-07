@@ -6,10 +6,7 @@
     .col-md-4.col-md-offset-1
       = f.input :deadline, as: :datetimepicker
     .col-md-4#task-form-buttons
-      %button.btn.btn-default Close
+      %button.btn.btn-default.cancel Cancel
       = f.button :submit, 'Submit', id: 'task-submit'
 
-:coffeescript
-  $ ->
-    $('.datetimepicker10').datetimepicker()
-    return
+= javascript_include_tag 'datetimepicker'

@@ -24,7 +24,7 @@
         %th Notes
         %td= data_format(@contact.notes)
 
-  %section{ style: 'display:none;', id: 'edit-ci-form' }
+  %section#edit-ci-form{style: 'display:none;'}
     = simple_form_for(@contact) do |f|
       = f.input :first_name, label: 'First Name'
       = f.input :last_name, label: 'Last Name'

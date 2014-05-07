@@ -27,7 +27,7 @@
         %th Coderwall
         %td=data_format(@social_media.coderwall)
 
-  %section{ style: 'display:none;', id: 'edit-sm-form' }
+  %section#edit-sm-form{style: 'display:none;'}
     = simple_form_for(@contact) do |f|
       = f.simple_fields_for :social_media do |ff|
         = ff.input :skype

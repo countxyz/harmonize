@@ -18,7 +18,7 @@
         %th Home Phone
         %td= phone_format(@phone.home)
 
-  %section{ style: 'display:none;', id: 'edit-pb-form' }
+  %section#edit-pb-form{style: 'display:none;'}
     = simple_form_for(@contact) do |f|
       = f.simple_fields_for :phone do |ff|
         = ff.input :office
