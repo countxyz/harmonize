@@ -56,4 +56,13 @@ describe Account do
       expect(build(:account, notes: 'a' * 1001)).to_not be_valid
     end
   end
+  
+  describe 'format' do
+    it 'is valid with correct email format' do
+      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+      addresses.each do |valid_address|
+        expect(build(:contact, email: valid_address)).to be_valid
+      end
+    end
+  end
 end
