@@ -1,7 +1,8 @@
 class DatetimepickerInput < SimpleForm::Inputs::StringInput
   def input(wrapper_options)
-    input_html_options[:class] = 'form-control'
     input_html_options[:type] = 'text'
+    input_html_options[:data] ||= {}
+    input_html_options[:data].merge!({ class: 'format-control' })
 
     template.content_tag :div, class: 'input-group date datetimepicker10',
       "data-date-format" => 'lll' do

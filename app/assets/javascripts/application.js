@@ -9,9 +9,9 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require border_navigator
+//= require datetimepicker
 //= require tables
 //= require calendar
-//= require datetimepicker
 //= require datepicker
 //= require flash
 //= require profile_updater
