@@ -16,4 +16,3 @@
 //= require profile_updater
 //= require project_profile
 //= require form
-//= require fullcalendar_engine/application
