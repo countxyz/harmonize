@@ -5,7 +5,6 @@
  *= require header
  *= require forms
  *= require tables
- *= require fullcalendar
  *= require events
  *= require buttons
  *= require notifications 
@@ -24,10 +23,6 @@ $panel-default-heading-bg: #00A1CB;
 $panel-default-text: white;
 $table-bg-hover: #D9EDF7;
 $list-group-border: black;
-
-ul li a { text-decoration: none; }
-
-li { list-style-type: none; }
 
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
