@@ -1,15 +1,8 @@
 .panel-borderless { border: none; }
 
-.panel-right { float: right; }
-
 .edit-panel {
+  float: right;
   color: white;
 
   &:hover { text-decoration: none; }
-}
-
-ul.panel-right li {
-  padding-right: 10px;
-  font-size: 1.2em;
-  font-weight: 700;
 }
