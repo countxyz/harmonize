@@ -6,17 +6,7 @@
     .panel-heading
       Accounts
     .panel-body
-      %ul.text-right
-        %li
-          = link_to accounts_path(format: 'csv') do
-            %button.btn.btn-default
-              %i.fa.fa-table.in_button
-              CSV
-        %li
-          = link_to accounts_path(format: 'pdf') do
-            %button.btn.btn-default
-              %i.fa.fa-table.in_button
-              PDF
+      = render partial: 'shared/index_panel', locals: { url: accounts_path }
 
     %table.table.table-hover
       %thead
