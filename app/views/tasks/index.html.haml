@@ -4,15 +4,14 @@
 .row#tasks
   .col-md-5
     %h2 Pending Tasks
-  .col-md-2
-  .col-md-5
+  .col-md-5.col-md-offset-2
     .task-actions
       = link_to new_task_path, remote: true do
         %button.btn.btn-default
           %i.fa.fa-plus.in_button
           New
 
-.row.form#task-form{ style: 'display:none;' }
+.row.hidden-form#task-form{style: 'display:none;'}
 
 .row#sort-tasks
   = render 'index'

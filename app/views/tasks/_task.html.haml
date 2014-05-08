@@ -3,8 +3,7 @@
   .row
     .col-md-6
       %span.task-description= task.description
-    .col-md-2
-    .col-md-4.task-actions
+    .col-md-4.task-actions.col-md-offset-2
       = link_to edit_task_path(task), remote: true do
         %button.btn.btn-default.btn-xs
           %i.fa.fa-pencil.in_button
@@ -14,7 +13,7 @@
         %button.btn.btn-default.btn-danger.btn-xs
           %i.fa.fa-times.in_button
           Delete
-      = link_to complete_task_path(task), remote: true,method: :post,
+      = link_to complete_task_path(task), remote: true, method: :post,
         data: { confirm: "Set task as completed?" } do
         %button.btn.btn-default.btn-success.btn-xs
           %i.fa.fa-check.in_button

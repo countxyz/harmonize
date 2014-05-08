@@ -10,7 +10,7 @@ Harmonize::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :accounts, :events, :users
+  resources :accounts, :users
 
   resources :contacts, except: :edit
 
