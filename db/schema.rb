@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20140508112055) do
     t.string   "slug"
   end
 
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.boolean  "all_day",     default: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "start_time"
+    t.datetime "end_time"
+  end
+
   create_table "phones", force: true do |t|
     t.integer  "contact_id"
     t.string   "mobile"
@@ -102,7 +112,10 @@ ActiveRecord::Schema.define(version: 20140508112055) do
     t.string   "description"
     t.datetime "deadline"
     t.datetime "completed"
+    t.integer  "user_id"
   end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "handle"
