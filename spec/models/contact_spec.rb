@@ -12,44 +12,17 @@ describe Contact do
     expect(invalid_contact).to_not be_valid
   end
 
-  describe 'empty fields' do
-    it 'is invalid without a first name' do
-      expect(build(:contact, first_name: nil)).to_not be_valid
-    end
-
-    it 'is invalid without a last name' do
-      expect(build(:contact, last_name: nil)).to_not be_valid
-    end
-
-    it 'is invalid without an email address' do
-      expect(build(:contact, email: nil)).to_not be_valid
-    end
+  describe 'presence' do
+    it { should validate_presence_of(:first_name) }
   end
 
   describe 'field lengths' do
-    it 'is invalid when first name has more than 30 characters' do
-      expect(build(:contact, first_name: 'a' * 31)).to_not be_valid
-    end
-
-    it 'is invalid when last name has more than 30 characters' do
-      expect(build(:contact, last_name: 'a' * 31)).to_not be_valid
-    end
-
-    it 'is invalid when company has more than 50 characters' do
-      expect(build(:contact, company: 'a' * 51)).to_not be_valid
-    end
-
-    it 'is invalid when email has more than 50 characters' do
-      expect(build(:contact, email: 'a' * 45 + '@a.com')).to_not be_valid
-    end
-
-    it 'is invalid when secondary email has more than 50 characters' do
-      expect(build(:contact, secondary_email: 'a' * 45 + '@a.com')).to_not be_valid
-    end
-
-    it 'is invalid when notes has more than 600 characters' do
-      expect(build(:contact, notes: 'a' * 601)).to_not be_valid
-    end
+    it { should ensure_length_of(:first_name).is_at_most(30)      }
+    it { should ensure_length_of(:last_name).is_at_most(30)       }
+    it { should ensure_length_of(:company).is_at_most(50)         }
+    it { should ensure_length_of(:email).is_at_most(50)           }
+    it { should ensure_length_of(:secondary_email).is_at_most(50) }
+    it { should ensure_length_of(:notes).is_at_most(600)          }
   end
 
   describe 'format' do
