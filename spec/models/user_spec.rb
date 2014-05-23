@@ -9,13 +9,7 @@ describe User do
   end
 
   describe 'field lengths' do
-    it 'is invalid when email is fewer than 5 characters' do
-      expect(build(:user, email: 'a')).to_not be_valid
-    end
-
-    it 'is invalid when email is longer than 50 characters' do
-      expect(build(:user, email: 'a' * 45 + '@a.com')).to_not be_valid
-    end    
+    it { should ensure_length_of(:email).is_at_least(5).is_at_most(50) } 
   end
 
   describe 'format' do
@@ -28,10 +22,6 @@ describe User do
   end
 
   describe 'uniqueness' do
-    it 'is invalid when email is used more than once' do
-      user_1 = create(:user)
-      user_2 = user_1.dup
-      expect(user_2).to_not be_valid
-    end
+    it { should validate_uniqueness_of(:email) }
   end
 end
