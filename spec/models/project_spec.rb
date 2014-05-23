@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Project do
-  
   it 'sorts projects in descending order' do
     first_project, last_project = create(:project), create(:last_project)
     expect(Project.list_by_recent).to eq [last_project, first_project]
@@ -13,46 +12,18 @@ describe Project do
   end
   
   describe 'uniqueness' do
-    it 'is invalid when name is used more than once' do
-      project_1, project_2 = create(:project)
-      project_2 = project_1.dup
-      expect(project_2).to_not be_valid
-    end
+    it { should validate_uniqueness_of(:name) }
   end
 
-  describe 'empty fields' do
-    it 'is invalid when name is not provided' do
-      expect(build(:project, name: nil)).to_not be_valid
-    end
+  describe 'presence' do
+    it { should validate_presence_of(:name) }
   end
 
   describe 'field lengths' do
-    it 'is invalid when name has more than 50 characters' do
-      expect(build(:project, name: 'a' * 51)).to_not be_valid
-    end
-
-    it 'is invalid when employer has more than 50 characters' do
-      expect(build(:project, employer: 'a' * 51)).to_not be_valid
-    end
-
-    it 'is invalid when website has fewer than 4 characters' do
-      expect(build(:project, website: 'a' * 3)).to_not be_valid
-    end
-
-    it 'is invalid when website has more than 100 characters' do
-      expect(build(:project, website: 'a' * 101)).to_not be_valid
-    end
-
-    it 'is invalid when github has fewer than 12 characters' do
-      expect(build(:project, github: 'a' * 101)).to_not be_valid
-    end
-
-    it 'is invalid when github has more than 100 characters' do
-      expect(build(:project, github: 'a' * 101)).to_not be_valid
-    end
-
-    it 'is invalid when notes has more than 1000 characters' do
-      expect(build(:project, notes: 'a' * 1001)).to_not be_valid
-    end
+    it { should ensure_length_of(:name).is_at_most(50)                    }
+    it { should ensure_length_of(:employer).is_at_most(50)                }
+    it { should ensure_length_of(:website).is_at_least(4).is_at_most(100) }
+    it { should ensure_length_of(:github).is_at_least(12).is_at_most(100) }
+    it { should ensure_length_of(:notes).is_at_most(1000)                 }
   end
 end
