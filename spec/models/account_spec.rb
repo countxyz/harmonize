@@ -7,11 +7,11 @@ describe Account do
   end
 
   describe 'field lengths' do
-    it { should ensure_length_of(:name).is_at_least(2).is_at_most(50) }
+    it { should ensure_length_of(:name).is_at_least(2).is_at_most(50)    }
     it { should ensure_length_of(:website).is_at_least(6).is_at_most(50) }
-    it { should ensure_length_of(:phone).is_equal_to(10) }
-    it { should ensure_length_of(:fax).is_equal_to(10) }
-    it { should ensure_length_of(:email).is_at_least(5).is_at_most(50) }
+    it { should ensure_length_of(:phone).is_equal_to(10)                 }
+    it { should ensure_length_of(:fax).is_equal_to(10)                   }
+    it { should ensure_length_of(:email).is_at_least(5).is_at_most(50)   }
     it { should ensure_length_of(:notes).is_at_least(2).is_at_most(1000) }
   end
   

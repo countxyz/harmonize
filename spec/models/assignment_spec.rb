@@ -2,28 +2,15 @@ require 'spec_helper'
 
 describe Assignment do
 
-  describe 'empty fields' do
-    it 'is invalid without a description' do
-      expect(build(:assignment, description: nil)).to_not be_valid
-    end
-
-    it 'is invalid without a status' do
-      expect(build(:assignment, status: nil)).to_not be_valid
-    end
-
-    it 'is invalid without a priority' do
-      expect(build(:assignment, priority: nil)).to_not be_valid
-    end
+  describe 'presence' do
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:status)      }
+    it { should validate_presence_of(:priority)    }
   end
 
   describe 'field lengths' do
-    it 'is invalid when description has more than 100 characters' do
-      expect(build(:assignment, description: 'a' * 101)).to_not be_valid
-    end
-
-    it 'is invalid when notes has more than 1000 characters' do
-      expect(build(:assignment, notes: 'a' * 1001)).to_not be_valid
-    end
+    it { should ensure_length_of(:description).is_at_most(100) }
+    it { should ensure_length_of(:notes).is_at_most(1000)      }
   end
 
   describe 'status' do
