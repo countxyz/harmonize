@@ -16,15 +16,11 @@ describe Task do
     expect(Task.completed_task).to eq [task_3, task_4]
   end
 
-  describe 'description' do
-    it 'is invalid when description not provided' do
-      expect(build(:task, description: nil)).to_not be_valid
-    end
+  describe 'presence' do
+    it { should validate_presence_of(:description) }
   end
 
   describe 'field lengths' do
-    it 'is invalid when description is longer than 100 characters' do
-      expect(build(:task, description: 'a' * 101)).to_not be_valid
-    end
+    it { should ensure_length_of(:description).is_at_most(100) }
   end
 end
