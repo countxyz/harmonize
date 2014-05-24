@@ -11,6 +11,10 @@ describe Project do
     expect(two_assignments.assignment_total_for_project).to eq 2
   end
   
+  describe 'associations' do
+    it { should have_many(:assignments) }
+  end
+
   describe 'uniqueness' do
     it { should validate_uniqueness_of(:name) }
   end

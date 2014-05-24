@@ -12,17 +12,24 @@ describe Contact do
     expect(invalid_contact).to_not be_valid
   end
 
+  describe 'associations' do
+    it { should have_one(:phone)                            }
+    it { should have_one(:social_media)                     }
+    it { should accept_nested_attributes_for(:phone)        }
+    it { should accept_nested_attributes_for(:social_media) }
+  end
+
   describe 'presence' do
     it { should validate_presence_of(:first_name) }
   end
 
   describe 'field lengths' do
-    it { should ensure_length_of(:first_name).is_at_most(30)      }
-    it { should ensure_length_of(:last_name).is_at_most(30)       }
-    it { should ensure_length_of(:company).is_at_most(50)         }
-    it { should ensure_length_of(:email).is_at_most(50)           }
-    it { should ensure_length_of(:secondary_email).is_at_most(50) }
-    it { should ensure_length_of(:notes).is_at_most(600)          }
+    it { should ensure_length_of(:first_name).is_at_most(30)                     }
+    it { should ensure_length_of(:last_name).is_at_most(30)                      }
+    it { should ensure_length_of(:company).is_at_least(2).is_at_most(50)         }
+    it { should ensure_length_of(:email).is_at_least(5).is_at_most(50)           }
+    it { should ensure_length_of(:secondary_email).is_at_least(5).is_at_most(50) }
+    it { should ensure_length_of(:notes).is_at_least(2).is_at_most(600)          }
   end
 
   describe 'format' do

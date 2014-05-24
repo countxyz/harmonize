@@ -8,6 +8,10 @@ describe Phone do
     expect(build(:other_contact)).to be_valid
   end
 
+  describe 'associations' do
+    it { should belong_to(:contact) }
+  end
+
   describe 'field lengths' do
     it { should ensure_length_of(:office).is_equal_to(10) }
     it { should ensure_length_of(:mobile).is_equal_to(10) }

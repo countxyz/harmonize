@@ -6,10 +6,12 @@ class Assignment < ActiveRecord::Base
 
   validate  :completed_is_after_start
 
-  validates :description, presence: true, length: { maximum: 100 }
+  validates :description, presence: true, length: { in: 2..100 }
+  
   validates :status,      presence: true, inclusion: STATUS_OPTIONS
   validates :priority,    presence: true, inclusion: PRIORITY_OPTIONS
-  validates :notes, length: { maximum: 1000 }
+
+  validates :notes, length: { in: 2..1000 }, allow_blank: true
 
   private
 
