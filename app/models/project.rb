@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :finders
+  friendly_id :name, use: [:slugged, :finders]
 
   has_many   :assignments, dependent: :destroy
 
