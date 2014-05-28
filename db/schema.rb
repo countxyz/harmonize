@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508112055) do
+ActiveRecord::Schema.define(version: 20140524213003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,16 +54,6 @@ ActiveRecord::Schema.define(version: 20140508112055) do
     t.text     "notes"
     t.string   "company"
     t.string   "slug"
-  end
-
-  create_table "events", force: true do |t|
-    t.string   "title"
-    t.boolean  "all_day",     default: false
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "start_time"
-    t.datetime "end_time"
   end
 
   create_table "phones", force: true do |t|
@@ -112,10 +102,7 @@ ActiveRecord::Schema.define(version: 20140508112055) do
     t.string   "description"
     t.datetime "deadline"
     t.datetime "completed"
-    t.integer  "user_id"
   end
-
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "handle"
@@ -123,6 +110,13 @@ ActiveRecord::Schema.define(version: 20140508112055) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
+    t.string   "phone"
+    t.string   "google"
+    t.string   "skype"
+    t.boolean  "admin",           default: false
   end
 
 end
