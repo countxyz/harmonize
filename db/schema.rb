@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529012815) do
+ActiveRecord::Schema.define(version: 20140529061903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,18 +78,18 @@ ActiveRecord::Schema.define(version: 20140529012815) do
   end
 
   create_table "projects", force: true do |t|
-    t.string   "name"
-    t.string   "employer"
-    t.string   "website"
-    t.string   "github"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.text     "notes"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "name",                            null: false
+    t.string   "employer",           default: "", null: false
+    t.string   "website",            default: "", null: false
+    t.string   "github",             default: "", null: false
+    t.string   "image_file_name",    default: "", null: false
+    t.string   "image_content_type", default: "", null: false
+    t.integer  "image_file_size",                 null: false
+    t.datetime "image_updated_at",                null: false
+    t.text     "notes",              default: "", null: false
+    t.string   "slug",                            null: false
   end
 
   add_index "projects", ["created_at"], name: "index_projects_on_created_at", order: {"created_at"=>:desc}, using: :btree
@@ -118,18 +118,15 @@ ActiveRecord::Schema.define(version: 20140529012815) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "handle"
-    t.string   "email"
-    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "role"
-    t.string   "phone"
-    t.string   "google"
-    t.string   "skype"
-    t.boolean  "admin",           default: false
+    t.string   "handle",                       null: false
+    t.string   "email",           default: "", null: false
+    t.string   "first_name",      default: "", null: false
+    t.string   "last_name",       default: "", null: false
+    t.string   "password_digest",              null: false
   end
+
+  add_index "users", ["handle"], name: "index_users_on_handle", unique: true, using: :btree
 
 end
