@@ -67,18 +67,18 @@ ActiveRecord::Schema.define(version: 20140528232251) do
   end
 
   create_table "projects", force: true do |t|
-    t.string   "name"
-    t.string   "employer"
-    t.string   "website"
-    t.string   "github"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.text     "notes"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "name",                            null: false
+    t.string   "employer",           default: "", null: false
+    t.string   "website",            default: "", null: false
+    t.string   "github",             default: "", null: false
+    t.string   "image_file_name",    default: "", null: false
+    t.string   "image_content_type", default: "", null: false
+    t.integer  "image_file_size",    default: 0,  null: false
+    t.datetime "image_updated_at",                null: false
+    t.text     "notes",              default: "", null: false
+    t.string   "slug",                            null: false
   end
 
   add_index "projects", ["created_at"], name: "index_projects_on_created_at", order: {"created_at"=>:desc}, using: :btree
