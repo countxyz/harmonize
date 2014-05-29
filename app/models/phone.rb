@@ -1,7 +1,9 @@
 class Phone < ActiveRecord::Base
-  belongs_to :contact, inverse_of: :phone 
+  belongs_to :phoneable, polymorphic: true
 
-  validates :office, :mobile, :fax, :home, presence: false, allow_blank: true,
-    numericality: { only_integer: true }, length: { is: 10 },
-    uniqueness: { scope: :contact }
+  validates_length_of :mobile, :office, :home, :fax, :toll, is: 10,
+                      allow_blank: true
+
+  validates_numericality_of :mobile, :office, :home, :fax, :toll,
+                            only_integer: true
 end
