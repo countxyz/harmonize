@@ -1,0 +1,30 @@
+.task-actions, #new-task, .completed-datetime { float: right; }
+
+ul.list-group#pending-tasks li,
+ul.list-group#completed li { padding: 5px 15px; }
+
+.deadline, .completed-datetime { font-size: 0.8em; }
+
+.task-actions {
+  display: inline-block;
+
+  a {
+    float: right;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#task-form { padding-bottom: 25px; }
+
+.task-description { font-size: 1.2em; }
+
+#sub-task-info { display: inline-block; }
+
+#task-completed {
+  color: white;
+  float: right;
+}
+
+#task-form-buttons { padding-top: 20px; }

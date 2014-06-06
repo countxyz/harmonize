@@ -1,0 +1,40 @@
+@import 'variables';
+
+header h1, header nav, header::after, header nav,
+ul li { display: inline-block; }
+
+header::after {
+  content: '';
+  width: 100%;
+}
+
+header {
+  text-align: justify;
+  letter-spacing: 1px;
+  background: $blue-theme;
+  font-family: $heading-font;
+  border-bottom: 3px solid black;
+  border-radius-bottom: 40px;
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+  }
+
+  nav {
+    left: 300px;
+
+    ul {
+      margin-bottom: 40px;
+
+      li {
+      
+        a {
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

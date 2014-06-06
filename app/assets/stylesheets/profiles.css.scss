@@ -1,0 +1,46 @@
+#assignment-container { padding-top: 50px; }
+
+.profile_links {
+  float: right;
+
+  ul {
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.project_heading {
+  margin-bottom: 50px;
+
+  h2 {
+    font-size: 32px;
+  }
+
+  section {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.project_profile {
+  padding-top: 50px;
+  padding-bottom: 25px;
+
+  h2 {
+    font-size: 32px;
+  }
+
+  section {
+    padding-top: 50px;
+  }
+}
+
+#contact-profile { padding-top: 60px; }
+
+#delete-link:hover { color: red; }

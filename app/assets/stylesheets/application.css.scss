@@ -26,7 +26,4 @@ $list-group-border: black;
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
-.container {
-  width: 100%;
-  padding: 0;
-}
+.container-fluid { padding: 0; }

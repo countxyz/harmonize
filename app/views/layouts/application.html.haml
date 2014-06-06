@@ -9,7 +9,7 @@
     = csrf_meta_tags
 
   %body
-    .container
+    .container-fluid
       %header= yield :page_header
       %nav.bt-menu= render 'layouts/border_nav'
       %section#notifications= render 'layouts/notifications'
