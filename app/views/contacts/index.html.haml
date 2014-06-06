@@ -3,19 +3,17 @@
 
 .col-md-10
   .panel.panel-default
-    .panel-heading
-      Contacts
+    .panel-heading Contacts
     .panel-body
       = render partial: 'shared/index_panel', locals: { url: contacts_path }
 
     %table.table.table-hover
       %thead
         %tr
-          %th{scope: "col"} Contact Name
-          %th{scope: "col"} Company
-          %th{scope: "col"} Email
-          %th{scope: "col"} Office Phone
-          %th{scope: "col"} Mobile Phone
-          %th{scope: "col"} Actions
-      %tbody
-        = render @contacts
+          %th{ scope: 'col' } Contact Name
+          %th{ scope: 'col' } Company
+          %th{ scope: 'col' } Email
+          %th{ scope: 'col' } Office Phone
+          %th{ scope: 'col' } Mobile Phone
+          %th{ scope: 'col' } Actions
+      %tbody= render @contacts

@@ -24,7 +24,8 @@ class ContactListPdf < Prawn::Document
     [['Contact Name', 'Company', 'Email', 'Office Phone', 'Mobile Phone']] +
     @table_data ||= @contacts.map do |contact|
       [contact.name, contact.company, contact.email,
-        contact.phone.office, contact.phone.mobile]
+        contact.phone.nil? ? 'N/A' : contact.phone.office,
+        contact.phone.nil? ? 'N/A' : contact.phone.mobile]
     end
   end
 end

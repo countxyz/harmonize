@@ -16,33 +16,27 @@ class ContactsController < ApplicationController
     end
   end
 
-  def show
-    @phone, @social_media = @contact.phone, @contact.social_media
-  end
-
   def new
     @contact = Contact.new
-    @contact.build_phone
-    @contact.build_social_media
   end
 
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      flash[:notice] = 'Contact has been created'
+      flash[:notice] = 'Contact created'
       redirect_to @contact
     else
-      flash[:error] = 'Contact has not been created'
-      redirect_to @contact
+      flash[:alert] = 'Contact not created'
+      render :new
     end
   end
 
   def update
     if @contact.update_attributes(contact_params)
-      flash[:notice] = 'Contact has been updated'
+      flash[:notice] = 'Contact updated'
       redirect_to @contact
     else
-      flash[:alert] = 'Contact has not been updated'
+      flash[:alert] = 'Contact not updated'
       redirect_to @contact
     end
   end
@@ -62,7 +56,7 @@ class ContactsController < ApplicationController
     def contact_params
       params.require(:contact).permit( 
         :first_name, :last_name, :company, :email, :secondary_email, :notes,
-          phone_attributes: [:id, :mobile, :office, :fax, :home],
+          phone_attributes: [:id, :mobile, :office, :fax, :home, :toll],
           social_media_attributes: [:id, :skype, :google_plus, :github,
             :linkedin, :twitter, :facebook, :coderwall])
     end

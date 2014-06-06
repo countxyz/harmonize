@@ -22,7 +22,7 @@ gem 'prawn', '~> 1.0.0'
 gem 'simple_form', '~> 3.1.0.rc1'
 gem 'paperclip', '~> 4.1.1'
 gem 'friendly_id', '~> 5.0.3'
-gem 'font-awesome-sass', '~> 4.0.3.1'
+gem 'font-awesome-sass', '~> 4.1.0'
 
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
@@ -33,15 +33,15 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14.2'
+  gem 'rspec-rails', '~> 3.0.1'
   gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'database_cleaner', '~> 1.2.0'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'jazz_hands', '~> 0.5.2'
 end
 
 group :test do
-  gem 'capybara', '~> 2.2.1'
-  gem 'selenium-webdriver', '~> 2.41.0'
+  gem 'capybara', '~> 2.3.0'
+  gem 'selenium-webdriver', '~> 2.42.0'
   gem 'shoulda-matchers', '~> 2.6.1'
-  gem 'faker', '~> 1.3.0'
+  gem 'formulaic', '~> 0.0.6'
 end

@@ -1,29 +1,28 @@
 class Contact < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
   
-  has_one :phone,        dependent: :destroy, inverse_of: :contact
-  has_one :social_media, dependent: :destroy, inverse_of: :contact
+  has_one :phone,        as: :phoneable, dependent: :destroy
+  has_one :social_media, as: :sociable,  dependent: :destroy
 
-  accepts_nested_attributes_for :phone, :social_media
+  accepts_nested_attributes_for :phone, :social_media, reject_if: :all_blank
+
+  friendly_id :name, use: [:slugged, :finders]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validate :secondary_email_cannot_be_email
 
-  validates :first_name, presence: true, length: { maximum: 30 }
+  validates_presence_of :first_name
 
-  validates :last_name, length: { maximum: 30 }, allow_blank: true
+  validates_length_of :first_name,       maximum: 30
+  validates_length_of :last_name,        maximum: 30,  allow_blank: true
+  validates_length_of :company,          maximum: 50,  allow_blank: true
+  validates_length_of :notes,            maximum: 600, allow_blank: true
+  validates_length_of :email,            in: 5..30,    allow_blank: true
+  validates_length_of :secondary_email,  in: 5..30,    allow_blank: true
 
-  validates :company, length: { in: 2..50 }, allow_blank: true
-
-  validates :email, length: { in: 5..50 }, allow_blank: true,
-            format: { with: VALID_EMAIL_REGEX }
-
-  validates :secondary_email, length: { in: 5..50 }, allow_blank: true,
-            format: { with: VALID_EMAIL_REGEX }
-
-  validates :notes, length: { in: 2..600 }, allow_blank: true
+  validates_format_of :email, :secondary_email, with: VALID_EMAIL_REGEX,
+                      allow_blank: true
 
   def name
     [first_name, last_name].join(' ')

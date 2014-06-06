@@ -5,5 +5,5 @@ class Phone < ActiveRecord::Base
                       allow_blank: true
 
   validates_numericality_of :mobile, :office, :home, :fax, :toll,
-                            only_integer: true
+                            only_integer: true, allow_blank: true
 end

@@ -1,11 +1,7 @@
 %ul.text-right
   %li
     = link_to url: url, format: 'csv' do
-      %button.btn.btn-default
-        %i.fa.fa-table.in_button
-        CSV
+      %button.btn.btn-default= icon('table', 'CSV')
   %li
     = link_to url: url, format: 'pdf' do
-      %button.btn.btn-default
-        %i.fa.fa-table.in_button
-        PDF
+      %button.btn.btn-default= icon('file-pdf-o', 'PDF')

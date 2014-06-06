@@ -1,0 +1,17 @@
+%table.table.table-hover#pb-table
+  %tbody
+    %tr
+      %th Office
+      %td= @contact.phone.nil? ? 'N/A' : phone_format(@contact.phone.office)
+    %tr
+      %th Mobile
+      %td= @contact.phone.nil? ? 'N/A' : phone_format(@contact.phone.mobile)
+    %tr
+      %th Fax
+      %td= @contact.phone.nil? ? 'N/A' : phone_format(@contact.phone.fax)
+    %tr
+      %th Home
+      %td= @contact.phone.nil? ? 'N/A' : phone_format(@contact.phone.home)
+    %tr
+      %th Toll
+      %td= @contact.phone.nil? ? 'N/A' : phone_format(@contact.phone.toll)

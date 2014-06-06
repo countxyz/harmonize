@@ -1,37 +1,13 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Contact Info
-    %span.panel-right= link_to 'Edit', '#', class: 'edit-panel', id: 'ci-panel'
+    %span.panel-right= link_to 'edit', '#', class: 'edit-panel', id: 'ci-panel'
 
-  %table.table.table-hover#ci-table
-    %tbody
-      %tr
-        %th First Name
-        %td= @contact.first_name
-      %tr
-        %th Last Name
-        %td= @contact.last_name
-      %tr
-        %th Company
-        %td= data_format(@contact.company)
-      %tr
-        %th Email
-        %td= data_format(@contact.email)
-      %tr
-        %th Secondary Email
-        %td= data_format(@contact.secondary_email)
-      %tr
-        %th Notes
-        %td= data_format(@contact.notes)
+  = render 'contact_info_table'
 
-  %section#edit-ci-form{style: 'display:none;'}
-    = simple_form_for(@contact) do |f|
-      = f.input :first_name, label: 'First Name'
-      = f.input :last_name, label: 'Last Name'
-      = f.input :company
-      = f.input :email
-      = f.input :secondary_email, label: 'Secondary Email'
-      = f.input :notes, as: :text, input_html: { rows: 5 }
-      %span.form-action-inline
-        = f.button :submit
-        %button.btn.btn-default#close-ci Close
+%section#edit-ci-form{ style: 'display:none;' }
+  = simple_form_for @contact do |f|
+    = render 'contact_form', f: f
+    %p.text-right
+      %button.btn.btn-default#close-ci Close
+      = f.button :submit, class: 'btn-default'

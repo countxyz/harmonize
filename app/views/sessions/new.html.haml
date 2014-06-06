@@ -6,9 +6,9 @@
     = simple_form_for(:signin, method: 'POST') do |f|
       = f.input :handle, label: 'Username'
       = f.input :password
-      = f.button :submit, 'Sign In'
-  .col-md-1
-  .col-md-8
+      %p.text-right= f.button :submit, 'Sign In', class: 'btn-default'
+
+  .col-md-8.col-md-offset-1
     %h2 Demo Credentials
     %p User Name: demo
     %p Password: harmonize

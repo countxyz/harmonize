@@ -1,26 +1,11 @@
 = simple_form_for @contact do |f|
-  .col-md-4.new-contact
-    = f.input :first_name, label: 'First Name'
-    = f.input :last_name, label: 'Last Name'
-    = f.input :company
-    = f.input :email
-    = f.input :secondary_email, label: 'Secondary Email'
-    = f.input :notes, as: :text, input_html: { rows: 5 }
-
+  .col-md-4.new-contact= render 'contact_form', f: f
+  
   .col-md-3.new-contact
-    = f.simple_fields_for :phone do |ff|
-      = ff.input :office
-      = ff.input :mobile
-      = ff.input :fax
-      = ff.input :home
-
+    = f.simple_fields_for :phone, @contact.build_phone do |builder|
+      = render 'shared/phone_form', builder: builder
+  
   .col-md-4.new-contact
-    = f.simple_fields_for :social_media do |ff|
-      = ff.input :skype
-      = ff.input :google_plus, label: 'Google Plus'
-      = ff.input :github
-      = ff.input :linkedin
-      = ff.input :twitter
-      = ff.input :facebook
-      = ff.input :facebook
-      = ff.button :submit, 'Create Contact'
+    = f.simple_fields_for :social_media, @contact.build_social_media do |builder|
+      = render 'shared/social_media_form', builder: builder
+    %p.text-right= f.button :submit, 'Create Contact', class: 'btn-default'

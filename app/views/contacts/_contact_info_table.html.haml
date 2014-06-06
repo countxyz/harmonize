@@ -1,0 +1,20 @@
+%table.table.table-hover#ci-table
+  %tbody
+    %tr
+      %th First Name
+      %td= @contact.first_name
+    %tr
+      %th Last Name
+      %td= data_format(@contact.last_name)
+    %tr
+      %th Company
+      %td= data_format(@contact.company)
+    %tr
+      %th Email
+      %td= data_format(@contact.email)
+    %tr
+      %th Secondary Email
+      %td= data_format(@contact.secondary_email)
+    %tr
+      %th Notes
+      %td= data_format(@contact.notes)

@@ -1,0 +1,37 @@
+%table.table.table-hover#sm-table
+  %tbody
+    %tr
+      %th Google Plus
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.google_plus)                |
+    %tr
+      %th Github
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.github)                     |
+    %tr
+      %th Twitter
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.twitter)                    |
+    %tr
+      %th Skype
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.skype)                      |
+    %tr
+      %th Coderwall
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.coderwall)                  |
+    %tr
+      %th LinkedIn
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.linkedin)                   |
+    %tr
+      %th Facebook
+      %td
+        = @contact.social_media.nil? ? 'N/A' : data_format( |
+          @contact.social_media.facebook)                   |

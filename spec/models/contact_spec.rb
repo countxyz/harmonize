@@ -26,18 +26,13 @@ describe Contact do
   describe 'field lengths' do
     it { should ensure_length_of(:first_name).is_at_most(30)                     }
     it { should ensure_length_of(:last_name).is_at_most(30)                      }
-    it { should ensure_length_of(:company).is_at_least(2).is_at_most(50)         }
-    it { should ensure_length_of(:email).is_at_least(5).is_at_most(50)           }
-    it { should ensure_length_of(:secondary_email).is_at_least(5).is_at_most(50) }
-    it { should ensure_length_of(:notes).is_at_least(2).is_at_most(600)          }
+    it { should ensure_length_of(:company).is_at_most(50)                        }
+    it { should ensure_length_of(:email).is_at_least(5).is_at_most(30)           }
+    it { should ensure_length_of(:secondary_email).is_at_least(5).is_at_most(30) }
+    it { should ensure_length_of(:notes).is_at_most(600)                         }
   end
 
   describe 'format' do
-    it 'is valid with correct email format' do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
-      addresses.each do |valid_address|
-        expect(build(:contact, email: valid_address)).to be_valid
-      end
-    end
+    it { should allow_value('abc@xyz.com').for(:email) }
   end
 end

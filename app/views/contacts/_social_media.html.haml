@@ -1,42 +1,14 @@
 .panel.panel-default.panel-borderless
   .panel-heading
-    Contact Info
-    %span.panel-right= link_to 'Edit', '#', class: 'edit-panel', id: 'sm-panel'
+    Social Media
+    %span.panel-right= link_to 'edit', '#', class: 'edit-panel', id: 'sm-panel'
 
-  %table.table.table-hover#sm-table
-    %tbody
-      %tr
-        %th Skype
-        %td= data_format(@social_media.skype)
-      %tr
-        %th Google Plus
-        %td= data_format(@social_media.google_plus)
-      %tr
-        %th Github
-        %td= data_format(@social_media.github)
-      %tr
-        %th LinkedIn
-        %td= data_format(@social_media.linkedin)
-      %tr
-        %th Twitter
-        %td= data_format(@social_media.twitter)
-      %tr
-        %th Facebook
-        %td= data_format(@social_media.facebook)
-      %tr
-        %th Coderwall
-        %td=data_format(@social_media.coderwall)
+  = render 'social_media_table'
 
-  %section#edit-sm-form{style: 'display:none;'}
-    = simple_form_for(@contact) do |f|
-      = f.simple_fields_for :social_media do |ff|
-        = ff.input :skype
-        = ff.input :google_plus, label: 'Google Plus'
-        = ff.input :github
-        = ff.input :linkedin
-        = ff.input :twitter
-        = ff.input :facebook
-        = ff.input :coderwall
-        %span.form-action-inline
-          = ff.button :submit, 'Update Social Media'
-          %button.btn.btn-default#close-sm Close
+%section#edit-sm-form{ style: 'display:none;' }
+  = simple_form_for @contact do |f|
+    = f.simple_fields_for :social_media, @contact.build_social_media do |builder|
+      = render 'shared/social_media_form', builder: builder
+    %p.text-right
+      %button.btn.btn-default#close-sm Close
+      = f.button :submit, 'Update Social Media', class: 'btn-default'

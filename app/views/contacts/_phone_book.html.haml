@@ -1,30 +1,14 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Phone Book
-    %span.panel-right= link_to 'Edit', '#', class: 'edit-panel', id: 'pb-panel'
+    %span.panel-right= link_to 'edit', '#', class: 'edit-panel', id: 'pb-panel'
+  
+  = render 'phone_book_table'
 
-  %table.table.table-hover#pb-table
-    %tbody
-      %tr
-        %th Office Phone
-        %td= phone_format(@phone.office)
-      %tr
-        %th Mobile Phone
-        %td= phone_format(@phone.mobile)
-      %tr
-        %th Fax Phone
-        %td= phone_format(@phone.fax)
-      %tr
-        %th Home Phone
-        %td= phone_format(@phone.home)
-
-  %section#edit-pb-form{style: 'display:none;'}
-    = simple_form_for(@contact) do |f|
-      = f.simple_fields_for :phone do |ff|
-        = ff.input :office
-        = ff.input :mobile
-        = ff.input :fax
-        = ff.input :home
-        %span.form-action-inline
-          = ff.button :submit
-          %button.btn.btn-default#close-pb Close
+%section#edit-pb-form{ style: 'display:none;' }
+  = simple_form_for @contact do |f|
+    = f.simple_fields_for :phone, @contact.build_phone do |builder|
+      = render 'shared/phone_form', builder: builder
+    %p.text-right
+      %button.btn.btn-default#close-pb Close
+      = f.button :submit, 'Update Phone Book', class: 'btn-default'

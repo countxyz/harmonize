@@ -14,7 +14,7 @@ describe ApplicationHelper do
 
   describe 'Data Format' do
     it "is 'N/A' when data not given" do
-      data = nil
+      data = ''
       expect(helper.data_format data).to eql 'N/A'
     end
   end
