@@ -7,7 +7,7 @@
 
 %section#edit-sm-form{ style: 'display:none;' }
   = simple_form_for @contact do |f|
-    = f.simple_fields_for :social_media, @contact.build_social_media do |builder|
+    = f.simple_fields_for :social_media do |builder|
       = render 'shared/social_media_form', builder: builder
     %p.text-right
       %button.btn.btn-default#close-sm Close

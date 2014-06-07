@@ -2,36 +2,22 @@
   %tbody
     %tr
       %th Google Plus
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.google_plus)                |
+      %td= data_format(@contact.social_media.google_plus)
     %tr
       %th Github
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.github)                     |
+      %td= data_format(@contact.social_media.github)
     %tr
       %th Twitter
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.twitter)                    |
+      %td= data_format(@contact.social_media.twitter)
     %tr
       %th Skype
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.skype)                      |
+      %td= data_format(@contact.social_media.skype)
     %tr
       %th Coderwall
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.coderwall)                  |
+      %td= data_format(@contact.social_media.coderwall)
     %tr
       %th LinkedIn
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.linkedin)                   |
+      %td= data_format(@contact.social_media.linkedin)
     %tr
       %th Facebook
-      %td
-        = @contact.social_media.nil? ? 'N/A' : data_format( |
-          @contact.social_media.facebook)                   |
+      %td= data_format(@contact.social_media.facebook)

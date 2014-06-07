@@ -1,4 +1,4 @@
-class NullAddress
+class NullAddress < Null
 
   def street_1;    end
   def street_2;    end
@@ -6,6 +6,4 @@ class NullAddress
   def state;       end
   def postal_code; end
   def country;     end
-  def persisted?;  end
-  def new_record?; end
 end

@@ -28,6 +28,14 @@ class Contact < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
+  def phone
+    super || NullPhone.new
+  end
+
+  def social_media
+    super || NullSocialMedia.new
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names
