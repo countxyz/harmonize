@@ -1,11 +1,14 @@
 = simple_form_for @account do |f|
-  .col-md-4
-    = f.input :name
-    = f.input :phone
-    = f.input :fax 
-  .col-md-2
-  .col-md-6
-    = f.input :website
-    = f.input :email
-    = f.input :notes, as: :text, input_html: { rows: 5 }   
-    = f.button :submit, class: 'submit-right'
+  .row
+    .col-md-4= render 'account_form', f: f
+  .row
+    .col-md-5
+      = f.simple_fields_for :billing_address,
+        @account.build_billing_address do |builder|
+        = render 'shared/address_form', builder: builder
+    
+    .col-md-5.col-md-offset-2
+      = f.simple_fields_for :shipping_address,
+        @account.build_shipping_address do |builder|
+        = render 'shared/address_form', builder: builder
+      %p.text-right= f.button :submit, class: 'btn-default'

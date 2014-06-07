@@ -3,6 +3,9 @@
 
 = render 'navbar'
 
-.row
-  .col-md-4
-    = render 'account_info'
+.row.profile-tables
+  .col-md-4= render 'account_info'
+
+.row.profile-tables
+  .col-md-4= render 'billing_address'
+  .col-md-4= render 'shipping_address'

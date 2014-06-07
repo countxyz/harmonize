@@ -5,11 +5,7 @@
     %ul
       %li
         = link_to accounts_path do
-          %button.header-btn.btn-1.btn-1c
-            %i.fa.fa-archive.in_button
-            All
+          %button.header-btn.btn-1.btn-1c= icon('archive', 'All')
       %li
         = link_to new_account_path do
-          %button.header-btn.btn-1.btn-1c
-            %i.fa.fa-user.in_button
-            New
+          %button.header-btn.btn-1.btn-1c= icon('user', 'New')

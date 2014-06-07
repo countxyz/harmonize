@@ -1,5 +1,12 @@
 class Account < ActiveRecord::Base
   extend FriendlyId
+
+  has_one :billing_address,  as: :addressable, dependent: :destroy
+  has_one :shipping_address, as: :addressable, dependent: :destroy
+
+  accepts_nested_attributes_for :billing_address,  reject_if: :all_blank
+  accepts_nested_attributes_for :shipping_address, reject_if: :all_blank
+
   friendly_id :name, use: [:slugged, :finders]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,6 +25,14 @@ class Account < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX }
 
   validates :notes, allow_blank: true, length: { in: 2..1000 }
+
+  def billing_address
+    super || NullAddress.new
+  end
+
+  def shipping_address
+    super || NullAddress.new
+  end
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

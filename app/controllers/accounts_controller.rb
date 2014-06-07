@@ -26,14 +26,14 @@ class AccountsController < ApplicationController
       flash[:notice] = 'Account created'
       redirect_to @account
     else
-      flash[:error] = 'Account not created'
-      redirect_to @account
+      flash[:alert] = 'Account not created'
+      render :new
     end    
   end
 
   def update
     if @account.update_attributes(account_params)
-      flash[:notice] = 'Account not updated'
+      flash[:notice] = 'Account updated'
       redirect_to @account
     else
       flash[:alert] = 'Account not updated'
@@ -54,7 +54,11 @@ class AccountsController < ApplicationController
     end
 
     def account_params
-      params.require(:account).permit(:name, :email, :website, :phone, :fax,
-        :notes)
+      params.require(:account).permit(
+        :name, :email, :website, :phone, :fax, :notes,
+          billing_address_attributes: [:id, :street_1, :street_2, :city, :state,
+            :postal_code, :country, :type],
+          shipping_address_attributes: [:id, :street_1, :street_2, :city, :state,
+            :postal_code, :country, :type])          
     end
 end

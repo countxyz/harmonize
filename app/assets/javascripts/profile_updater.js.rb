@@ -35,3 +35,5 @@ contact.update_profile('#sm-panel', '#sm-table', '#edit-sm-form', '#close-sm')
 account = ProfileUpdater.new
 
 account.update_profile('#ai-panel', '#ai-table', '#edit-ai-form', '#close-ai')
+account.update_profile('#ba-panel', '#ba-table', '#edit-ba-form', '#close-ba')
+account.update_profile('#sa-panel', '#sa-table', '#edit-sa-form', '#close-sa')

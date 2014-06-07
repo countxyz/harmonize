@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605192323) do
+ActiveRecord::Schema.define(version: 20140606174653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,20 @@ ActiveRecord::Schema.define(version: 20140605192323) do
   add_index "accounts", ["slug"], name: "index_accounts_on_slug", unique: true, using: :btree
 
   create_table "addresses", force: true do |t|
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "street_1",                 null: false
-    t.string   "street_2",    default: "", null: false
-    t.string   "city",                     null: false
-    t.string   "state",                    null: false
-    t.integer  "postal_code",              null: false
-    t.string   "country",                  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "street_1",                      null: false
+    t.string   "street_2",         default: "", null: false
+    t.string   "city",                          null: false
+    t.string   "state",                         null: false
+    t.integer  "postal_code"
+    t.string   "country",                       null: false
+    t.string   "type",                          null: false
+    t.integer  "addressable_id",                null: false
+    t.string   "addressable_type",              null: false
   end
+
+  add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type", using: :btree
 
   create_table "assignments", force: true do |t|
     t.string  "description"

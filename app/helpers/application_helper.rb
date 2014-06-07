@@ -11,7 +11,6 @@ module ApplicationHelper
   end
 
   def data_format data
-    if   data.empty? then 'N/A'
-    else data; end
+    'N/A' if data.nil?
   end
 end
