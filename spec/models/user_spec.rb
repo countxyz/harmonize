@@ -1,9 +1,10 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe User do
 
   describe 'uniqueness' do
     it { should validate_uniqueness_of(:handle) }
+    it { should validate_uniqueness_of(:email)  }
   end
 
   describe 'presence' do
@@ -22,9 +23,19 @@ describe User do
     it { should allow_value('abc@xyz.com').for(:email) }
   end
 
-  describe 'passwords' do
-    it 'require password and confirmation' do
-      expect(build(:user)).to be_valid
+  describe 'password' do
+    it 'requires password and confirmation' do
+      expect(build(:user)).to be
+    end
+  end
+
+  describe 'authentication' do
+    it 'authenticates with a correct password' do
+      expect(build(:user).authenticate('password')).to be
+    end
+
+    it 'does not authenticate with an incorrect password' do
+      expect(build(:user).authenticate('passwordy')).to_not be
     end
   end
 end

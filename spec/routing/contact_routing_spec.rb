@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'routing to contacts' do
   it 'has a slug that is contact name' do

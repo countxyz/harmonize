@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 # feature 'New Account' do
 #   scenario 'Successful sign up' do

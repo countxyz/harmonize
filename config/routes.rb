@@ -3,7 +3,6 @@ Harmonize::Application.routes.draw do
 
   get '/about', to: 'main_pages#about'
 
-  get    '/signup',  to: 'users#new'
   get    '/signin',  to: 'sessions#new'
   post   '/signin',  to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy', as: 'signout'

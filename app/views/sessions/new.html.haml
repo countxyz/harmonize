@@ -3,7 +3,7 @@
 
 .row
   .col-md-3
-    = simple_form_for(:signin, method: 'POST') do |f|
+    = simple_form_for :signin, method: 'POST' do |f|
       = f.input :handle, label: 'Username'
       = f.input :password
       %p.text-right= f.button :submit, 'Sign In', class: 'btn-default'

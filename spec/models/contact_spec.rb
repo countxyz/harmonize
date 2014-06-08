@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Contact do
   it "returns a contact's full name as a string" do

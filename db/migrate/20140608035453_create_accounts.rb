@@ -9,6 +9,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.text   :notes,   null: false, default: ''
       t.string :slug,    null: false      
     end
-    add_index :accounts, :slug, unique: true
+    add_index     :accounts, :slug, unique: true
+    add_reference :accounts, :user, index: true
   end
 end

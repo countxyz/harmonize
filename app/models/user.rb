@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates_uniqueness_of :handle, :email
+  validates_uniqueness_of :handle
+  validates_uniqueness_of :email, allow_blank: true
 
   validates_presence_of :handle, :password_digest
 

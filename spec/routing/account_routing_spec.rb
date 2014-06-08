@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'routing to accounts' do
   it 'has a slug that is account name' do

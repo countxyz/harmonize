@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'routing to projects' do
   it 'has a slug that is project name' do

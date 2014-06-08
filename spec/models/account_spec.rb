@@ -1,8 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Account do
 
   describe 'associations' do
+    it { should belong_to(:user)                                }
     it { should have_one(:phone)                                }
     it { should have_one(:social_media)                         }
     it { should have_one(:billing_address)                      }

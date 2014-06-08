@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Account management' do
   scenario 'create a new account', js: true do

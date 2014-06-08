@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new; end
-
   def create
     user = User.where(handle: params[:signin][:handle]).first
 

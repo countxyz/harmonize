@@ -1,6 +1,8 @@
 class Account < ActiveRecord::Base
   extend FriendlyId
 
+  belongs_to :user
+
   has_one :phone,            as: :phoneable,   dependent: :destroy
   has_one :social_media,     as: :sociable,    dependent: :destroy
   has_one :billing_address,  as: :addressable, dependent: :destroy

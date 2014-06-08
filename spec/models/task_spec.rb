@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Task do
   it 'falls into No Deadline catagory without a date' do

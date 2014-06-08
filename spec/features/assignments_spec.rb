@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Assignment management' do
   scenario 'creates a new assignment', js: true do

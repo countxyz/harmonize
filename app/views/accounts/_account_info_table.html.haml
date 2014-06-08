@@ -12,3 +12,12 @@
     %tr
       %th Notes
       %td= data_format(@account.notes)
+    %tr
+      %th Created By
+      %td= @account.user.handle
+    %tr
+      %th Created At
+      %td= @account.created_at
+    %tr
+      %th Last Updated
+      %td= @account.updated_at

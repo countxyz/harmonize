@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Contact management' do
   scenario 'creates a new contact', js: true do
