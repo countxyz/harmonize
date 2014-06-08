@@ -2,19 +2,19 @@
   %tbody
     %tr
       %th Street 1
-      %td= @account.shipping_address.street_1
+      %td= data_format(@account.shipping_address.street_1)
     %tr
       %th Street 2
       %td= data_format(@account.shipping_address.street_2)
     %tr
       %th City
-      %td= @account.shipping_address.city
+      %td= data_format(@account.shipping_address.city)
     %tr
       %th State
-      %td= @account.shipping_address.state
+      %td= data_format(@account.shipping_address.state)
     %tr
       %th Postal Code
-      %td= @account.shipping_address.postal_code
+      %td= data_format(@account.shipping_address.postal_code)
     %tr
       %th Country
-      %td= @account.shipping_address.country
+      %td= data_format(@account.shipping_address.country)

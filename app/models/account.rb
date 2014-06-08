@@ -1,9 +1,13 @@
 class Account < ActiveRecord::Base
   extend FriendlyId
 
+  has_one :phone,            as: :phoneable,   dependent: :destroy
+  has_one :social_media,     as: :sociable,    dependent: :destroy
   has_one :billing_address,  as: :addressable, dependent: :destroy
   has_one :shipping_address, as: :addressable, dependent: :destroy
 
+  accepts_nested_attributes_for :phone,            reject_if: :all_blank
+  accepts_nested_attributes_for :social_media,     reject_if: :all_blank
   accepts_nested_attributes_for :billing_address,  reject_if: :all_blank
   accepts_nested_attributes_for :shipping_address, reject_if: :all_blank
 
@@ -11,20 +15,22 @@ class Account < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :name, presence: true, length: { in: 2..50 }
-  
-  validates :website, allow_blank: true, length: { in: 6..50 }
-  
-  validates :phone, allow_blank: true, numericality: { only_integer: true },
-            length: { is: 10 }
-  
-  validates :fax, allow_blank: true, numericality: { only_integer: true },
-            length: { is: 10 }
+  validates_presence_of :name
 
-  validates :email, allow_blank: true, length: { in: 5..50 },
-            format: { with: VALID_EMAIL_REGEX }
+  validates_length_of :name,    maximum: 50
+  validates_length_of :notes,   maximum: 1000, allow_blank: true
+  validates_length_of :email,   in: 5..50,     allow_blank: true
+  validates_length_of :website, in: 6..50,     allow_blank: true
 
-  validates :notes, allow_blank: true, length: { in: 2..1000 }
+  validates_format_of :email, with: VALID_EMAIL_REGEX, allow_blank: true
+
+  def phone
+    super || NullPhone.new
+  end
+
+  def social_media
+    super || NullSocialMedia.new
+  end
 
   def billing_address
     super || NullAddress.new

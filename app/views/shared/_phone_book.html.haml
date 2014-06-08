@@ -1,0 +1,7 @@
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Phone Book
+    = link_to 'edit', '#', class: 'edit-panel', id: 'pb-panel'
+  
+  = render partial: 'shared/phone_table',     locals: { klass: klass }
+  = render partial: 'shared/phone_book_edit', locals: { klass: klass }

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Account management' do
-  scenario 'creates a new account', js: true do
+  scenario 'create a new account', js: true do
     signin
     visit '/accounts/new'
 
@@ -11,7 +11,7 @@ feature 'Account management' do
     expect(page).to have_content('Account created')
   end
 
-  scenario 'it updates account', js: true do
+  scenario 'update account', js: true do
     signin
     account = create(:account)
     visit account_path(account)
@@ -20,18 +20,18 @@ feature 'Account management' do
     fill_in 'Notes', with: 'Vandalay Rocks!'
     click_on 'Update Account'
 
-    expect(page).to have_content('Contact updated')
+    expect(page).to have_content('Account updated')
   end
 
-  # scenario 'delete a contact', js: true do
-  #   signin
-  #   contact = create(:contact)
-  #   visit contact_path(contact)
+  scenario 'delete an account', js: true do
+    signin
+    account = create(:account)
+    visit account_path(account)
 
-  #   click_on 'Delete'
-  #   confirm_dialog
+    click_on 'Delete'
+    confirm_dialog
 
-  #   expect(page).to have_content('Contact deleted')
-  #   expect(current_path).to eq contacts_path
-  # end
+    expect(page).to have_content('Account deleted')
+    expect(current_path).to eq accounts_path
+  end
 end

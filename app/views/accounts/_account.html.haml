@@ -3,6 +3,5 @@
   %th.bold_name{ scope: 'row' }= account.name
   %td= data_format(account.website)
   %td= data_format(account.email)
-  %td= phone_format(account.phone)
-  %td= phone_format(account.fax)
+  %td= phone_format(account.phone.office)
   %td= link_to 'Show', account, class: 'btn btn-show'

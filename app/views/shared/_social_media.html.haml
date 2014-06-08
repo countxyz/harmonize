@@ -1,0 +1,7 @@
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Social Media
+    = link_to 'edit', '#', class: 'edit-panel', id: 'sm-panel'
+
+  = render partial: 'shared/social_media_table',     locals: { klass: klass }
+  = render partial: 'shared/social_media_edit',      locals: { klass: klass }

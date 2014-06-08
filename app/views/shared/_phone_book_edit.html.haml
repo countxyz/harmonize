@@ -1,12 +1,5 @@
-.panel.panel-default.panel-borderless
-  .panel-heading
-    Phone Book
-    = link_to 'edit', '#', class: 'edit-panel', id: 'pb-panel'
-  
-  = render 'phone_book_table'
-
 %section#edit-pb-form{ style: 'display:none;' }
-  = simple_form_for @contact do |f|
+  = simple_form_for klass do |f|
     = f.simple_fields_for :phone do |builder|
       = render 'shared/phone_form', builder: builder
     %p.text-right

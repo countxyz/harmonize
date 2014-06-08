@@ -5,6 +5,8 @@
 
 .row.profile-tables
   .col-md-4= render 'account_info'
+  .col-md-4= render partial: 'shared/phone_book',   locals: { klass: @account }
+  .col-md-4= render partial: 'shared/social_media', locals: { klass: @account }
 
 .row.profile-tables
   .col-md-4= render 'billing_address'
