@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :require_signin!
+  before_action :authorize_admin!, except: [:index, :show]
   before_action :set_account, only: [:show, :update, :destroy]
 
   def index
@@ -62,5 +63,14 @@ class AccountsController < ApplicationController
             :postal_code, :country, :type],
           shipping_address_attributes: [:id, :street_1, :street_2, :city, :state,
             :postal_code, :country, :type])          
+    end
+
+    def authorize_admin!
+      require_signin!
+
+      unless current_user.admin?
+        flash[:alert] = "Check ya' self before ya' wreck yo' self; Admins only!"
+        redirect_to accounts_path
+      end
     end
 end

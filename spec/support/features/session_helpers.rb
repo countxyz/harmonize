@@ -1,5 +1,6 @@
 module Features
   module SessionHelpers
+
     def signup_with(handle, password)
       visit signup_path
       fill_in 'Username', with: handle
