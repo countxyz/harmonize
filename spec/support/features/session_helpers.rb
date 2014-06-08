@@ -9,7 +9,7 @@ module Features
     end
 
     def signin
-      user = create(:user)
+      user = create(:admin_user)
       visit signin_path
       fill_in 'Username', with: user.handle
       fill_in 'Password', with: user.password
