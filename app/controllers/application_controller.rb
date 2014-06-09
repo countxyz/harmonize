@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
       block.call if current_user.try(:admin?)
     end
     helper_method :admins_only
+
+    def authorize_admin!
+      require_signin!
+
+      unless current_user.admin?
+        flash[:alert] = "Check ya' self before ya' wreck yo' self; Admins only!"
+        redirect_to root_path
+      end
+    end
 end

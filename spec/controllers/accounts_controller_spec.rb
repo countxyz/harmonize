@@ -7,11 +7,11 @@ describe AccountsController, type: :controller do
       destroy: :delete }.each do |action, method|
 
       it "cannot access #{action} action" do
-        signin_authentication
+        sign_in(create(:user))
 
         send(method, action, id: create(:account))
 
-        expect(response).to redirect_to('/accounts')
+        expect(response).to redirect_to('/')
         expect(flash[:alert]).to eql(
           "Check ya' self before ya' wreck yo' self; Admins only!")
       end
