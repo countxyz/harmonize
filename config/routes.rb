@@ -9,10 +9,6 @@ Harmonize::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  namespace :admin do
-    resources :users
-  end
-
   resources :accounts, :users
 
   resources :contacts, except: :edit
@@ -29,5 +25,11 @@ Harmonize::Application.routes.draw do
     member do
       post :complete
     end
+  end
+
+  namespace :admin do
+    root 'base#index'
+
+    resources :users
   end
 end

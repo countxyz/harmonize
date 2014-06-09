@@ -1,0 +1,8 @@
+.row
+  .col-md-3
+    = simple_form_for [:admin, @user] do |f|
+      %legend.bold_title New User
+      = f.input :handle, label: 'Username'
+      = f.input :password
+      = f.input :password_confirmation, label: 'Password Confirmation'
+      %p.text-right= f.button :submit, 'Create User', class: 'btn-default'

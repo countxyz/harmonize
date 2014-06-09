@@ -1,2 +1,8 @@
 - content_for :page_header do
   %h1 Admin: Users
+
+  %nav
+    %ul
+      %li
+        = link_to admin_root_path do
+          %button.header-btn.btn-1.btn-1c= icon('home', 'Home')
