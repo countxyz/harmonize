@@ -7,5 +7,6 @@
         = link_to accounts_path do
           %button.header-btn.btn-1.btn-1c= icon('archive', 'All')
       %li
-        = link_to new_account_path do
-          %button.header-btn.btn-1.btn-1c= icon('user', 'New')
+        - admins_only do
+          = link_to new_account_path do
+            %button.header-btn.btn-1.btn-1c= icon('user', 'New')

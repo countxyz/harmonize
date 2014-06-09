@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-feature 'Account management' do
+feature 'Delete Account' do
   scenario 'delete an account', js: true do
-    signin
-    account = create(:account)
-    visit account_path(account)
+    sign_in_as(create(:admin))
+    visit account_path(create(:account))
 
     click_on 'Delete'
     confirm_dialog
