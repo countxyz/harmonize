@@ -1,8 +1,18 @@
 - provide(:title, 'Admin - Users')
 = render 'user_header'
 
-= link_to 'New User', new_admin_user_path
+.col-md-10
+  .panel.panel-default
+    .panel-heading Users
 
-%ul
-- @users.each do |user|
-  %li= link_to user.handle, [:admin, user]
+    %table.table.table-hover
+      %thead
+        %tr
+          %th{ scope: 'col' } Id
+          %th{ scope: 'col' } Handle
+          %th{ scope: 'col' } Admin
+          %th{ scope: 'col' } First Name
+          %th{ scope: 'col' } Last Name
+          %th{ scope: 'col' } Created At
+          %th{ scope: 'col' } Last Updated
+      %tbody= render @users

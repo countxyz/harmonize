@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
 
   def index
-    @users = User.order(:handle)
+    @users = User.all
   end
 
   def new
@@ -23,6 +23,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
     def user_params
-      params.require(:user).permit(:handle, :password, :password_confirmation)
+      params.require(:user).permit(
+        :handle, :password, :password_confirmation, :admin)
     end
 end

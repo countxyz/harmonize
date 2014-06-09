@@ -1,0 +1,9 @@
+= content_tag_for(:tr, user, 'data-id' => user.id)
+%tr
+  %th.bold_name{ scope: 'row' }= user.id
+  %td= user.handle
+  %td= user.admin
+  %td= data_format(user.first_name)
+  %td= data_format(user.last_name)
+  %td= user.created_at
+  %td= user.updated_at
