@@ -1,0 +1,10 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header#contact-header
+      %p.navbar-text.navbar-left= @user.handle
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Edit User', edit_admin_user_path(@user)
+        %li.active
+          = link_to 'Delete', admin_user_path(@user), method: :delete,
+            data: { confirm: 'Are you sure?' }, id: 'delete-link'
