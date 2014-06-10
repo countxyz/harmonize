@@ -138,8 +138,10 @@ ActiveRecord::Schema.define(version: 20140608053943) do
     t.string   "last_name",       default: "",    null: false
     t.string   "password_digest",                 null: false
     t.boolean  "admin",           default: false, null: false
+    t.string   "slug",                            null: false
   end
 
   add_index "users", ["handle"], name: "index_users_on_handle", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
 end

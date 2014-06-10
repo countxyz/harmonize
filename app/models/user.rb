@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   has_secure_password
+
+  friendly_id :handle, use: [:slugged, :finders]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
