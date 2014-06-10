@@ -1,0 +1,15 @@
+- provide(:title, "Edit #{@user.handle}")
+= render 'user_header'
+
+.row
+  .col-md-3
+    = simple_form_for [:admin, @user] do |f|
+      %legend.bold_title Edit User
+      = f.input :handle,     label: 'Username'
+      = f.input :first_name, label: 'First Name'
+      = f.input :last_name,  label: 'Last Name'
+      = f.input :password
+      = f.input :password_confirmation, label: 'Password Confirmation'
+      = f.input :admin
+      %p.text-right= f.button :submit, 'Update User', class: 'btn-default'
+

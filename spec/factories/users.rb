@@ -1,7 +1,8 @@
 FactoryGirl.define do
+  sequence(:handle) { |n| "user#{n}" }
+
   factory :user do
-    id                    100
-    handle                'BigBird'
+    handle                { generate(:handle) }
     password              'password'
     password_confirmation 'password'
 

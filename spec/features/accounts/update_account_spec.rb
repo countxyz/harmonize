@@ -11,7 +11,6 @@ feature 'Update Account' do
     fill_in 'Notes', with: 'Vandalay Rocks!'
 
     click_on 'Update Account'
-
     expect(page).to have_content('Account updated')
   end
 
@@ -19,7 +18,6 @@ feature 'Update Account' do
     fill_in 'Name', with: ''
 
     click_on 'Update Account'
-
     expect(page).to have_content('Account not updated')    
   end
 end
