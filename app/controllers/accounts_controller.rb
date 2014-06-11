@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
-  before_action :require_signin!
   before_action :authorize_admin!, except: [:index, :show]
+  before_action :require_signin!
   before_action :set_account, only: [:show, :update, :destroy]
 
   def index
@@ -53,7 +53,10 @@ class AccountsController < ApplicationController
   private
     
     def set_account
-      @account = Account.find(params[:id])
+      @account = Account.for(current_user).find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = 'Account not found'
+      redirect_to to accounts_path
     end
 
     def account_params

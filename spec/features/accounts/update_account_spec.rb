@@ -3,12 +3,14 @@ require 'rails_helper'
 feature 'Update Account' do
   before do
     sign_in_as(create(:admin))
-    visit account_path(create(:account))
+    create(:account)
+    visit '/accounts'
+    click_link 'IniTech'
     click_link 'ai-panel'
   end
 
   scenario 'update account', js: true do
-    fill_in 'Notes', with: 'Vandalay Rocks!'
+    fill_in 'Notes', with: 'Update TPS reports'
 
     click_on 'Update Account'
     expect(page).to have_content('Account updated')

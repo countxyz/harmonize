@@ -6,7 +6,7 @@ feature 'Create User' do
     visit '/admin/users/new'
   end
 
-  scenario 'Creating a new user', js: true do
+  scenario 'creating a new user', js: true do
     fill_in 'Username', with: 'Art'
     fill_in 'Password', with: 'password'
     fill_in 'Password Confirmation', with: 'password'

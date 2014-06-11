@@ -1,10 +1,16 @@
 require 'rails_helper'
 
 feature 'Delete Account' do
-  scenario 'delete an account', js: true do
-    sign_in_as(create(:admin))
-    visit admin_user_path(create(:user))
+  let!(:admin) { create(:admin) }
+  let!(:user)  { create(:user)  }
 
+  before do
+    sign_in_as(admin)
+    visit '/admin/users'
+  end
+
+  scenario 'delete an account', js: true do
+    click_link user.handle
     click_on 'Delete'
     confirm_dialog
 

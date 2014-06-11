@@ -1,8 +1,7 @@
 = content_tag_for(:tr, contact, 'data-id' => contact.id)
 %tr
-  %th.bold_name{ scope: 'row' }= contact.name
-  %td= contact.phone.nil? ? 'N/A' : data_format(contact.company)
-  %td= contact.phone.nil? ? 'N/A' : data_format(contact.email)
-  %td= contact.phone.nil? ? 'N/A' : phone_format(contact.phone.office)
-  %td= contact.phone.nil? ? 'N/A' : phone_format(contact.phone.mobile)
-  %td= link_to 'Show', contact, class: 'btn btn-show'
+  %th.bold_name{ scope: 'row' }= link_to contact.name, contact
+  %td= data_format(contact.company)
+  %td= data_format(contact.email)
+  %td= phone_format(contact.phone.office)
+  %td= phone_format(contact.phone.mobile)

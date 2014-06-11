@@ -8,6 +8,16 @@ class Account < ActiveRecord::Base
   has_one :billing_address,  as: :addressable, dependent: :destroy
   has_one :shipping_address, as: :addressable, dependent: :destroy
 
+  has_many :permissions, as: :thing
+
+  scope :viewable_by, ->(user) do
+    joins(:permission).where(permissions: { action: 'view', user_id: user.id })
+  end
+
+  scope :for, ->(user) do
+    user.admin? ? Account.all : Account.viewable_by(user)
+  end
+
   accepts_nested_attributes_for :phone,            reject_if: :all_blank
   accepts_nested_attributes_for :social_media,     reject_if: :all_blank
   accepts_nested_attributes_for :billing_address,  reject_if: :all_blank
