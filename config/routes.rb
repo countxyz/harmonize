@@ -1,5 +1,5 @@
 Harmonize::Application.routes.draw do
-  root 'contacts#index'
+  root 'accounts#index'
 
   get '/about', to: 'main_pages#about'
 
@@ -12,10 +12,6 @@ Harmonize::Application.routes.draw do
   resources :accounts, :users
 
   resources :contacts, except: :edit
-
-  resources :projects do
-    resources :assignments
-  end
 
   resources :tasks, except: :show, :id => /\d+/ do
     collection do

@@ -9,8 +9,6 @@
 //= require bootstrap-datetimepicker
 //= require border_navigator
 //= require tables
-//= require datepicker
 //= require flash
 //= require profile_updater
-//= require project_profile
 //= require form

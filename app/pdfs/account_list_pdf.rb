@@ -1,4 +1,5 @@
 class AccountListPdf < Prawn::Document
+
   def initialize(accounts)
     super()
     @accounts = accounts
@@ -23,7 +24,7 @@ class AccountListPdf < Prawn::Document
     [['Account', 'Website', 'Email', 'Office Phone', 'Fax']] +
     @table_data ||= @accounts.map do |account|
       [account.name, account.website, account.email,
-        account.phone.nil? ? 'N/A' : account.phone.office]
+       account.phone.nil? ? 'N/A' : account.phone.office]
     end
   end
 end

@@ -3,15 +3,17 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require 'csv'
 
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Harmonize
   class Application < Rails::Application
+    config.autoload_paths += Dir[
 
-    config.autoload_paths << "#{Rails.root}/app/pdfs"
-    config.autoload_paths << "#{Rails.root}/app/models/nulls"
-    config.autoload_paths << "#{Rails.root}/app/models/polymorphic"
-    config.autoload_paths << "#{Rails.root}/app/models/sti"
+      "#{Rails.root}/app/models/concerns",
+      "#{Rails.root}/app/models/nulls",
+      "#{Rails.root}/app/models/polymorphic",
+      "#{Rails.root}/app/models/sti",
+      "#{Rails.root}/app/pdfs"]
 
     config.assets.initialize_on_precompile = false
     

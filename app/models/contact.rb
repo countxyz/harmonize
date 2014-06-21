@@ -1,14 +1,12 @@
 class Contact < ActiveRecord::Base
-  extend FriendlyId
+  include Formatable
+  include Nullable
+  include Sluggable
   
   has_one :phone,        as: :phoneable, dependent: :destroy
   has_one :social_media, as: :sociable,  dependent: :destroy
 
   accepts_nested_attributes_for :phone, :social_media, reject_if: :all_blank
-
-  friendly_id :name, use: [:slugged, :finders]
-
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validate :secondary_email_cannot_be_email
 
@@ -21,28 +19,12 @@ class Contact < ActiveRecord::Base
   validates_length_of :email,            in: 5..30,    allow_blank: true
   validates_length_of :secondary_email,  in: 5..30,    allow_blank: true
 
-  validates_format_of :email, :secondary_email, with: VALID_EMAIL_REGEX,
+  validates_format_of :email, :secondary_email,
+                      with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
                       allow_blank: true
 
   def name
     [first_name, last_name].join(' ')
-  end
-
-  def phone
-    super || NullPhone.new
-  end
-
-  def social_media
-    super || NullSocialMedia.new
-  end
-
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |contact|
-        csv << contact.attributes.values_at(*column_names)
-      end
-    end
   end
 
   private
