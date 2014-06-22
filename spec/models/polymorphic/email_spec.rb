@@ -2,6 +2,10 @@ require 'rails_helper'
 
 describe Email do
 
+  describe 'associations' do
+    it { should belong_to(:emailable) }
+  end
+
   describe 'field lengths' do
     it { should ensure_length_of(:address).is_at_least(5).is_at_most(50) }
   end

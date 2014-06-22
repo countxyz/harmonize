@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622161112) do
+ActiveRecord::Schema.define(version: 20140622180517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,18 +46,18 @@ ActiveRecord::Schema.define(version: 20140622161112) do
   add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type", using: :btree
 
   create_table "contacts", force: true do |t|
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "first_name",                   null: false
-    t.string   "last_name",       default: "", null: false
-    t.string   "email",           default: "", null: false
-    t.string   "secondary_email", default: "", null: false
-    t.string   "company",         default: "", null: false
-    t.text     "notes",           default: "", null: false
-    t.string   "slug",                         null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "first_name",              null: false
+    t.string   "last_name",  default: "", null: false
+    t.string   "company",    default: "", null: false
+    t.text     "notes",      default: "", null: false
+    t.string   "slug",                    null: false
+    t.integer  "user_id"
   end
 
   add_index "contacts", ["slug"], name: "index_contacts_on_slug", unique: true, using: :btree
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id", using: :btree
 
   create_table "emails", force: true do |t|
     t.datetime "created_at",     null: false
