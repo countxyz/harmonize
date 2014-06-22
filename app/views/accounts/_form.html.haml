@@ -1,6 +1,9 @@
 = simple_form_for @account do |f|
   .row
-    .col-md-4= render 'account_form', f: f
+    .col-md-4
+      = render 'account_form', f: f
+      = f.simple_fields_for :emails, @account.emails.build do |builder|
+        = render 'shared/email_form', builder: builder
 
     .col-md-3.new-contact
       = f.simple_fields_for :phone, @account.build_phone do |builder|

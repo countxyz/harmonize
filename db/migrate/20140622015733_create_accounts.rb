@@ -5,7 +5,6 @@ class CreateAccounts < ActiveRecord::Migration
 
       t.string :name,    null: false
       t.string :website, null: false, default: ''
-      t.string :email,   null: false, default: ''
       t.text   :notes,   null: false, default: ''
       t.string :slug,    null: false      
     end

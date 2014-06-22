@@ -4,14 +4,12 @@
 .col-md-10
   .panel.panel-default
     .panel-heading Accounts
-    .panel-body
-      = render partial: 'shared/index_panel', locals: { url: accounts_path }
+    .panel-body= render 'shared/index_panel', url: accounts_path
 
     %table.table.table-hover
       %thead
         %tr
           %th{ scope: 'col' } Account
           %th{ scope: 'col' } Website
-          %th{ scope: 'col' } Email
           %th{ scope: 'col' } Office Phone
       %tbody= render @accounts

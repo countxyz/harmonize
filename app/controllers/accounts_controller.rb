@@ -53,18 +53,26 @@ class AccountsController < ApplicationController
   private
     
     def set_account
-      @account = Account.for(current_user).find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = 'Account not found'
-      redirect_to to accounts_path
+      @account = Account.find(params[:id])
     end
 
     def account_params
-      params.require(:account).permit(
-        :name, :email, :website, :phone, :fax, :notes,
-          billing_address_attributes: [:id, :street_1, :street_2, :city, :state,
-            :postal_code, :country, :type],
-          shipping_address_attributes: [:id, :street_1, :street_2, :city, :state,
-            :postal_code, :country, :type])          
+      params.require(:account).permit(:name, :website, :notes,
+
+        billing_address_attributes:
+          [:id, :street_1, :street_2, :city, :state, :postal_code, :country, :type],
+
+        shipping_address_attributes:
+          [:id, :street_1, :street_2, :city, :state, :postal_code, :country, :type],
+
+        emails_attributes:
+          [:id, :address],
+
+        phone_attributes:
+          [:id, :office, :mobile, :fax, :home, :toll],
+
+        social_media_attributes:
+          [:id, :google_plus, :github, :twitter, :skype, :coderwall, :linkedin,
+            :facebook])
     end
 end

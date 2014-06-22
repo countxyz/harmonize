@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622014306) do
+ActiveRecord::Schema.define(version: 20140622161112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20140622014306) do
     t.datetime "updated_at",              null: false
     t.string   "name",                    null: false
     t.string   "website",    default: "", null: false
-    t.string   "email",      default: "", null: false
     t.text     "notes",      default: "", null: false
     t.string   "slug",                    null: false
     t.integer  "user_id"
@@ -40,8 +39,8 @@ ActiveRecord::Schema.define(version: 20140622014306) do
     t.integer  "postal_code"
     t.string   "country",                       null: false
     t.string   "type",                          null: false
-    t.integer  "addressable_id",                null: false
-    t.string   "addressable_type",              null: false
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
   end
 
   add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type", using: :btree
@@ -60,14 +59,15 @@ ActiveRecord::Schema.define(version: 20140622014306) do
 
   add_index "contacts", ["slug"], name: "index_contacts_on_slug", unique: true, using: :btree
 
-  create_table "permissions", force: true do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.integer  "thing_id"
-    t.string   "thing_type", null: false
-    t.string   "action",     null: false
+  create_table "emails", force: true do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "address",        null: false
+    t.integer  "emailable_id"
+    t.string   "emailable_type"
   end
+
+  add_index "emails", ["emailable_id", "emailable_type"], name: "index_emails_on_emailable_id_and_emailable_type", using: :btree
 
   create_table "phones", force: true do |t|
     t.datetime "created_at",                  null: false

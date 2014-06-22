@@ -1,0 +1,7 @@
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Emails
+    = link_to 'add', '#', class: 'edit-panel', id: 'em-panel'
+
+  = render 'shared/email_table', klass: klass
+  = render 'shared/email_edit',  klass: klass

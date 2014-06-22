@@ -11,7 +11,6 @@ class CreateAddresses < ActiveRecord::Migration
       t.string  :country,      null: false
       t.string  :type,         null: false
     end
-    add_reference :addresses, :addressable, null: false, polymorphic: true,
-                                                         index: true
+    add_reference :addresses, :addressable, index: true, polymorphic: true
   end
 end

@@ -1,0 +1,6 @@
+%table.table.table-hover#em-table
+  %tbody
+  - klass.emails.each do |email|
+    %tr
+      %th Email
+      %td= email.address
