@@ -10,11 +10,14 @@
       %th Company
       %td= data_format(@contact.company)
     %tr
-      %th Email
-      %td= data_format(@contact.email)
-    %tr
-      %th Secondary Email
-      %td= data_format(@contact.secondary_email)
-    %tr
       %th Notes
       %td= data_format(@contact.notes)
+    %tr
+      %th Created By
+      %td= @contact.user.handle
+    %tr
+      %th Created At
+      %td= @contact.created_at
+    %tr
+      %th Last Updated
+      %td= @contact.updated_at

@@ -5,5 +5,8 @@
 
 .row.profile-tables
   .col-md-4= render 'contact_info'
-  .col-md-4= render partial: 'shared/phone_book',   locals: { klass: @contact }
-  .col-md-4= render partial: 'shared/social_media', locals: { klass: @contact }
+  .col-md-4= render 'shared/phone_book', klass: @contact
+  .col-md-4= render 'shared/email',      klass: @contact
+
+.row.profile-tables
+  .col-md-4= render 'shared/social_media', klass: @contact

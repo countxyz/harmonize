@@ -1,7 +1,8 @@
 %section#edit-em-form{ style: 'display:none;' }
   = simple_form_for klass do |f|
-    = f.simple_fields_for :emails, @account.emails.build do |builder|
+    = f.simple_fields_for :emails, klass.emails.build do |builder|
       = render 'shared/email_form', builder: builder
+
     %p.text-right
       %button.btn.btn-default#close-em Close
       = f.button :submit, 'Update Emails', class: 'btn-default'

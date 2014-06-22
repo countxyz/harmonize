@@ -22,6 +22,8 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.user = current_user
+
     if @contact.save
       flash[:notice] = 'Contact created'
       redirect_to @contact
@@ -54,10 +56,13 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit( 
-        :first_name, :last_name, :company, :email, :secondary_email, :notes,
-          phone_attributes: [:id, :mobile, :office, :fax, :home, :toll],
-          social_media_attributes: [:id, :skype, :google_plus, :github,
-            :linkedin, :twitter, :facebook, :coderwall])
+      params.require(:contact).permit( :first_name, :last_name, :company, :notes,
+
+        emails_attributes: [:id, :address],          
+
+        phone_attributes: [:id, :mobile, :office, :fax, :home, :toll],
+
+        social_media_attributes: [:id, :skype, :google_plus, :github,:linkedin,
+                                  :twitter, :facebook, :coderwall])
     end
 end
