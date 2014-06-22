@@ -14,13 +14,7 @@ Harmonize::Application.routes.draw do
   resources :contacts, except: :edit
 
   resources :tasks, except: :show, :id => /\d+/ do
-    collection do
-      get :completed
-    end
-
-    member do
-      post :complete
-    end
+    get :completed, on: :collection
   end
 
   namespace :admin do

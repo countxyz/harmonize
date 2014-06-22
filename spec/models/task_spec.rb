@@ -16,6 +16,10 @@ describe Task do
     expect(Task.completed_task).to eq [task_3, task_4]
   end
 
+  describe 'associations' do
+    it { should belong_to(:user) }
+  end
+  
   describe 'presence' do
     it { should validate_presence_of(:description) }
   end

@@ -7,11 +7,9 @@
   .col-md-5.col-md-offset-2
     .task-actions
       = link_to new_task_path, remote: true do
-        %button.btn.btn-default
-          %i.fa.fa-plus.in_button
-          New
+        %button.btn.btn-default= icon('plus', 'New')
 
 .row.hidden-form#task-form{style: 'display:none;'}
 
 .row#sort-tasks
-  = render 'index'
+  %ul.list-group#pending-tasks= render @tasks

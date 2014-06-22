@@ -1,15 +1,10 @@
 = simple_form_for @task, remote: true do |f|
   .row
-    .col-md-6.col-md-offset-1
-      = f.input :description, as: :text
-  .row
-    .col-md-4.col-md-offset-1
-      = f.input :deadline, as: :datetimepicker
-    .col-md-4#task-form-buttons
-      = link_to 'Cancel', '#', class: 'btn btn-default cancel'
-      = f.button :submit, 'Submit', id: 'task-submit'
+    .col-md-6.col-md-offset-1= f.input :description, as: :text
 
-:coffeescript
-  $ ->
-    $('.datetimepicker10').datetimepicker()
-    return
+  .row
+    .col-md-4.col-md-offset-1= f.input :deadline, as: :datetimepicker
+
+    .col-md-4#task-form-buttons
+      = link_to 'Cancel', '#',      class: 'btn btn-default cancel'
+      = f.button :submit, 'Submit', class: 'btn-default', id: 'task-submit'

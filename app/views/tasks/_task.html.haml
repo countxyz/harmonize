@@ -1,23 +1,22 @@
 = content_tag_for(:li, task, class: 'list-group-item list-group-item-info',
   'data-id' => task.id) do
+
   .row
     .col-md-6
       %span.task-description= task.description
+
     .col-md-4.task-actions.col-md-offset-2
       = link_to edit_task_path(task), remote: true do
-        %button.btn.btn-default.btn-xs
-          %i.fa.fa-pencil.in_button
-          Edit
+        %button.btn.btn-default.btn-xs= icon('pencil', 'Edit')
+
       = link_to task, remote: true, method: :delete,
         data: { confirm: 'Are you sure?' } do
-        %button.btn.btn-default.btn-danger.btn-xs
-          %i.fa.fa-times.in_button
-          Delete
-      = link_to complete_task_path(task), remote: true, method: :post,
-        data: { confirm: "Set task as completed?" } do
-        %button.btn.btn-default.btn-success.btn-xs
-          %i.fa.fa-check.in_button
-          Complete
+        %button.btn.btn-default.btn-danger.btn-xs= icon('times', 'Delete')
+
+      = link_to task_path(task), remote: true,
+        data: { params: { task: { completed: Time.now } }.to_param,
+        confirm: 'Set task as completed?' }, method: 'PATCH' do
+        %button.btn.btn-default.btn-success.btn-xs= icon('check', 'Complete')
 
   .row
     .col-md-9

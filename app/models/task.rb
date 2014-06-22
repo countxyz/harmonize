@@ -1,5 +1,10 @@
 class Task < ActiveRecord::Base
-  validates :description, presence: true, length: { maximum: 100 }
+
+  belongs_to :user
+
+  validates_presence_of :description
+
+  validates_length_of :description, maximum: 100
 
   def self.pending
     where('completed is NULL').order(deadline: :asc)
