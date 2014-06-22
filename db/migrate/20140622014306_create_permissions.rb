@@ -3,8 +3,8 @@ class CreatePermissions < ActiveRecord::Migration
     create_table :permissions do |t|
       t.timestamps null: false
 
-      t.integer :user_id,    null: false
-      t.integer :thing_id,   null: false
+      t.integer :user_id
+      t.integer :thing_id
       t.string  :thing_type, null: false
       t.string  :action,     null: false
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621234430) do
+ActiveRecord::Schema.define(version: 20140622014306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20140621234430) do
   create_table "permissions", force: true do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id",    null: false
-    t.integer  "thing_id",   null: false
+    t.integer  "user_id"
+    t.integer  "thing_id"
     t.string   "thing_type", null: false
     t.string   "action",     null: false
   end
@@ -100,7 +100,9 @@ ActiveRecord::Schema.define(version: 20140621234430) do
   add_index "social_media", ["sociable_id", "sociable_type"], name: "index_social_media_on_sociable_id_and_sociable_type", using: :btree
 
   create_table "tasks", force: true do |t|
-    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description", null: false
     t.datetime "deadline"
     t.datetime "completed"
   end
