@@ -10,7 +10,6 @@ module Harmonize
     config.autoload_paths += Dir[
 
       "#{Rails.root}/app/models/concerns",
-      "#{Rails.root}/app/models/nulls",
       "#{Rails.root}/app/models/polymorphic",
       "#{Rails.root}/app/models/sti",
       "#{Rails.root}/app/pdfs"]

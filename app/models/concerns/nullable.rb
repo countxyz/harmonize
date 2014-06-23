@@ -3,19 +3,23 @@ module Nullable
 
   included do
     def phone
-      super || NullPhone.new
+      super || NullObject.new
     end
 
     def social_media
-      super || NullSocialMedia.new
+      super || NullObject.new
     end
 
     def billing_address
-      super || NullAddress.new
+      super || NullObject.new
     end
 
     def shipping_address
-      super || NullAddress.new
+      super || NullObject.new
     end
+  end
+
+  def method_missing(*args, &block)
+    self
   end
 end
