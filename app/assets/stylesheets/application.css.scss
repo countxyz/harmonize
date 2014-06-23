@@ -1,21 +1,19 @@
-/*
- *= require_self
- *= require jquery.ui.all
- *= require fullcalendar
- *= require layout
- *= require borders
- *= require header
- *= require forms
- *= require tables
- *= require buttons
- *= require notifications 
- *= require tasks
- *= require datetimepicker
- *= require modal
- *= require main_pages
- *= require font-awesome
- *= require other
-*/
+@import 'jquery.ui.all';
+@import 'fullcalendar';
+@import 'layout';
+@import 'font-awesome';
+@import 'fonts';
+@import 'borders';
+@import 'header';
+@import 'forms';
+@import 'tables';
+@import 'buttons';
+@import 'notifications';
+@import 'tasks';
+@import 'datetimepicker';
+@import 'modal';
+@import 'main_pages';
+@import 'other';
 
 $link-color: #00A1CB;
 $btn-default-bg: #00A1CB;

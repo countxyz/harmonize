@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails', '~> 3.1.0'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'haml-rails', '~> 0.5.3'
-gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'bootstrap-sass', '3.1.1.1'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'sass-rails', '~> 4.0.3'
@@ -21,7 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'prawn', '~> 1.0.0'
 gem 'simple_form', '~> 3.1.0.rc1'
 gem 'friendly_id', '~> 5.0.3'
-gem 'font-awesome-sass', '~> 4.1.0'
+gem 'font-awesome-rails', '~> 4.1.0.0'
 
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
