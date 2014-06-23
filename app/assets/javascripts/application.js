@@ -4,11 +4,15 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require bootstrap
 //= require moment
+//= require fullcalendar
+//= require gcal
 //= require bootstrap-datetimepicker
 //= require border_navigator
 //= require tables
 //= require flash
 //= require profile_updater
+//= require events
 //= require form

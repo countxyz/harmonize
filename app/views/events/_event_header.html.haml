@@ -1,0 +1,8 @@
+- content_for :page_header do
+  %h1 Events
+
+  %nav
+    %ul
+      %li
+        = link_to new_event_path, remote: true do
+          %button.header-btn.btn-1.btn-1c= icon('plus', 'New')

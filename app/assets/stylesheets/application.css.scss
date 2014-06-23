@@ -1,5 +1,7 @@
 /*
  *= require_self
+ *= require jquery.ui.all
+ *= require fullcalendar
  *= require layout
  *= require borders
  *= require header
@@ -8,6 +10,8 @@
  *= require buttons
  *= require notifications 
  *= require tasks
+ *= require datetimepicker
+ *= require modal
  *= require main_pages
  *= require font-awesome
  *= require other
