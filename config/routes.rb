@@ -12,6 +12,7 @@ Harmonize::Application.routes.draw do
   resources :accounts, :users
 
   resources :contacts, except: :edit
+  resources :events,   except: :show
 
   resources :tasks, except: :show, :id => /\d+/ do
     get :completed, on: :collection
