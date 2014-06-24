@@ -14,7 +14,7 @@
       %td= @account.user.handle
     %tr
       %th Created At
-      %td= @account.created_at
+      %td= l @account.created_at, format: :profile
     %tr
       %th Last Updated
-      %td= @account.updated_at
+      %td= l @account.updated_at, format: :profile

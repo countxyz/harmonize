@@ -1,4 +1,4 @@
 %tr
   %th.bold_name{ scope: 'row' }= link_to account.name, account
   %td= data_format(account.website)
-  %td= phone_format(account.phone.office)
+  %td= l account.created_at, format: :index_table
