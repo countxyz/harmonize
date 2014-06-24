@@ -1,0 +1,9 @@
+- content_for :page_header do
+  %h1 Users
+
+  %nav
+    %ul
+      %li
+        - admins_only do
+          = link_to admin_root_path do
+            %button.header-btn.btn-1.btn-1c= icon('eye', 'Admin')

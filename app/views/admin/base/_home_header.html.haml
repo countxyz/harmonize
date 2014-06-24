@@ -4,5 +4,8 @@
   %nav
     %ul
       %li
+        = link_to root_path do
+          %button.header-btn.btn-1.btn-1c= icon('home', 'Home')
+      %li
         = link_to admin_users_path do
           %button.header-btn.btn-1.btn-1c= icon('users', 'Users')
