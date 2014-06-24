@@ -10,7 +10,7 @@ module ApplicationHelper
     'Harmonize'
   end
 
-  def data_format data
+  def data_format(data)
     data.nil? || data.empty? ? 'N/A' : data
   end
 

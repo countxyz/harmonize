@@ -1,0 +1,20 @@
+%table.table.table-hover#sa-table
+  %tbody
+    %tr
+      %th Street 1
+      %td= data_format(klass.shipping_address.street_1)
+    %tr
+      %th Street 2
+      %td= data_format(klass.shipping_address.street_2)
+    %tr
+      %th City
+      %td= data_format(klass.shipping_address.city)
+    %tr
+      %th State
+      %td= data_format(klass.shipping_address.state)
+    %tr
+      %th Postal Code
+      %td= data_format(klass.shipping_address.postal_code)
+    %tr
+      %th Country
+      %td= data_format(klass.shipping_address.country)

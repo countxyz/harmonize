@@ -13,4 +13,8 @@ class Address < ActiveRecord::Base
   validates_length_of :state,    is: 2
 
   validates_numericality_of :postal_code, only_integer: true
+
+  def location
+    "#{self.city}, #{self.state}"
+  end
 end

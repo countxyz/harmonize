@@ -30,4 +30,10 @@ describe Address do
   describe 'numericality' do
     it { should validate_numericality_of(:postal_code).only_integer }
   end
+
+  describe 'location' do
+    it 'provides city and state of address' do
+      expect(build(:address).location).to eq 'New York, NY'
+    end
+  end
 end

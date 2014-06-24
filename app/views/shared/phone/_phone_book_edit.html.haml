@@ -1,7 +1,7 @@
 %section#edit-pb-form{ style: 'display:none;' }
   = simple_form_for klass do |f|
     = f.simple_fields_for :phone do |builder|
-      = render 'shared/phone_form', builder: builder
+      = render 'shared/phone/phone_form', builder: builder
     %p.text-right
       %button.btn.btn-default#close-pb Close
       = f.button :submit, 'Update Phone Book', class: 'btn-default'

@@ -5,8 +5,8 @@
 
 .row.profile-tables
   .col-md-4= render 'contact_info'
-  .col-md-4= render 'shared/phone_book', klass: @contact
-  .col-md-4= render 'shared/email',      klass: @contact
+  .col-md-4= render 'shared/phone/phone_book', klass: @contact
+  .col-md-4= render 'shared/email/email',      klass: @contact
 
 .row.profile-tables
-  .col-md-4= render 'shared/social_media', klass: @contact
+  .col-md-4= render 'shared/social_media/social_media', klass: @contact

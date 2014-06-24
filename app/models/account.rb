@@ -23,4 +23,8 @@ class Account < ActiveRecord::Base
   validates_length_of :name,    maximum: 50
   validates_length_of :notes,   maximum: 1000, allow_blank: true
   validates_length_of :website, in: 6..50,     allow_blank: true
+
+  def company_location
+    self.billing_address.location
+  end
 end

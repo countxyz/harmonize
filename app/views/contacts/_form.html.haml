@@ -3,13 +3,13 @@
     = render 'contact_form', f: f
 
     = f.simple_fields_for :emails, @contact.emails.build do |builder|
-      = render 'shared/email_form', builder: builder
+      = render 'shared/email/email_form', builder: builder
 
   .col-md-3.new-contact
     = f.simple_fields_for :phone, @contact.build_phone do |builder|
-      = render 'shared/phone_form', builder: builder
+      = render 'shared/phone/phone_form', builder: builder
   
   .col-md-4.new-contact
     = f.simple_fields_for :social_media, @contact.build_social_media do |builder|
-      = render 'shared/social_media_form', builder: builder
+      = render 'shared/social_media/social_media_form', builder: builder
     %p.text-right= f.button :submit, 'Create Contact', class: 'btn-default'

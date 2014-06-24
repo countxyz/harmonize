@@ -5,10 +5,10 @@
 
 .row.profile-tables
   .col-md-4= render 'account_info'
-  .col-md-4= render 'shared/phone_book', klass: @account
-  .col-md-4= render 'shared/email',      klass: @account
+  .col-md-4= render 'shared/phone/phone_book', klass: @account
+  .col-md-4= render 'shared/email/email',      klass: @account
 
 .row.profile-tables
-  .col-md-4= render 'billing_address'
-  .col-md-4= render 'shipping_address'
-  .col-md-4= render 'shared/social_media', klass: @account
+  .col-md-4= render 'shared/address/billing_address',   klass: @account
+  .col-md-4= render 'shared/address/shipping_address',  klass: @account
+  .col-md-4= render 'shared/social_media/social_media', klass: @account

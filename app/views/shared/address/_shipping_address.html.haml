@@ -1,0 +1,7 @@
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Shipping Address
+    = link_to 'edit', '#', class: 'edit-panel', id: 'sa-panel'
+
+  = render 'shared/address/shipping_address_table', klass: klass
+  = render 'shared/address/shipping_address_edit',  klass: klass

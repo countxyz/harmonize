@@ -1,0 +1,7 @@
+%section{ style: 'display:none;', id: 'edit-sa-form' }
+  = simple_form_for klass do |f|
+    = f.simple_fields_for :shipping_address do |builder|
+      = render 'shared/address/address_form', builder: builder
+    %p.text-right
+      %button.btn.btn-default#close-ba Close
+      = f.button :submit, 'Update Shipping Address', class: 'btn-default'

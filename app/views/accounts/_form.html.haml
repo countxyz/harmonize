@@ -5,28 +5,28 @@
       = render 'account_form', f: f
 
       = f.simple_fields_for :emails, @account.emails.build do |builder|
-        = render 'shared/email_form', builder: builder
+        = render 'shared/email/email_form', builder: builder
 
     .col-md-3.new-contact
       %legend.bold_title Phone
       = f.simple_fields_for :phone, @account.build_phone do |builder|
-        = render 'shared/phone_form', builder: builder
+        = render 'shared/phone/phone_form', builder: builder
     
     .col-md-4.new-contact
       %legend.bold_title Social Media
       = f.simple_fields_for :social_media,
         @account.build_social_media do |builder|
-        = render 'shared/social_media_form', builder: builder
+        = render 'shared/social_media/social_media_form', builder: builder
   .row
     .col-md-5
       %legend.bold_title Billing
       = f.simple_fields_for :billing_address,
         @account.build_billing_address do |builder|
-        = render 'shared/address_form', builder: builder
+        = render 'shared/address/address_form', builder: builder
     
     .col-md-5.col-md-offset-2
       %legend.bold_title Shipping
       = f.simple_fields_for :shipping_address,
         @account.build_shipping_address do |builder|
-        = render 'shared/address_form', builder: builder
+        = render 'shared/address/address_form', builder: builder
       %p.text-right= f.button :submit, class: 'btn-default'

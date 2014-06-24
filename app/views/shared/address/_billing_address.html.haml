@@ -1,0 +1,7 @@
+.panel.panel-default.panel-borderless
+  .panel-heading
+    Billing Address
+    = link_to 'edit', '#', class: 'edit-panel', id: 'ba-panel'
+
+  = render 'shared/address/billing_address_table', klass: klass
+  = render 'shared/address/billing_address_edit',  klass: klass

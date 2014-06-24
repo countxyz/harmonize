@@ -1,0 +1,20 @@
+%table.table.table-hover#ba-table
+  %tbody
+    %tr
+      %th Street 1
+      %td= data_format(klass.billing_address.street_1)
+    %tr
+      %th Street 2
+      %td= data_format(klass.billing_address.street_2)
+    %tr
+      %th City
+      %td= data_format(klass.billing_address.city)
+    %tr
+      %th State
+      %td= data_format(klass.billing_address.state)
+    %tr
+      %th Postal Code
+      %td= data_format(klass.billing_address.postal_code)
+    %tr
+      %th Country
+      %td= data_format(klass.billing_address.country)

@@ -18,8 +18,4 @@ module Nullable
       super || NullObject.new
     end
   end
-
-  def method_missing(*args, &block)
-    self
-  end
 end
