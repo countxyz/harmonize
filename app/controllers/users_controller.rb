@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_signin!
 
   def new
     @user = User.new
@@ -22,10 +23,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-    def set_user
-      @user = User.find(params[:id])
-    end
 
     def user_params
       params.require(:user).permit(:handle, :password, :password_confirmation)
