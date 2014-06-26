@@ -13,4 +13,14 @@ Harmonize::Application.configure do
   config.assets.debug = true
   config.assets.raise_runtime_errors = true
   config.assets.digest = false
+
+  config.after_initialize do
+    Bullet.enable        = true
+    Bullet.alert         = true
+    Bullet.bullet_logger = true
+    Bullet.console       = true
+    Bullet.rails_logger  = true
+    Bullet.add_footer    = true
+    Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+  end
 end
