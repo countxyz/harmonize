@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
 
-  has_many :emails, as: :emailable,   dependent: :destroy
+  has_many :emails, as: :emailable, dependent: :destroy
+  has_many :tasks
 
   validates_uniqueness_of :handle
 

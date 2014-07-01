@@ -29,6 +29,10 @@ header {
       margin-bottom: 40px;
 
       li {
+
+        &.logged-in {
+          padding-right: 15px;
+        }
       
         a {
           position: relative;

@@ -2,7 +2,9 @@
   %h1 Users
 
   %nav
+    
     %ul
+      %li.logged-in= logged_in_format(@user)
       %li
         - admins_only do
           = link_to admin_root_path do

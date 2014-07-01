@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Pundit
 
   def full_title(page_title)
     base_title
@@ -26,5 +27,10 @@ module ApplicationHelper
     html = content_tag(:i, nil, html_options)
     html << " #{text}" unless text.blank?
     html.html_safe
+  end
+
+  def logged_in_format(user)
+    if current_user.admin? then "Logged in as Admin: #{user.handle}"
+    else "Logged in as User: #{user.handle}"; end
   end
 end
