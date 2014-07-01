@@ -8,7 +8,7 @@ module Features
       click_button 'Create Account'
     end
 
-    def sign_in_as(user)
+    def sign_in_as!(user)
       visit signin_path
       fill_in 'Username', with: user.handle
       fill_in 'Password', with: user.password
