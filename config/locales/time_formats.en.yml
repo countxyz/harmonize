@@ -1,5 +1,10 @@
 en:
-  time:
+  date:
+    formats:
+      short: '%b %d'
+      long: '%B %d, %Y'
+
+  datetime:
     formats:
       index_table: '%B %Y'
       profile: '%B %e, %Y %l:%M %P'

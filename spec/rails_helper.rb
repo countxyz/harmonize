@@ -9,8 +9,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+  config.order = :random
   config.use_transactional_fixtures = false
-  config.order = 'random'
   config.include FactoryGirl::Syntax::Methods
   config.include Formulaic::Dsl
   Capybara.default_driver = :selenium

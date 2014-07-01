@@ -1,4 +1,5 @@
 = simple_form_for @task, remote: true do |f|
+  %ul.errors
   .row
     .col-md-6.col-md-offset-1= f.input :description, as: :text
 
