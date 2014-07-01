@@ -1,9 +1,5 @@
-$('ul.errors').html('')
-- if @task.errors.any?
-  - @task.errors.full_messages.each do |message|
-    $('ul.errors').append($('
-    %li>
-    ').html("#{message.html_safe}"))
-- else
+= render 'shared/javascript/form_errors', klass: @task if @task.errors.any?
+
+- unless @task.errors.any?
   $('#sort-tasks').html("#{ j render @tasks }");
   $('#task-form').slideUp(350);

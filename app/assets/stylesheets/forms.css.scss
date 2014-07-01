@@ -1,1 +1,11 @@
 .new-contact { padding-right: 100px; }
+
+ul.errors {
+  list-style-type: circle;
+
+  li {
+    display: block;
+    font-weight: 700;
+    color: red;
+  }
+}

@@ -1,9 +1,5 @@
-$('ul.errors').html('')
-- if @event.errors.any?
-  - @event.errors.full_messages.each do |message|
-    $('ul.errors').append($('
-    %li>
-    ').html("#{message.html_safe}"))
-- else
+= render 'shared/javascript/form_errors', klass: @event if @event.errors.any?
+
+- unless @event.errors.any?
   $('#calendar').fullCalendar( 'refetchEvents' );
   $('#event-modal').modal('hide');

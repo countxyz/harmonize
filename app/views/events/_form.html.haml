@@ -1,4 +1,5 @@
 = simple_form_for @event, remote: true do |f|
+  %ul.errors
   = f.input :name
   = f.input :description, as: :text, input_html: { rows: 4, cols: 30 }
   = f.input :start,   as: :datetimepicker
@@ -9,7 +10,6 @@
     %span#hidden-delete{style: 'display:none;'}
       = link_to @event, remote: true, method: :delete,
         data: { confirm: 'Are you sure?' }, id: 'destroy' do
-        %button.btn.btn-sm.btn-danger
-          = icon('exclamation')
-          Delete
+        %button.btn.btn-sm.btn-danger= icon('exclamation', 'Delete')
+
     %span.submit-right= f.button :submit, 'Submit', class: 'btn-default' 
