@@ -4,7 +4,7 @@ en:
       short: '%b %d'
       long: '%B %d, %Y'
 
-  datetime:
+  time:
     formats:
       index_table: '%B %Y'
       profile: '%B %e, %Y %l:%M %P'
