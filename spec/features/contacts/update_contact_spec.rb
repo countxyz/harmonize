@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Update Contact' do
   before do
-    sign_in_as(create(:admin))
+    sign_in_as!(create(:admin))
     create(:contact)
     visit '/contacts'
     click_link 'Art'
@@ -13,13 +13,13 @@ feature 'Update Contact' do
     fill_in 'Notes', with: 'Update TPS reports'
 
     click_on 'Update Contact'
-    expect(page).to have_content('Contact updated')
+    expect(page).to have_content 'Contact updated'
   end
 
   scenario 'cannot update account with invalid attributes', js: true do
     fill_in 'First Name', with: ''
 
     click_on 'Update Contact'
-    expect(page).to have_content('Contact not updated')    
+    expect(page).to have_content 'Contact not updated'
   end
 end
