@@ -2,7 +2,7 @@ module Features
   module SessionHelpers
 
     def signup_with(handle, password)
-      visit signup_path
+      visit new_user_path
       fill_in 'Username', with: handle
       fill_in 'Password', with: password
       click_button 'Create Account'
