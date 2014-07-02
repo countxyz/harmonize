@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   private
 
     def require_signin!
@@ -29,5 +31,10 @@ class ApplicationController < ActionController::Base
         flash[:alert] = "Check ya' self before ya' wreck yo' self; Admins only!"
         redirect_to root_path
       end
+    end
+
+    def user_not_authorized
+      flash[:error] = 'You are not authorized to perform this action'
+      redirect_to(request.referrer || root_path)
     end
 end

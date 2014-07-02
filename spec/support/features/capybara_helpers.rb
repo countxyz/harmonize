@@ -7,7 +7,7 @@ module Features
     end
 
     def assert_link_for(text)
-      expect(page).to_not(have_css('a', text: text),
+      expect(page).to(have_css('a', text: text),
         "Expected to see the #{text.inspect} link, but did not.")
     end
   end

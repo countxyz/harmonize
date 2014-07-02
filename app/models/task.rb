@@ -14,7 +14,7 @@ class Task < ActiveRecord::Base
   end
 
   def self.overdue
-    where 'deadline IS NOT NULL AND deadline < ?', Time.zone.now.utc
+    where('deadline IS NOT NULL AND deadline < ?', Time.zone.now.utc)
   end
   
   def self.no_deadline

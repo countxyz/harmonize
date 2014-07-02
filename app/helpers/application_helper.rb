@@ -1,5 +1,4 @@
 module ApplicationHelper
-  include Pundit
 
   def full_title(page_title)
     base_title
@@ -29,8 +28,8 @@ module ApplicationHelper
     html.html_safe
   end
 
-  def logged_in_format(user)
-    if current_user.admin? then "Logged in as Admin: #{user.handle}"
-    else "Logged in as User: #{user.handle}"; end
+  def logged_in_format(current_user)
+    if current_user.admin? then "Logged in as Admin: #{current_user.handle}"
+    else "Logged in as User: #{current_user.handle}"; end
   end
 end

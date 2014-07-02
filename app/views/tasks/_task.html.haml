@@ -6,18 +6,22 @@
       %span.task-description= task.description
 
     .col-md-4.task-actions.col-md-offset-2
-      = link_to edit_task_path(task), remote: true do
-        %button.btn.btn-default.btn-xs= icon('pencil', 'Edit')
+      - admins_only do
+        = link_to edit_task_path(task), remote: true do
+          %button.btn.btn-default.btn-xs= icon('pencil', 'Edit')
 
-      = link_to task, remote: true, method: :delete,
-        data: { confirm: 'Are you sure?' } do
-        %button.btn.btn-default.btn-danger.btn-xs= icon('times', 'Delete')
+      - admins_only do
+        = link_to task, remote: true, method: :delete,
+          data: { confirm: 'Are you sure?' } do
+          %button.btn.btn-default.btn-danger.btn-xs= icon('times', 'Delete')
 
-      = link_to task_path(task), remote: true,
-        data: { params: { task: { completed: Time.now } }.to_param,
-        confirm: 'Set task as completed?' }, method: 'PATCH' do
-        %button.btn.btn-default.btn-success.btn-xs= icon('check', 'Complete')
+      - admins_only do
+        = link_to task_path(task), remote: true,
+          data: { params: { task: { completed: Time.now } }.to_param,
+          confirm: 'Set task as completed?' }, method: 'PATCH' do
+          %button.btn.btn-default.btn-success.btn-xs= icon('check', 'Complete')
 
   .row
     .col-md-9
       %span.deadline= task_datetime_format(task.deadline)
+    .col-md-2.col-md-offset-1 Created by: #{task.user.handle}

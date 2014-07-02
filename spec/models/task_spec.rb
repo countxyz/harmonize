@@ -1,19 +1,21 @@
 require 'rails_helper'
 
 describe Task do
+  let(:task)   { create(:task)   }
+  let(:task_2) { create(:task_2) }
+  let(:task_3) { create(:task_3) }
+  let(:task_4) { create(:task_4) }
+
   it 'falls into No Deadline catagory without a date' do
-    @no_deadline = create(:task)
-    expect(Task.no_deadline).to eq [@no_deadline]
+    expect(Task.no_deadline).to eq [task_3, task_4]
   end
 
   it 'sorts pending tasks' do
-    task_1, task_2, task_3 = create(:task), create(:task_2), create(:task_3)
-    expect(Task.pending).to eq [task_1, task_2]
+    expect(Task.pending).to eq [task, task_4]
   end
 
   it 'sorts completed tasks' do
-    task_2, task_3, task_4 = create(:task_2), create(:task_3), create(:task_4)
-    expect(Task.completed_task).to eq [task_3, task_4]
+    expect(Task.completed_task).to eq [task_2, task_3]
   end
 
   describe 'associations' do
