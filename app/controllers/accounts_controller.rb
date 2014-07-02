@@ -1,7 +1,8 @@
 class AccountsController < ApplicationController
   before_action :authorize_admin!, except: [:index, :show]
   before_action :require_signin!
-  before_action :set_account, only: [:show, :update, :destroy]
+  before_action :set_account,       only: [:show, :update, :destroy  ]
+  after_action  :verify_authorized, only: [:create, :update, :destroy]
 
   def index
     @accounts = Account.all
@@ -31,6 +32,7 @@ class AccountsController < ApplicationController
   end
 
   def update
+    authorize @account
     if @account.update_attributes(account_params)
       flash[:notice] = 'Account updated'
       redirect_to @account
@@ -42,6 +44,7 @@ class AccountsController < ApplicationController
   
   def destroy
     @account.destroy
+    authorize @task
     flash[:notice] = 'Account deleted'
     redirect_to @account
   end

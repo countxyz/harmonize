@@ -1,7 +1,8 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Account Info
-    = link_to 'edit', '#', class: 'edit-panel', id: 'ai-panel'
+    - admins_only do
+      = link_to 'edit', '#', class: 'edit-panel', id: 'ai-panel'
 
   = render 'account_info_table'
 
