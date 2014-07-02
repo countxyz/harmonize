@@ -1,7 +1,8 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Contact Info
-    = link_to 'edit', '#', class: 'edit-panel', id: 'ci-panel'
+    - admins_only do
+      = link_to 'edit', '#', class: 'edit-panel', id: 'ci-panel'
 
   = render 'contact_info_table'
 

@@ -4,6 +4,7 @@
       %p.navbar-text.navbar-left= @contact.name.upcase
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
+      - admins_only do
         %li.active
           = link_to 'Delete', @contact, method: :delete,
             data: { confirm: 'Are you sure?' }, id: 'delete-link'
