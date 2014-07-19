@@ -5,7 +5,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
 //= require gcal

@@ -1,34 +1,25 @@
-@import 'jquery.ui.all';
-@import 'fullcalendar';
 @import 'layout';
+@import 'header';
+@import 'borders';
 @import 'font-awesome';
 @import 'fonts';
-@import 'borders';
-@import 'header';
 @import 'forms';
 @import 'tables';
 @import 'buttons';
 @import 'notifications';
 @import 'tasks';
+@import 'jquery.ui.all';
 @import 'datetimepicker';
 @import 'modal';
+@import 'fullcalendar';
 @import 'main_pages';
 @import 'other';
-
-$link-color: #00A1CB;
-$btn-default-bg: #00A1CB;
-$btn-default-color: white;
-$table-border-color: black;
-$panel-default-heading-bg: #00A1CB;
-$panel-default-text: white;
-$table-bg-hover: #D9EDF7;
-$list-group-border: black;
-
+@import 'bootstrap_overrides';
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
 .container-fluid { padding: 0; }
 
-.panel-borderless { border: none; }
-
 abbr[title] { border-bottom: none; }
+
+.panel-borderless { border: none; }
