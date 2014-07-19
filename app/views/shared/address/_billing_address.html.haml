@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Billing Address
-    - admins_only do
+    - if policy(klass).update?
       = link_to 'edit', '#', class: 'edit-panel', id: 'ba-panel'
 
   = render 'shared/address/billing_address_table', klass: klass

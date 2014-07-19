@@ -5,6 +5,6 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li.active
-          = link_to_if(policy(klass).destroy?, 'Delete', klass,
-            method: :delete, data: { confirm: 'Are you sure?' },
-            id: 'delete-link')
+          - if policy(klass).destroy?
+            = link_to 'Delete', klass, method: :delete,
+              data: { confirm: 'Are you sure?' }, id: 'delete-link'

@@ -6,7 +6,7 @@
     %h2 Pending Tasks
   .col-md-5.col-md-offset-2
     .task-actions
-      - admins_only do
+      - if current_user.admin?
         = link_to new_task_path, remote: true do
           %button.btn.btn-default= icon('plus', 'New')
 

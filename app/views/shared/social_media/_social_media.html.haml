@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Social Media
-    - admins_only do
+    - if policy(klass).update?
       = link_to 'edit', '#', class: 'edit-panel', id: 'sm-panel'
 
   = render 'shared/social_media/social_media_table', klass: klass

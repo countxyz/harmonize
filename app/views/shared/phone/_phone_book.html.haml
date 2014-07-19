@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Phone Book
-    - admins_only do
+    - if policy(klass).update?
       = link_to 'edit', '#', class: 'edit-panel', id: 'pb-panel'
   
   = render 'shared/phone/phone_table',     klass: klass

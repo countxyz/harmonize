@@ -5,6 +5,6 @@
     
     %ul
       %li
-        - admins_only do
+        - if current_user.admin?
           = link_to admin_root_path do
             %button.header-btn.btn-1.btn-1c= icon('eye', 'Admin')

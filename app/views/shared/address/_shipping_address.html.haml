@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Shipping Address
-    - admins_only do
+    - if policy(klass).update?
       = link_to 'edit', '#', class: 'edit-panel', id: 'sa-panel'
 
   = render 'shared/address/shipping_address_table', klass: klass

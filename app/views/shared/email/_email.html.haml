@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Emails
-    - admins_only do
+    - if policy(klass).update?
       = link_to 'add', '#', class: 'edit-panel', id: 'em-panel'
 
   = render 'shared/email/email_table', klass: klass

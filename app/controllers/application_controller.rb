@@ -19,11 +19,6 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
-    def admins_only(&block)
-      block.call if current_user.try(:admin?)
-    end
-    helper_method :admins_only
-
     def authorize_admin!
       require_signin!
 

@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
-
+    
     respond_to do |format|
       format.html
       format.csv { send_data @accounts.to_csv }
