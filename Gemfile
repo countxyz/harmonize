@@ -4,6 +4,7 @@ ruby '2.1.0'
 gem 'rails', '~> 4.1.1'
 gem 'pg', '~> 0.17.1'
 
+gem 'i18n', '0.6.9'
 gem 'opal-rails', '~> 0.6.3'
 gem 'turbolinks', '~> 2.2.2'
 gem 'coffee-rails', '~> 4.0.1'
