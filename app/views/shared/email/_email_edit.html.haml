@@ -4,5 +4,5 @@
       = render 'shared/email/email_form', builder: builder
 
     %p.text-right
-      %button.btn.btn-default#close-em Close
+      = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-em'
       = f.button :submit, 'Update Emails', class: 'btn-default'

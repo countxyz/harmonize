@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Contact Info
-    - admins_only do
+    - if policy(@contact).update?
       = link_to 'edit', '#', class: 'edit-panel', id: 'ci-panel'
 
   = render 'contact_info_table'
@@ -9,6 +9,7 @@
 %section#edit-ci-form{ style: 'display:none;' }
   = simple_form_for @contact do |f|
     = render 'contact_form', f: f
+
     %p.text-right
-      %button.btn.btn-default#close-ci Close
-      = f.button :submit, class: 'btn-default'
+      = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-ci'
+      = f.button :submit,      class: 'btn-default'

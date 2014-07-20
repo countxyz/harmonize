@@ -4,5 +4,5 @@
       = render 'shared/address/address_form', builder: builder
 
     %p.text-right
-      %button.btn.btn-default#close-ba Close
+      = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-ba'
       = f.button :submit, 'Update Billing Address', class: 'btn-default'

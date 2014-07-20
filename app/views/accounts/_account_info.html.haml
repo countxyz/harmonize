@@ -1,7 +1,7 @@
 .panel.panel-default.panel-borderless
   .panel-heading
     Account Info
-    - admins_only do
+    - if policy(@account).update?
       = link_to 'edit', '#', class: 'edit-panel', id: 'ai-panel'
 
   = render 'account_info_table'
@@ -9,6 +9,7 @@
 %section{ style: 'display:none;', id: 'edit-ai-form' }
   = simple_form_for @account do |f|
     = render 'account_form', f: f
+
     %p.text-right
-      %button.btn.btn-default#close-ai Close
+      = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-ai'
       = f.button :submit, class: 'btn-default'
