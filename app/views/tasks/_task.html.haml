@@ -6,16 +6,15 @@
       %span.task-description= task.description
 
     .col-md-4.task-actions.col-md-offset-2
-      - admins_only do
+      - if current_user.admin?
+
         = link_to edit_task_path(task), remote: true do
           %button.btn.btn-default.btn-xs= icon('pencil', 'Edit')
 
-      - admins_only do
         = link_to task, remote: true, method: :delete,
           data: { confirm: 'Are you sure?' } do
           %button.btn.btn-default.btn-danger.btn-xs= icon('times', 'Delete')
 
-      - admins_only do
         = link_to task_path(task), remote: true,
           data: { params: { task: { completed: Time.now } }.to_param,
           confirm: 'Set task as completed?' }, method: 'PATCH' do
