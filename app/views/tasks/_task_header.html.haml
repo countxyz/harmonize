@@ -10,5 +10,6 @@
         = link_to tasks_path do
           %button.header-btn.btn-1.btn-1c= icon('tasks', 'Pending')
       %li
-        = link_to completed_tasks_path do
-          %button.header-btn.btn-1.btn-1c= icon('archive', 'Completed')
+        - if current_user.admin?
+          = link_to completed_tasks_path do
+            %button.header-btn.btn-1.btn-1c= icon('archive', 'Completed')

@@ -27,7 +27,6 @@ class TasksController < ApplicationController
 
   def completed
     @tasks = Task.completed_task
-    authorize @task
   end
 
   private
