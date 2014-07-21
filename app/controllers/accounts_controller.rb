@@ -6,10 +6,15 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
-    
+    pdf = AccountListPdf.new(@accounts)
+
     respond_to do |format|
       format.html
       format.csv { send_data @accounts.to_csv }
+      format.pdf do
+        send_data pdf.render, filename: 'account_list.pdf',
+          type: 'application/pdf', disposition: 'inline'
+      end
     end
   end
 

@@ -1,29 +1,22 @@
-class AccountListPdf < Prawn::Document
+class AccountListPdf < PdfReport
 
   def initialize(accounts)
     super()
     @accounts = accounts
-    header
+    header 'Account List'
+    table_headers
     table_content
   end
 
-  def header
-    text "Account List", size: 18, style: :bold, align: :center
-    move_down 25
+  def table_headers
+    [['Account', 'Website', 'Location', 'Created']]
   end
 
-  def table_content
-    table table_data,
-      cell_style: { size: 9 },
-      header: true,
-      row_colors: ['DDDDDD', 'FFFFFF'],
-      column_widths: [100, 125, 125, 70, 70]
-  end
-
-  def table_data
-    [['Account', 'Website', 'Email', 'Office Phone', 'Fax']] +
-    @table_data ||= @accounts.map do |account|
-      [account.name, account.website]
+  def formatted_data
+    @accounts.map do |account|
+      [account.name, data_format(account.website),
+        data_format(account.company_location),
+          I18n.l(account.created_at, format: :index_table)]
     end
   end
 end

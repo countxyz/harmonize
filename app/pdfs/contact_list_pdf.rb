@@ -1,29 +1,21 @@
-class ContactListPdf < Prawn::Document
+class ContactListPdf < PdfReport
   
   def initialize(contacts)
     super()
     @contacts = contacts
-    header
+    header 'Contact List'
+    table_headers
     table_content
   end
 
-  def header
-    text "Contact List", size: 18, style: :bold, align: :center
-    move_down 25
+  def table_headers
+    [['Contact Name', 'Company', 'Office Phone', 'Mobile']]
   end
 
-  def table_content
-    table table_data,
-      cell_style: { size: 9 },
-      header: true,
-      row_colors: ['DDDDDD', 'FFFFFF'],
-      column_widths: [100, 125, 125, 70, 70]
-  end
-
-  def table_data
-    [['Contact Name', 'Company']] +
-    @table_data ||= @contacts.map do |contact|
-      [contact.name, contact.company]
+  def formatted_data
+    @contacts.map do |contact|
+      [contact.name, data_format(contact.company),
+        phone_format(contact.phone.office), phone_format(contact.phone.mobile)]
     end
   end
 end
