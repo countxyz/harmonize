@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :authorize_admin!, except: [:index, :show]
   before_action :require_signin!
   before_action :set_contact,       only: [:show, :update, :destroy]
   after_action  :verify_authorized, only: [:create, :update, :destroy]

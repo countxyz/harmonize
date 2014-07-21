@@ -37,5 +37,5 @@ class ProfileUpdater
 end
 
 click_edit = ProfileUpdater.new
-css_ids = ['ai', 'pb', 'em', 'ba', 'sa', 'sm']
+css_ids = ['ai', 'ci', 'pb', 'em', 'ba', 'sa', 'sm']
 css_ids.each { |css_id| click_edit.update_profile(css_id) }
