@@ -1,7 +1,8 @@
 class Account < ActiveRecord::Base
   include Formatable
   include Nullable
-  include Sluggable
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
 
   belongs_to :user
 

@@ -32,12 +32,30 @@ describe User do
   end
 
   describe 'authentication' do
-    it 'authenticates with a correct password' do
-      expect(build(:user).authenticate('password')).to be
+    context 'correct password submitted' do
+      it 'authenticates successfully' do
+        expect(build(:user).authenticate('password')).to be
+      end
     end
 
-    it 'does not authenticate with an incorrect password' do
-      expect(build(:user).authenticate('passwordy')).to_not be
+    context 'incorrect password submitted' do
+      it 'does not authenticate' do
+        expect(build(:user).authenticate('passwordy')).to_not be
+      end
+    end
+  end
+
+  describe 'name' do
+    context 'when names are provided' do
+      it 'first and last name joined as string' do
+        expect(build(:user, first_name: 'a', last_name: 'b').user_name).to eq 'a b'
+      end
+    end
+
+    context 'when names are not provided' do
+      it "formats 'N/A'" do
+        expect(build(:user).user_name).to eq 'N/A'
+      end
     end
   end
 end

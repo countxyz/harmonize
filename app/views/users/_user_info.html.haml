@@ -1,0 +1,20 @@
+.col-md-3
+  %ul.list-group
+    %li.list-group-item.text-muted Info
+
+    %li.list-group-item.text-right
+      %span.pull-left
+        Name
+      = @user.name
+
+    %li.list-group-item.text-right
+      %span.pull-left
+        Admin
+      = @user.admin
+
+    %li.list-group-item.text-right
+      %span.pull-left
+        Created
+      = l @user.created_at, format: :profile
+
+= render 'user_stats'
