@@ -1,12 +1,13 @@
 - content_for :page_header do
   %h1 About
 
-  %nav
-    %ul
-      %li
-        - if current_user.admin?
-          = link_to admin_root_path do
-            %button.header-btn.btn-1.btn-1c= icon('eye', 'Admin')
-      %li
-        = link_to root_path do
-          %button.header-btn.btn-1.btn-1c= icon('home', 'Home')
+  - unless current_user.nil?
+    %nav
+      %ul
+        %li
+          - if current_user.admin?
+            = link_to admin_root_path do
+              %button.header-btn.btn-1.btn-1c= icon('eye', 'Admin')
+        %li
+          = link_to root_path do
+            %button.header-btn.btn-1.btn-1c= icon('home', 'Home')
