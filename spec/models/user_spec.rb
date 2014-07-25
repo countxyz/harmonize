@@ -48,13 +48,14 @@ describe User do
   describe 'name' do
     context 'when names are provided' do
       it 'first and last name joined as string' do
-        expect(build(:user, first_name: 'a', last_name: 'b').user_name).to eq 'a b'
+        expect(build(:user,
+          first_name: 'a', last_name: 'b').formatted_name).to eq 'a b'
       end
     end
 
     context 'when names are not provided' do
       it "formats 'N/A'" do
-        expect(build(:user).user_name).to eq 'N/A'
+        expect(build(:user).formatted_name).to eq 'N/A'
       end
     end
   end

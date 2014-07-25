@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates_length_of :handle,                 in: 3..20
   validates_length_of :first_name, :last_name, maximum: 30
 
-  def user_name
+  def formatted_name
     if both_names_empty? then 'N/A'
     else [first_name, last_name].join(' '); end
   end
