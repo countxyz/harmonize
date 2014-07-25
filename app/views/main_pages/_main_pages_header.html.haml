@@ -1,5 +1,5 @@
 - content_for :page_header do
-  %h1 Events
+  %h1 About
 
   %nav
     %ul
@@ -10,6 +10,3 @@
       %li
         = link_to root_path do
           %button.header-btn.btn-1.btn-1c= icon('home', 'Home')
-      %li
-        = link_to new_event_path, remote: true do
-          %button.header-btn.btn-1.btn-1c= icon('plus', 'New')
