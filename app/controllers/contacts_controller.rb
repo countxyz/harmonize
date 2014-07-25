@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
   before_action :authorize_admin!, except: [:index, :show]
   before_action :require_signin!
   before_action :set_contact,       only: [:show, :update, :destroy]
+  before_action :authorize_contact, only: [:create, :update, :destroy]
   after_action  :verify_authorized, only: [:create, :update, :destroy]
 
   def index
@@ -25,7 +26,6 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.user = current_user
-    authorize @contact
 
     if @contact.save
       flash[:notice] = 'Contact created'
@@ -37,7 +37,6 @@ class ContactsController < ApplicationController
   end
 
   def update
-    authorize @contact
     if @contact.update_attributes(contact_params)
       flash[:notice] = 'Contact updated'
       redirect_to @contact
@@ -48,7 +47,6 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    authorize @contact
     @contact.destroy
     flash[:notice] = 'Contact deleted'
     redirect_to @contact
@@ -58,6 +56,10 @@ class ContactsController < ApplicationController
 
     def set_contact
       @contact = Contact.find(params[:id])
+    end
+
+    def authorize_contact
+      authorize @contact
     end
 
     def contact_params

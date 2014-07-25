@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :require_signin!
   before_action :all_tasks,         only: [:index, :create, :update, :destroy]
   before_action :set_task,          only: [:edit,  :update, :destroy         ]
+  before_action :authorize_task,    only: [:create, :update, :destroy        ]
   after_action  :verify_authorized, only: [:create, :update, :destroy        ]
   respond_to    :html, :js
 
@@ -12,17 +13,14 @@ class TasksController < ApplicationController
   def create
     @task      = Task.create(task_params)
     @task.user = current_user
-    authorize @task
   end
 
   def update
     @task.update_attributes(task_params)
-    authorize @task
   end
 
   def destroy
     @task.destroy
-    authorize @task
   end
 
   def completed
@@ -37,6 +35,10 @@ class TasksController < ApplicationController
 
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def authorize_task
+      authorize @task
     end
 
     def task_params
