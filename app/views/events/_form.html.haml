@@ -14,5 +14,6 @@
           %button.btn.btn-sm.btn-danger= icon('exclamation', 'Delete')
 
     %span.submit-right
-      - if policy(@event).update?
-        = f.button :submit, 'Submit', class: 'btn-default' 
+      = hidden_field_tag 'event[user_id]', current_user.id
+      - if current_user.admin?
+        = f.button :submit, 'Submit', class: 'btn-default'

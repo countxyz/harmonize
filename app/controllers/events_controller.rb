@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
+  before_action :require_signin!
   before_action :set_event,         only: [:edit, :update, :delete, :destroy]
-  before_action :authorize_event,   only: [:create, :update, :destroy]
   after_action  :verify_authorized, only: [:create, :update, :destroy]
   respond_to    :html, :js, :json
 
@@ -13,16 +13,19 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
+    @event      = Event.create(event_params)
     @event.user = current_user
+    authorize @event
   end
 
   def update
     @event.update_attributes(event_params)
+    authorize @event
   end
 
   def destroy 
     @event.destroy
+    authorize @event
   end
 
   private
@@ -31,12 +34,8 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
-    def authorize_event
-      authorize @event
-    end
-
     def event_params
-      params.require(:event).permit(:name, :description, :start, :finish,
-        :all_day)
+      params.require(:event).permit(:id, :name, :description, :start, :finish,
+        :all_day, :user_id)
     end
 end

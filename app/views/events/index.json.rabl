@@ -1,5 +1,5 @@
 collection @events
-attributes :id, :name, :description, :start, :finish, :all_day
+attributes :id, :name, :description, :start, :finish, :all_day, :user_id
 
 node(:title)   { |event| event.name                 }
 node(:start)   { |event| event.start.to_s(:rfc822)  }
