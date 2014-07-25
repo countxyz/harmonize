@@ -11,6 +11,10 @@ feature 'Hidden Links' do
       visit '/tasks'
     end
 
+    scenario 'cannot see Admin button when viewing tasks', js: true do
+      assert_no_link_for 'ADMIN'
+    end
+
     scenario 'cannot see New button when viewing tasks', js: true do
       assert_no_link_for 'New'
     end
@@ -33,6 +37,10 @@ feature 'Hidden Links' do
       sign_in_as!(admin)
       create(:task)
       visit '/tasks'
+    end
+
+    scenario 'can see Admin button when viewing tasks', js: true do
+      assert_link_for 'ADMIN'
     end
 
     scenario 'can see New button when viewing tasks', js: true do

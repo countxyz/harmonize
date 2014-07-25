@@ -9,7 +9,12 @@ feature 'Hidden Links' do
 
     scenario 'cannot see new button when viewing contacts', js: true do
       visit '/accounts'
-      assert_no_link_for 'New'
+      assert_no_link_for 'NEW'
+    end
+
+    scenario 'cannot see admin button when viewing contacts', js: true do
+      visit '/accounts'
+      assert_no_link_for 'ADMIN'
     end
 
     scenario 'cannot see the Delete button when viewing a contact', js: true do
@@ -35,6 +40,11 @@ feature 'Hidden Links' do
     scenario 'can see new button when viewing contacts', js: true do
       visit '/contacts'
       assert_link_for 'NEW'
+    end
+
+    scenario 'can see admin button when viewing contacts', js: true do
+      visit '/contacts'
+      assert_link_for 'ADMIN'
     end
 
     scenario 'can see the Delete button when viewing a contact', js: true do
