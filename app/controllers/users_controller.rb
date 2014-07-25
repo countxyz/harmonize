@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_signin!, except: :new
+  before_action :set_user, only: [:edit, :update, :show]
 
   def new
     @user = User.new
@@ -18,13 +19,24 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = current_user
+  def update
+    if @user.update(user_params)
+      flash[:notice] = 'User updated'
+      redirect_to admin_users_path
+    else
+      flash[:alert] = 'User not updated'
+      render action: 'edit'
+    end
   end
 
   private
 
+    def set_user
+      @user = current_user
+    end
+
     def user_params
-      params.require(:user).permit(:handle, :password, :password_confirmation)
+      params.require(:user).permit(:handle, :password, :password_confirmation,
+        :avatar)
     end
 end

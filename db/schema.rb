@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725165625) do
+ActiveRecord::Schema.define(version: 20140725183856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,19 +83,6 @@ ActiveRecord::Schema.define(version: 20140725165625) do
   add_index "events", ["name"], name: "index_events_on_name", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
-  create_table "images", force: true do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-  end
-
-  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
-
   create_table "phones", force: true do |t|
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -138,14 +125,18 @@ ActiveRecord::Schema.define(version: 20140725165625) do
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "handle",                          null: false
-    t.string   "first_name",      default: "",    null: false
-    t.string   "last_name",       default: "",    null: false
-    t.string   "password_digest",                 null: false
-    t.boolean  "admin",           default: false, null: false
-    t.string   "slug",                            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "handle",                              null: false
+    t.string   "first_name",          default: "",    null: false
+    t.string   "last_name",           default: "",    null: false
+    t.string   "password_digest",                     null: false
+    t.boolean  "admin",               default: false, null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "slug",                                null: false
   end
 
   add_index "users", ["handle"], name: "index_users_on_handle", unique: true, using: :btree
