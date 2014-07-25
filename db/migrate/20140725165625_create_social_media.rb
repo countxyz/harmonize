@@ -11,7 +11,6 @@ class CreateSocialMedia < ActiveRecord::Migration
       t.string :linkedin,    null: false, default: ''
       t.string :facebook,    null: false, default: ''
     end
-    add_reference :social_media, :sociable, null: false, polymorphic: true,
-                                                         index:       true
+    add_reference :social_media, :sociable, polymorphic: true, index: true
   end
 end

@@ -9,6 +9,6 @@ class CreatePhones < ActiveRecord::Migration
       t.string  :home,           null: false, default: ''
       t.string  :toll,           null: false, default: ''
     end
-    add_reference :phones, :phoneable, null: false, polymorphic: true, index: true
+    add_reference :phones, :phoneable, polymorphic: true, index: true
   end
 end

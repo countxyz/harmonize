@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701222005) do
+ActiveRecord::Schema.define(version: 20140725165625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,19 @@ ActiveRecord::Schema.define(version: 20140701222005) do
   add_index "events", ["name"], name: "index_events_on_name", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
+  create_table "images", force: true do |t|
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+  end
+
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
+
   create_table "phones", force: true do |t|
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -91,8 +104,8 @@ ActiveRecord::Schema.define(version: 20140701222005) do
     t.string   "fax",            default: "", null: false
     t.string   "home",           default: "", null: false
     t.string   "toll",           default: "", null: false
-    t.integer  "phoneable_id",                null: false
-    t.string   "phoneable_type",              null: false
+    t.integer  "phoneable_id"
+    t.string   "phoneable_type"
   end
 
   add_index "phones", ["phoneable_id", "phoneable_type"], name: "index_phones_on_phoneable_id_and_phoneable_type", using: :btree
@@ -107,8 +120,8 @@ ActiveRecord::Schema.define(version: 20140701222005) do
     t.string   "coderwall",     default: "", null: false
     t.string   "linkedin",      default: "", null: false
     t.string   "facebook",      default: "", null: false
-    t.integer  "sociable_id",                null: false
-    t.string   "sociable_type",              null: false
+    t.integer  "sociable_id"
+    t.string   "sociable_type"
   end
 
   add_index "social_media", ["sociable_id", "sociable_type"], name: "index_social_media_on_sociable_id_and_sociable_type", using: :btree
