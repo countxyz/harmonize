@@ -3,4 +3,4 @@
     .modal-header
       %button#x-close(type="button" data-dismiss="modal" aria-hidden="true") x
       %h2.modal-title Events
-    .modal-body= render 'form'
+    .modal-body= render 'form' if current_user.admin?

@@ -11,5 +11,6 @@
         = link_to root_path do
           %button.header-btn.btn-1.btn-1c= icon('home', 'Home')
       %li
-        = link_to new_event_path, remote: true do
-          %button.header-btn.btn-1.btn-1c= icon('plus', 'New')
+        - if current_user.admin?
+          = link_to new_event_path, remote: true do
+            %button.header-btn.btn-1.btn-1c= icon('plus', 'New')

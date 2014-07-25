@@ -8,8 +8,11 @@
 
   .modal-footer
     %span#hidden-delete{style: 'display:none;'}
-      = link_to @event, remote: true, method: :delete,
-        data: { confirm: 'Are you sure?' }, id: 'destroy' do
-        %button.btn.btn-sm.btn-danger= icon('exclamation', 'Delete')
+      - if policy(@event).destroy?
+        = link_to @event, remote: true, method: :delete,
+          data: { confirm: 'Are you sure?' }, id: 'destroy' do
+          %button.btn.btn-sm.btn-danger= icon('exclamation', 'Delete')
 
-    %span.submit-right= f.button :submit, 'Submit', class: 'btn-default' 
+    %span.submit-right
+      - if policy(@event).update?
+        = f.button :submit, 'Submit', class: 'btn-default' 
