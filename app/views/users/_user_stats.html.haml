@@ -1,0 +1,13 @@
+.col-md-3
+  %ul.list-group
+    %li.list-group-item.text-muted Stats
+
+    %li.list-group-item.text-right
+      %span.pull-left
+        Accounts
+      = @user.accounts.count
+
+    %li.list-group-item.text-right
+      %span.pull-left
+        Contacts
+      = @user.contacts.count

@@ -1,0 +1,8 @@
+.col-md-8
+  %h2= @user.handle
+
+.col-md-4
+  - if @user.avatar.updated_at.nil?
+    = image_tag 'avatar/LulzSec.jpg'
+  - else
+    = image_tag @user.avatar.url(:regular), class: 'img-responsive'

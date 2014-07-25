@@ -1,12 +1,17 @@
 - provide(:title, 'New Account')
+
 - content_for :page_header do
   %h1 New User
 
 .row
   .col-md-3
     = simple_form_for @user do |f|
+
       %legend.bold_title New User Account
+
       = f.input :handle, label: 'Username'
       = f.input :password
       = f.input :password_confirmation, label: 'Password Confirmation'
-      %p.text-right= f.button :submit, 'Create Account', class: 'btn-default'
+
+      %p.text-right
+        = f.button :submit, 'Create Account', class: 'btn-default'
