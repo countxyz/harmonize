@@ -2,6 +2,14 @@ require 'rails_helper'
 
 describe User do
 
+  describe 'associations' do
+    it { should have_many(:emails).dependent(:destroy)   }
+    it { should have_many(:accounts).dependent(:destroy) }
+    it { should have_many(:contacts).dependent(:destroy) }
+    it { should have_many(:events).dependent(:destroy)   }
+    it { should have_many(:tasks).dependent(:destroy)    }
+  end
+
   describe 'uniqueness' do
     it { should validate_uniqueness_of(:handle) }
   end

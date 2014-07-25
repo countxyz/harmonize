@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :emails, as: :emailable, dependent: :destroy
-  has_many :events,                 dependent: :destroy
-  has_many :tasks,                  dependent: :destroy
+  
+  has_many :accounts, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :events,   dependent: :destroy
+  has_many :tasks,    dependent: :destroy
 
   validates_uniqueness_of :handle
 
