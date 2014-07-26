@@ -19,7 +19,7 @@ Harmonize::Application.routes.draw do
   end
 
   namespace :admin do
-    root 'base#index'
+    root 'dashboard#index'
 
     resources :users
   end
