@@ -1,1 +1,13 @@
 = render 'dashboard_header'
+
+%h2 Accounts
+
+.row
+  .col-md-6
+    %p Total:  #{@accounts.count}
+    %p Active: #{@accounts.inactive_total} / #{@accounts.active_total}
+
+  .col-md-6.col-md-pull-3
+    = pie_chart [['Active', @accounts.active_total],
+      ['Inactive', @accounts.inactive_total]], height: '300px',
+      library: {tooltip: { pointFormat: '{point.percentage:.1f}%'}}
