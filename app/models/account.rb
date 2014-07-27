@@ -34,6 +34,10 @@ class Account < ActiveRecord::Base
     where('active is false').count
   end
 
+  def self.recent_first
+    Account.order(created_at: :desc)
+  end
+
   def company_location
     self.billing_address.location
   end

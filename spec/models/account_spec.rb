@@ -30,14 +30,23 @@ describe Account do
 
     describe 'active accounts' do
       before { create_list(:account, 3, active: true) }
+
       it { expect(Account.active_total).to eq 3       }
       it { expect(Account.active_total).to_not eq 7   }
     end
 
     describe 'inactive accounts' do
       before { create_list(:account, 2, active: false) }
+
       it { expect(Account.inactive_total).to eq 2      }
       it { expect(Account.inactive_total).to_not eq 7  }
     end
+  end
+
+  describe 'default list order' do
+    let(:account) { create(:account) }
+    let(:older_account) { create(:account, created_at: 3.days.ago) }
+
+    it { expect(Account.recent_first).to eq [account, older_account] }
   end
 end
