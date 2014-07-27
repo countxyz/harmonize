@@ -1,4 +1,4 @@
-%tr{ class: ('danger' unless account.active?) }
+%tr{ class: (inactive_danger_tr(account)) }
   %td= account_counter + 1
   %th.bold_name{ scope: 'row' }= link_to account.name, account
   %td= data_format(account.website)

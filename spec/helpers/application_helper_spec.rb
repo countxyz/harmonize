@@ -42,4 +42,11 @@ describe ApplicationHelper do
       expect(helper.status_format inactive_status).to eq 'Inactive'
     end
   end
+
+  describe 'Table Row with Inactive Account' do
+    it "has a 'danger' class attribute" do
+      account = Account.new(active: false)
+      expect(helper.inactive_danger_tr(account)).to eq 'danger'
+    end
+  end
 end

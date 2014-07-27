@@ -21,6 +21,6 @@
     %tr
       %th Last Updated
       %td= l @account.updated_at, format: :profile
-    %tr{ class: ('danger' unless @account.active?) }
+    %tr{ class: (inactive_danger_tr(@account)) }
       %th Status
       %td= status_format(@account.active)
