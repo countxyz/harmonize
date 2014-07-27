@@ -62,7 +62,7 @@ class AccountsController < ApplicationController
     end
 
     def account_params
-      params.require(:account).permit(:name, :website, :notes,
+      params.require(:account).permit(:name, :website, :notes, :active,
 
         billing_address_attributes:
           [:id, :street_1, :street_2, :city, :state, :postal_code, :country, :type],

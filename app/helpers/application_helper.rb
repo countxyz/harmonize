@@ -19,7 +19,11 @@ module ApplicationHelper
   end
 
   def status_format(status)
-    status == true ? 'Active' : 'Inactive'
+    if status == true
+      'Active'
+    else
+      'Inactive'
+    end
   end
 
   def icon(icon, text="", html_options={})
