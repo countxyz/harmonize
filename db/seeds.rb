@@ -44,5 +44,6 @@ Address.destroy_all
 
   Address.create!(street_1: composed_street_address, city: city_sample,
     state: Faker::AddressUS.state_abbr, postal_code: Faker::AddressUS.zip_code,
-    country: 'US', type: 'BillingAddress', addressable_id: account.id)
+    country: 'US', type: 'BillingAddress', addressable_type: 'Account',
+    addressable_id: account.id)
 end
