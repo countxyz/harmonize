@@ -23,12 +23,23 @@ describe Address do
     it { should ensure_length_of(:street_2).is_at_most(100)            }
     it { should ensure_length_of(:city).is_at_most(50)                 }
     it { should ensure_length_of(:state).is_equal_to(2)                }
+    it { should ensure_length_of(:postal_code).is_equal_to(5)          }
     it { should ensure_length_of(:country).is_at_most(30)              }
     it { should ensure_length_of(:type).is_at_least(14).is_at_most(15) }
   end
 
-  describe 'numericality' do
-    it { should validate_numericality_of(:postal_code).only_integer }
+  describe 'format' do
+    context 'state' do
+      it { should allow_value('ny').for(:state)      }
+      it { should_not allow_value('nyc').for(:state) }
+      it { should_not allow_value('12').for(:state)  }
+    end
+
+    context 'postal_code' do
+      it { should allow_value('55555').for(:postal_code)      }
+      it { should_not allow_value('4444').for(:postal_code)   }
+      it { should_not allow_value('666666').for(:postal_code) }
+    end
   end
 
   describe 'location' do
