@@ -9,7 +9,8 @@ class CreateAccounts < ActiveRecord::Migration
       t.boolean :active,  null: false, default: true
       t.string  :slug,    null: false      
     end
-    add_reference :accounts, :user, index: true
-    add_index     :accounts, :slug, unique: true
+    add_reference :accounts, :user,       index: true
+    add_index     :accounts, :created_at, order: :desc
+    add_index     :accounts, :slug,       unique: true
   end
 end
