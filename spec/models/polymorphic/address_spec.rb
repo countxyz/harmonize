@@ -19,13 +19,13 @@ describe Address do
   end
 
   describe 'length' do
-    it { should ensure_length_of(:street_1).is_at_most(100)            }
-    it { should ensure_length_of(:street_2).is_at_most(100)            }
-    it { should ensure_length_of(:city).is_at_most(50)                 }
-    it { should ensure_length_of(:state).is_equal_to(2)                }
-    it { should ensure_length_of(:postal_code).is_equal_to(5)          }
-    it { should ensure_length_of(:country).is_at_most(30)              }
-    it { should ensure_length_of(:type).is_at_least(14).is_at_most(15) }
+    it { should ensure_length_of(:street_1).is_at_most(100)                  }
+    it { should ensure_length_of(:street_2).is_at_most(100)                  }
+    it { should ensure_length_of(:city).is_at_most(50)                       }
+    it { should ensure_length_of(:state).is_equal_to(2)                      }
+    it { should ensure_length_of(:postal_code).is_at_least(5).is_at_most(10) }
+    it { should ensure_length_of(:country).is_at_most(30)                    }
+    it { should ensure_length_of(:type).is_at_least(14).is_at_most(15)       }
   end
 
   describe 'format' do
@@ -36,9 +36,12 @@ describe Address do
     end
 
     context 'postal_code' do
-      it { should allow_value('55555').for(:postal_code)      }
-      it { should_not allow_value('4444').for(:postal_code)   }
-      it { should_not allow_value('666666').for(:postal_code) }
+      it { should allow_value('12345').for(:postal_code)           }
+      it { should allow_value('12345-6789').for(:postal_code)      }
+      it { should_not allow_value('1234').for(:postal_code)        }
+      it { should_not allow_value('123456').for(:postal_code)      }
+      it { should_not allow_value('1234-5678').for(:postal_code)   }
+      it { should_not allow_value('123456-7890').for(:postal_code) }
     end
   end
 
