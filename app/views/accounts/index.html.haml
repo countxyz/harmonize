@@ -1,16 +1,25 @@
 - provide(:title, 'Accounts')
 = render 'account_header'
 
-.col-md-10
-  .panel.panel-default
-    .panel-heading Accounts
-    .panel-body= render 'shared/index_panel', url: accounts_path
+.row
+  .col-md-10
+    .panel.panel-default
+      .panel-heading
+        Accounts
+        %span.pull-right
+          = page_entries_info @accounts
+      .panel-body
+        = render 'shared/index_panel', url: accounts_path
 
-    %table.table.table-hover
-      %thead
-        %tr
-          %th{ scope: 'col' } Account
-          %th{ scope: 'col' } Website
-          %th{ scope: 'col' } Location
-          %th{ scope: 'col' } Created
-      %tbody= render @accounts
+      %table.table.table-hover
+        %thead
+          %tr
+            %th{ scope: 'col' } #
+            %th{ scope: 'col' } Account
+            %th{ scope: 'col' } Website
+            %th{ scope: 'col' } Location
+            %th{ scope: 'col' } Created
+        %tbody= render @accounts
+
+.row
+  .col-md-4.col-md-push-5= will_paginate @accounts

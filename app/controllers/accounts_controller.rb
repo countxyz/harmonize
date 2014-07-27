@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   after_action  :verify_authorized, only: [:create, :update, :destroy]
 
   def index
-    @accounts = Account.all
+    @accounts = Account.all.paginate(page: params[:page], per_page: 10)
     pdf = AccountListPdf.new(@accounts)
 
     respond_to do |format|

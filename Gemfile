@@ -7,6 +7,7 @@ gem 'puma', '~> 2.9.0'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'chartkick', '~> 1.3.2'
 gem 'coffee-rails', '~> 4.0.1'
@@ -28,6 +29,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form', '~> 3.1.0.rc1'
 gem 'turbolinks', '~> 2.2.2'
 gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate', '~> 3.0.7'
 
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
