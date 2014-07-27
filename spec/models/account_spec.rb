@@ -25,4 +25,19 @@ describe Account do
     it { should ensure_length_of(:website).is_at_least(6).is_at_most(50) }
     it { should ensure_length_of(:notes).is_at_most(1000)                }
   end
+
+  describe 'account statistics' do
+
+    describe 'active accounts' do
+      before { create_list(:account, 3, active: true) }
+      it { expect(Account.active_total).to eq 3       }
+      it { expect(Account.active_total).to_not eq 7   }
+    end
+
+    describe 'inactive accounts' do
+      before { create_list(:account, 2, active: false) }
+      it { expect(Account.inactive_total).to eq 2      }
+      it { expect(Account.inactive_total).to_not eq 7  }
+    end
+  end
 end
