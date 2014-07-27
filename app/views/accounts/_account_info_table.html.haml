@@ -21,3 +21,6 @@
     %tr
       %th Last Updated
       %td= l @account.updated_at, format: :profile
+    %tr
+      %th Status
+      %td= status_format(@account.active)
