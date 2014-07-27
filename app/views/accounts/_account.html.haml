@@ -4,3 +4,4 @@
   %td= data_format(account.website)
   %td= data_format(account.company_location)
   %td= l account.created_at, format: :index_table
+  %td= status_format(account.active)

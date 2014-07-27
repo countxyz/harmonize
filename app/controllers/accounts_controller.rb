@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all.paginate(page: params[:page], per_page: 10)
-    pdf = AccountListPdf.new(@accounts)
+    pdf = AccountListPdf.new(Account.all)
 
     respond_to do |format|
       format.html

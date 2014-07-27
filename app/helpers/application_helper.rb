@@ -18,6 +18,10 @@ module ApplicationHelper
     phone.nil? || phone.empty? ? 'N/A' : number_to_phone(phone, area_code: true)
   end
 
+  def status_format(status)
+    status == true ? 'Active' : 'Inactive'
+  end
+
   def icon(icon, text="", html_options={})
     content_class = "fa fa-#{icon}"
     content_class << " #{html_options[:class]}" if html_options.key?(:class)
@@ -29,7 +33,10 @@ module ApplicationHelper
   end
 
   def logged_in_format(current_user)
-    if current_user.admin? then "Logged in as Admin: #{current_user.handle}"
-    else "Logged in as User: #{current_user.handle}"; end
+    if current_user.admin?
+      "Logged in as Admin: #{current_user.handle}"
+    else
+      "Logged in as User: #{current_user.handle}"
+    end
   end
 end
