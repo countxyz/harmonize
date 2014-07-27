@@ -14,6 +14,10 @@ def city_sample
   %w(Greenville Washington Franklin Fairview Springfield Dongan).sample
 end
 
+def datetime_sample
+  rand(2.years).ago
+end
+
 def composed_street_address
   "#{street_number_sample} #{Faker::Name.last_name} #{road_type_sample}"
 end
@@ -37,8 +41,8 @@ Address.destroy_all
 
 40.times do
   account = Account.create!(name: Faker::Company.name, active: boolean_sample,
-    website: Faker::Internet.domain_name, user_id: [demo_admin.id, demo_admin.id, hlnews.id].sample,
-    created_at: Faker::Time.date)
+    website: Faker::Internet.domain_name, created_at: datetime_sample,
+    user_id: [demo_admin.id, demo_admin.id, hlnews.id].sample)
 
   account.save!
 
