@@ -35,7 +35,7 @@ class Account < ActiveRecord::Base
   end
 
   def self.recent_first
-    Account.order(created_at: :desc)
+    order(created_at: :desc)
   end
 
   def company_location
