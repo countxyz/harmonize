@@ -14,8 +14,14 @@ Harmonize::Application.routes.draw do
   resources :contacts, except: :edit
   resources :events,   except: :show
 
-  resources :tasks, except: :show, :id => /\d+/ do
+
+
+  resources :tasks, except: :show do
     get :completed, on: :collection
+  end
+
+  resources :users, except: :destroy do
+    get :stats, on: :member
   end
 
   namespace :admin do

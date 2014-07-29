@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_signin!, except: :new
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :stats]
 
   def new
     @user = User.new
