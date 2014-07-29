@@ -1,7 +1,19 @@
 %tr{ class: (inactive_danger_tr(account)) }
-  %td= account_counter + 1
-  %th.bold_name{ scope: 'row' }= link_to account.name, account
-  %td= data_format(account.website)
-  %td= data_format(account.company_location)
-  %td= l account.created_at, format: :index_table
-  %td= status_format(account.active)
+
+  %td
+    = non_programmer_format(account_counter)
+
+  %th.bold_name{ scope: 'row' }
+    = link_to account.name, account
+
+  %td
+    = data_format(account.website)
+
+  %td
+    = data_format(account.company_location)
+
+  %td
+    = l account.created_at, format: :index_table
+
+  %td
+    = status_format(account.active)
