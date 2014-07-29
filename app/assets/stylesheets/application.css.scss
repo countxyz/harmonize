@@ -9,15 +9,15 @@
 @import 'notifications';
 @import 'tasks';
 @import 'jquery.ui.all';
-@import 'datetimepicker';
+@import 'bootstrap/datetimepicker';
 @import 'modal';
 @import 'fullcalendar';
 @import 'dashboard';
 @import 'main_pages';
 @import 'other';
-@import 'bootstrap_overrides';
-@import 'bootstrap';
+@import 'bootstrap/bootstrap_overrides';
 @import 'bootstrap-datetimepicker';
+@import 'bootstrap';
 
 .container-fluid { padding: 0; }
 
