@@ -1,6 +1,7 @@
 class Account < ActiveRecord::Base
   include Formatable
   include Nullable
+  include Repeatable
   extend FriendlyId
 
   belongs_to :user
@@ -33,10 +34,6 @@ class Account < ActiveRecord::Base
 
   def self.inactive_total
     where('active is false').count
-  end
-
-  def self.recent_first
-    order(created_at: :desc)
   end
 
   def company_location

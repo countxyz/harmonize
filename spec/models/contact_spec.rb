@@ -28,4 +28,11 @@ describe Contact do
       expect(build(:contact, first_name: 'a', last_name: 'b').contact_name).to eq 'a b'
     end
   end
+
+  describe 'default list order' do
+    let(:contact) { create(:contact) }
+    let(:older_contact) { create(:contact, created_at: 3.days.ago) }
+
+    it { expect(Contact.recent_first).to eq [contact, older_contact] }
+  end
 end

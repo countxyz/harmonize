@@ -1,7 +1,9 @@
 class Contact < ActiveRecord::Base
   include Formatable
   include Nullable
+  include Repeatable
   extend FriendlyId
+
   friendly_id :contact_name, use: [:slugged, :finders]
 
   belongs_to :user
@@ -21,10 +23,6 @@ class Contact < ActiveRecord::Base
   validates_length_of :last_name,        maximum: 30
   validates_length_of :company,          maximum: 50,  allow_blank: true
   validates_length_of :notes,            maximum: 600, allow_blank: true
-
-  def self.recent_first
-    order(created_at: :desc)
-  end
 
   def contact_name
     [first_name, last_name].join(' ')
