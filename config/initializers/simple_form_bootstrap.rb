@@ -1,5 +1,5 @@
 SimpleForm.setup do |config|
-  config.button_class = 'btn'
+  config.button_class = 'btn btn-default'
   config.boolean_label_class = nil
 
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|

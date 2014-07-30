@@ -23,7 +23,10 @@ nav.bt-menu {
 
 section#notifications { height: 50px; }
 
-.content { padding: 50px 100px 0 200px; }
+.content {
+  padding: 50px 100px 0 200px;
+  max-width: 100%;
+}
 
 footer#main_footer {
   position: fixed;

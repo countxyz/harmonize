@@ -10,6 +10,7 @@ class Account < ActiveRecord::Base
   has_one :shipping_address, as: :addressable, dependent: :destroy
   has_one :social_media,     as: :sociable,    dependent: :destroy
 
+  has_many :addresses,       as: :addressable, dependent: :destroy
   has_many :emails,          as: :emailable,   dependent: :destroy
 
   accepts_nested_attributes_for :billing_address,  reject_if: :all_blank
