@@ -22,5 +22,8 @@
 
   .row
     .col-md-9
-      %span.deadline= task_datetime_format(task.deadline)
-    .col-md-2.col-md-offset-1 Created by: #{task.user.handle}
+      %span.deadline
+        = l task.deadline, format: :task_list
+
+    .col-md-2.col-md-offset-1
+      Created by: #{task.user.handle}

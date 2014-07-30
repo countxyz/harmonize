@@ -7,4 +7,6 @@ en:
   time:
     formats:
       index_table: '%B %Y'
+      stats_table: '%B %d, %Y'
+      task_list: '%B %e, %Y %l:%M %P %Z'
       profile: '%B %e, %Y %l:%M %P'

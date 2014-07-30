@@ -46,14 +46,6 @@ module ApplicationHelper
     end
   end
 
-  def task_datetime_format(datetime)
-    if datetime.nil?
-      'No Deadline'
-    else
-      datetime.strftime('%B %e, %Y %l:%M %P %Z')
-    end
-  end
-
   def icon(icon, text="", html_options={})
     content_class = "fa fa-#{icon}"
     content_class << " #{html_options[:class]}" if html_options.key?(:class)
