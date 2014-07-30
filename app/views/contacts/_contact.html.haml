@@ -1,4 +1,8 @@
 %tr
+
+  %td
+    = non_programmer_format(contact_counter)
+
   %th.bold_name{ scope: 'row' }
     = link_to contact.contact_name, contact
   
@@ -10,3 +14,6 @@
 
   %td
     = phone_format(contact.phone.mobile)
+
+  %td
+    = l contact.created_at, format: :index_table

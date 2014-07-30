@@ -9,8 +9,10 @@
     %table.table.table-hover
       %thead
         %tr
+          %th{ scope: 'col' } #
           %th{ scope: 'col' } Contact Name
           %th{ scope: 'col' } Company
           %th{ scope: 'col' } Office Phone
           %th{ scope: 'col' } Mobile Phone
+          %th{ scope: 'col' } Created
       %tbody= render @contacts

@@ -12,6 +12,10 @@ class AccountListPdf < PdfReport
     [['Account', 'Website', 'Location', 'Created', 'Status']]
   end
 
+  def table_column_widths
+    [165, 125, 100, 80, 50]
+  end
+
   def formatted_data
     @accounts.map do |account|
       [

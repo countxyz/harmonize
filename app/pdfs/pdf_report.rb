@@ -15,6 +15,6 @@ class PdfReport < Prawn::Document
       cell_style: { size: 9 },
       header: true,
       row_colors: ['DDDDDD', 'FFFFFF'],
-      column_widths: [100, 125, 125, 70, 70]
+      column_widths: table_column_widths
   end
 end
