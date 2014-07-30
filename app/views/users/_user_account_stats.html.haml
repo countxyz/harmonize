@@ -1,0 +1,22 @@
+.row
+  %h2 Accounts
+
+.row
+  .col-md-3.stats
+    %ul.list-group
+      %li.list-group-item.text-muted Accounts
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          Accounts
+        = @user.accounts.count
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          Active
+        #{@user.active_accounts_total} / #{@user.accounts.count}
+
+  .col-md-5.col-md-push-2
+    = pie_chart [['Active', @user.active_accounts_total],
+      ['Inactive', @user.inactive_accounts_total]],
+      library: { tooltip: { pointFormat: '{point.percentage:.1f}%'} }

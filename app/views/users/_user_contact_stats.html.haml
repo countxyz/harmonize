@@ -1,0 +1,36 @@
+.row
+  %h2 Contacts
+
+.row
+  .col-md-3.stats
+    %ul.list-group
+      %li.list-group-item.text-muted Contacts
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          Contacts
+        = @user.contacts.count
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          MTD
+        = @user.contacts.mtd_total
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          YTD
+        = @user.contacts.ytd_total
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          First
+        = l @user.contacts.first_created_time, format: :stats_table
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          Most Recent
+        = l @user.contacts.most_recent_created_time, format: :stats_table
+
+  .col-md-5.col-md-push-2
+    = line_chart @user.contacts.new_monthly_count,
+      library: { tooltip: { pointFormat: 'Monthly Total: {point.y}' } }

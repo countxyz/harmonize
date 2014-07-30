@@ -24,6 +24,26 @@ class Contact < ActiveRecord::Base
   validates_length_of :company,          maximum: 50,  allow_blank: true
   validates_length_of :notes,            maximum: 600, allow_blank: true
 
+  def self.new_monthly_count
+    group_by_month(:created_at).count
+  end
+
+  def self.mtd_total
+    where('created_at > ?', DateTime.current.beginning_of_month).count
+  end
+
+  def self.ytd_total
+    where('created_at > ?', DateTime.current.beginning_of_year).count
+  end
+
+  def self.first_created_time
+    order(created_at: :asc).first.created_at
+  end
+
+  def self.most_recent_created_time
+    order(created_at: :desc).first.created_at
+  end
+
   def contact_name
     [first_name, last_name].join(' ')
   end
