@@ -22,6 +22,10 @@ class Contact < ActiveRecord::Base
   validates_length_of :company,          maximum: 50,  allow_blank: true
   validates_length_of :notes,            maximum: 600, allow_blank: true
 
+  def self.recent_first
+    order(created_at: :desc)
+  end
+
   def contact_name
     [first_name, last_name].join(' ')
   end

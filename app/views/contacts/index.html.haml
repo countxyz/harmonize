@@ -3,8 +3,12 @@
 
 .col-md-10
   .panel.panel-default
-    .panel-heading Contacts
-    .panel-body= render 'shared/index_panel', url: contacts_path
+    .panel-heading
+      Contacts
+      %span.pull-right
+        = page_entries_info @contacts
+    .panel-body
+      = render 'shared/index_panel', url: contacts_path
 
     %table.table.table-hover
       %thead
@@ -16,3 +20,6 @@
           %th{ scope: 'col' } Mobile Phone
           %th{ scope: 'col' } Created
       %tbody= render @contacts
+
+.row
+  .col-md-6.col-md-push-2= will_paginate @contacts
