@@ -10,6 +10,6 @@
   = simple_form_for @contact do |f|
     = render 'contact_form', f: f
 
-    %p.text-right
+    %span.pull-right
       = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-ci'
-      = f.button :submit,      class: 'btn-default'
+      = f.button :submit

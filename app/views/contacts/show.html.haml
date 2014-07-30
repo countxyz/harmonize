@@ -1,7 +1,7 @@
-- provide(:title, @contact.name)
+- provide(:title, @contact.contact_name)
 = render 'contact_header'
 
-= render 'shared/navigation/navbar', klass: @contact
+= render 'contact_navbar'
 
 .row.profile-tables
   .col-md-4= render 'contact_info'

@@ -6,10 +6,10 @@
 
   = render 'account_info_table'
 
-%section{ style: 'display:none;', id: 'edit-ai-form' }
+%section#edit-ai-form{ style: 'display:none;' }
   = simple_form_for @account do |f|
     = render 'account_form', f: f
 
-    %p.text-right
+    %span.pull-right
       = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-ai'
-      = f.button :submit, class: 'btn-default'
+      = f.button :submit

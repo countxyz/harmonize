@@ -3,6 +3,6 @@
     = f.simple_fields_for :emails, klass.emails.build do |builder|
       = render 'shared/email/email_form', builder: builder
 
-    %p.text-right
+    %span.pull-right
       = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-em'
-      = f.button :submit, 'Update Emails', class: 'btn-default'
+      = f.button :submit, 'Update Emails'

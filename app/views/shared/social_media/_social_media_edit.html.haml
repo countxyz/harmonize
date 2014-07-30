@@ -3,6 +3,6 @@
     = f.simple_fields_for :social_media do |builder|
       = render 'shared/social_media/social_media_form', builder: builder
     
-    %p.text-right
+    %span.pull-right
       = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-sm'
-      = f.button :submit, 'Update Social Media', class: 'btn-default'
+      = f.button :submit, 'Update Social Media'

@@ -17,7 +17,7 @@
       %td= @contact.user.handle
     %tr
       %th Created At
-      %td= @contact.created_at
+      %td= l @contact.created_at, format: :profile
     %tr
       %th Last Updated
-      %td= @contact.updated_at
+      %td= l @contact.updated_at, format: :profile

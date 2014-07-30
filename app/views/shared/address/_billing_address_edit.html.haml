@@ -1,8 +1,8 @@
-%section{ style: 'display:none;', id: 'edit-ba-form' }
+%section#edit-ba-form{ style: 'display:none;' }
   = simple_form_for klass do |f|
     = f.simple_fields_for :billing_address do |builder|
       = render 'shared/address/address_form', builder: builder
 
-    %p.text-right
+    %span.pull-right
       = link_to 'Cancel', '#', class: 'btn btn-default', id: 'close-ba'
-      = f.button :submit, 'Update Billing Address', class: 'btn-default'
+      = f.button :submit, 'Update Billing Address'
