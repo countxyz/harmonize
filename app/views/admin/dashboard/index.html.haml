@@ -4,7 +4,7 @@
   %h2 Accounts
 
 .row
-  .col-md-3.stats
+  .col-md-4.stats
     %ul.list-group
       %li.list-group-item.text-muted Accounts
 
@@ -18,12 +18,10 @@
           Active
         #{@accounts.inactive_total} / #{@accounts.active_total} 
 
-  .col-md-5.col-md-push-2
-    = pie_chart [['Active', @accounts.active_total],
-      ['Inactive', @accounts.inactive_total]],
-      library: { tooltip: { pointFormat: '{point.percentage:.1f}%' } }
+    #active-vs-inactive
 
-.row
-  .col-md-7.col-md-push-2.stats
+  .col-md-6.col-md-push-2.stats
     = bar_chart @users.only_admins.map{ |u| [u.handle, u.accounts.count] },
       library: { tooltip: { pointFormat: 'Total: {point.y}' } }
+
+= render 'active_vs_inactive_chart'
