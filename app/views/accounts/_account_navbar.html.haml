@@ -1,10 +1,10 @@
 %nav.navbar.navbar-inverse
   .container-fluid
     .navbar-header#contact-header
-      %p.navbar-text.navbar-left= klass.name.upcase
+      %p.navbar-text.navbar-left= @account.name.upcase
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li.active
-          - if policy(klass).destroy?
-            = link_to 'Delete', klass, method: :delete,
+          - if policy(@account).destroy?
+            = link_to 'Delete', @account, method: :delete,
               data: { confirm: 'Are you sure?' }, id: 'delete-link'
