@@ -1,9 +1,17 @@
+def admin_sample(admin_1, admin_2)
+  [admin_1.id, admin_1.id, admin_2.id].sample
+end
+
 def boolean_sample
   [true, true, false].sample
 end
 
-def street_number_sample
-  Random.new.rand(10..9999)
+def random_street_number
+  rand(10..9999)
+end
+
+def random_phone_number
+  rand(1111111111..9999999999)
 end
 
 def road_type_sample
@@ -19,7 +27,7 @@ def datetime_sample
 end
 
 def composed_street_address
-  "#{street_number_sample} #{Faker::Name.last_name} #{road_type_sample}"
+  "#{random_street_number} #{Faker::Name.last_name} #{road_type_sample}"
 end
 
 User.destroy_all
@@ -42,7 +50,7 @@ Address.destroy_all
 40.times do
   account = Account.create!(name: Faker::Company.name, active: boolean_sample,
     website: Faker::Internet.domain_name, created_at: datetime_sample,
-    user_id: [demo_admin.id, demo_admin.id, hlnews.id].sample)
+    user_id: admin_sample(demo_admin, hlnews))
 
   account.save!
 
@@ -50,4 +58,15 @@ Address.destroy_all
     state: Faker::AddressUS.state_abbr, postal_code: Faker::AddressUS.zip_code,
     country: 'US', type: 'BillingAddress', addressable_type: 'Account',
     addressable_id: account.id)
+end
+
+120.times do
+  contact = Contact.create!(first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name, company: Faker::Company.name,
+    created_at: datetime_sample, user_id: admin_sample(demo_admin, hlnews))
+
+  contact.save!
+
+  Phone.create!(mobile: random_phone_number, office: random_phone_number,
+    phoneable_id: contact.id, phoneable_type: 'Contact')
 end
