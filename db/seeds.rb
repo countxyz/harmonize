@@ -11,7 +11,7 @@ def random_street_number
 end
 
 def random_phone_number
-  rand(1111111111..9999999999)
+  rand(1111111111..9999999999).to_s
 end
 
 def road_type_sample

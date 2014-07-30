@@ -6,5 +6,6 @@ class Phone < ActiveRecord::Base
   validates_length_of :mobile, :office, :home, :fax, :toll, is: 10,
                       allow_blank: true
 
-  validates_format_of :mobile, :office, :home, :fax, :toll, with: PHONE_FORMAT
+  validates_format_of :mobile, :office, :home, :fax, :toll, with: PHONE_FORMAT,
+                      allow_blank: true
 end
