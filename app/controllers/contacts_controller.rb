@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = Contact.all
-    pdf = ContactListPdf.new(@contacts)
+    pdf = ContactListPdf.new(@contacts, view_context)
 
     respond_to do |format|
       format.html

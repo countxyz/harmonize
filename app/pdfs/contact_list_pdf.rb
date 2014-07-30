@@ -1,8 +1,8 @@
 class ContactListPdf < PdfReport
   
-  def initialize(contacts)
+  def initialize(contacts, view)
     super()
-    @contacts = contacts
+    @contacts, @view = contacts, view
     header 'Contact List'
     table_headers
     table_content
@@ -14,8 +14,12 @@ class ContactListPdf < PdfReport
 
   def formatted_data
     @contacts.map do |contact|
-      [contact.name, data_format(contact.company),
-        phone_format(contact.phone.office), phone_format(contact.phone.mobile)]
+      [contact.contact_name, data_format(contact.company),
+        format_phone(contact.phone.office), format_phone(contact.phone.mobile)]
     end
+  end
+
+  def format_phone(phone)
+    @view.number_to_phone(phone, area_code: true)
   end
 end
