@@ -33,4 +33,5 @@
 
   .col-md-5.col-md-push-2
     = line_chart @user.contacts.new_monthly_count,
-      library: { tooltip: { pointFormat: 'Monthly Total: {point.y}' } }
+      library: { title: { text: 'New Contacts per Month' },
+      tooltip: { pointFormat: 'Monthly Total: {point.y}' } }
