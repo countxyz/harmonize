@@ -1,13 +1,29 @@
 = render 'dashboard_header'
 
-%h2 Accounts
+.row
+  %h2 Accounts
 
 .row
-  .col-md-6
-    %p Total:  #{@accounts.count}
-    %p Active: #{@accounts.inactive_total} / #{@accounts.active_total}
+  .col-md-3.stats
+    %ul.list-group
+      %li.list-group-item.text-muted Accounts
 
-  .col-md-6.col-md-pull-3
+      %li.list-group-item.text-right
+        %span.pull-left
+          Accounts
+        = @accounts.count
+
+      %li.list-group-item.text-right
+        %span.pull-left
+          Active
+        #{@accounts.inactive_total} / #{@accounts.active_total} 
+
+  .col-md-5.col-md-push-2
     = pie_chart [['Active', @accounts.active_total],
-      ['Inactive', @accounts.inactive_total]], height: '300px',
-      library: {tooltip: { pointFormat: '{point.percentage:.1f}%'}}
+      ['Inactive', @accounts.inactive_total]],
+      library: { tooltip: { pointFormat: '{point.percentage:.1f}%' } }
+
+.row
+  .col-md-7.col-md-push-2.stats
+    = bar_chart @users.only_admins.map{ |u| [u.handle, u.accounts.count] },
+      library: { tooltip: { pointFormat: 'Total: {point.y}' } }

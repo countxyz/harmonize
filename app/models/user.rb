@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   validates_length_of :handle,                 in: 3..20
   validates_length_of :first_name, :last_name, maximum: 30
 
+  def self.only_admins
+    where(admin: true)
+  end
+
   def active_accounts_total
     self.accounts.active_total
   end

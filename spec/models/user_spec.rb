@@ -59,4 +59,15 @@ describe User do
       end
     end
   end
+
+  describe '#only_admins' do
+    let(:user)    { create(:user)  }
+    let(:admin)   { create(:admin) }
+    let(:admin_2) { create(:admin) }
+
+    it 'returns all admins' do
+      expect(User.only_admins).to eq     [admin, admin_2]
+      expect(User.only_admins).to_not eq [user]
+    end
+  end
 end

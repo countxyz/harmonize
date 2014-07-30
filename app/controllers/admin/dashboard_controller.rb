@@ -1,6 +1,6 @@
 class Admin::DashboardController < ApplicationController
 
   def index
-    @accounts = Account.all
+    @accounts, @users = Account.all, User.all
   end
 end
