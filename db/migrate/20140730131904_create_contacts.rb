@@ -9,7 +9,8 @@ class CreateContacts < ActiveRecord::Migration
       t.text   :notes,           null: false, default: ''
       t.string :slug,            null: false
     end
-    add_index     :contacts, :slug, unique: true
-    add_reference :contacts, :user, index: true
+    add_reference :contacts, :user,       index: true
+    add_index     :contacts, :created_at, order: :desc
+    add_index     :contacts, :slug,       unique: true
   end
 end

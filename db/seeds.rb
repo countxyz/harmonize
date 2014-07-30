@@ -60,7 +60,7 @@ Address.destroy_all
     addressable_id: account.id)
 end
 
-120.times do
+70.times do
   contact = Contact.create!(first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name, company: Faker::Company.name,
     created_at: datetime_sample, user_id: admin_sample(demo_admin, hlnews))
