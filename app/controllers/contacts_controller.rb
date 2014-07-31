@@ -5,8 +5,9 @@ class ContactsController < ApplicationController
   after_action  :verify_authorized, only: [:create, :update, :destroy]
 
   def index
-    @contacts = Contact.recent_first.page(params[:page])
-    pdf = ContactListPdf.new(Contact.all, view_context)
+    @unpaginated_contacts = Contact.recent_first.includes(:phone)
+    @contacts = @unpaginated_contacts.page(params[:page])
+    pdf = ContactListPdf.new(@unpaginated_contacts, view_context)
 
     respond_to do |format|
       format.html
