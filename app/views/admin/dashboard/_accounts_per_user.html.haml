@@ -1,0 +1,73 @@
+:coffeescript
+  $ ->
+    showValues = ->
+      $('#R0-value').html chart.options.chart.options3d.alpha
+      $('#R1-value').html chart.options.chart.options3d.beta
+
+    chart = new Highcharts.Chart(
+      chart:
+        renderTo: 'user-active-inactive'
+        type: 'column'
+        margin: 75
+        options3d:
+          enabled: true
+          alpha: 15
+          beta: 15
+          depth: 50
+          viewDistance: 25
+
+      title:
+        text: 'Accounts per User'
+
+      tooltip: 
+        pointFormat: '{series.name}: <b>{point.y}</b><br/>'
+
+      xAxis:
+        categories: #{@users.only_admins.map{ |admin| [admin.handle] } }
+
+      yAxis:
+        title:
+          text: 'Accounts'
+        stackLabels:
+          enabled: true
+
+      plotOptions:
+        column:
+          depth: 25
+          stacking: 'normal'
+          dataLabels:
+            enabled: false
+        series:
+          pointWidth: 50
+
+      series: [
+        {
+          name: 'Accounts Total',
+          data: #{@users.only_admins.map{ |user| [user.handle, \
+            user.accounts.count] } }
+        }
+        {
+          name: 'Accounts Active',
+          data: #{@users.only_admins.map{ |user| [user.handle, \
+            user.active_accounts_total] } }
+        }
+        {
+          name: 'Accounts Inactive',
+          data: #{@users.only_admins.map{ |user| [user.handle, \
+            user.inactive_accounts_total] } }
+          color: '#FF0000'
+        }
+      ]
+    )
+
+    $('#R0').on 'change', ->
+      chart.options.chart.options3d.alpha = @value
+      showValues()
+      chart.redraw false
+
+    $('#R1').on 'change', ->
+      chart.options.chart.options3d.beta = @value
+      showValues()
+      chart.redraw false
+
+    showValues()

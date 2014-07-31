@@ -11,7 +11,9 @@
 //= require gcal
 //= require bootstrap-datetimepicker
 //= require border_navigator
-//= require highcharts
+//= require highcharts/highcharts
+//= require highcharts/highcharts-3d
+//= require highcharts/exporting
 //= require tables
 //= require flash
 //= require profile_updater

@@ -7,10 +7,10 @@
         plotShadow: false
 
       title:
-        text: 'Active<br>vs<br>Inactive'
+        text: '<br>All Accounts'
         align: 'center'
         verticalAlign: 'middle'
-        y: 50
+        y: 0
 
       tooltip:
         pointFormat: '{point.percentage:.1f}%'
@@ -19,7 +19,7 @@
         pie:
           dataLabels:
             enabled: true
-            distance: -50
+            distance: -40
             style:
               fontWeight: 'bold'
               color: 'white'
@@ -27,7 +27,7 @@
 
           startAngle: -90
           endAngle: 90
-          center: ['50%', '75%']
+          center: ['50%', '50%']
 
       series: [
         type: 'pie'

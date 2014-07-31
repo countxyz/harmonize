@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validates_length_of :first_name, :last_name, maximum: 30
 
   def self.only_admins
-    where(admin: true)
+    where(admin: true).order(id: :asc)
   end
 
   def active_accounts_total

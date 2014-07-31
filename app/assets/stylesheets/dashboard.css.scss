@@ -1,3 +1,21 @@
 .stats { padding-top: 25px; }
 
-#active-vs-inactive { height: 400px; }
+#pie-donut { max-height: 300px; }
+
+#active-vs-inactive {
+  min-width: 310px;
+  max-height: 300px;
+  max-width: 600px;
+  margin-bottom: 100px;
+}
+
+#user-active-inactive {
+  height: 400px;
+  padding-bottom: 50px;
+}
+
+#user-active-inactive, #sliders {
+  min-width: 310px; 
+  max-width: 800px;
+  margin: 0 auto;
+}
