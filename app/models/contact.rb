@@ -44,6 +44,10 @@ class Contact < ActiveRecord::Base
     order(created_at: :desc).first.created_at
   end
 
+  def self.recent_first_phone
+    recent_first.includes(:phone)
+  end
+
   def contact_name
     [first_name, last_name].join(' ')
   end

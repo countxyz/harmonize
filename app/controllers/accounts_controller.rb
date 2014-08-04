@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   after_action  :verify_authorized, only: [:create, :update, :destroy]
 
   def index
-    @unpaginated_accounts = Account.recent_first.includes(:billing_address)
+    @unpaginated_accounts = Account.recent_first_billing_address
     @accounts = @unpaginated_accounts.page(params[:page])
     pdf = AccountListPdf.new(@unpaginated_accounts)
 

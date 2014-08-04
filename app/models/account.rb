@@ -36,6 +36,10 @@ class Account < ActiveRecord::Base
     where('active is false').count
   end
 
+  def self.recent_first_billing_address
+    recent_first.includes(:billing_address)
+  end
+
   def company_location
     self.billing_address.location
   end
