@@ -1,9 +1,21 @@
 = content_tag_for(:tr, user, 'data-id' => user.id)
 %tr
   %th.bold_name{ scope: 'row' }= user.id
-  %td= link_to user.handle, [:admin, user]
-  %td= user.admin
-  %td= data_format(user.first_name)
-  %td= data_format(user.last_name)
-  %td= user.created_at
-  %td= user.updated_at
+  
+  %td
+    = link_to user.handle, [:admin, user]
+  
+  %td
+    = user.admin
+  
+  %td
+    = data_format(user.first_name)
+  
+  %td
+    = data_format(user.last_name)
+  
+  %td
+    = l user.created_at, format: :profile
+  
+  %td
+    = l user.updated_at, format: :profile
