@@ -33,6 +33,11 @@
         type: 'pie'
         name: 'Browser share'
         innerSize: '50%'
-        data: [['Active', #{@accounts.active_total}]
-          ['Inactive', #{@accounts.inactive_total}]]
+        data: [['Active', #{@accounts.active_total}],
+              {
+                name: 'Inactive',
+                y: #{@accounts.inactive_total},
+                color: '#FF0000'
+              }
+        ]
       ]

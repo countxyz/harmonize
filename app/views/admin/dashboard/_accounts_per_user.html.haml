@@ -42,11 +42,6 @@
 
       series: [
         {
-          name: 'Accounts Total',
-          data: #{@users.only_admins.map{ |user| [user.handle, \
-            user.accounts.count] } }
-        }
-        {
           name: 'Accounts Active',
           data: #{@users.only_admins.map{ |user| [user.handle, \
             user.active_accounts_total] } }
