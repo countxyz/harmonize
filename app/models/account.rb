@@ -6,6 +6,8 @@ class Account < ActiveRecord::Base
 
   belongs_to :user
 
+  friendly_id :name, use: [:slugged, :finders]
+
   has_one :billing_address,  as: :addressable, dependent: :destroy
   has_one :phone,            as: :phoneable,   dependent: :destroy
   has_one :shipping_address, as: :addressable, dependent: :destroy
@@ -26,15 +28,8 @@ class Account < ActiveRecord::Base
   validates_length_of :notes,   maximum: 1000, allow_blank: true
   validates_length_of :website, in: 6..50,     allow_blank: true
 
-  friendly_id :name, use: [:slugged, :finders]
-
-  def self.active_total
-    where('active is true').count
-  end
-
-  def self.inactive_total
-    where('active is false').count
-  end
+  scope :active_total,       -> { where('active is true').count  }
+  scope :inactive_total,     -> { where('active is false').count }
 
   def self.recent_first_billing_address
     recent_first.includes(:billing_address)

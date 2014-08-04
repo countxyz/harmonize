@@ -24,16 +24,14 @@ class User < ActiveRecord::Base
   validates_length_of :handle,                 in: 3..20
   validates_length_of :first_name, :last_name, maximum: 30
 
-  def self.only_admins
-    where(admin: true).order(id: :asc)
-  end
+  scope :only_admins, -> { where(admin: true).order(id: :asc) }
 
   def active_accounts_total
-    self.accounts.active_total
+    accounts.active_total
   end
 
   def inactive_accounts_total
-    self.accounts.inactive_total
+    accounts.inactive_total
   end
 
   def formatted_name

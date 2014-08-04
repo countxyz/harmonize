@@ -24,9 +24,7 @@ class Contact < ActiveRecord::Base
   validates_length_of :company,          maximum: 50,  allow_blank: true
   validates_length_of :notes,            maximum: 600, allow_blank: true
 
-  def self.new_monthly_count
-    group_by_month(:created_at).count
-  end
+  scope :new_monthly_count, -> { group_by_month(:created_at).count }
 
   def self.mtd_total
     where('created_at > ?', DateTime.current.beginning_of_month).count

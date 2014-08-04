@@ -7,19 +7,14 @@ class Task < ActiveRecord::Base
 
   validates_length_of :description, maximum: 100
 
-  def self.pending
-    where('completed is NULL').order(deadline: :asc)
-  end
-
+  scope :pending,     -> { where('completed is NULL').order(deadline: :asc) }
+  scope :no_deadline, -> { where('deadline is NULL')                        }
+  
   def self.completed_task
     where.not('completed is NULL').order(completed: :desc)
   end
 
   def self.overdue
     where('deadline IS NOT NULL AND deadline < ?', Time.zone.now.utc)
-  end
-  
-  def self.no_deadline
-    where('deadline is NULL')
   end
 end
