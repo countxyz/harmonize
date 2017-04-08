@@ -3,7 +3,6 @@
 /public
 *.swp
 *~
-database.yml
 .secret
 .rspec
 .bundle

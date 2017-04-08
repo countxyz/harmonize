@@ -55,4 +55,8 @@ module ApplicationHelper
     html << " #{text}" unless text.blank?
     html.html_safe
   end
+
+  def task_deadline(deadline = nil)
+    deadline.present? ? l(task.deadline, format: :task_list) : 'N/A'
+  end
 end

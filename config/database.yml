@@ -1,0 +1,13 @@
+---
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: harmonize_development
+
+test:
+  <<: *default
+  database: harmonize_test
