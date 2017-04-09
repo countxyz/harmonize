@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def completed
-    @tasks = Task.completed_task
+    @tasks = Task.completed_tasks
   end
 
   private

@@ -57,6 +57,6 @@ module ApplicationHelper
   end
 
   def task_deadline(deadline = nil)
-    deadline.present? ? l(task.deadline, format: :task_list) : 'N/A'
+    deadline.present? ? l(deadline, format: :task_list) : 'N/A'
   end
 end
