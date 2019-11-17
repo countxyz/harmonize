@@ -6,7 +6,7 @@ gem 'pg', '~> 0.17.1'
 gem 'puma', '~> 2.9.0'
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-sass', '3.2.0.4'
+gem 'bootstrap-sass', '3.4.1'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 gem 'chartkick', '~> 1.3.2'
