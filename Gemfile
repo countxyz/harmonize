@@ -35,7 +35,7 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
 group :development do
-  gem 'better_errors', '~> 1.1.0'
+  gem 'better_errors', '~> 2.8.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'bullet', '~> 4.13.0'
   gem 'meta_request', '~> 0.3.0'
